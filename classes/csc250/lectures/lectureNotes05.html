@@ -306,7 +306,7 @@
         <ol>
           <li>Say we have: \(M_1\): all strings with an odd number of 1's</li>
           <li>And \(M_2\): all strings with alternating 0s and 1s</li>
-          <li>Is \(L(M_3) = L(M_1)\circL(M_2)\) FA-recognizable? </li>
+          <li>Is \(L(M_3) = L(M_1) \circ L(M_2)\) FA-recognizable? </li>
           <li>Say we have the string \(101001101010101\)</li>
           <li>is this recognizable if we split the string into \(x_1\) and \(x_2\)</li>
           <li>such that \(M_1\) recognizes \(x_1\), and</li>
@@ -314,7 +314,6 @@
           <li>What happens if \(x_1 = 101001101\) and \(x_2 = 010101\)?</li>
           <li>What happens if \(x_1 = 1010011\) and \(x_2 = 01010101\)?</li>
         </ol>
-
 
         <br><br>
 
@@ -327,9 +326,9 @@
         <br><br>
 
         <ol>
-          <li>Start with FA M_1</li>
-          <li>Build another FA M_2, with L(M_2) = L(M_1 )^∗</li>
-          <li>Same problem as with concatenation: we need to guess…</li>         
+          <li>Start with FA \(M_1\)</li>
+          <li>Build another FA \(M_2\), with \(L(M_2) = L(M_1 )^∗\)</li>
+          <li>Same problem as with concatenation: we need to guess...</li>         
         </ol>
 
       </p>
@@ -337,7 +336,7 @@
       <p><br></p><hr><p><br></p>
 
       <h2>
-        Nondeterminisms
+        Nondeterminism
       </h2>
 
       <p>
@@ -367,15 +366,13 @@
 
         <br><br>
 
-        Remember Union?
-        <br><br>
+        <h3>Remember Union?</h3>
 
         <br><br>
         <img class="img-fluid" src="../figures/lecture05/RememberUnion.png" alt="con Kat" style="width:80%">
         <br><br>
 
-        With an NFA:
-        <br><br>
+        <h4>With an NFA:</h4>
 
         <br><br>
         <img class="img-fluid" src="../figures/lecture05/UnionExmplWithNFA.png" alt="con Kat" style="width:80%">
@@ -386,6 +383,9 @@
         <img class="img-fluid" src="../figures/lecture05/HowNFAsCompute.png" alt="con Kat" style="width:80%">
         <br><br>
 
+
+        <!-- <span style='color:#880000'><b><big>TODO</big></b></span> -->
+
       </p>
 
       <p><br></p><hr><p><br></p>
@@ -395,6 +395,91 @@
       </h2>
 
       <p>
+
+        We can visualize what happens with the computation of a string with an NFA by building a <b>NFA computation Tree</b>.
+        <br><br>
+        This is like "unrolling an FA as we walk it into paths", except with two extra rules:
+        <ol>
+          <li>You add a possible path into a "next" state for every outgoing symbol option, and</li>
+          <li>You add a possible path into a "next" state any states we might get to through an arrow labeled with \(\epsilon\)</li>
+        </ol>
+
+        <br><br>
+        
+
+
+        An Example:
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFAcomputationTree.png" alt="tree!" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Does the above example <b>Accept</b> or <b>Reject</b> string: &nbsp; \( 0 \; 1 \)?
+        </div>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Build the computation tree for the Union example for the string &nbsp; \( 1 \; 0 \)
+          <br><br>
+          The example is repeated here for your convenience (you're welcome)
+          <br><br>
+          <img class="img-fluid" src="../figures/lecture05/repeatedUnionExample.png" alt="M1 u M2 again" style="width:60%">
+          <br><br>
+          "Walk" the NFA and add a path for every possible choice (given the symbol read)
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>              
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/unionTree.png" alt="M1 u M2" style="width:60%">
+                <br><br>                 
+            </details>
+            <br><br>
+          </div>
+        </div>  
+
+        <h3>Remember Concatenation?</h3> 
+        <br><br>
+
+        The problem was we could not "guess" at which part of the string one Machine should accept (reject) and the next begin processing.
+        <br><br>
+
+        <h4>With an NFA:</h4>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/ConcatExmplWithNFA.png" alt="con Kat" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Build the computation tree for the Concatenation example above, given the string: 
+          <br>
+          \( 1 \quad 1 \quad 1 \quad 0 \)
+          <!-- <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>                
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/unionTree.png" alt="M1 u M2" style="width:30%">
+                <br><br>                 
+            </details>
+            <br><br> 
+          </div> -->
+        </div>  
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Sneak peak or next part?
+      </h2>
+
+      <p>
+        I don't think we're making it this far, but just in case: this is a sneak peak of next class
       </p>
 
       <p><br></p><hr><p><br></p>
@@ -404,7 +489,120 @@
       </h2>
 
       <p>
+        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Are NFAs stronger than DFAs?
+        </div>
+
+        <br><br><br><br><br><br>
+
+        Let's make a claim!
+        <br><br>
+
+        <h4>NFAs and DFAs are equally powerful!</h4>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal.png" alt="DFA VS NFA" style="width:80%">
+        <br><br>
+
+        Let's proove it by construction:
+        <br><br>
+
+
+
+        <ul>
+          <li>What we know: \(M_{NFA}=(Q,\Sigma,\delta, q_0, F)\)</li>
+          <li>Need to construct: \(M_{DFA}=(Q^\prime,\Sigma,\delta^\prime, q_0^\prime, F^\prime)\) that recognizes L(M)</li>
+        </ul>
+
+        <br><br>
+
+        <h3>Let's start with the states \(Q \rightarrow Q^\prime \)</h3>
+
+        It’s possible that in an NFA, we could be in multiple states at each step. If we want to emulate the NFA’s behavior, we’ll have to have a state for each combination.
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-states.png" alt="DFA VS NFA" style="width:80%">
+        <br><br><br><br>
+
+
+        <h3>Now the Start states \(q_0 \rightarrow q_0^\prime\)</h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-start-states.png" alt="DFA VS NFA" style="width:80%">
+        <br><br>        
+        (In this case, only \(A\))
+
+        <br><br><br><br>
+        
+        <h3>Now the Accepting states \(F \rightarrow F^\prime\)</h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-final-states.png" alt="DFA VS NFA" style="width:80%">
+        <br><br> 
+        (In this case, \( \{  C, AC, BC, ABC  \} \))
+        <br><br><br><br>       
+
+        <h3>Now the Transitions \(\delta \rightarrow \delta^\prime\)</h3>
+
+        At each symbol reading, if there are multiple paths to follow, we want to jump the the single state (in the DFA) that is the <b>Union</b> of all the possible destination states (in the NFA) for that symbol.
+        <br><br>
+        This can be expressed like this:
+        \[ 
+          \begin{alignat}{2}
+              &\delta^\prime ( q, \mathit{a} ) = \bigcup\limits_{p\in q} \delta(\mathit{p}, a) \\
+              &\qquad \text{ where $q \in Q^\prime$; $a \in \Sigma$}  \\
+              &\qquad \text{ and $q$ can be a set of states from $Q$}
+            \end{alignat}
+        \]
+        <br><br>
+
+        Let's see it in action.
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 8</big></b></span> [5 minutes]: <br>
+        <div class="mx-lg-5">
+          Let's build the DFA for this NFA
+          <br><br>
+          <br><br>
+          <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions-pre.png" alt="DFA VS NFA" style="width:80%">
+          <br><br> 
+
+          Solution:
+          <div class="mx-lg-5">
+              <details>
+                <summary>(Wait; then Click)<br><br></summary>
+                <br><br>                
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions.png" alt="DFA VS NFA" style="width:80%">
+                <br><br>                  
+              </details>
+              <br><br> 
+            </div> 
+        </div>
+
+
+      <br><br><br><br>
+
+      <h3>The next step in L(DFA) == L(NFA): </h3>
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/Lang-DFA-is-Lang-NFA.png" alt="DFA VS NFA" style="width:80%">
+        <br><br> 
+         <h4>Hint:</h4>
+         To prove that L(DFA) = L(NFA), use induction to show that the result of running the DFA on a word \(w\) (denoted \( \hat{\delta}^\prime(q_0^{\prime} , w))\) is equivalent to the result of running the NFA on the same word [denoted \(\hat{\delta}(q_0, w)\)] for every word \(w \in \Sigma^*\).
+
+        
+
       </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        <span style="color:#880088"> This will probably be the end of the Lecture! </span>
+      </h2>
 
 
       <p><br></p><hr><p><br></p>
@@ -421,28 +619,99 @@
         <img class="img-fluid" src="../figures/lecture03/regLangs.png" alt="Reg Lang descriptive power!" style="width:50%">
         <br><br>
 
-        <h3>FAs are at least as powerful as REs</h3>
+        <h3>Where are FA-recognizable languageswith respect to Regular Languages?</h3>
 
-        
+
+        <br><br><br><br>
+
+        <h3>Try Proving: FAs are at least as powerful as REs</h3>
+
+        We can use the same approach as we did when defining REs (a recursive definition out of base cases).
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-1.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-2.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-3.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-4.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-5.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-6.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <h3>So What did we prove?</h3>
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-atLeast-REs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <br><br>
+
+        <br><br>
+        <h3>NOW, Try Proving: REs are at least as powerful as FAs</h3>
+
+        <br><br>
+        <h4>Proof Idea:</h4>
+        convert the FA that recognizes L into a RE
+        <br><br>
+
+        <b>Step 1: modify the FA so that </b>
+        <ol>
+          <li>the start state doesn’t consume any letters</li>
+          <li>there is only one final state</li>
+          <li>the final state doesn’t consume any letters</li>
+        </ol>
+
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-1.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2a.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2b.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2c.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2d.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <h3>So What did we prove?</h3>
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-equal-REs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <br><br>
+
       </p>
 
+      <p><br></p><hr><p><br></p>
 
-
-
+      <h3>Next class: What lives outside that set of languages?</h3>
 
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Next Class: </h4>
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h4>Before next class (Monday 09/20)</h4>
+      <h4>Before next class (Monday 09/27)</h4>
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
-       TODO
+       Remember: Problem Set 2 (Moodle) [Due Wednesday 09/29] <big>Start Early!</big>
       </div> 
       <br>
       <b>[Optional]</b> 
