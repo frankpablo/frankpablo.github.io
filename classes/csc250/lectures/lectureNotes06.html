@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 250  Theory of Computation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+
+      @import url('https://fonts.googleapis.com/css?family=Inter|Dosis&display=swap');
+
+      /* Crucial */
+      .highlight {
+        background-color: #EEF43B;
+          padding-right: 0px;
+          padding-left: 0px;
+      }
+
+
+      /* Just for styling */
+      /*body {
+        font-family: 'Inter', sans-serif;
+      }*/
+
+      /*.container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 0 2%;
+      }*/
+
+      .search-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto 20px auto;
+        max-width: 450px;
+        padding: 0 2%;
+      }
+
+      label {
+        color: #535353;
+        font-family: 'Dosis', sans-serif;
+        font-size: 14px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      input {
+        background: #fff;
+        border: 1px solid #535353;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        height: 38px;
+        line-height: 38px;
+        outline: none;
+        padding: 0 10px;
+        transition: all 0.5s;
+        width: 100%;
+      }
+
+      input:focus {
+        border: 1px solid #3a5bd3;
+        box-shadow: 0 0 4px 0 #7d90de;
+      }
+
+      blockquote {
+        background-color: #f1f1f1;
+        border-radius: 0 4px 4px 0;
+        color: #515151;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 0;
+        padding: 20px 40px 20px 20px;
+        position: relative;
+      }
+
+      blockquote::before {
+        color: #ccc;
+        content: '”';
+        font-size: 80px;
+        position: absolute;
+        right: 30px;
+        top: -20px;
+      }
+
+      figcaption {
+        color: #aaa;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+    </style>
+
+
+
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 250</h1>
+      <p class="lead">Theory of Computation</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes05.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 06: <br>
+      Recap and Review: DFAs, NFAs, and REs</h1>
+      <p>
+        <br>
+      </p>
+      <h2>Outline </h2>
+
+      This class we'll discuss:
+      <ul>
+        <li>Recap: DFA-NFA equivalence</li>
+      </ul>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Recap: DFA-NFA equivalence
+      </h2>
+
+      <p>
+        
+          Last lecture we asked the question: <b>Are NFAs stronger than DFAs?</b>
+
+        <br><br><br><br><br><br>
+
+        We made the following claim:
+        <br><br>
+
+        <h4>NFAs and DFAs are equally powerful!</h4>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal.png" alt="DFA VS NFA" style="width:80%">
+        <br><br>
+
+        The proof approach was by construction (in two steps):
+        <br><br>
+
+        What we know: \(M_{NFA}=(Q,\Sigma,\delta, q_0, F)\)
+
+        <ol>
+          <li>Need to construct: \(M_{DFA}=(Q^\prime,\Sigma,\delta^\prime, q_0^\prime, F^\prime)\) that recognizes L(M)</li>
+          <li>Prove that \( L(M_{DFA}) = L(M_{NFA}) \)</li>
+        </ol>
+
+        <br><br>
+
+        <h3>Step 1: Building the equivalent \(M_{DFA}\)</h3>
+
+        We need to make the 5-tuple for the DFA equivalent to out NFA:
+        <br><br>
+
+        <h4>From NFA to DFA: the states \(Q \rightarrow Q^\prime \)</h4>
+
+        It’s possible that in an NFA, we could be in multiple states at each step. If we want to emulate the NFA’s behavior, we’ll have to have a state for each combination.
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-states.png" alt="DFA VS NFA" style="width:80%">
+        <br><br><br><br>
+
+
+        <h4>From NFA to DFA: the Start states \(q_0 \rightarrow q_0^\prime\)</h4>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-start-states.png" alt="DFA VS NFA" style="width:80%">
+        <br><br>        
+        (In this case, only \(A\))
+
+        <br><br><br><br>
+        
+        <h4>From NFA to DFA: the Accepting states \(F \rightarrow F^\prime\)</h4>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-final-states.png" alt="DFA VS NFA" style="width:80%">
+        <br><br> 
+        (In this case, \( \{  C, AC, BC, ABC  \} \))
+        <br><br><br><br>       
+
+        <h4>From NFA to DFA: the Transitions \(\delta \rightarrow \delta^\prime\)</h4>
+
+        At each symbol reading, if there are multiple paths to follow, we want to jump the the single state (in the DFA) that is the <b>Union</b> of all the possible destination states (in the NFA) for that symbol.
+        <br><br>
+        This can be expressed like this:
+        \[ 
+          \begin{alignat}{2}
+              &\delta^\prime ( q, \mathit{a} ) = \bigcup\limits_{p\in q} \delta(\mathit{p}, a) \\
+              &\qquad \text{ where $q \in Q^\prime$; $a \in \Sigma$}  \\
+              &\qquad \text{ and $q$ can be a set of states from $Q$}
+            \end{alignat}
+        \]
+        <br><br>
+
+        Let's see it in action.
+        <br><br>
+
+        <div class="mx-lg-5">
+          Example: building the DFA for this NFA
+          <br><br>
+          <br><br>
+          <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions-pre.png" alt="DFA VS NFA" style="width:80%">
+          <br><br> 
+
+          Solution:
+          <div class="mx-lg-5">             
+            <br><br>
+            <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions.png" alt="DFA VS NFA" style="width:80%">
+            <br><br>                  
+          </div> 
+        </div>
+
+
+      <br><br><br><br>
+
+      <h3>Step2: Prove \(L(M_{DFA}) = L(M_{NFA}) \): </h3>
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/Lang-DFA-is-Lang-NFA.png" alt="DFA VS NFA" style="width:80%">
+        <br><br> 
+         <h4>Hint:</h4>
+         To prove that L(DFA) = L(NFA), use induction to show that the result of running the DFA on a word \(w\) (denoted \( \hat{\delta}^\prime(q_0^{\prime} , w))\) is equivalent to the result of running the NFA on the same word [denoted \(\hat{\delta}(q_0, w)\)] for every word \(w \in \Sigma^*\).
+         <br><br>
+
+         Note: : this will be exercise 5 on assignment 3!
+         <br><br>
+
+         We'll see a review on induction at the end of today's class.
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        FAs Vs REs
+      </h2>
+
+      <p>
+        Where do FA-Recognizable Languages stand with respect to Regular Languages?
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture03/regLangs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <br><br>
+
+        <h3>Where are FA-recognizable languageswith respect to Regular Languages?</h3>
+
+
+        <br><br><br><br>
+
+        <h3>Try Proving: FAs are at least as powerful as REs</h3>
+
+        We can use the same approach as we did when defining REs (a recursive definition out of base cases).
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-1.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-2.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-3.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-4.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-5.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-6.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <h3>So What did we prove?</h3>
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-atLeast-REs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <br><br>
+
+        <br><br>
+        <h3>NOW, Try Proving: REs are at least as powerful as FAs</h3>
+
+        <br><br>
+        <h4>Proof Idea:</h4>
+        convert the FA that recognizes L into a RE
+        <br><br>
+
+        <b>Step 1: modify the FA so that </b>
+        <ol>
+          <li>the start state doesn’t consume any letters</li>
+          <li>there is only one final state</li>
+          <li>the final state doesn’t consume any letters</li>
+        </ol>
+
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-1.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2a.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2b.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2c.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2d.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <h3>So What did we prove?</h3>
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-equal-REs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <br><br>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>A Primer on Induction</h2>
+
+      <p>
+        Induction is an approach to proving a statement about a pattern \(P\) or law involving an infinite number of cases
+        <br>
+         (one for some input numner of elements): \( P(0), P(1), \dots , P(k), P(k+1), \dots  \) <br>
+         This is done in three steps:
+        <br><br>
+        <ol>
+          <li>The rule works for a base case, usually \( P(0) \), or \( P(1) \)</li>
+          <li>Asume the rule is valid for some intermediate case \( P(k)\)</li>
+          <li>Prove it works for the next case: \( P(k+1) \)</li>
+        </ol>
+
+        <span style='color:#aa2288'><b><big>Example</big></b></span><br>
+        <div class="mx-lg-5">
+          Prove that \(1+2+3 \dots + n = \frac{n(n+1)}{2}\) 
+          <script type="text/tikz">
+            \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+          </script>
+
+          <br><br>
+          <ol>
+            <li>Base case [n=1]: \( 1 = \frac{k(k+1)}{2} = \frac{1(1+1)}{2} = \frac{(2)}{2} =1 \qquad \checkmark\) </li>
+            <li>Asume this is true for some [n=k]: \( 1+2+\dots+k = \frac{k(k+1)}{2}  \qquad \checkmark\) (OK, sure) </li>
+            <li>Inductive step \(\rightarrow \) show that if step (2) holds, then it holds for [n=k+1]:
+              <br>
+              \[              
+                \begin{alignat}{2}
+                \text{if } 1+2+\dots+k &= \frac{k(k+1)}{2}\text{, then} \\
+                1+2+\dots+k+(k+1) &= \frac{k(k+1)}{2} + (k+1) \\
+                &= \frac{k(k+1) + 2(k+1)}{2}\\
+                &= \frac{(k+1)(k+2)}{2}\\
+                &= \frac{(k+1)((k+1)+1)}{2} \qquad \square
+                \end{alignat}
+              \]
+            </li>
+          </ol>
+        </div>
+
+        <br><br>
+
+        Read the following <a href="http://web.stanford.edu/class/archive/cs/cs103/cs103.1164/handouts/240%20Guide%20to%20Induction.pdf">Guide to Induction</a> for a deeper dive into the steps.
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h3>Next class: What lives outside that set of languages?</h3>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Monday 09/27)</h4>
+      <br>      
+      <b>[Due for everyone]</b>
+      <div class="mx-5">
+       Remember: Problem Set 2 (Moodle) [Due Wednesday 09/29] <big>Start Early!</big>
+      </div> 
+      <br>
+      <b>[Optional]</b> 
+      <div class="mx-5">
+        TODO
+      </div>
+      <br><br>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes05.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+<!--     <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+
+
+  </body>
+</html>
