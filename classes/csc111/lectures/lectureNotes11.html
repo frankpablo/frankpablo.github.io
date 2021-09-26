@@ -129,11 +129,101 @@
 
       <p><br></p><hr><p><br></p>
 
-      <h2> BLah</h2>
+      <h2>List Intro</h2>
 
       <p>
+        A <b>list</b> is a type of <b>container</b> in Python. These group objects together and have different properties.
+        <br>
+        Other containers are: tuples, dictionaries, and sets.
+        <br><br>
+
+        In a <b>list</b>, elements have a specific position (index) and allows access trhough the usual indexing operations (see slicing).
+        <br><br>
+
+        Another useful property, is that the elements can have different types: integers, strings, floats <b>and even other lists!!</b>
+        <br><br>
+
+        <h3>A list structure</h3>
+
+        A list can be defined explicitly like this:
+        <br>
+        <span style="color: #aa0000">[</span>  &lt; list item at index 0 &gt; , &lt; list item at index 1 &gt; , &lt; ... &gt; , &lt; list item at index n-2 &gt; , &lt; list item at index n-1 &gt;  <span style="color: #aa0000">]</span>
+        <br><br>
+
+        Let's make and use a list in an example:
+        <br><br>
+        Try it <a href="https://pythontutor.com/visualize.html#code=my_list%20%3D%20%5B%22d%22,%20%22a%22,%20%22l%22,%20%22l%22,%20%22i%22,%20%22a%22,%20%22n%22,%20%22c%22,%20%22e%22%5D%0Aprint%28my_list%29%0Aprint%28my_list%5B7%5D%29%0Aprint%28my_list%5B3%3A7%5D%29%0Aprint%28my_list%5B1%3A%5D%29%0Aprint%28my_list%5B1%3A%3A2%5D%29%0Aprint%20%28%22%22.join%28my_list%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+        <br><br>
+
+        <h3>Lists are <b>Mutable!</b></h3>
+        Lists, unlike strings, are mutable, which means that once created, the structure and or the values inside them can be change.
+        <br><br>
+
+        For example:
+        <br><br>
+        Try it <a href="https://pythontutor.com/visualize.html#code=my_list%20%3D%20%5B%22s%22,%20%22c%22,%20%22r%22,%20%22e%22,%20%22w%22%5D%0Aprint%20%28my_list%29%0Amy_list%5B1%5D%20%3D%20%22h%22%20%23%20change%20an%20item%0Aprint%28my_list%29%0Alength1%20%3D%20len%28my_list%29%20%0A%23%20my_list%5B%3Alength1%5D%5D%20all%20items%20after%20the%20last%20one%0Amy_list%5Blength1%3A%5D%20%3D%20%22d%22%20%23%20append%20an%20item%0Aprint%28my_list%29%0Alength2%20%3D%20len%28my_list%29%0Adel%20my_list%5Blength2-2%5D%0Aprint%28my_list%29%0Amy_list%5B2%5D%20%3D%20%22o%22%20%23%20change%20an%20item%0A%23%20my_list%5B%3A0%5D%5D%20all%20items%20up%20to%20but%20not%20including%20the%20first%20one%0Amy_list%5B%3A0%5D%20%3D%20%22snow%22%0Aprint%28my_list%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+        <br><br>
+
+        Note that to append, the built-in function <b><tt>append(x)</tt></b> might be easier to use.
+
+        <h3>Side effects</h3>
+
+        Objects are complex structures saved in memory and handled through their named variables.
+        <br><br>
+
+        When we name an object, that name is like a <b>handle</b> that can be used to get into and use that object.
+        <br><br>
+
+        One thing that can happen, and that Python does often to optimize memory ussage, is to use different handles (variables) to point to the same value.
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/sameVal.png"  style="width:50%">
+        <br><br>
+
+        One big possible issue with this is that if we have two variables pointing at the same object, and the object is mutable, modifying the object trhough one variable, makes the change visible to the other.
+        <br><br>
+
+        Example (from ZyBooks):
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_teams <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;Raptors&#39;</span>, <span style="background-color: #fff0f0">&#39;Heat&#39;</span>, <span style="background-color: #fff0f0">&#39;Nets&#39;</span>]
+your_teams <span style="color: #333333">=</span> my_teams  <span style="color: #888888"># both point to the same object now!</span>
+my_teams[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Lakers&#39;</span>  <span style="color: #888888"># Modify list element</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;My teams are:&#39;</span>, my_teams)  <span style="color: #888888"># List element has changed</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;Your teams are:&#39;</span>, your_teams)  <span style="color: #888888"># List element has changed too!</span>
+</pre></div>
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=my_teams%20%3D%20%5B'Raptors',%20'Heat',%20'Nets'%5D%0Ayour_teams%20%3D%20my_teams%20%20%23%20both%20point%20to%20the%20same%20object%20now!%0Amy_teams%5B1%5D%20%3D%20'Lakers'%20%20%23%20Modify%20list%20element%0Aprint%28'My%20teams%20are%3A',%20my_teams%29%20%20%23%20List%20element%20has%20changed%0Aprint%28'Your%20teams%20are%3A',%20your_teams%29%20%20%23%20List%20element%20has%20changed%20too!&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>      
+        <br><br>
+
+        Copying lists (or other mutable objects) can help here:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_teams <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;Raptors&#39;</span>, <span style="background-color: #fff0f0">&#39;Heat&#39;</span>, <span style="background-color: #fff0f0">&#39;Nets&#39;</span>]
+your_teams <span style="color: #333333">=</span> my_teams[:]  <span style="color: #888888"># Assign your_teams with a COPY of my_teams</span>
+my_teams[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Lakers&#39;</span>  <span style="color: #888888"># Modify list element</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;My teams are:&#39;</span>, my_teams)  <span style="color: #888888"># List element has changed</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;Your teams are:&#39;</span>, your_teams)  <span style="color: #888888"># List element has not changed</span>
+</pre></div>
+        <br><br>
         
+        Try it <a href="https://pythontutor.com/visualize.html#code=my_teams%20%3D%20%5B'Raptors',%20'Heat',%20'Nets'%5D%0Ayour_teams%20%3D%20my_teams%5B%3A%5D%20%20%23%20Assign%20your_teams%20with%20a%20COPY%20of%20my_teams%0Amy_teams%5B1%5D%20%3D%20'Lakers'%20%20%23%20Modify%20list%20element%0Aprint%28'My%20teams%20are%3A',%20my_teams%29%20%20%23%20List%20element%20has%20changed%0Aprint%28'Your%20teams%20are%3A',%20your_teams%29%20%20%23%20List%20element%20has%20not%20changed&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+        <br><br>
+
+
+
+
+
+
       </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>List Methods</h2>
+
+      <p>
+      </p>
+
+
 
       
       <p><br></p><hr><p><br></p>
