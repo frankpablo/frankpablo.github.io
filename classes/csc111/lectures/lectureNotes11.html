@@ -167,6 +167,7 @@
 
         Note that to append, the built-in function <b><tt>append(x)</tt></b> might be easier to use.
 
+        <br><br>
         <h3>Side effects</h3>
 
         Objects are complex structures saved in memory and handled through their named variables.
@@ -209,7 +210,24 @@ my_teams[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="
         Try it <a href="https://pythontutor.com/visualize.html#code=my_teams%20%3D%20%5B'Raptors',%20'Heat',%20'Nets'%5D%0Ayour_teams%20%3D%20my_teams%5B%3A%5D%20%20%23%20Assign%20your_teams%20with%20a%20COPY%20of%20my_teams%0Amy_teams%5B1%5D%20%3D%20'Lakers'%20%20%23%20Modify%20list%20element%0Aprint%28'My%20teams%20are%3A',%20my_teams%29%20%20%23%20List%20element%20has%20changed%0Aprint%28'Your%20teams%20are%3A',%20your_teams%29%20%20%23%20List%20element%20has%20not%20changed&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
         <br><br>
 
+        <br><br>
+        <h4>when are there no side effects?</h4>
+        Assigning a variable with an element of an existing list, and then reassigning that variable with a different value does not change the list.
+        <br><br>
 
+        Example:
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">stooges <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;Larry&#39;</span>, <span style="background-color: #fff0f0">&#39;Shemp&#39;</span>, <span style="background-color: #fff0f0">&#39;Moe&#39;</span>]
+stooges[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Curly&#39;</span>  <span style="color: #888888"># Change list element</span>
+<span style="color: #007020">print</span>(stooges)
+
+fav_stooge <span style="color: #333333">=</span> stooges[<span style="color: #0000DD; font-weight: bold">0</span>]  <span style="color: #888888"># Bind to &#39;Larry&#39;</span>
+fav_stooge <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Iggy Pop&#39;</span>  <span style="color: #888888"># List not altered</span>
+<span style="color: #007020">print</span>(stooges)
+</pre></div>
+
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=stooges%20%3D%20%5B'Larry',%20'Shemp',%20'Moe'%5D%0Astooges%5B1%5D%20%3D%20'Curly'%20%20%23%20Change%20list%20element%0Aprint%28stooges%29%0A%0Afav_stooge%20%3D%20stooges%5B0%5D%20%20%23%20Bind%20to%20'Larry'%0Afav_stooge%20%3D%20'Iggy%20Pop'%20%20%23%20List%20not%20altered%0Aprint%28stooges%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
 
 
 
@@ -222,7 +240,13 @@ my_teams[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="
 
       <p>
 
-        <big><b>TODO</b></big>
+        Lists, like Strings are objects. They have the internal values (references to other objects) as well as methods.
+        <br><br>
+
+        Here are some of the most useful ones:
+        <br><br>
+
+        
       </p>
 
 
