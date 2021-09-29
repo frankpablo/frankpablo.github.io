@@ -378,6 +378,14 @@
         <br><br>
         <h3>NOW, Try Proving: REs are at least as powerful as FAs</h3>
 
+        Example FA:
+        <br><br>
+        <center>
+          <img class="img-fluid" src="../figures/lecture06/baseFA.png" alt="A garden Variet FA" style="width:40%">
+        </center>
+        <br><br>
+
+
         <br><br>
         <h4>Proof Idea:</h4>
         convert the FA that recognizes L into a RE
@@ -398,6 +406,27 @@
         <br><br><br><br>
         <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2a.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
+
+        <h4>A more difficult one:</h4>
+
+        <ul>
+          <li>To get into A: nothing to read</li>
+          <li>Any numnber of 1s</li>
+          <li>You need a 0 to get out</li>
+        </ul>
+
+        But removing A also changes B!
+        <br>
+        I need to accont for the transitions going back and forth between A and B!
+        <br><br>
+        So how could one get into B?
+        <ul>
+          <li>We could read a 0 to get into B, OR</li>
+          <li>Read a 1 from inside B, read any number of 1s while at A, and then a 0 to get back to B</li>
+        </ul>
+
+        
+
 
         <br><br><br><br>
         <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2b.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
