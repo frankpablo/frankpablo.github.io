@@ -155,6 +155,22 @@ my_char <span style="color: #333333">=</span> my_str[idx]
 
       <p><br></p><hr><p><br></p>
 
+      <h2>Bonus String Trick</h2>
+
+      <p>
+        One can apply the multiplication operator to a string in order to cause it to create a copy where it "self concatenates":
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">str1 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;na&quot;</span>
+<span style="color: #007020">print</span>(<span style="color: #0000DD; font-weight: bold">8</span><span style="color: #333333">*</span>str1 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; Batman!&quot;</span>)
+</pre></div>
+
+        <br><br>
+        Try it <a href="https://pythontutor.com/visualize.html#code=str1%20%3D%20%22na%22%0Aprint%288*str1%20%2B%20%22%20Batman!%22%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">Here!</a>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
       <h2>Slicing Basics</h2>
 
       <p>
@@ -601,10 +617,41 @@ num_expr <span style="color: #333333">=</span> <span style="background-color: #f
 
       </p>
 
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Next Wednesday: Midterm</h2>
+
+      <p>
+
+        How to prepare:
+        <ol>
+          <li>Study the notes and exercises, and work on the Homework that will be released later today</li>
+          <li>Bring questions for Friday!</li>
+          <li>Themes:
+            <ul>
+              <li>Distinguishing data types</li>
+              <li>Understanding assignment and variable naming</li>            
+              <li>Program tracing: given a program, and some possible input, you must be able to trace the program execution (using your miind, paper, and pencil only)</li>
+              <li>Built-in functions: what do they do (the ones we've used from <a href="https://docs.python.org/3/library/functions.html">these</a>) </li>              
+              <li>Writing Functions: given a function description, write it; given a function, describe its parts and how it works; Call functions with functions as arguments (finction composition).</li>
+              <li>Conditionals: how to write them to ask the right questions and to reach the right blocks; nested if statements and combining conditions.</li>
+              <li>Common errors (Exceptions) when coding (indentation, concatenating str and int, index out of range, variables not defined, etc)</li>
+              <li>Common logical errors (Bugs): <b><tt>=</tt></b> vs <b><tt>==</tt></b>, unreachable <b><tt>elif</tt></b> or <b><tt>else</tt></b>, not using integer division, etc.</li>
+              <li>Common string operations: concatenation, access, slicing, and joining</li>
+              <li>Using string methods</li>
+              <li>Common list operations: creating, editing, appending, slicing</li>
+              <li>Using list methods</li>
+            </ul>
+          </li>
+        </ol>
+
+      </p>
+
       
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Wednesday)</h4>
+      <h4>Before next class (Friday)</h4>
       <b>[Due for everyone]</b>  <br>
       ZyBooks Sections 6.1, 6.2<br>
       Assignment 02 (Replit); due on 09/29 before 11:59 PM
