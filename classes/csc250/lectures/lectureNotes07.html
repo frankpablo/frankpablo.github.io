@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 250  Theory of Computation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+
+      @import url('https://fonts.googleapis.com/css?family=Inter|Dosis&display=swap');
+
+      /* Crucial */
+      .highlight {
+        background-color: #EEF43B;
+          padding-right: 0px;
+          padding-left: 0px;
+      }
+
+
+      /* Just for styling */
+      /*body {
+        font-family: 'Inter', sans-serif;
+      }*/
+
+      /*.container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 0 2%;
+      }*/
+
+      .search-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto 20px auto;
+        max-width: 450px;
+        padding: 0 2%;
+      }
+
+      label {
+        color: #535353;
+        font-family: 'Dosis', sans-serif;
+        font-size: 14px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      input {
+        background: #fff;
+        border: 1px solid #535353;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        height: 38px;
+        line-height: 38px;
+        outline: none;
+        padding: 0 10px;
+        transition: all 0.5s;
+        width: 100%;
+      }
+
+      input:focus {
+        border: 1px solid #3a5bd3;
+        box-shadow: 0 0 4px 0 #7d90de;
+      }
+
+      blockquote {
+        background-color: #f1f1f1;
+        border-radius: 0 4px 4px 0;
+        color: #515151;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 0;
+        padding: 20px 40px 20px 20px;
+        position: relative;
+      }
+
+      blockquote::before {
+        color: #ccc;
+        content: '”';
+        font-size: 80px;
+        position: absolute;
+        right: 30px;
+        top: -20px;
+      }
+
+      figcaption {
+        color: #aaa;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+    </style>
+
+
+
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 250</h1>
+      <p class="lead">Theory of Computation</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 07: <br>
+      Non-Regular Languages and the Pumping Lemma</h1>
+      <p>
+        <br>
+      </p>
+      <h2>Outline </h2>
+
+      This class we'll discuss:
+      <ul>
+        <li>Recap: ???</li>
+      </ul>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Recap: RE, FA, and their equivalence      
+      </h2>
+
+      <p>
+
+        A <b>Regular Expression</b> is a succint way to indicate a pattern that is used to filter out strings so that only certain strings are accepted into a set of words called a <b>Regular Language</b>
+        <br><br>
+
+        They look like this:
+        <br><br>
+
+        <b><tt> \[(00(10)^*11) + (11(01)^*00) \]  </tt></b>
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          What is the Language accepted by this RE? (Use an English sentence to summarize it)
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <p>
+                It is the Language that consists of words that start with \(00\), and with \(11\) and have zero or more \(10\) pairs in between, <b>OR</b> the words that start with \(11\), and with \(00\) and have zero or more \(01\) pairs in between.
+                <br><br>
+
+                Examples are: 
+                \[0011, 1100, 001011, 110100, 00101011, 11010100, \dots \]
+              </p>
+            </details>
+          </div>
+        </div>  
+
+        <br><br>
+
+        A <b>Finite Automaton</b> is a state machine described by a 5-tuple: \( (Q, \Sigma, \delta, q_0, F) \) that represents a process that examines a string of symbols, one at a time, and accepts or rejects the string depending on the sequence of visited states.
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          What is the FA that does the exact same thing as the RE shown above?
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <p>
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture07/RE-to-FA-to-RE.gif" alt="RE to FA and back" style="width:100%">
+                <br><br> 
+              </p>
+            </details>
+          </div>
+        </div>  
+
+        <br><br>
+
+        <h3>Relation between REs and FAs</h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/Langs-past-RE-FA.png" alt="RE to FA and beyond?" style="width:50%">
+        <br><br>
+
+
+        
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Non Regular Langages
+      </h2>
+
+      <p>
+        What are the limits of the REs and FAs we've seen?
+        <br><br>
+
+        In other words, are there are some languages that cannot be described with them?
+        <br><br>
+
+        The answer is <b>YES</b>.
+        <br><br>
+
+        An example:
+
+        \[ \text{Language B }= \{ 0^n1^n  \mid n\geq 0\}  \]
+
+        <br><br><br><br>
+
+        How do we find out if a language is regular or not? 
+        <br>
+        Intuition is not enough (some Langs that appear to need infinite states don't actually).
+
+        <br><br>
+        Proving that a whole language is not regular because you can't find the RE or FA to generate it is not a valid argument.
+        <br><br>
+
+        But also, using a proof by construction to show that something does NOT have a property is not the right path.
+        <br><br>
+
+        We would like to have a proof that finds a contradiction but that would require showing that a language does not have some property! (That is the right way).
+
+        <br><br>
+
+        <h3>Proof Idea</h3>
+
+        <ol>
+          <li>We will define a special property that all regular languages have.</li>
+          <li>If we can show that a language does not have this property, we are guaranteed that it is not regular.</li>
+        </ol>
+        
+        
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Defining a property all Regular Languages have
+      </h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/runningExample.png" alt="example" style="width:50%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          What do you see in the following sequences of states (for accepted and rejected strings?)
+          <br><br>
+          <img class="img-fluid" src="../figures/lecture07/patterns.png" alt="example" style="width:50%">
+          <br><br>
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <ul>
+                <li>\( \texttt{1}: A^{\prime} \vdash B \rightarrow \text{Accepted}\)  </li>
+                <li>\( \texttt{010}: A^{\prime} \vdash A \vdash B \vdash B \rightarrow \text{Accepted}\)</li>
+                <li>\( \texttt{01000}: A^{\prime} \vdash A \vdash B \vdash B \vdash B \vdash B  \rightarrow \text{Accepted}\)</li>
+                <li>\( \texttt{11}: A^{\prime} \vdash B  \vdash C \rightarrow \text{Rejected}\)</li>
+                <li>\( \texttt{0101}: A^{\prime} \vdash A \vdash B \vdash B \vdash C \rightarrow \text{Rejected}\)</li>
+                <li>\( \texttt{11111}: A^{\prime} \vdash B \vdash C \vdash C \vdash C \vdash C \rightarrow \text{Rejected}\) </li>               
+              </ul>
+              <br><br>
+              Notation:
+              <ol>
+                <li>\(A^{\prime}\) is just the "Start State A before consuming any symbols"</li>
+                <li>The Turnsile symbol \( \vdash \) means: "yields", "proves", "satisfies" or "entails". </li>
+              </ol>
+              
+              <br>
+              It is saying: "Then it follows that..."
+              <br><br>
+
+
+              <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+              <div class="mx-lg-5">
+                Can you build new strings that are accepted by just using the pattern?
+                <br><br>
+              </div>
+              
+              <p>
+                As words get longer, we have to traverse loops more and more often.
+                <br><br>
+                If we wanted another word in the language, we could take any one of our existing words in the language and change the number of times we went around one of those loops.
+                <br><br>
+
+                Turns out that <b>there’s a precise way to articulate this property, which will be what we need to be able to prove a language is non-regular.</b>
+              </p>
+            </details>
+          </div>
+        </div>  
+
+ 
+        <br><br>
+
+        <h3>
+        The Pumping Lemma
+        </h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/PL.png" alt="example" style="width:80%">
+        <br><br>
+
+        Translation: if L is a regular language, then words that are sufficiently long must have some repeatable subsequence that we could use to generate arbitrarily many more words in L
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/Intuition.png" alt="example" style="width:80%">
+        <br><br>
+
+
+        <br><br>
+
+        Note: If proven true, the lemma, as applied to a language \( L_{short} \) whose words are all smaller than \(N\), would be <i>vacuously</i> true: Obviously the three conditions hold for all strings of length at least \(N\) if there aren’t any such strings.
+
+        <br><br>
+
+        <h3>
+        Proof for the Pumping Lemma
+        </h3>
+
+        Check out our set of accepted words from our running example:
+        <ul>
+          <li>\( \texttt{1}: A^{\prime} \vdash B \rightarrow \text{Accepted}\)  </li>
+          <li>\( \texttt{010}: A^{\prime} \vdash A \vdash B \vdash B \rightarrow \text{Accepted}\)</li>
+          <li>\( \texttt{01000}: A^{\prime} \vdash A \vdash B \vdash B \vdash B \vdash B  \rightarrow \text{Accepted}\)</li>             
+        </ul>
+        <br><br>
+        Notation:
+        <ol>
+          <li>\(A^{\prime}\) is just the "Start State A before consuming any symbols"</li>
+          <li>The Turnsile symbol \( \vdash \) means: "yields", "proves", "satisfies" or "entails". </li>
+        </ol>
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          <b>Count the number of symbols and the number of states involved in accepting the word.</b>
+          <br><br>
+          Do you notice something?
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>
+            The number of states is one more than the number of symbols (since we start at a state before consuming the first symbol).
+            <br><br>
+          </details>
+        </div>
+        <br><br>
+
+        Given this observation, the proof goes like this:
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/PL1.png" alt="example" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/PL2.png" alt="example" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/PL2b.png" alt="example" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/PL3.png" alt="example" style="width:80%">
+        <br><br>
+
+        All parts of the \(xyz\) word are sequences of symbols, not necessarily a single symbol.
+        <br>
+        <ol>
+          <li>\( \vdash \ast \) means: After several steps ... </li>
+        </ol>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/PL4.png" alt="example" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/PL5.png" alt="example" style="width:80%">
+        <br><br>
+        
+        <big><b> Why are we doing this? </b></big>
+
+        <br><br>
+
+        <h3>Proving that some language \(L_{\tiny{NonReg}} \) is not Regular</h3>
+
+        <ol>
+          <li>We will define a special property that all regular languages have (The Pumping Lemma).</li>
+          <li>If we can show that a language does not have this property, we are guaranteed that it is not regular.</li>
+        </ol>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Proving a language is not Regular
+      </h2>
+
+      <p>
+        <li>The pumping lemma tells us that <b>IF L is regular, then this property must hold for every single word in L (except the first few short words, which we don’t have to care about)</b>
+
+
+        <li><b>Idea for contradiction</b>: assume it’s true, then find ONE WORD that breaks this rule; one, single word that can’t be pumped is enough to prove the language isn’t regular.
+
+        <li>Remember: it’s a lot easier to show something does exist than to prove that it doesn’t or can’t.
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/NonRegExample1.png" alt="example 1!" style="width:80%">
+        <br><br>
+
+        Steps:
+        <ol>
+          <li>Suppose this were regular. </li>
+          <li>Let \(N\) be the constant selected by the pumping lemma. </li>
+          <li>Consider the string  \(w = 0^N 1^N \). Then \( \mid w \mid = 2 \cdot N>N \), and so we can write \(w = xyz\). </li>
+          <li>Since \(\mid xy \mid \leq N \) and \( \mid y \mid > 0 \), it must be that \(y\) is a non-empty substring of the \(0^N\) part, i.e. \(y = 0^k \) for some k>0.</li>
+          <li>According to the pumping lemma, \( xyyz = 0^{N+k} 1^N \) must also belong to  L  for k>0</li>
+          <li>CONTRADICTION!</li>
+        </ol>
+
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/NonRegExample2.png" alt="example 2!" style="width:80%">
+        <br><br>
+
+        Steps:
+        <ol>
+          <li>This proof by contradiction will use the previous example and closure properties. </li>
+          <li>Let’s assume EQ is regular. </li>
+          <li>We also know that \(0^*1^*\) is regular.</li>
+          <li>Because regular languages are closed under intersection, this language would also have to be regular:
+          \( L \cap a^*b^* = \{ w \in \{a,b\}^* : w = a^ib^i, \text{for some }i \geq 0 \} = HALF \)</li>
+          <li>We just proved the non-regularity of HALF, which is a contradiction. </li>
+          <li>Therefore EQ cannot be regular.</li>          
+        </ol>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          <br><br>
+          <img class="img-fluid" src="../figures/lecture07/NonRegExample3.png" alt="example 2!" style="width:80%">
+          <br><br>
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>
+
+              <ol>
+                <li>Pick a word x in PAL and pump it to get a contradiction.</li>
+                <li>Choose \(x = 0^N 1 0^N\); clearly x is in PAL</li>
+                <li>The Pumping Lemma says w = xyz, y isn’t empty, \( \mid xy \mid \leq N, \text{ and } xy^i z \text{ in PAL for every i} \).</li>
+                <li>Because the word is so long, the pumpable part is near the beginning of x.</li>
+                <li>We can infer that because \( \mid xy \mid \leq N \), xy consists of 0s only.</li>
+                <li>Since \(y\) is not empty, it must contain at least one 0.</li>
+                <li>We know from the pumping lemma that xyyz should be in PAL.</li>
+                <li>But this isn’t true: we added at least one 0 in the first part and didn’t balance it out in the second part.</li>  
+              </ol>
+
+            <br><br>
+          </details>
+        </div>
+        <br><br>      
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Some Perspective 
+      </h2>
+
+      <p>
+        Why am I asking you all of these questions about regularity of languages, etc.?
+        <br><br>
+
+        REs and FAs are really simple computational machines. 
+        <br><br>
+
+        What does this have to do with getting your Java code to compile, or using dynamic programming, or ...
+        <br><br>
+
+        Turns out that there are some surprisingly algorithmic things we can do when we start asking questions about these simple machines. 
+        <br><br>
+
+        Let’s take a look at some questions we might ask.
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/Questions.png" alt="example 2!" style="width:80%">
+        <br><br>
+
+
+
+
+      </p>
+      
+
+
+      
+
+      <p><br></p><hr><p><br></p>
+
+      <h3>Next class: Algorithmic questions about FA and Context-Free Languages </h3>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Wednesday )</h4>
+      <br>      
+      <b>[Due for everyone]</b>
+      <div class="mx-5">
+         TODO
+      </div> 
+      <br>
+      <b>[Optional]</b> 
+      <div class="mx-5">
+        TODO
+      </div>
+      <br><br>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+<!--     <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+
+
+  </body>
+</html>
