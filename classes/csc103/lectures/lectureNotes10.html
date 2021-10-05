@@ -197,7 +197,35 @@
         <img id="image" class="img-responsive" src="../figures/lecture10/OS105.png" alt="" style="width:80%">
         <br><br>
 
+        <h4>Ready Process</h4>
+        Ready processes are waiting to have the processor allocated to them by the operating system so that they can run.
         <br><br>
+
+        <h4>Running Process</h4>
+        The process is said to be in running state when the process instructions are being executed by the processor. This is done once the process is assigned to the processor using the short-term scheduler.
+        <br><br>
+
+        <h4>Suspended Ready Process</h4>
+        Process that was initially in the ready state but were swapped out of main memory(refer Virtual Memory topic) and placed onto external storage by scheduler are said to be in suspend ready state. The process will transition back to ready state whenever the process is again brought onto the main memory.
+        <br><br>
+
+        <h4>Blocked Suspended</h4>
+        This is similar to ready suspended. The processes in blocked suspended state are in secondary memory. They were initially in the blocked state in main memory waiting for some event but lack of memory forced them to be suspended and gets placed in the secondary memory.
+        <br><br>
+
+<!--         <h4>Suspended Process</h4>
+        A suspended process is one that is turned off. The process exists but it does not get scheduled for execution. For example, suppose you have a server that you want to run a CPU-intensive molecular modeling program that will take two months to finish running.
+        <br><br> -->
+
+
+        <h4>Blocked Process</h4>
+        A process for which a process description exists but which is unable to proceed because it lacks some necessary resource. For example, a process may become blocked if it has inadequate memory available to it to allow the loading of the next part of the process.
+        <br><br>
+
+        <h4>Terminated Process</h4>
+        The process is terminated once it finishes its execution. In the terminated state, the process is removed from main memory and its process control block is also deleted.
+        <br><br>
+        
         <h3>Interrupts!</h3>
 
         <br><br>
