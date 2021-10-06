@@ -524,23 +524,29 @@
         <img class="img-fluid" src="../figures/lecture07/NonRegExample2.png" alt="example 2!" style="width:80%">
         <br><br>
 
+        <b>Proof sketch</b>
+        <br>
+        Since \(HALF\) is a subset of \(EQ\) and we proved \(HALF\) is not regular, then we could pick \(w \in HALF \subset  EQ\) and just indicate that that is enough. 
+        <br><br>
+        The technical part is: simply choose a way to express the fact that \(HALF\) is a subset of \(EQ\).
+
         Steps:
         <ol>
           <li>This proof by contradiction will use the previous example and closure properties. </li>
           <li>Let’s assume EQ is regular. </li>
           <li>We also know that \(0^*1^*\) is regular.</li>
           <li>Because regular languages are closed under intersection, this language would also have to be regular:
-          \( L \cap a^*b^* = \{ w \in \{a,b\}^* : w = a^ib^i, \text{for some }i \geq 0 \} = HALF \)</li>
+          \( EQ \cap a^*b^* = \{ w \in \{a,b\}^* : w = a^ib^i, \text{for some }i \geq 0 \} = HALF \)</li>
           <li>We just proved the non-regularity of HALF, which is a contradiction. </li>
           <li>Therefore EQ cannot be regular.</li>          
         </ol>
 
         <br><br>
 
-        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+<!--         <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
           <br><br>
-          <img class="img-fluid" src="../figures/lecture07/NonRegExample3.png" alt="example 2!" style="width:80%">
+          <img class="img-fluid" src="../figures/lecture07/NonRegExample3.png" alt="example 3!" style="width:80%">
           <br><br>
           <details>
             <summary>(Wait; then Click)<br><br></summary>
@@ -558,7 +564,8 @@
 
             <br><br>
           </details>
-        </div>
+        </div> -->
+        
         <br><br>      
 
       </p>

@@ -198,8 +198,8 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 07: <br>
-      Non-Regular Languages and the Pumping Lemma</h1>
+      <h1>Lecture Notes 08: <br>
+      PL Recap and Context-Free Grammars</h1>
       <p>
         <br>
       </p>
@@ -207,19 +207,190 @@
 
       This class we'll discuss:
       <ul>
-        <li>Recap: ???</li>
+        <li>Recap: The Pumping Lemma</li>
+        <li>Properties of Regular Languages</li>
       </ul>
 
       <p><br></p><hr><p><br></p>
 
       <h2>
-        Recap: RLs VS Non-RLs     
+        Recap: Non-RLs and the PL
       </h2>
 
       <p>
 
-        <big>TODO</big>
-     
+        Last lecture, we saw that:
+
+        <ol>
+          <li>There are some languages that are beyond the power of a RE or FA to capture</li>
+          <li>To distinguish them from Regular Languages, we want to be able to prove they are not regular</li>
+          <li>To do so, we show that a Non-RL \(L_{\small{NON}}\) does not have a property that all RLs have (proof by contradiction!).</li>
+          <li>We defined and proved that all regular languages have a property defined by the Pumping Lemma</li>
+          <li>We did a couple examples of how to use the PL to prove a language is non-regular</li>
+        </ol>
+
+        <br><br>
+
+
+        <h3>Intuition for the Pumping Lemma</h3>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/PL-Intuition01.png" alt="intuition!" style="width:40%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/PL-Intuition02.png" alt="intuition!" style="width:40%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/PL-Intuition03.png" alt="intuition!" style="width:40%">
+        <br><br>
+
+        We could imagine the regular expression that generates this as:
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/PL-Intuition04.png" alt="intuition!" style="width:40%">
+        <br><br>
+
+        We could have an FA (int this case an NFA) that accepts this as:
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture08/PL-Intuition05.png" alt="intuition!" style="width:80%">
+        <br><br>
+
+        To generate new words in the language, we could just take the path \(x\) ( \(A \vdash B \) ); take the looped pattern \(y\) ( \(C \vdash D \vdash E\) ) over and over again; and then finish up by taking the path \(z\) ( \(F \vdash G \) ) to an accepted state.
+
+        <br><br><br><br>
+
+
+
+        <h3>Reminder of the PL rules</h3>
+
+        A good Regular Language \( L \) is such that after some word length \(N\), all the words can be written as: \(xyz\), where 
+        <ol>
+          <li>New words constructed as: \(xy^iz\), are also in \(L\) (reusing an internal loop <b>pumps out</b> more accepted words)</li>
+          <li>The firat part of the word, \(\mid xy \mid \leq N\) (The section of the word pre-loop repetition is the part that is \(\leq N\) ) </li>
+          <li>\( xy^iz \in L \)</li>
+        </ol>
+
+        <br><br>
+
+        <br><br>
+
+        <h3>Summary of how to do a PL proof</h3>
+        <ol>
+          <li>Assume the language \(L\) is regular and therefore follows the PL</li>
+          <li>You then have a length \(N > 0\) (that you don't need to specify!) after which the PL applies</li>
+          <li>
+            <b>You must choose a single word \(w \in L\) carefully</b> so that:
+            <ol>
+              <li>\(w\) has to do with that \(N\)</li>
+              <li>and when writing \(w\) as \(xyz\) and following the PL rules, we arrive at a contradiction (usually by pumping the pattern: \(xyz \rightarrow xyyz\) once or a few times)</li>
+            </ol>
+          </li>
+        </ol>
+
+        <br>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/intuition.png" alt="intuition!" style="width:80%">
+        <br><br>
+
+
+        <br><br>
+
+        Let's retry those for clarity now.
+
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/NonRegExample1.png" alt="example 1!" style="width:80%">
+        <br><br>
+        <b>Proof sketch</b>
+        <br>
+        Pick a \(w = xyz\) with structure \(w = 0^i 1^i \) where the \(N\) plays a role such that, when we "repeat the loop pattern \(y\) inside \(w\), it destroys the pattern that defines \(HALF\).
+        <br><br>
+        Bad example: \(w =  0^{\frac{N}{2}}1^{\frac{N}{2}} \) ... this is bad because, even though \(\mid w \mid \geq N\) we can't really know where the the \(y\) part is.
+        <br>
+        Remember, the PL says the pattern \(\mid xy \mid \leq N\) but not which part is \(x\) and which is \(y\).
+        <br>
+        Therefore, the repeated pattern \(y\) could very well be "something" that when repeated, would maintain the structure that makes  \(HALF\).
+        <br><br>
+        Now, think of an example that forces the issue!
+        <br><br>
+
+        <details>
+            <summary>(Wait; then Click)<br><br></summary>
+
+              Steps:
+              <ol>
+                <li>Suppose this were regular. </li>
+                <li>Let \(N\) be the constant selected by the pumping lemma. </li>
+                <li>Consider the string  \(w = 0^N 1^N \). Then \( \mid w \mid = 2 \cdot N>N \), and so we can write \(w = xyz\). </li>
+                <li>Since \(\mid xy \mid \leq N \) (must be) and \( \mid y \mid > 0 \), it must be that \(y\) is a non-empty substring of the \(0^N\) part, i.e. \(y = 0^k \) for some k>0.</li>
+                <li>According to the pumping lemma, \( xyyz = 0^{N+k} 1^N \) must also belong to  \(HALF\)  for k>0</li>
+                <li>CONTRADICTION!</li>
+              </ol>
+
+            <br><br>
+          </details>
+        
+
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture07/NonRegExample2.png" alt="example 2!" style="width:80%">
+        <br><br>
+        <b>Proof sketch</b>
+        <br>
+        Since \(HALF\) is a subset of \(EQ\) and we proved \(HALF\) is not regular, then we could pick \(w \in HALF \subset EQ\) and just indicate that that is enough. 
+        <br><br>
+        The technical part is: simply choose a way to get to \(HALF\) from \(EQ\) without having to prove that one is a subset of the other (which would be required).
+        <br><br>
+
+        <details>
+            <summary>(Wait; then Click)<br><br></summary>
+              Steps:
+              <ol>
+                <li>This proof by contradiction will use the previous example and closure properties. </li>
+                <li>Let’s assume EQ is regular. </li>
+                <li>We also know that \(0^*1^*\) is regular.</li>
+                <li>Because regular languages are closed under intersection, this language would also have to be regular:
+                \( EQ \cap a^*b^* = \{ w \in \{a,b\}^* : w = a^ib^i, \text{for some }i \geq 0 \} = HALF \)</li>
+                <li>We just proved the non-regularity of HALF, which is a contradiction. </li>
+                <li>Therefore EQ cannot be regular.</li>          
+              </ol>
+
+            <br><br>
+          </details>
+
+        
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          <br><br>
+          <img class="img-fluid" src="../figures/lecture07/NonRegExample3.png" alt="example 3!" style="width:80%">
+          <br><br>
+          Hint: A palindrome is VERY close to the concept of having "the same number of elements in one part as in another" (like for the example with Language \(HALF\))
+          <br><br>
+          <!-- <details>
+            <summary>(Wait; then Click)<br><br></summary>
+
+              <ol>
+                <li>Pick a word x in PAL and pump it to get a contradiction.</li>
+                <li>Choose \(x = 0^N 1 0^N\); clearly x is in PAL</li>
+                <li>The Pumping Lemma says w = xyz, y isn’t empty, \( \mid xy \mid \leq N, \text{ and } xy^i z \text{ in PAL for every i} \).</li>
+                <li>Because the word is so long, the pumpable part is near the beginning of x.</li>
+                <li>We can infer that because \( \mid xy \mid \leq N \), xy consists of 0s only.</li>
+                <li>Since \(y\) is not empty, it must contain at least one 0.</li>
+                <li>We know from the pumping lemma that xyyz should be in PAL.</li>
+                <li>But this isn’t true: we added at least one 0 in the first part and didn’t balance it out in the second part.</li>  
+              </ol>
+
+            <br><br>
+          </details> -->
+        </div>
+        <br><br>      
         
       </p>
 
@@ -231,7 +402,7 @@
       </h2>
 
       <p>
-        Why am I asking you all of these questions about regularity of languages, etc.?
+        Why are we asking you all of these questions about regularity of languages, etc.?
         <br><br>
 
         REs and FAs are really simple computational machines. 
@@ -250,16 +421,195 @@
         <img class="img-fluid" src="../figures/lecture07/Questions.png" alt="example 2!" style="width:80%">
         <br><br>
 
+        <h3>Why are these questions important?</h3>
+        <details>
+          <summary>(Wait; then Click)<br><br></summary>
+          It's not about simply building a machine that might do something, 
+          <br>
+          It's about knowing, before expending unnecessary effort if:
+            <ol>
+              <li>we are reinventing the wheel.</li> 
+              <li>we are building something that never terminates</li>
+              <li>we are building something that works but is extremely inefficient</li>
+              <li>etc</li>
+            </ol>
+
+          <br><br>
+        </details>
+        <br><br>
+
+        <h3>In Real Life</h3>
+
+        <ol>
+          <li>Do we have a way of answering these questions about our own programs?</li>
+          <li>In a way, all programs do symbol processing</li>
+          <li>In a way all of them are like little Machines</li>
+          <li>If we can represent processes as FAs or REs, we can answer the questions shown above</li>
+        </ol>
+
+        <br><br>
+
+        <ol>
+          <li>
+            <b>Acceptance</b>:
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              If we go through the transition table (using a lookup table), do we get to an accepting state?
+              <br><br>
+            </details>
+          </li>
+          <li>
+            <b>NonExistance</b>
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              If count the number of states \(N_Q\) in the "Machine", we need only check all words with length \(\mid w \mid \leq N_Q\)
+              <br><br>
+            </details>
+          </li>
+          <li>
+            <b>Totality</b>
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              Check there is no path from \(q_0\) to any non-accepting state.
+              <br><br>
+            </details>
+          </li>
+          <li>
+            <b>Nonempty Intersection</b>
+            <br>
+            (How would you do this?)
+          </li>
+          <li>
+            <b>Subset</b>
+            <br>
+            (How would you do this?)
+          </li>
+          <li>
+            <b>Equivalence</b>
+            <br>
+            (How would you do this?)
+          </li>
+          <li>
+            <b>Optimality</b>
+            <br>
+            (How would you do this?)
+          </li>
+        </ol>
+
+
+        <p><br></p><hr><p><br></p>
+
+      <h2>
+        Intro: Context-Free Grammar 
+      </h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF01.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+                EQ, HALF, PAL
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF02.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF03.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        Finite automata and regular expressions are limited
+        <br><br>
+        They both only match patterns that can be described by reaching L to R
+        <br><br>
+        Some patterns are more interesting…
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF04.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF05.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+
+        Seems like PAL lives really close to Regular: there’s a structure to the words that’s ALMOST regular… but the pattern is in the middle.
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF06.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        S ->g N_phrase V_phrase
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF07.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        N -> article noun
+        <br><br>
+        V -> conjugated verb
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF08.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF09.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF10.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF11.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF12.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF13.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF14.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF15.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture08/CF16.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+<!-- 
+𝑉={𝑆}  
+Σ ={0,1}  
+𝑅 ={ 𝑆→_𝐺 0𝑆0,
+𝑆→_𝐺 1𝑆1,
+𝑆→_𝐺 𝜀 }
+
+Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
+
+ -->
+
 
       </p>
       
+
+
 
 
       
 
       <p><br></p><hr><p><br></p>
 
-      <h3>Next class: ???</h3>
+      <h3>Next class: CFGs Vs RLs And ... Beyond!</h3>
 
 
       <p><br></p><hr><p><br></p>
