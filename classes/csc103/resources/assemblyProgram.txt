@@ -5,7 +5,7 @@
 ; if counter==0 then go to halt
 ; go back to loop
 ; halt
-0000 Load [20] ;
+0000: LOAD [20] ;
 0002: ADD [21] ; AC <- sum + counter
 0004: STORE [20] ; sum <- sum + counter
 0006: LOAD [21] ; AC <- counter
