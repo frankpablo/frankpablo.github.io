@@ -1,0 +1,19 @@
+; sum <- 0
+; counter <- 10
+; loop: sum <- sum + counter
+; counter <- counter - 1
+; if counter==0 then go to halt
+; go back to loop
+; halt
+0000 Load [20] ;
+0002: ADD [21] ; AC <- sum + counter
+0004: STORE [20] ; sum <- sum + counter
+0006: LOAD [21] ; AC <- counter
+0008: ADD -1 ; AC <- counter - 1
+0010: STORE [21] ; counter <- counter -1
+0012: COMP 0 ; counter==0?
+0014: JEQ 18 ;
+0016: JUMP 0 ; loop again
+0018: HALT ;
+0020: 0 ; sum
+0021: 10 ; counter

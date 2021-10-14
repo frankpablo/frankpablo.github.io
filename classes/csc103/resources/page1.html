@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title> CS 103 HTML example</title>
+</head>
+<body>
+	<p>X </p>
+	<input type = "text" id = "X"> </input>
+	<p>Y</p>
+	<input type = "text" id = "Y"> </input>
+	<br/> <br/>
+	<button type= "button" onclick=addClick() id="addButton" >ADD</button>
+	<p> Result </p>
+	<p id = "resultParagraph"> </p>
+	<script>
+		function addClick() {
+			x = parseInt(document.getElementById("X").value);
+			y = parseInt(document.getElementById("Y").value);
+			document.getElementById("resultParagraph").innerHTML = x+y;
+		}
+	</script>
+</body
