@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes14.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes16.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 15: 2D Lists and Nested Loops</h1>
+      <p>
+        <br>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+      <h2>Two-Dimensional structures (list of lists)</h2>       
+
+      <p>
+
+        Imagine the following structre:
+        <br><br>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-9s94{color:#9b9b9b;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-pb6s{color:#c0c0c0;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax"></th>
+    <th class="tg-9s94">col 0</th>
+    <th class="tg-9s94">col 1</th>
+    <th class="tg-9s94">col 2</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-pb6s">row 0</td>
+    <td class="tg-1wig">"0,0"</td>
+    <td class="tg-1wig"><span style="font-style:normal">"0,1"</span></td>
+    <td class="tg-1wig"><span style="font-style:normal">"0,2"</span></td>
+  </tr>
+  <tr>
+    <td class="tg-pb6s">row 1</td>
+    <td class="tg-1wig"><span style="font-style:normal">"1,0"</span></td>
+    <td class="tg-1wig"><span style="font-style:normal">"1,1"</span></td>
+    <td class="tg-1wig"><span style="font-style:normal">"1,2"</span></td>
+  </tr>
+  <tr>
+    <td class="tg-pb6s">row 2</td>
+    <td class="tg-1wig"><span style="font-style:normal">"2,0"</span></td>
+    <td class="tg-1wig"><span style="font-style:normal">"2,1"</span></td>
+    <td class="tg-1wig"><span style="font-style:normal">"2,2"</span></td>
+  </tr>
+</tbody>
+</table>
+        <br><br>
+
+        This structure is showing a <b>grid</b> of values, each located in a specific row and column (which are marked for clarity).
+        <br><br>
+
+        In that example, the values saved in each location (or <b>cell</b>) are the value's <b>coordinates</b> in the grid.
+        <br><br>
+        <br><br>
+
+        For example, in the following grid (wihtout the extra row and column markins), 
+        <br><br>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky">"0,0"</th>
+    <th class="tg-0pky"><span style="font-style:normal">"0,1"</span></th>
+    <th class="tg-0pky"><span style="font-style:normal">"0,2"</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"><span style="font-style:normal">"1,0"</span></td>
+    <td class="tg-0pky"><span style="font-style:normal">"1,1"</span></td>
+    <td class="tg-fymr"><span style="font-style:normal">"1,2"</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-style:normal">"2,0"</span></td>
+    <td class="tg-0pky"><span style="font-style:normal">"2,1"</span></td>
+    <td class="tg-0pky"><span style="font-style:normal">"2,2"</span></td>
+  </tr>
+</tbody>
+</table>        
+        <br><br>
+        the element "1,2" is at:
+        <br>
+        <ul>
+          <li>row: 1</li>
+          <li>column: 2</li>
+        </ul>
+        <br><br>
+
+        <br><br>
+
+        These types of structures are used all the time (to save data that can be classified under two categories or <b>dimensions</b>).
+        <br>
+        Think of "Students vs grades", or "x,y values", or "height vs weight" ratios.
+        <br><br>
+
+        <h3>How can we build one?</h3>
+
+
+
+        A list can be composed of the same types of elements (<tt>[1,2,3]</tt>) or of different types (<tt>[1, '2', False]</tt>). 
+        <br>
+        In this class, we'll mostly use the same type of elements to keep things straightforward.
+
+        <br><br>
+
+        However, one of the types of things one can save in a list is another list!
+        <br><br>
+        In other words, we can have <b>lists of lists</b>!
+
+        <br><br>
+
+        The following is an example of a list of lists:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">li <span style="color: #333333">=</span> [[<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">2</span>, <span style="color: #0000DD; font-weight: bold">3</span>], [<span style="color: #0000DD; font-weight: bold">4</span>, <span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">6</span>], [<span style="color: #0000DD; font-weight: bold">7</span>, <span style="color: #0000DD; font-weight: bold">8</span>, <span style="color: #0000DD; font-weight: bold">9</span>]]
+<span style="color: #007020">print</span> (li)
+</pre></div>
+
+
+        <br><br>
+
+        <h4>How to conceptualize this structure?</h4>
+
+        We need to think of this lists of lists in the following way:
+        <br><br>
+
+        <ul>
+          <li>Thee is a <b>first level</b> to the list: an <b>external list</b>. This is the list of lists</li>
+          <li>An element of the external list is itself a list: an <b>inner list</b></li>
+        </ul>
+
+        <br><br>
+
+        This is a <b>simplified</b> visualization of how the elements are stored in the list <tt>li</tt>:
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/2d-list.png" alt="" style="width:30%">
+        <br><br>
+
+        The following is the same list but with more of its parts explicitly highlighted:
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/2d-list-parts.png" alt="" style="width:80%">
+        <br><br>
+
+        However, when printed on the Python Tutor, the view is less pretty: <a href="https://pythontutor.com/visualize.html#code=li%20%3D%20%5B%5B1,%202,%203%5D,%20%5B4,%205,%206%5D,%20%5B7,%208,%209%5D%5D%0Aprint%20%28li%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Try it Here</a>
+
+        <br><br>
+
+        Remember, the only important "layout" of the grid is the fact that we have an <b>outer</b> list with a lot of <b>inner</b> lists at each location. 
+
+        <br><br>
+
+        <h3>Accessing 2D list elements</h3>
+
+        Since we have outer and inner lists, if we want an inner-list element (example: the element in row 1, column 2), we need to:
+        <br>
+        <ol>
+          <li>Get the correct element (inner list) from the outer list (the inner list <b><tt>[4, 5, 6]</tt></b> at <b><tt>li[1]</tt></b>)</li>
+          <li>Get the correct element (number) from the selected inner list (example below)</li>
+        </ol>
+
+        We can do this in one or two steps:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
+2  
+3  
+4  
+5  
+6  
+7  
+8  
+9  </pre></td><td><pre style="margin: 0; line-height: 125%">li <span style="color: #  333333">=</span> [[<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">2</span>, <span style="color: #0000DD; font-weight: bold">3</span>], [<span style="color: #0000DD; font-weight: bold">4</span>, <span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">6</span>], [<span style="color: #0000DD; font-weight: bold">7</span>, <span style="color: #0000DD; font-weight: bold">8</span>, <span style="color: #0000DD; font-weight: bold">9</span>]]
+<span style="color: #007020">print</span> (li)
+
+<span style="color: #888888"># in two steps</span>
+inner_li <span style="color: #333333">=</span> li[<span style="color: #0000DD; font-weight: bold">1</span>]
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;element at outer 1, inner 2:&quot;</span>, inner_li[<span style="color: #0000DD; font-weight: bold">2</span>])
+
+<span style="color: #888888"># in one step</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;element at outer 1, inner 2:&quot;</span>, li[<span style="color: #0000DD; font-weight: bold">1</span>][<span style="color: #0000DD; font-weight: bold">2</span>])
+</pre></td></tr></table></div>
+
+
+        <br><br>
+
+        Check it out <a href="https://pythontutor.com/visualize.html#code=li%20%3D%20%5B%5B1,%202,%203%5D,%20%5B4,%205,%206%5D,%20%5B7,%208,%209%5D%5D%0Aprint%20%28li%29%0A%0A%23%20in%20two%20steps%0Ainner_li%20%3D%20li%5B1%5D%0Aprint%28%22element%20at%20outer%201,%20inner%202%3A%22,%20inner_li%5B2%5D%29%0A%0A%23%20in%20one%20step%0Aprint%28%22element%20at%20outer%201,%20inner%202%3A%22,%20li%5B1%5D%5B2%5D%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank"> Here!</a>
+
+
+        <br><br>
+
+        We'll work with these grids later today.
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Nested Loops</h2>
+
+      <p>
+
+        Nested loops are loops done inside of other loops.
+        <br><br>
+
+        They are useful for many reasons, but a clue that we'll probably need one is when you have multiple <b>dimensions</b> to work through:  
+        <br>
+        <ol>
+          <li>For each student, get the average of all their grades</li>
+          <li>For each word in a paragraph, check each one of its letters</li>
+          <li>For each inner-list in an outer list, print out the inner-list's elements</li>
+          <li>etc</li>
+        </ol>
+
+        <h3>Notation for nested loops</h3>
+
+        There is nothing to add!
+        <br><br>
+        You already know how to write a loop, simply write a loop inside a loop!
+
+        <br><br>
+        Let's see some examples:
+        <br><br>
+
+        <h3>Example 1: a number pyramid</h3>
+
+        <br><br>
+
+        We wish to generate the following structure:
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/numPyramid.png" alt="" style="width:40%">
+        <br><br>
+
+        <br><br>
+
+
+        <h4>First attempt (no nesting)</h4>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  
+13  
+14  
+15  
+16  
+17  
+18  
+19  
+20  
+21  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  pyramid() <span style="color: #888888"># prints 5 levels of numbers</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">pyramid</span>():
+    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>):
+        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+    <span style="color: #007020">print</span>()        
+    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">2</span>):
+        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+    <span style="color: #007020">print</span>()    
+    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">3</span>):
+        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+    <span style="color: #007020">print</span>()    
+    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">4</span>):
+        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+    <span style="color: #007020">print</span>()    
+    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">5</span>):
+        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+
+
+        <br><br>
+
+        Look at the code <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20pyramid%28%29%20%23%20prints%205%20levels%20of%20numbers%0A%0Adef%20pyramid%28%29%3A%0A%20%20%20%20for%20j%20in%20range%281%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%282%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%283%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%284%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%285%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank"> Here</a>
+
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          In the same way we asked before, do you notice any code that is repeated?
+        </div>
+
+        <br><br><br><br>
+
+
+        <h4>Attempt 2: Nesting!</h4>
+
+
+        Let's use out old friend: <b>a loop</b> to take advantage of "automated repetition!"
+
+        <br><br>
+
+        Steps:
+        <ul>
+          <li>First, what is every repetition dependent on (what changes in each repetition)?  </li>
+          <li>Is this something we can use a variable for?</li>
+          <li>If so, can we write a loop that viaries this variable?</li>
+        </ul>
+
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/naiveCodeMarked.png" alt="" style="width:60%">
+        <br><br>
+
+        <br><br>
+
+        Let's try it:
+
+        <br><br>
+
+        Steps:
+        <ul>
+          <li>First, surround a single block of code ( the one that was "repeated") in a <b>for</b> loop (you can try a <b>while</b> later) </li>
+          <li>Replace the changing parameter for the loop variable (let's use <tt>i</tt>)</li>
+          <li>Set the varying range according to the initial range of desired values (1, 2, 3, 4, 5)</li>
+        </ul>
+
+        <br><br>
+
+        You should end up with something like this:
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  pyramid() <span style="color: #888888"># prints 5 levels of numbers</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">pyramid</span>():
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">5</span>):
+        <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(i):
+            <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+        <span style="color: #007020">print</span>()        
+   
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+
+
+        You can see it in action <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20pyramid%28%29%20%23%20prints%205%20levels%20of%20numbers%0A%0Adef%20pyramid%28%29%3A%0A%20%20%20%20for%20i%20in%20range%281,5%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20%20%20%20%20print%28%29%20%20%20%20%20%20%20%20%0A%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank"> Here!</a>
+
+
+        <br><br>
+
+        <h4>Attempt 3: Nesting using input parameters</h4>
+
+        For greater versatility, we can change the number of times we repeat the outer loop based on some input parameter!
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  pyramid(<span style="color: #0000DD; font-weight: bold">7</span>) <span style="color: #888888"># prints &lt;argument&gt; levels of numbers</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">pyramid</span>(lim):
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>,lim<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
+        <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(i):
+            <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+        <span style="color: #007020">print</span>()        
+   
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+        
+        <br><br>
+
+        Check it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20pyramid%287%29%20%23%20prints%20%3Cargument%3E%20levels%20of%20numbers%0A%0Adef%20pyramid%28lim%29%3A%0A%20%20%20%20for%20i%20in%20range%281,lim%2B1%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20%20%20%20%20print%28%29%20%20%20%20%20%20%20%20%0A%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here!</a>        
+
+
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Combining 2D Lists and Nested Loops</h2>
+
+      <p>
+        A 2D list is a set of elements that changes in two dimensions (or a two levels).
+        <br><br>
+
+        We'll write a nested loop that prints all the elements inside a 2D list in the "grid pattern".
+
+        <br><br>
+
+        <h3>The Grid Print of a 2D List</h3>
+
+        Check out the following program:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  
+13  
+14  
+15  
+16  
+17  
+18  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+    li <span style="color: #333333">=</span> [[<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">2</span>, <span style="color: #0000DD; font-weight: bold">3</span>], [<span style="color: #0000DD; font-weight: bold">4</span>, <span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">6</span>], [<span style="color: #0000DD; font-weight: bold">7</span>, <span style="color: #0000DD; font-weight: bold">8</span>, <span style="color: #0000DD; font-weight: bold">9</span>]]
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;ugly print: &quot;</span>, li)
+    <span style="color: #007020">print</span>()
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;grid print:&quot;</span>)
+    grid_print(li) <span style="color: #888888"># prints &lt;argument&gt; levels of numbers</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">grid_print</span>(li):
+    n_rows <span style="color: #333333">=</span> <span style="color: #007020">len</span>(li)
+    <span style="color: #008800; font-weight: bold">for</span> row_idx <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(n_rows):
+        n_cols <span style="color: #333333">=</span> <span style="color: #007020">len</span>(li[row_idx])
+        <span style="color: #008800; font-weight: bold">for</span> col_idx <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(n_cols):
+            <span style="color: #007020">print</span>(li[row_idx][col_idx], end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+        <span style="color: #007020">print</span>()        
+   
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+
+        <br><br>
+        <br><br>
+
+        Check it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20%20%20li%20%3D%20%5B%5B1,%202,%203%5D,%20%5B4,%205,%206%5D,%20%5B7,%208,%209%5D%5D%0A%20%20%20%20print%20%28%22ugly%20print%3A%20%22,%20li%29%0A%20%20%20%20print%28%29%0A%20%20%20%20print%20%28%22grid%20print%3A%22%29%0A%20%20%20%20grid_print%28li%29%20%23%20prints%20%3Cargument%3E%20levels%20of%20numbers%0A%0Adef%20grid_print%28li%29%3A%0A%20%20%20%20n_rows%20%3D%20len%28li%29%0A%20%20%20%20for%20row_idx%20in%20range%28n_rows%29%3A%0A%20%20%20%20%20%20%20%20n_cols%20%3D%20len%28li%5Brow_idx%5D%29%0A%20%20%20%20%20%20%20%20for%20col_idx%20in%20range%28n_cols%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28li%5Brow_idx%5D%5Bcol_idx%5D,%20end%3D%22%20%22%29%0A%20%20%20%20%20%20%20%20print%28%29%20%20%20%20%20%20%20%20%0A%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here!</a>  
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Break and Continue</h2>
+
+      <p>
+        You can used two reserved words in a loop:
+        <ul>
+          <li><b><tt>continue</tt></b>: If you want a loop to skip a section of the body and to continue in the next loop iteration</li>
+          <li><b><tt>break</tt></b>: If you want a loop to stop and never go into the next loop iteration.</li>
+        </ul>
+
+        <br><br>
+
+        Examples: 
+
+        Check it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20print_odds%28%29%0A%0Adef%20print_odds%28%29%3A%0A%20%20%20%20for%20num%20in%20range%2810%29%3A%0A%20%20%20%20%20%20%20%20if%20num%252%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20continue%0A%20%20%20%20%20%20%20%20print%28num,%20end%3D%22%20%22%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Weird printing of odd numbers</a> 
+
+        <br>
+
+        Check it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20escape_infinite%28%29%0A%0Adef%20escape_infinite%28%29%3A%0A%20%20%20%20pwd%20%3D%20%22Yak%22%0A%20%20%20%20guess%20%3D%20%22default%22%0A%20%20%20%20while%20not%20%28pwd%20%3D%3D%20guess%29%3A%0A%20%20%20%20%20%20%20%20guess%20%3D%20input%28%22what%20is%20the%20best%20word%20ever%3F%22%29%0A%20%20%20%20print%28%22You're%20absolutely%20correct!%22%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%22guru%22,%22bak%22,%22Yak%22%5D&textReferences=false" target="_blank">Escaping an infinite loop</a> 
+
+
+
+        
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Friday 10/15)</h4>
+      <b>[Due for everyone]</b>  
+      <br>
+      ZyBooks Sections  
+      <br>
+      Assignment 03 is out (Due 10/20)
+      <br>
+      Assignment 04 will be out TOMORROW (Due 10/25)
+
+      <br><br>
+
+      <b>[Optional]</b>
+      <br>
+      ZyBooks Sections 
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes14.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes16.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
