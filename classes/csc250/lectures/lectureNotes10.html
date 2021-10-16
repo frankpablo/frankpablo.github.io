@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes11.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,8 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 09: <br>
-      More on Context-Free Grammars</h1>
+      <h1>Lecture Notes 10: Turing Machines</h1>
       <p>
         <br>
       </p>
@@ -207,230 +206,19 @@
 
       This class we'll discuss:
       <ul>
-        <li>Recap: CFGs</li>
-        <li>CFG example: PAL?</li>
-        <li>What lies beyond?</li>
-        <li>Push Down Automata</li>
+        <li>Recap: REs and CFGs</li>
+        <li>The "tape-processing" view </li>
+        <li>More powers: TMs</li>
       </ul>
 
       <p><br></p><hr><p><br></p>
 
       <h2>
-        Recap: Context-Free Grammars
+        Turing Machines
       </h2>
 
-      <p>
-
-        Last lecture, we saw that a Context-Free grammar is defined as a series of substitution rules that produce a language:
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF11.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        Expressions are combinations of variables and terminals: \( u, v, w\) and at each step, we <i>can</i> follow existing rules for replacing a variable for other variables, terminals, or combinations of both.
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF12.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-
-        <b>Example 1: What does this produce?</b>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF13.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-
-        <b>Example 2: Can we produce PAL?</b>
-
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF16.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-<!-- 
-𝑉={𝑆}  
-Σ ={0,1}  
-𝑅 ={ 𝑆→_𝐺 0𝑆0,
-𝑆→_𝐺 1𝑆1,
-𝑆→_𝐺 𝜀 }
-
-Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
- -->
-
-      <br><br><br><br>
-
-      <h3>How about EQ?</h3>
-
-      <br><br><br><br>
-
-      In the following map...
-      <ul>
-        <li>Where are CFGs?</li>
-        <li>How would we represent a finite language with a CFG?
-          <!-- S -> each word -->
-        </li>
-        <li>How would we represent a regular language with a CFG?
-          <!-- A rule for each RE rule? A new PL for CFGs? -->
-        </li>
-        <li>Is there something outside a CFG?
-          <!-- YES -->
-        </li>
-        <li>Where is EQ?
-          <!-- outside -->
-        </li>
-
-      </ul>
-
-      <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF17.png" alt="CFGs!!!" style="width:80%">
-      <br><br> 
-
-
-      <h3>Ideas to prove all RL's are "inside" CFGs</h3>
-
-      <br><br>
-
-      (You suggest some:)
-
-
-      <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF18.png" alt="CFGs!!!" style="width:80%">
-      <br><br> 
-
-
-
-      <br><br><br><br>
-
-      <h3>Tip for designing Context-Free-Languages</h3>
-      <br><br>
-      Many CFLs are the union of simpler CFLs. If you must construct a CFG for a CFL that you can break into simpler pieces, do so and then construct individual grammars for each piece.
-
-      <br><br>
-
-      Example:
-      <br><br>
-
-      If the objective is to design a grammar for \( \{0^n1^n \mid n>0 \} \cup  \{1^n0^1 \mid n>0 \}\), start with two sub-languages using  sub-"starting symbols" and then join them to get the target language starting at \(S\)
-      <br><br>
-      You can build:
-      <br>
-      \(S_1 = 0S1 \mid \epsilon \) 
-      <br>
-      and
-      <br>
-      \(S_2 = 1S0 \mid \epsilon\), :
-      <br><br>
-      And then join them to obtain:
-      <br><br>
-
-      \[
-      \begin{alignat}{2}
-      S   &= S_1 \mid S_2 \\
-      S_1 &= 0S1 \mid \epsilon \\
-      S_2 &= 1S0 \mid \epsilon
-      \end{alignat}
-      \]
-
-
-      <br><br>
-
-      <h3>So now, how would we "Build" a Regular Language using a CFG?</h3>
-
-
-      <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF19.png" alt="CFGs!!!" style="width:80%">
-      <br><br> 
-
-      <br><br><br><br>
-
-
-      <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF20.png" alt="CFGs!!!" style="width:80%">
-      <br><br> 
-
-
-
-
-<!-- 
-S   →_𝐺   ∅|𝜀|𝑎
-𝑆_1 →_𝐺   𝐴
-𝑆_2 →_𝐺   𝐵
-𝑆   →_𝐺   S_1 |𝑆_2  (𝐴+𝐵)
-𝑆   →_𝐺   S_1 𝑆_2   (𝐴𝐵)
-𝑆   →_𝐺   𝑆_1 𝑆_1   (𝐴^∗ )  "needs a little more induction, but proof left to the reader"
- -->      
-
-        <br><br><br><br>
-
-      <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF21.png" alt="CFGs!!!" style="width:80%">
-      <br><br> 
-
-      <h3>How do we prove there are languages that are NOT (beyond) CFLs?</h3>
-
-      <br><br>
-
-      How did we do this back when we did it for RLs?
-      <br><br><br><br>
-
-      <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF22.png" alt="CFGs!!!" style="width:80%">
-      <br><br> 
-
-      <ul>
-        <li>the middle part is not too big</li>
-        <li>v and y (the repeating parts) are not both simultaneously empty</li>
-        <li>repeating v and or y we will keep us in the language</li>
-      </ul>   
-
-      <br><br>
-
-      Note that RLs are a special case of Context-Free-Languages (without the \(uv^i\)) part.
-
-
-      <br><br><br><br>
-
-      So, if we have a pumping lemma for CFGs, is there a "Machine" equivalent to the Finite Automatons as well?
-      <br><br><br><br> We'll see those next class.
-
-      </p>
       
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Proving a language is NOT context-free</h2>
-
-      <p>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF23.png" alt="CFGs!!!" style="width:80%">
-        <br><br> 
-
-        <br><br><br><br>
-
-        <b>What does your untuition say?</b> Is it a CFL?
-
-        <br><br><br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF24.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-
-        Remember:
-        <ul>
-          <li>Given a structure of \(w = uvxyz\), and \( \mid vy \mid \geq 1\)</li>
-          <li>We want to find an \(i\) for which a word \(uv^ixy^iz\) <br>
-          does not have a prime length ( \( \mid uv^ixy^iz \mid  \) is not prime ) after being "pumped" some number of times.
-          </li>
-          <li>Here, we can start with a word \(w\) with length \(p\geq N \) (\(N\) provided by the pumping Lemma)</li>
-          <li>Now, the trick is to pump the pattern some number of times so that we can prove that the final length is NOT prime!</li>
-          <li>Ideas?</li>
-        </ul>
-
+<!-- 
         <details>
             <summary>(Wait; then Click)<br><br></summary>
 
@@ -463,134 +251,136 @@ S   →_𝐺   ∅|𝜀|𝑎
 
             <br><br>
           </details>
-
+ -->
 
         
       </p>
 
 
-<!-- For this particular language for s any 1^p (with p≥N and p is a prime number) will do the trick. Then the pumping lemma gives you 𝑢𝑣𝑥𝑦𝑧 with |𝑣𝑦|≥1. 
-
-To disprove the context-freeness, you need to find 𝑛 such that |𝑢𝑣^𝑛𝑥𝑦^𝑛𝑧| is not a prime number.
-
-Remember that this word is all 1s, so |𝑢𝑣^𝑛𝑥𝑦^𝑛𝑧|=|original s|+(𝑛−1)|𝑣𝑦| = p+(𝑛−1)|𝑣𝑦|
-
-Now what happens when we pump |yv|?  𝑛=p+1 will do. Now the length will be: p+p|𝑣𝑦|=p(1+|𝑣𝑦|), which is not prime (we just factored it), so 𝑢𝑣^𝑛𝑥𝑦^𝑛𝑧 ∉ 𝐿. The pumping lemma can't be applied so 𝐿 is not context free. -->
-
-
 
       <p><br></p><hr><p><br></p>
 
-      <h2>Why are CFGs important?</h2>
+      <h2>Turing Machines</h2>
 
       <p>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/out.png" alt="" style="width:80%">
+        <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF25.png" alt="CFGs!!!" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur01.png" alt="" style="width:80%">
         <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur02.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur03.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur04.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur05.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur06.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur07.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur08.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur09.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur10.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur11.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur12.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur13.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur14.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur15.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur16.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur17.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur18.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur19.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur20.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur21.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur22.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur23.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur24.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur25.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur26.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur27.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur28.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur29.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur30.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur31.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/Tur32.png" alt="" style="width:80%">
+        <br><br>
+
         
       </p>
 
-      <p><br></p><hr><p><br></p>
-      
-
-      <h2>mini (video) lecture: Push-Down Automata</h2>
-
-      <p>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA01.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA02.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA03.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA04.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA05.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA06.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA07.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA08.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA09.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA09a.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA09b.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA09c.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA10.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA11.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA12.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA13.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA14.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA15.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA16.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        
-      </p>
-
 
 
       <p><br></p><hr><p><br></p>
 
-      <h3>Next class: Turing Machines</h3>
+      <h3>Next class: Decidability</h3>
 
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Monday)<h4>
+      <h4>Before next class (Wednesday)<h4>
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
-         Problem Set 03: Due 10/18 at 5 PM
+         TODO
       </div> 
       <br>
       <b>[Optional]</b> 
@@ -618,10 +408,10 @@ Now what happens when we pump |yv|?  𝑛=p+1 will do. Now the length will be: p
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes11.html">Next Module</a>
               </li>
             </ul>
           </div>
