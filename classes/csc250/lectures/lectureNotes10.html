@@ -214,7 +214,7 @@
       <p><br></p><hr><p><br></p>
 
       <h2>
-        Turing Machines
+        Building up to the big one...
       </h2>
 
       
@@ -315,6 +315,29 @@
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture10/Tur16.png" alt="" style="width:80%">
         <br><br>
+
+        <br><br><br><br>
+        So, a transition would look like this:
+        <center>
+          \[ (r, w, m) \]
+        </center>
+        
+        where each of the elements means:
+        <ul>
+          <li><b><tt>r</tt></b>: what is Read from the "tape"</li>
+          <li><b><tt>w</tt></b>: what is Written into the "tape"</li>
+          <li><b><tt>m</tt></b>: the movement direction in the "tape"</li>
+        </ul>
+        Examples:
+        <br>
+        <ul>
+          <li><b><tt>(0, \(\square\), L)</tt></b>: IF we read a 0, we write a "blank" and move Left</li>
+          <li><b><tt>(1, 1, R)</tt></b>: IF we read a 1, we write a 1 and move Right</li>
+          <li><b><tt>(0, 0, L)</tt></b>: IF we read a 0, we write a 0 and move Left</li>
+        </ul>
+
+        <br><br><br><br>
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture10/Tur17.png" alt="" style="width:80%">
         <br><br>
@@ -324,6 +347,20 @@
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture10/Tur19.png" alt="" style="width:80%">
         <br><br>
+        <details>
+            <summary>(Wait; then Click)<br><br></summary>
+
+              Solution            
+              <br><br>
+              <br><br>
+              <img id="image" class="img-responsive" src="../figures/lecture10/Tur19sol.png" alt="" style="width:80%">
+              <br><br>
+              Where would the reject state be?
+
+              </details>
+
+            <br><br>
+          </details>
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture10/Tur20.png" alt="" style="width:80%">
         <br><br>
@@ -345,9 +382,43 @@
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture10/Tur26.png" alt="" style="width:80%">
         <br><br>
+
+        <br><br><br><br>
+
+        <h3>Can we create a machine/routine that can predict if a program will halt?</h3>
+        <br><br>
+        Consider the following (sketch of a) proof by contradiction:        
+        <br><br><br><br>
+        <h4>1: Say there exists a function called <tt>halts</tt></h4>
+        <br>
+
+        <h4>halts(f) returns true if the subroutine f halts and returns false otherwise.</h4>
+
+        <br><br>
+
+        <h4>2: Now consider the following subroutine <tt>g</tt>:</h4>
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture10/Tur27.png" alt="" style="width:80%">
         <br><br>
+
+        <br><br>
+
+        What is happening here?
+
+        <details>
+        <summary>(Wait; then Click)<br><br></summary>
+        <ol>
+          <li>halts(g) must either return true or false. </li>
+          <li>If halts(g) returns true, then g will call loop_forever and never halt, which is a contradiction. </li>
+          <li>Therefore, the initial assumption that halts is a total computable function must be false.</li>  
+        </ol>
+        </details>
+
+            <br><br>
+          </details>
+        <br><br>
+
+        <!-- 
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture10/Tur28.png" alt="" style="width:80%">
         <br><br>
@@ -362,7 +433,7 @@
         <br><br>
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture10/Tur32.png" alt="" style="width:80%">
-        <br><br>
+        <br><br> -->
 
         
       </p>
