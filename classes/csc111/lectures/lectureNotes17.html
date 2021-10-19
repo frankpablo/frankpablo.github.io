@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 17: Tuples, ennumerate, and Dictionaries</h1>
+      <p>
+        <br>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Iterating over a List: Using ennumerate</h2>
+
+      <p>
+        With lists, we mentioned a couple of ways of going over the contents:
+        <ul>
+          <li>
+            The "completel by hand way":
+            <br>
+
+          </li>
+
+          <li>using the indices to access the list, in a construction that might look like this:
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">li <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;a&#39;</span>, <span style="background-color: #fff0f0">&#39;b&#39;</span>, <span style="background-color: #fff0f0">&#39;c&#39;</span>, <span style="background-color: #fff0f0">&#39;d&#39;</span>, <span style="background-color: #fff0f0">&#39;e&#39;</span>]
+<span style="color: #008800; font-weight: bold">for</span> idx <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #007020">len</span>(li)):
+  <span style="color: #007020">print</span>(li[idx])
+</pre></div>            
+          </li>
+
+          <li>
+            Using the concept of "for each element in the container" approach, which looks like this:
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">li <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;a&#39;</span>, <span style="background-color: #fff0f0">&#39;b&#39;</span>, <span style="background-color: #fff0f0">&#39;c&#39;</span>, <span style="background-color: #fff0f0">&#39;d&#39;</span>, <span style="background-color: #fff0f0">&#39;e&#39;</span>]
+<span style="color: #008800; font-weight: bold">for</span> elem <span style="color: #000000; font-weight: bold">in</span> li:
+  <span style="color: #007020">print</span>(elem)
+</pre></div>            
+          </li>
+
+          <li>
+            And then there is this weird hybrid:
+            <br>
+            <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">li <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;a&#39;</span>, <span style="background-color: #fff0f0">&#39;b&#39;</span>, <span style="background-color: #fff0f0">&#39;c&#39;</span>, <span style="background-color: #fff0f0">&#39;d&#39;</span>, <span style="background-color: #fff0f0">&#39;e&#39;</span>]
+idx <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span> 
+<span style="color: #008800; font-weight: bold">for</span> elem <span style="color: #000000; font-weight: bold">in</span> li:
+  <span style="color: #007020">print</span>(idx, elem)
+  idx <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+</pre></div>
+
+          </li>
+        </ul>
+        <br><br>
+        Sometimes having the index is useful, sometimes you don't need it.
+        <br><br>
+
+        There is one last way: using <b><tt>ennumerate</tt></b>!
+
+        <br><br><br><br>
+
+        <h4>ennumerate</h4>
+
+        Rather than creating and incrementing a variable "by hand", one can use the function <b><tt>enumerate()</tt></b> to get a counter and the value from the iterable at the same time!
+        <br><br>
+
+        example:
+
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">li <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;a&#39;</span>, <span style="background-color: #fff0f0">&#39;b&#39;</span>, <span style="background-color: #fff0f0">&#39;c&#39;</span>, <span style="background-color: #fff0f0">&#39;d&#39;</span>, <span style="background-color: #fff0f0">&#39;e&#39;</span>]
+<span style="color: #008800; font-weight: bold">for</span> count, value <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">enumerate</span>(li):
+  <span style="color: #007020">print</span>(count, value)
+</pre></div>
+        
+        <br><br>
+
+        <b><tt>enumerate()</tt></b> returns <b>two</b> loop variables that can be printed, used to access or compare values, or anything else.
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Tuples</h2>       
+
+      <p>
+
+        A <b><tt>Tuple</tt></b> is created ike this:
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">player_tuple <span style="color: #333333">=</span> (<span style="background-color: #fff0f0">&#39;Pablo&#39;</span>, <span style="background-color: #fff0f0">&#39;Wizard&#39;</span>)
+<span style="color: #007020">print</span>(player_tuple)
+</pre></div>
+
+        <br><br>
+
+        A <b><tt>Tuple</tt></b> is created almost the same way as a list (using parentheses instead of square brackets) and can be accessed with the square bracket syntax:
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020">print</span>(player_tuple[<span style="color: #0000DD; font-weight: bold">1</span>])
+</pre></div>
+
+        <br><br>
+
+        The main difference is that a <b><tt>Tuple</tt></b> is immutable! ... once created it cannot be transformed, it can only be overwritten.
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>What are Dictionaries?</h2>       
+
+      <p>
+
+        Dictionaries are like lists but instead of accessing elements by their <b>index</b>, we access them through a <b>key</b>.
+
+        <h4>Meta Structure for a Dictionary</h4>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture17/Dic01.png" alt="" style="width:60%">
+        <br><br>
+
+        <h4>Example Dictionary: MLB teams by state</h4>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture17/Dic02.png" alt="" style="width:60%">
+        <br><br>
+       
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Working with Dictionaries</h2>       
+
+      <p>
+
+        <h3>Creating a Dictionary</h3>
+
+        One can use several approaches to create a dictionary.
+        <br><br>
+        The first is to use comma separated <b><tt>Key:value</tt></b> pairs inside a pair of <b><tt>curly brackets</tt></b> ( <tt>{ ... }</tt>).
+        <br><br>
+
+        <h4>Example 1: MLB teams by state with <tt>{...}</tt></h4>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># braces</span>
+MLB_team_1 <span style="color: #333333">=</span> {
+            <span style="background-color: #fff0f0">&#39;Colorado&#39;</span>:<span style="background-color: #fff0f0">&#39;Rockies&#39;</span>, 
+            <span style="background-color: #fff0f0">&#39;Boston&#39;</span>: <span style="background-color: #fff0f0">&#39;Red Sox&#39;</span>, 
+            <span style="background-color: #fff0f0">&#39;Minnesota&#39;</span>: <span style="background-color: #fff0f0">&#39;Twins&#39;</span>, 
+            <span style="background-color: #fff0f0">&#39;Milwaukee&#39;</span>: <span style="background-color: #fff0f0">&#39;Brewers&#39;</span>, 
+            <span style="background-color: #fff0f0">&#39;Seattle&#39;</span>: <span style="background-color: #fff0f0">&#39;Mariners&#39;</span>
+            }                                    
+
+<span style="color: #007020">print</span> (MLB_team_1)
+</pre></div>
+
+
+        <br><br>
+        Another is to use the <b><tt>dict</tt></b> function.
+        <br><br>
+
+        <h4>Example 2: MLB teams by state with <tt>dict</tt></h4>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># list of pairs</span>
+MLB_team_2 <span style="color: #333333">=</span> <span style="color: #007020">dict</span> ([
+        (<span style="background-color: #fff0f0">&#39;Colorado&#39;</span>, <span style="background-color: #fff0f0">&#39;Rockies&#39;</span>),
+        (<span style="background-color: #fff0f0">&#39;Boston&#39;</span>, <span style="background-color: #fff0f0">&#39;Red Sox&#39;</span>),
+        (<span style="background-color: #fff0f0">&#39;Minnesota&#39;</span>, <span style="background-color: #fff0f0">&#39;Twins&#39;</span>),
+        (<span style="background-color: #fff0f0">&#39;Milwaukee&#39;</span>, <span style="background-color: #fff0f0">&#39;Brewers&#39;</span>),
+        (<span style="background-color: #fff0f0">&#39;Seattle&#39;</span>, <span style="background-color: #fff0f0">&#39;Mariners&#39;</span>) 
+                  ])
+
+<span style="color: #007020">print</span> (MLB_team_2)
+</pre></div>
+
+
+        <br><br>
+
+        And yet a third option is to use the <b><tt>assigned pairs</tt></b> syntax.
+        <br><br>
+
+        <h4>Example 2: MLB teams by state with <tt>dict</tt></h4>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># assigned pairs</span>
+MLB_team_3 <span style="color: #333333">=</span> <span style="color: #007020">dict</span> (
+        Colorado <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Rockies&#39;</span>,
+        Boston <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Red Sox&#39;</span>,
+        Minnesota <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Twins&#39;</span>,
+        Milwaukee <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Brewers&#39;</span>,
+        Seattle <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Mariners&#39;</span> 
+                  )
+
+<span style="color: #007020">print</span> (MLB_team_3)
+</pre></div>
+
+
+        <br><br>
+
+
+        If all the data is available and it is not a lot, the <tt>braces</tt> approach might be simplest.
+        <br><br>
+
+        However, if a lot of data needs to be added, the best approach would be to:
+        <ol>
+          <li>create an empty dictionary</li>
+          <li>add elements as needed</li>
+        </ol>
+
+        <br><br>
+
+        Before we do this, we need to be able to "access" elements in the dictionary:
+
+        <br><br>
+
+
+        <h3>Accessing a Dictionary</h3>
+
+        This is pretty simple; you use the <b>square brackets</b> (<tt>[ ... ]</tt>) syntax, 
+        <br>
+        except instead of indicating the <b><tt>index</tt></b> you want, you specify the desired <b><tt>key</tt></b>!
+
+        <br><br>
+
+        <h4>Example: Printing one of the teams</h4>
+
+        The following is a way of getting at one of the teams by using the key:
+
+        <br><br>
+
+        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">MLB_team_1 <span style="color: #333333">=</span> {
+            <span style="background-color: #fff0f0">&#39;Colorado&#39;</span>:<span style="background-color: #fff0f0">&#39;Rockies&#39;</span>, 
+            <span style="background-color: #fff0f0">&#39;Boston&#39;</span>: <span style="background-color: #fff0f0">&#39;Red Sox&#39;</span>, 
+            <span style="background-color: #fff0f0">&#39;Minnesota&#39;</span>: <span style="background-color: #fff0f0">&#39;Twins&#39;</span>, 
+            <span style="background-color: #fff0f0">&#39;Milwaukee&#39;</span>: <span style="background-color: #fff0f0">&#39;Brewers&#39;</span>, 
+            <span style="background-color: #fff0f0">&#39;Seattle&#39;</span>: <span style="background-color: #fff0f0">&#39;Mariners&#39;</span>
+            }   
+
+<span style="color: #007020">print</span>(MLB_team_1[<span style="background-color: #fff0f0">&#39;Milwaukee&#39;</span>])
+</pre></div>
+
+        <br><br>
+
+        <h4>But what if I try to access indices?</h4>
+
+        Try this:
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020">print</span> (MLB_team_1[<span style="color: #0000DD; font-weight: bold">1</span>])
+</pre></div>
+
+        <br><br>
+
+        <b>What happens?</b>
+
+        <br><br>
+
+        <h3>Creating an Empty Dict and adding elements as needed</h3>
+
+        One can create an empty dictionary like this:
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># empty dictionary</span>
+bag <span style="color: #333333">=</span> {}
+</pre></div>
+
+
+        <br><br>
+
+
+        <h3>Adding to a Dictionary</h3>
+
+        You can add elements to a dictionary by making an assignment to a <b>new</b> key:
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">MLB_team_1[<span style="background-color: #fff0f0">&#39;New York&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Mets&#39;</span>
+
+<span style="color: #007020">print</span> (MLB_team_1)
+</pre></div>
+
+
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Create a dictionary of <b><tt>players</tt></b> that has the following key-value pairs:
+          <ul>
+            <li>Pablo - Wizard</li>
+            <li>Yak - Barbarian</li>
+            <li>Mar - Rogue</li>
+            <li>Dan - Priest</li>
+          </ul>
+
+          <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># creation (empty)</span>
+players <span style="color: #333333">=</span> {}
+
+<span style="color: #888888"># adding</span>
+players[<span style="background-color: #fff0f0">&#39;Pablo&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Wizard&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Yak&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Barbarian&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Mar&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Rogue&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Dan&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Priest&#39;</span>
+
+<span style="color: #007020">print</span> (players)
+</pre></div>
+
+              <br><br>
+              </details>
+  
+        </div>
+
+
+        <br><br>
+
+
+        <h3>What data can I add?</h3>
+
+        As <b>Keys</b>, you can use integers, floats, strings, or booleans.
+        <br><br>
+        As <b>Values</b>, you can have whatever: integers, strings, lists, <i>other dictionaries!</i>, etc.
+
+        
+
+
+        <br><br>
+
+
+
+          <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+          <div class="mx-lg-5">
+            Make a gradebook for three imaginary students with grades for four different assignments:
+            <ul>
+              <li>Smarty Pants: B-, B+, A-, B</li>
+              <li>Slacky Slacks: C, D+, B-, C</li>
+              <li>Flunky Flunk: E, E, E, E</li>
+            </ul>
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              What structure could you use?
+              <br><br>
+
+              string keys with lists of grades as values... or  
+              <br>
+              string keys with a dictionary of assignment-grade key-value pairs
+
+              <br><br>
+              </details>
+    
+          </div>
+
+
+          <br><br>
+
+
+          One important aspect of "accessing" dictionaries is that (in a similar fashion as the "index out of bounds") error for lists, one can run into trouble if one searches for an nonexistant key:
+
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># creation (empty)</span>
+players <span style="color: #333333">=</span> {}
+
+<span style="color: #888888"># adding</span>
+players[<span style="background-color: #fff0f0">&#39;Pablo&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Wizard&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Yak&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Berzerker&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Mar&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Rogue&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Dan&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Priest&#39;</span>
+
+<span style="color: #007020">print</span> (players)
+
+<span style="color: #007020">print</span> (players[<span style="background-color: #fff0f0">&#39;Shinyoung&#39;</span>])
+</pre></div>
+        <br><br>
+
+        We will deal with this elegantly <b>later on</b>.
+
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Dictionary Methods</h2>
+
+      <p>
+        The following table shows a sumary of common methods for dictionaries:
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture17/Dic03.png" alt="" style="width:100%">
+        <br><br>
+
+        In particular, look at the <b><tt>get</tt></b> method.
+        <br><br>
+        It allows you to deal with nonexistent keys. Later, we'll see another way of dealing with these types of runtime <tt>exceptions</tt>.
+
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+        <h2>Iterating in Dictionaries</h2>
+
+        <b>In dictionaries, we don't have indices</b>, so we use the second approach:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">players <span style="color: #333333">=</span> {}
+players[<span style="background-color: #fff0f0">&#39;Pablo&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Wizard&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Yak&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Berzerker&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Mar&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Rogue&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Dan&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Priest&#39;</span>
+
+<span style="color: #008800; font-weight: bold">for</span> player <span style="color: #000000; font-weight: bold">in</span> players:
+  <span style="color: #007020">print</span>(player)
+</pre></div>
+
+
+        <br><br>
+
+        <h3>Views</h3>
+
+        Views, or view objects, are (read-only) iterable containers that allow you to go over all or parts of a dictionary.
+        <br>
+        (<i>iterable is any object that can return its members one at a time.</i>)
+        <br><br>
+
+        <ul>
+          <li>dict.items() – returns a view object that yields (key, value) tuples.</li>  
+          <li>dict.keys() – returns a view object that yields dictionary keys.</li> 
+          <li>dict.values() – returns a view object that yields dictionary values.</li> 
+        </ul>
+
+        <h4>Examples</h4>
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">players <span style="color: #333333">=</span> {}
+players[<span style="background-color: #fff0f0">&#39;Pablo&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Wizard&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Yak&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Berzerker&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Mar&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Rogue&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Dan&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Priest&#39;</span>
+
+<span style="color: #888888"># item view</span>
+p_items <span style="color: #333333">=</span> players<span style="color: #333333">.</span>items()
+<span style="color: #008800; font-weight: bold">for</span> player, role <span style="color: #000000; font-weight: bold">in</span> p_items:
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;player {} is a {}&quot;</span><span style="color: #333333">.</span>format(player, role))
+
+<span style="color: #888888"># key view</span>
+p_keys <span style="color: #333333">=</span> players<span style="color: #333333">.</span>keys()
+<span style="color: #008800; font-weight: bold">for</span> player <span style="color: #000000; font-weight: bold">in</span> p_keys:
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;one player is {}&quot;</span><span style="color: #333333">.</span>format(player))
+
+<span style="color: #888888"># value view</span>
+p_values <span style="color: #333333">=</span> players<span style="color: #333333">.</span>values()
+<span style="color: #008800; font-weight: bold">for</span> role <span style="color: #000000; font-weight: bold">in</span> p_values:
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;one role is {}&quot;</span><span style="color: #333333">.</span>format(role))
+</pre></div>
+
+        <br><br>
+
+        <h3>Converting into lists</h3>
+
+        Sometimes, we might want to have a "list" version of a part of a dictionary:
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">players <span style="color: #333333">=</span> {}
+players[<span style="background-color: #fff0f0">&#39;Pablo&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Wizard&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Yak&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Berzerker&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Mar&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Rogue&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Dan&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Priest&#39;</span>
+<span style="color: #888888"># converting to list</span>
+pk_list <span style="color: #333333">=</span> <span style="color: #007020">list</span>(players<span style="color: #333333">.</span>keys())
+<span style="color: #888888"># sorting that list</span>
+sorted_pk_list <span style="color: #333333">=</span> <span style="color: #007020">sorted</span>(pk_list)
+
+<span style="color: #007020">print</span>(sorted_pk_list)
+</pre></div>
+
+        <br><br>
+
+        Note that if you make the "items" view of a Dictionary into a list, you generate a list of tuples.
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">players <span style="color: #333333">=</span> {}
+players[<span style="background-color: #fff0f0">&#39;Pablo&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Wizard&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Yak&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Berzerker&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Mar&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Rogue&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Dan&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Priest&#39;</span>
+<span style="color: #888888"># converting to list</span>
+pi_list <span style="color: #333333">=</span> <span style="color: #007020">list</span>(players<span style="color: #333333">.</span>items())
+<span style="color: #888888"># sorting that list</span>
+sorted_pi_list <span style="color: #333333">=</span> <span style="color: #007020">sorted</span>(pi_list)
+
+<span style="color: #007020">print</span>(sorted_pi_list)
+</pre></div>
+
+        <br><br>
+        This allows us to work with the list as when we use ennumerate:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">players <span style="color: #333333">=</span> {}
+players[<span style="background-color: #fff0f0">&#39;Pablo&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Wizard&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Yak&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Berzerker&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Mar&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Rogue&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Dan&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Priest&#39;</span>
+<span style="color: #888888"># converting to list</span>
+pi_list <span style="color: #333333">=</span> <span style="color: #007020">list</span>(players<span style="color: #333333">.</span>items())
+<span style="color: #888888"># sorting that list</span>
+sorted_pi_list <span style="color: #333333">=</span> <span style="color: #007020">sorted</span>(pi_list)
+
+<span style="color: #007020">print</span>(sorted_pi_list)
+
+<span style="color: #008800; font-weight: bold">for</span> key, value <span style="color: #000000; font-weight: bold">in</span> pi_list:
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;player {} is a {}&quot;</span><span style="color: #333333">.</span>format(key, value))
+</pre></div>
+        
+        <br><br><br><br>
+        Also, check what happens if you convert the dictionary into a list directly:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">players <span style="color: #333333">=</span> {}
+players[<span style="background-color: #fff0f0">&#39;Pablo&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Wizard&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Yak&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Berzerker&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Mar&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Rogue&#39;</span>
+players[<span style="background-color: #fff0f0">&#39;Dan&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Priest&#39;</span>
+<span style="color: #888888"># converting to list</span>
+p_list <span style="color: #333333">=</span> <span style="color: #007020">list</span>(players)
+<span style="color: #888888"># sorting that list</span>
+sorted_p_list <span style="color: #333333">=</span> <span style="color: #007020">sorted</span>(p_list)
+
+<span style="color: #007020">print</span>(sorted_p_list)
+</pre></div>
+
+
+
+
+        
+
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Additional readings</h2>
+
+      <p>
+        Check out this article on <a href="https://realpython.com/python-dicts/">working with Dictionaries</a>
+        <br>
+        Also, check this article on <a href="https://realpython.com/python-enumerate/">ennumerate</a>
+      </p>
+      
+
+        
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Friday 10/22)</h4>
+      <b>[Due for everyone]</b>  
+      <br>
+      ZyBooks Sections ???
+      <br>
+      Assignment 04 is Due 10/25
+
+      <br><br>
+
+      <b>[Optional]</b>
+      <br>
+      
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
