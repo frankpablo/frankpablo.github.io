@@ -220,7 +220,7 @@
 
       <p>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/out.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture11/computation.gif" alt="" style="width:80%">
         <br><br>
 
         <br><br>
@@ -232,6 +232,29 @@
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture11/Dec03.png" alt="" style="width:80%">
         <br><br>
+
+
+        <big><span style="color:#003470;font-size:200%">Recognizing vs Deciding</span></big>
+        <br><br><br><br>
+        <big><span style="color:#003470;font-size:120%">
+          <b>Recognizing</b> a word is having the capacity of saying "YES, I know this one", if that word is in the Language \(L\) you are able to "Recognize".
+          <br><br>
+          Note: If you are trying to <b>Recognize</b> a word, but you are not done checking, .... how long do you wait?
+          <br><br>
+          In other words, you just say: If I say "YES", I'm sure it is "YES" (ACCEPT), but I don't promise anything else.
+          <br><br><br><br>
+
+          <b>Deciding</b> a word is having the capacity of saying "YES, I know this one", if that word is in the Language \(L\) you are able to "Decide", AND "NO, this one is NOT one of mine" for ALL words that are not in the Language you are able to "Decide" (called the complement of \(L\), or \(L^c\) or \(\bar{L}\).
+        </span></big>
+
+        <br><br><br><br>
+
+
+
+
+        <br><br><br><br><br><br>
+
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture11/Dec04.png" alt="" style="width:80%">
         <br><br>
@@ -241,8 +264,39 @@
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture11/Dec06.png" alt="" style="width:80%">
         <br><br>
+
+        <big><span style="color:#003470;font-size:200%">Big Idea 1: Emulating</span></big>
+
+        <center>
+          <big><span style="color:#003470;font-size:150%">If the TM \(U\) has arbitrary memory (Tape), we can "save" input descriptions of other machines \(M\) and, given a word \(w\) as input, process the word using the rules we read from the tape and interpret with the states described in \(M\).</span></big>
+        </center>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec07.png" alt="" style="width:80%">
+
+        <big><span style="color:#003470;font-size:120%">In other words, TM \(U\) can <b>emulate</b> other turing machines \(M\) for some input \(w\)</span></big>
+
+        <br><br><br><br><br><br><br><br>
+
+        <big><span style="color:#003470;font-size:200%">Big Idea 2: Input Descriptions</span></big>
+
+        <br><br>
+
+        <center>
+          <big><span style="color:#003470;font-size:150%">If TM \(U\) can <b>emulate</b> \(< M, w >\), <br>
+          We can make the input \(w\) the description of another machine \( M_2 \)</span></big>
+        </center>
+
+        <big><span style="color:#003470;font-size:120%">In other words, TM \(U\) can <b>emulate</b> other turing machines \(M\) that can get as input, other turing machines \(w = description(M_2)\)
+          <br><br>
+          Or &nbsp; &nbsp; &nbsp;\(U\) emulates \(< M, description(M_2) >\) or just \(< M, M_2 >\)</span></big>
+
+
+
+        <br><br><br><br><br><br><br><br>
+
+        <big><span style="color:#003470;font-size:200%">Where we left off...</span></big>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture11/Dec07.png" alt="" style="width:60%">
         <br><br>
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture11/Dec08.png" alt="" style="width:80%">
