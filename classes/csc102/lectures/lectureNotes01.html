@@ -2,26 +2,110 @@
 <html lang="en">
   <head>
     <link rel="icon" href="../../../images/pabloFaceIcon.png">
-    <title>CSCI 1111 Introduction to Software Development</title>
+    <title>CSC 102  How The Internet Works</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #table td {
+          padding: 1em;
+          border: 1px solid black;
+      }
+
+
+      #table.show tr > *:nth-child(1) {
+          display: block;
+      }
+
+
+      /*For tree view*/
+
+      /* Remove default bullets */
+      ul, #myUL {
+        list-style-type: none;
+      }
+
+      /* Remove margins and padding from the parent ul */
+      #myUL {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Style the caret/arrow */
+      .caret {
+        cursor: pointer;
+        user-select: none; /* Prevent text selection */
+      }
+
+      /* Create the caret/arrow with a unicode, and style it */
+      .caret::before {
+        content: "\25B6";
+        color: black;
+        display: inline-block;
+        margin-right: 6px;
+      }
+
+      /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+      .caret-down::before {
+        transform: rotate(90deg);
+      }
+
+      /* Hide the nested list */
+      .nested {
+        display: none;
+      }
+
+      /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+      .active {
+        display: block;
+      }
+
+      /* Style the caret/arrow */
+      .caret2 {
+        cursor: pointer;
+        user-select: none; /* Prevent text selection */
+      }
+
+      /* Create the caret/arrow with a unicode, and style it */
+      .caret2::before {
+        content: "\25B6";
+        color: grey;
+        display: inline-block;
+        margin-right: 6px;
+      }
+
+    </style>
+
+
+
   </head>
 
   <body>
     <div class="container py-1">
-      <img class="float-right" src="../../../images/gw_primary_logo.png" alt="GWU" height="160">
-      <h1 class="display-3 m-0">CS 1111</h1>
-      <p class="lead">Introduction to Software Development</p>
-      <p class="lead">GWU Computer Science </p>
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmitIntroogoStack-cmyk.png" alt="SmitIntroogo" height="120">
+      <h1 class="display-3 m-0">CSC 102</h1>
+      <p class="lead">How The Internet Works</p>
+      <p class="lead">Smith Computer Science </p>
     </div>
 
     <div class="container py-0"><!-- was 1-->
+      
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
-        <a class="navbar-brand" href="../../index.html">
+        <a class="navbar-brand" href="../../../../index.html">
           <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,11 +116,11 @@
             <li class="nav-item active">
               <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info</a>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures<span class="sr-only">(current page)</span></a>
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
             </li>
             <li class="nav-item">
               <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
@@ -47,10 +131,10 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                 <a class="dropdown-item" href="#">HW Assignments</a>
-                <a class="dropdown-item" href="#">Project 1</a>
-                <a class="dropdown-item" href="#">Project 2</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Final Project</a>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -58,9 +142,9 @@
                 Tools and Links
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Piazza</a>
-                <a class="dropdown-item" href="#">BBUltra</a>
-                <a class="dropdown-item" href="#">Codio</a>
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">School Calendar</a>
               </div>
@@ -68,7 +152,7 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes01.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes02.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -78,295 +162,354 @@
     <div class="container  pb-5">
       <div class="col-xs-0 col-md-2"></div>
       <div class="col-xs-12 col-md-10">
-      <p>
-        <hr>
-      </p>
+      <br><br>
 
 
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 0: Welcome to CS1111</h1>
+      <h1>Lecture Notes 01: Welcome to CSC 102</h1>
       <p>
         <br>
       </p>
-      <h2>Objectives</h2>
-
-      By the end of this module, you will be able to:
-      <ul>
-        <li> Identify the rules for the course.        
-        <li> Identify all the tools and mechanisms that will be used in the course.
-        <li> Explain the difference between Programming and Computer Science. 
-        <li> Demonstrate Familiarity with the Codio Interface.</li>  
-      </ul>
 
       <p><br></p><hr><p><br></p>
 
       <h2>
-        Before Starting
+        Before Starting: <br>
+        Who's who and why are we here?
       </h2>
+      <br><br>
 
-      <ul>
-        <li>Sign up to Piazza.</li>
-        <li>Locate Blackboard Collaborate Ultra (BBUltra) in Blackboard.</li>
-        <li>Locate Codio form Blackboard.</li>
-        <li>Sign up to Codio.</li>
-      </ul>
-
+      <h4>Pablo</h4>
       <p>
-        If you do not have your Codio course ready, simply follow along on the BBUltra lecture with this Lecture Notes 0 as the class notes. Please also contact the instructional team (through Piazza, ideally) to get help accessing Codio.
-      </p>
+        Name: Pablo Frank Bolton ("Frank" and "Bolton" are last names); <br>
+        Pronouns: He, Him; <br>
+        you can call me "Pablo" <br><br>
+        <b>What do I do?</b>
 
-      <p><br></p><hr><p><br></p>
-
-
-      <h2>
-      The Course Information
-      </h2>
-
-      <p>
-        The class information is located in the <a href="../class-info.html"> Class Info</a> link of the navigation bar. We will go over it now. When you are done checkcing it out, make sure to continue here.
-        <br>
-        <big><b>The Most Important Point:</b></big> This course is designed so that anyone can learn to program and do well even without any prior experience!
-      </p>
-
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        Using Piazza (repeated from <a href="../labs/lab1.html">Lab 1</a>)
-      </h2>
-
-      <p>
-        We will use Piazza as our main communication hub. 
-        <br>
-        Please join Piazza and read the following <b>Piazza Turorial</b>: <a href="../resources/PiazzaTutorial-cs1111-f20.pdf">PiazzaTutorial-cs1111-f20.pdf</a>.
-      </p>
-
-      <!-- Link To Piazza  -->
-      <!--
-      <a href="https://piazza.com/class/k54aoxklemz5nd?cid=270_f1" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" target="_blank">Module 0 thread : Piazza</a>
-      -->
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        Using BBUltra (repeated from <a href="../labs/lab1.html">Lab 1</a>)
-      </h2>
-
-      <p>
-        We will now do three simple activities to get the hang of using BBUltra and breakout Groups.
-      </p>
-
-      <ul>
-        <li> 
-          <b>Breakout Groups and How we'll use them</b>:
-          <p>
-            Breakout rooms are side sessions where subsets of the whole class can go meet and exchange ideas. By Default, BBUltra does not allow sharing video/audio if you are not a moderator or presenter. Since the Breakout rooms are used for interacting with others, you will be able to (and asked to) enable your cameras and microphones. 
-          </p>
-          <p>
-            Breakout rooms can be assigned randomly or manually, and we <i>may</i> allow you to switch between them. Note that you need to be ready to be called back (I usually send out a chat message).
-          </p>
-        </li>
-        <li> 
-          <b>BBUltra Turorial</b>:
-          <p>Please open and read this tutorial: <a href="../resources/tutorialBBUltra.pdf">tutorialBBUltra.pdf</a>.</p>
-        </li>
-        <li> <b>In-class Activities</b>:
-          <ul>
-            <li> <span style='color:#06a015'><b><big>Activity 1</big></b></span> :[1 minute] You will be assigned to a random Breakout room. Go around and say your name and your favorite movie. When everyone is done, return to the main Course Room.</li>
-            <li> <span style='color:#06a015'><b><big>Activity 2</big></b></span> :[1 minute] You will be assigned to a random Breakout room. Go around and say your name and what you think <b>programming</b> is. When everyone is done, return to the main Course Room.</li>
-            <li> <span style='color:#06a015'><b><big>Activity 3</big></b></span> :[1 minute] You will be assigned to a random Breakout room. Go around and say your name and what you think <b>Computer Science</b> is. When everyone is done, return to the main Course Room.</li>
-          </ul>
-        </li>
-      </ul>
-
-      <!-- Link To Piazza  -->
-      <!--
-      <a href="https://piazza.com/class/k54aoxklemz5nd?cid=270_f2" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" target="_blank">Module 0 thread : BBUltra</a>
-      -->
-      <p><br></p><hr><p><br></p>
-
-
-      <h2>
-        Where is this class with respect to your Program?
-      </h2>
-
-      <p>
-        We'll make a rough analogy with learning a foreign language:
-      <!--<p><img class="img-fluid mx-auto py-2" src="../../../images/cs1111-module0/foreign.png" width=100%></p>-->
-      <p><img class="img-fluid mx-auto py-2" src="../figures/lectureNotes0/foreign.png" width=100%></p>
-
-
-      <p> This course is for the <em>novice</em>
-        => <b>Absolutely no background needed</b>.
-      </p> 
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-      The HelloWorld program
-      </h2>
-
-      <p>
-        This is the classic basic example (the colors are just highlighting):
-      </p>
-
-      <!-- HellowWorld.java -->
-      <div style="background: #f8f8f8; overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #AA22FF; font-weight: bold">public</span> <span style="color: #AA22FF; font-weight: bold">class</span> <span style="color: #0000FF">Hello</span> <span style="color: #666666">{</span>
-
-    <span style="color: #AA22FF; font-weight: bold">public</span> <span style="color: #AA22FF; font-weight: bold">static</span> <span style="color: #00BB00; font-weight: bold">void</span> <span style="color: #00A000">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #008800; font-style: italic">// generate some simple output</span>
-        System<span style="color: #666666">.</span><span style="color: #BB4444">out</span><span style="color: #666666">.</span><span style="color: #BB4444">println</span><span style="color: #666666">(</span><span style="color: #BB4444">&quot;Hello, World!&quot;</span><span style="color: #666666">);</span>
-    <span style="color: #666666">}</span>
-<span style="color: #666666">}</span>
-      </pre>
-      </div>
-
-      <br>
-      <p>
-        This <b>program</b> is written in a <b>programming language</b> called <b>Java</b>. After it gets processed and executed by the computer, the result is that a phrase is printed in the <i>Terminal</i> (more on this later):
-        <br>
-        <span style='color:#BB4444'>"Hello, World!"</span> 
-      </p>
-
-      <p>
-        The program-to-print process (in simplified form) looks like this:
-
-        <img class="img-fluid mx-auto py-2" src="../figures/lectureNotes0/programToPrint.png" alt="Program-To-Print" width=60%>
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>What is in the Hello.java program?</h2>
-
-      <p>
-        The parts of this simple program:
-        <br>
-        <img class="img-fluid mx-auto py-2" src="../figures/lectureNotes0/codeParts.png" alt="Code Pars" width=60%>
-      </p>
-      <p>
-        We'll talk more about these parts and why they are organized like this in a later class. 
-        <br>
-        For now, think of these parts as:
         <ul>
-          <li><span style='color:#AA0000'><b>Class</b></span>: An <b>Object or Entity</b> (like a Pizzeria)</li>
-          <li><span style='color:#00AA00'><b>Method</b></span>: A <b>Behavior or Service</b> in that object or entity (like preparing a pepperonni pizza).</li>
-          <li><span style='color:#0000AA'><b>Statement</b></span>: An <b>Action or Step</b> inside a behavior or service (like adding pepperonni to the pie).
+          <li>Human-Computer-Interaction <br>
+            <img class="img-max" src="../figures/lecture01/PabloHCI.png" alt="robots are cool">
+            <br><br>            
+          </li>
+          <li>Biology-CS collaborations <br>
+            <img class="img-max" src="../figures/lecture01/PabloSD-Mosquitoes.png" alt="live bugs vs programming bugs">
+            <br><br>
+          </li>
+          <li>Teaching and STEM research <br>
+            <img class="img-max" src="../figures/lecture01/officeWall4655.png" alt="I like to draw stuff">
+          </li>
         </ul>
       </p>
-
-      <div class="container m-5">
-        <span style='color:#06a015'><b><big>Activity</big></b></span>:[2 minutes] You will be assigned to a random Breakout room. In your breakout groups, come up with an Entity that has a specific Behavior which is composed of Actions which could be potentially translated to a Java Class, Method, and Statements.
-      </div>
-          
-      <p><br></p><hr><p><br></p>
-
-      <h2>First Question: Why not just use English?</h2>
-
-      <ul>
-        <li>The English language is rich but ambiguous!</li>
-        <ul>
-          <li>"Call me a taxi, please."</li>
-          <li>"I saw someone on the hill with a telescope."</li>
-          <li>"Look at the dog with one eye."</li>
-        </ul>
-        <li>A computer can't know what you "really" meant! so</li>
-        <ul>
-          <li>it will do what you said, not what you meant</li>
-        </ul>
-      </ul>
-
-      <b>Solution</b>: Use an unambiguous form of the language, even if it is a little less expressive.
-      <p><br></p>
-      In this case, we will be using the <b>high-level programming language</b> called <b>Java</b>.
-
-      <p><br></p><hr><p><br></p>
-
-      <h3>What is a High-Level Language?</h3>
-
-      <p>
-        A computer works like a water-pipe system with a million valves. The water (electricity) courses through the system and activates sprinclers, flotation devices, etc, depending on how the valves are set.
-      </p> 
-      <p>
-        In this example, the water represents electricity, and the valves are the electrical switches that determine if we have running current <b>(1)</b> or not <b>(0)</b>.
-      </p>
+      <br><br>
       
-      <p>
-        A <b>Low-Level</b> language (like Bytecode or Machine-code) is composed of the set of instructions that can be directly executed by the computer's central processing unit (CPU). It is "Machine-speak" and it is very distant from English. 
-      </p>
-
-      <p>
-        A way of letting humans read and write programs that then get executed is to write them using an unambiguous language that is closer to English and then converting these to Bytecode or Machine-Code that the computer can execute. 
-      </p>
-
-      <p>
-        These programming languages that are closer to English and that allow you to use abstract terms and instructions are called <b>High-Level Languages</b>. Some of these are (C, C++, java, Python, etc).
-      </p> 
-
-      <p>
-        <b>The conversion of a program (written in a High-Level language) into an executable (written in machine code) is called <span style='color:#0000AA'><b>Compilation</b></span>.</b>
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        Programming, Compilation, and Execution
-      </h2>
-        
-       <div class="container py-0">
-        <p>
-          How do we use the <i>program</i> so that the computer does what we want it to do? 
-        </p> <!-- class="float-right px-1 py-1" width="400" -->
-        <img class="img-fluid mx-auto py-2" src="../figures/lectureNotes0/compiling.png" alt="Compiling" width=60%>
-        
-        <ul>
-          <li>A <b>Program</b> is a set of instructions for building an executable (something that when run, tells the computer how to move information around).</li>
-          <li>A <b>Compiler</b> is a program whose purpose is to convert these instructions into a file (bytecode) that can be executed by the computer.</li>
-          <li><b>Executing</b> a compiled program (the executable) means that the computer processor follows the sequences of instructions to complete a specified task.</li>
-        </ul>
-      </div> 
+      <h4>My Dog Yak</h4>
+      this is my dog, Yak:
       <br>
-
+      <div class="row">
+          <div class="col-lg-5 col-md-5 col-xs-5 thumb">
+              <a class="thumbnail" href="#">
+                  <img class="img-responsive" src="../figures/lecture01/yak01.png" alt="Yak!" style="width:100%">
+              </a>
+          </div>
+          <div class="col-lg-5 col-md-5 col-xs-5 thumb">
+            
+              <a class="thumbnail" href="#">
+                  <img class="img-responsive" src="../figures/lecture01/reportCard.png" alt="Good-Bad Boy" style="width:90%">
+              </a>
+          </div>
+        </div>
+      (Informal Dog-Walk Hours can be used for petting Yak, chatting with me, or even to talk shop)
+      <br><br>
+      
+      <h4>Instructional Team</h4>
       <p>
-        Next Class we'll see which files are involved in the writing, compiling, and execution of a program.
+        Names: TBD
       </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        Your first Assignments!
-      </h2>
-
-      <br>
-
-      <!--
-      <h4>
-        Using The Terminal (repeated from <a href="../labs/lab1.html">Lab 1</a>)
-      </h4>
-    -->
-
-      <p>
-        We will use Codio as our main coding hub but it is a good idea to get familiar with your computer's Terminal. 
-        <br>
-        <b>Terminal Turorial</b>:
-          <p>Please open and read this tutorial: <a href="../resources/TerminalAndCompilation.pdf">TerminalAndCompilation.pdf</a>.</p>
-      </p>
+      <br><br>
 
       <h4>
-      Codio reading
+        The Students
       </h4>
+      <p>
+        Please fill out this small <a href="https://forms.gle/5qMdxnKCXv7JDQBS7">3-minute-biography</a> so I can get to know you a bit.
+      </p>
+      <br><br>
+
+      <h4>
+        The Class
+      </h4>      
+
+      <br><br>
+
+      <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro01.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro02.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro03.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro04.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro05.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro06.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro07.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro08.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro09.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro10.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro11.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro12.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro13.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro14.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro15.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro16.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro17.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro18.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro19.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro20.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro21.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro22.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro23.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro24.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro25.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro26.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro27.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro28.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro29.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro30.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro31.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro32.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro33.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro34.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro35.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro36.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro37.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture01/Intro38.png" alt="" style="width:80%">
+        <br><br>
+
+
+
+      <p><br></p><hr><p><br></p>
+
+
+
+
+      <h2>
+        Remaining checklist for today:
+      </h2>
+
+      <ol>
+        <li>Course Information</li>
+        <li>Locate the course page on Moodle</li>
+        <li>Locate Discord info on Moodle and Sign up to Discord</li>
+        <li>Locate TinkerCad info on Moodle and Sign up to TinkerCad</li>
+        <li>Meeting and Accommodations</li>
+      </ol>
+
+
+
+      <p><br></p><hr><p><br></p>
+
+
+      <h2>
+      Course Information
+      </h2>
 
       <p>
-        Go to the class <a href="../schedule.html">schedule</a> and open Week 1. Check and complete the task under the column: "Prepare for Next Lecture". 
+        The class information is located in the <a href="../class-info.html"> Class Info</a> link of the navigation bar. We will go over it now. When we are done checking it out, make sure to continue here.
       </p>
 
-      <!-- Link To Piazza  -->
-      <!--
-      <a href="https://piazza.com/class/k54aoxklemz5nd?cid=271" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" target="_blank">Module 0 thread : Poll</a>
-      -->
-      
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Using Discord
+      </h2>
+
+      <p>
+        We will use Discord as our main communication hub. 
+        <br>
+        <ol>
+          <li>
+            Please sign up for Discord:
+            <img class="img-fluid" src="../figures/lecture01/getDiscord.png" alt="getDiscord">
+          </li>
+          <br><br>
+          <li>
+            Join the smith-f21-csc102-01 server.
+            <br>
+            OR use this invitation link: <a href="https://discord.gg/7BR5NrDz">Join the class discord</a>
+          </li>
+          <li>
+            You can read <a href="https://support.discord.com/hc/en-us/articles/360045138571?utm_source=discord&utm_medium=blog&utm_campaign=2020-06_help-new-user&utm_content=--t%3Apm"> this tutorial</a> to get an idea of how to use it.
+          </li>
+        </ol>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Using Moodle 
+      </h2>
+
+      <p>
+        Access Moodle here: <a href="https://moodle.smith.edu/">https://moodle.smith.edu/</a>
+        <br>
+        We'll keep links to each lecture in Moodle. In addition, we'll have any PDFs, readings, and other resources.
+        <br>
+        I'll update the course Moodle with the appropriate links and information as we move forward in the course.
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+
+      <h2>
+        Meeting and Accommodations
+      </h2>
+
+      <p>
+        I would be very happy to meet you during office hours. <br>
+        This will help me get to know you and learn how best to communicate.
+        <br><br>
+        Office Hours are <b>not</b> for remedial or emergency meetings, its part of the <b>academic experience</b>!
+        <br>
+        In OHs, we can talk about the class work and organization, but also about aspirations, expectations, curiosities, and more.
+        <br>
+        I really like office hours, so please feel free to drop by.
+        <br><br>
+
+        You may take this opportunity to let me know if you have arranged any accommodations with ODS.
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Acknowledgements
+      </h2>
+
+      <p>
+        This course has been designed with the help of Nick Howe and Shinyoung Cho.
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Tuesday 10/26)</h4>
+      <br><br>
+      <b>[Due for everyone]</b> 
+      <br>
+      register for Discord.
+      <br><br>
+      Review the <a href="../class-info.html"> Class Info</a> by yourselves.
+
+  
       <div class="col-xs-0 col-md-2"></div>
       </div>
     </div>
@@ -381,57 +524,25 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2 disabled" href="./lectureNotes0.html">Previous Module</a>
+                <a class="nav-link mx-lg-2 disabled" href="#">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes01.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes02.html">Next Module</a>
               </li>
             </ul>
           </div>
         </nav>
       </footer>
 
-    <!--
-    <footer class="footer">
-      <nav class="navbar fixed-top navbar-light bg-light">
-        <a class="navbar-brand" href="#">Fixed top</a>
-      </nav>
-    </footer>
-  -->
-
-<!--
-    <footer class="footer border-top">
-      <nav class="navbar fixed-bottom navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarSix">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./module1.html">Next Module</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
--->      
-      <!--
-        <div class="row">
-          <div class="col-12 col-md ml-5">
-            <a href="">Go to the Top</a>
-          </div>
-          <div class="col-4 col-md mr-auto">
-            <a class="pr-5 disabled" aria-disabled="true" href="#">Previous Module</a>
-            <a href="./module1.html">Next Module</a>
-          </div>
-        </div>
-      -->
-
-    
+   
 
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjIntrokuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
       <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
-    <script type="text/JavaScript">
+   <!--  <script type="text/JavaScript">
      //courtesy of BoogieJack.com
      function killCopy(e){ return false }
      function reEnable(){ return true }
@@ -440,6 +551,6 @@
          document.onmousedown=killCopy
          document.onclick=reEnable
      }
-   </script>
+   </script> -->
   </body>
 </html>
