@@ -853,7 +853,25 @@ avg_all <span style="color: #333333">=</span> <span style="color: #007020">sum</
 47  
 48  
 49  
-50  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># parent class</span>
+50  
+51  
+52  
+53  
+54  
+55  
+56  
+57  
+58  
+59  
+60  
+61  
+62  
+63  
+64  
+65  
+66  
+67  
+68  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># parent class</span>
 <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Bird</span>:
     
     <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>):
@@ -862,8 +880,6 @@ avg_all <span style="color: #333333">=</span> <span style="color: #007020">sum</
     <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">whoisThis</span>(<span style="color: #007020">self</span>):
         <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Bird&quot;</span>)
 
-    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">swim</span>(<span style="color: #007020">self</span>):
-        <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Swim faster&quot;</span>)
 
 <span style="color: #888888"># child class</span>
 <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Penguin</span>(Bird):
@@ -880,10 +896,24 @@ avg_all <span style="color: #333333">=</span> <span style="color: #007020">sum</
         <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Run faster&quot;</span>)
 
     <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">fly</span>(<span style="color: #007020">self</span>):
-        <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Penguin can&#39;t fly&quot;</span>)        
+        <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Penguin can&#39;t fly&quot;</span>)   
 
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">swim</span>(<span style="color: #007020">self</span>):
+        <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Penguin can swim&quot;</span>)         
 
+<span style="color: #888888"># child class</span>
 <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Parrot</span>:
+
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>):
+        <span style="color: #888888"># call super() function</span>
+        <span style="color: #007020">super</span>()<span style="color: #333333">.</span>__init__()
+        <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Parrot is ready&quot;</span>)
+
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">whoisThis</span>(<span style="color: #007020">self</span>):
+        <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Parrot&quot;</span>)
+
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">run</span>(<span style="color: #007020">self</span>):
+        <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Run faster&quot;</span>)
 
     <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">fly</span>(<span style="color: #007020">self</span>):
         <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Parrot can fly&quot;</span>)
@@ -896,6 +926,9 @@ avg_all <span style="color: #333333">=</span> <span style="color: #007020">sum</
 <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">flying_test</span>(bird):
     bird<span style="color: #333333">.</span>fly()
 
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">swimming_test</span>(bird):
+    bird<span style="color: #333333">.</span>swim()    
+
 <span style="color: #888888">#instantiate objects</span>
 blu <span style="color: #333333">=</span> Parrot()
 peggy <span style="color: #333333">=</span> Penguin()
@@ -903,7 +936,15 @@ peggy <span style="color: #333333">=</span> Penguin()
 <span style="color: #888888"># passing the object</span>
 flying_test(blu)
 flying_test(peggy)
+
+swimming_test(blu)
+swimming_test(peggy)
 </pre></td></tr></table></div>
+
+
+        <br><br>
+
+        We will study this next class, in the meantime, <a href="https://pythontutor.com/visualize.html#code=%23%20parent%20class%0Aclass%20Bird%3A%0A%20%20%20%20%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Bird%20is%20ready%22%29%0A%0A%20%20%20%20def%20whoisThis%28self%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Bird%22%29%0A%0A%0A%23%20child%20class%0Aclass%20Penguin%28Bird%29%3A%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%23%20call%20super%28%29%20function%0A%20%20%20%20%20%20%20%20super%28%29.__init__%28%29%0A%20%20%20%20%20%20%20%20print%28%22Penguin%20is%20ready%22%29%0A%0A%20%20%20%20def%20whoisThis%28self%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Penguin%22%29%0A%0A%20%20%20%20def%20run%28self%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Run%20faster%22%29%0A%0A%20%20%20%20def%20fly%28self%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Penguin%20can't%20fly%22%29%20%20%20%0A%0A%20%20%20%20def%20swim%28self%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Penguin%20can%20swim%22%29%20%20%20%20%20%20%20%20%20%0A%0A%23%20child%20class%0Aclass%20Parrot%3A%0A%20%20%20%20%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%23%20call%20super%28%29%20function%0A%20%20%20%20%20%20%20%20super%28%29.__init__%28%29%0A%20%20%20%20%20%20%20%20print%28%22Parrot%20is%20ready%22%29%0A%0A%20%20%20%20def%20whoisThis%28self%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Parrot%22%29%0A%0A%20%20%20%20def%20run%28self%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Run%20faster%22%29%0A%0A%20%20%20%20def%20fly%28self%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Parrot%20can%20fly%22%29%0A%20%20%20%20%0A%20%20%20%20def%20swim%28self%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Parrot%20can't%20swim%22%29%0A%0A%0A%23%20common%20interface%0Adef%20flying_test%28bird%29%3A%0A%20%20%20%20bird.fly%28%29%0A%0Adef%20swimming_test%28bird%29%3A%0A%20%20%20%20bird.swim%28%29%20%20%20%20%0A%0A%23instantiate%20objects%0Ablu%20%3D%20Parrot%28%29%0Apeggy%20%3D%20Penguin%28%29%0A%0A%23%20passing%20the%20object%0Aflying_test%28blu%29%0Aflying_test%28peggy%29%0A%0Aswimming_test%28blu%29%0Aswimming_test%28peggy%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">Check this out</a>
 
 
       </p>
