@@ -752,71 +752,71 @@
 64
 65
 66</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Character</span>:
-    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>, name<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NA&quot;</span>, player<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NPC&quot;</span>, health <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>, focus <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>):
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>name <span style="color: #333333">=</span> name
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>player <span style="color: #333333">=</span> player
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>health <span style="color: #333333">=</span> health
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>focus <span style="color: #333333">=</span> focus
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>, name<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NA&quot;</span>, player<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NPC&quot;</span>, health <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>, focus <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>):
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>name <span style="color: #333333">=</span> name
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>player <span style="color: #333333">=</span> player
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>health <span style="color: #333333">=</span> health
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>focus <span style="color: #333333">=</span> focus
 
-    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">print_char</span>(<span style="color: #007020">self</span>):
-      <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;{}, played by {}, has {} health and {} focus left&quot;</span><span style="color: #333333">.</span>format(<span style="color: #007020">self</span><span style="color: #333333">.</span>name, <span style="color: #007020">self</span><span style="color: #333333">.</span>player, <span style="color: #007020">self</span><span style="color: #333333">.</span>health, <span style="color: #007020">self</span><span style="color: #333333">.</span>focus))
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">print_char</span>(<span style="color: #007020">self</span>):
+    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;{}, played by {}, has {} health and {} focus left&quot;</span><span style="color: #333333">.</span>format(<span style="color: #007020">self</span><span style="color: #333333">.</span>name, <span style="color: #007020">self</span><span style="color: #333333">.</span>player, <span style="color: #007020">self</span><span style="color: #333333">.</span>health, <span style="color: #007020">self</span><span style="color: #333333">.</span>focus))
 
-    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">apply_damage</span>(<span style="color: #007020">self</span>,damage):
-      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>health <span style="color: #333333">&lt;=</span> damage:
-        <span style="color: #007020">self</span><span style="color: #333333">.</span>health <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
-        <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;AArrghhh! ... ** {} has died **&quot;</span><span style="color: #333333">.</span>format(<span style="color: #007020">self</span><span style="color: #333333">.</span>name))
-      <span style="color: #008800; font-weight: bold">else</span>:
-        <span style="color: #007020">self</span><span style="color: #333333">.</span>health <span style="color: #333333">-=</span> damage  
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">apply_damage</span>(<span style="color: #007020">self</span>,damage):
+    <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>health <span style="color: #333333">&lt;=</span> damage:
+      <span style="color: #007020">self</span><span style="color: #333333">.</span>health <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+      <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;AArrghhh! ... ** {} has died **&quot;</span><span style="color: #333333">.</span>format(<span style="color: #007020">self</span><span style="color: #333333">.</span>name))
+    <span style="color: #008800; font-weight: bold">else</span>:
+      <span style="color: #007020">self</span><span style="color: #333333">.</span>health <span style="color: #333333">-=</span> damage  
 
-    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">apply_charm</span>(<span style="color: #007020">self</span>,charm):
-      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>focus <span style="color: #333333">&lt;=</span> charm:
-        <span style="color: #007020">self</span><span style="color: #333333">.</span>focus <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
-        <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Oooohhh! ... ** {} has been charmed **&quot;</span><span style="color: #333333">.</span>format(<span style="color: #007020">self</span><span style="color: #333333">.</span>name))
-      <span style="color: #008800; font-weight: bold">else</span>:
-        <span style="color: #007020">self</span><span style="color: #333333">.</span>focus <span style="color: #333333">-=</span> charm
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">apply_charm</span>(<span style="color: #007020">self</span>,charm):
+    <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>focus <span style="color: #333333">&lt;=</span> charm:
+      <span style="color: #007020">self</span><span style="color: #333333">.</span>focus <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+      <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Oooohhh! ... ** {} has been charmed **&quot;</span><span style="color: #333333">.</span>format(<span style="color: #007020">self</span><span style="color: #333333">.</span>name))
+    <span style="color: #008800; font-weight: bold">else</span>:
+      <span style="color: #007020">self</span><span style="color: #333333">.</span>focus <span style="color: #333333">-=</span> charm
 
-  <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Warrior</span>(Character):
-    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>,name<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NA&quot;</span>, player<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NPC&quot;</span>, health <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>, focus <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>, weapon <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;punch&quot;</span>, damage <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>):
-      Character<span style="color: #333333">.</span>__init__(<span style="color: #007020">self</span>,name, player, health, focus)
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>weapon <span style="color: #333333">=</span> weapon
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>damage <span style="color: #333333">=</span> damage
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Warrior</span>(Character):
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>,name<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NA&quot;</span>, player<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NPC&quot;</span>, health <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>, focus <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>, weapon <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;punch&quot;</span>, damage <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>):
+    Character<span style="color: #333333">.</span>__init__(<span style="color: #007020">self</span>,name, player, health, focus)
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>weapon <span style="color: #333333">=</span> weapon
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>damage <span style="color: #333333">=</span> damage
 
-    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">set_weapon</span> (<span style="color: #007020">self</span>, weapon <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;punch&quot;</span>, damage <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>):
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>weapon <span style="color: #333333">=</span> weapon
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>damage <span style="color: #333333">=</span> damage
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">set_weapon</span> (<span style="color: #007020">self</span>, weapon <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;punch&quot;</span>, damage <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>):
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>weapon <span style="color: #333333">=</span> weapon
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>damage <span style="color: #333333">=</span> damage
 
-    <span style="color: #008800; font-weight: bold">def</span>  <span style="color: #0066BB; font-weight: bold">use_weapon</span>(<span style="color: #007020">self</span>,other):
-      other<span style="color: #333333">.</span>apply_damage(<span style="color: #007020">self</span><span style="color: #333333">.</span>damage)
-
-
-  <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Bard</span>(Character):
-    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>,name<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NA&quot;</span>, player<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NPC&quot;</span>, health <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>, focus <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>, instrument <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;voice&quot;</span>, charm <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>):
-      Character<span style="color: #333333">.</span>__init__(<span style="color: #007020">self</span>,name, player, health, focus)
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>instrument <span style="color: #333333">=</span> instrument
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>charm <span style="color: #333333">=</span> charm
-
-    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">set_instrument</span> (<span style="color: #007020">self</span>, instrument <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;voice&quot;</span>, charm <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>):
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>instrument <span style="color: #333333">=</span> instrument
-      <span style="color: #007020">self</span><span style="color: #333333">.</span>charm <span style="color: #333333">=</span> charm  
-
-    <span style="color: #008800; font-weight: bold">def</span>  <span style="color: #0066BB; font-weight: bold">use_instrument</span>(<span style="color: #007020">self</span>,other):
-      other<span style="color: #333333">.</span>apply_charm(<span style="color: #007020">self</span><span style="color: #333333">.</span>charm)
+  <span style="color: #008800; font-weight: bold">def</span>  <span style="color: #0066BB; font-weight: bold">use_weapon</span>(<span style="color: #007020">self</span>,other):
+    other<span style="color: #333333">.</span>apply_damage(<span style="color: #007020">self</span><span style="color: #333333">.</span>damage)
 
 
-  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
-    c1 <span style="color: #333333">=</span> Warrior(<span style="background-color: #fff0f0">&quot;Orkhina&quot;</span>, <span style="background-color: #fff0f0">&quot;Mariana&quot;</span>, <span style="color: #0000DD; font-weight: bold">20</span>, <span style="color: #0000DD; font-weight: bold">5</span>)
-    c1<span style="color: #333333">.</span>set_weapon(<span style="background-color: #fff0f0">&quot;Axe&quot;</span>,<span style="color: #0000DD; font-weight: bold">5</span>)
-    c2 <span style="color: #333333">=</span> Bard(<span style="background-color: #fff0f0">&quot;Elfrank&quot;</span>, <span style="background-color: #fff0f0">&quot;Pablo&quot;</span>, <span style="color: #0000DD; font-weight: bold">6</span>, <span style="color: #0000DD; font-weight: bold">20</span>)
-    c2<span style="color: #333333">.</span>set_instrument(<span style="background-color: #fff0f0">&quot;Flute&quot;</span>, <span style="color: #0000DD; font-weight: bold">10</span>)
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Bard</span>(Character):
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>,name<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NA&quot;</span>, player<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NPC&quot;</span>, health <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>, focus <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>, instrument <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;voice&quot;</span>, charm <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>):
+    Character<span style="color: #333333">.</span>__init__(<span style="color: #007020">self</span>,name, player, health, focus)
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>instrument <span style="color: #333333">=</span> instrument
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>charm <span style="color: #333333">=</span> charm
 
-    c1<span style="color: #333333">.</span>use_weapon(c2)
-    c2<span style="color: #333333">.</span>print_char()
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">set_instrument</span> (<span style="color: #007020">self</span>, instrument <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;voice&quot;</span>, charm <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>):
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>instrument <span style="color: #333333">=</span> instrument
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>charm <span style="color: #333333">=</span> charm  
 
-    c2<span style="color: #333333">.</span>use_instrument(c1)
-    c1<span style="color: #333333">.</span>print_char()
+  <span style="color: #008800; font-weight: bold">def</span>  <span style="color: #0066BB; font-weight: bold">use_instrument</span>(<span style="color: #007020">self</span>,other):
+    other<span style="color: #333333">.</span>apply_charm(<span style="color: #007020">self</span><span style="color: #333333">.</span>charm)
 
-  <span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-    main()
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  c1 <span style="color: #333333">=</span> Warrior(<span style="background-color: #fff0f0">&quot;Orkhina&quot;</span>, <span style="background-color: #fff0f0">&quot;Mariana&quot;</span>, <span style="color: #0000DD; font-weight: bold">20</span>, <span style="color: #0000DD; font-weight: bold">5</span>)
+  c1<span style="color: #333333">.</span>set_weapon(<span style="background-color: #fff0f0">&quot;Axe&quot;</span>,<span style="color: #0000DD; font-weight: bold">5</span>)
+  c2 <span style="color: #333333">=</span> Bard(<span style="background-color: #fff0f0">&quot;Elfrank&quot;</span>, <span style="background-color: #fff0f0">&quot;Pablo&quot;</span>, <span style="color: #0000DD; font-weight: bold">6</span>, <span style="color: #0000DD; font-weight: bold">20</span>)
+  c2<span style="color: #333333">.</span>set_instrument(<span style="background-color: #fff0f0">&quot;Flute&quot;</span>, <span style="color: #0000DD; font-weight: bold">10</span>)
+
+  c1<span style="color: #333333">.</span>use_weapon(c2)
+  c2<span style="color: #333333">.</span>print_char()
+
+  c2<span style="color: #333333">.</span>use_instrument(c1)
+  c1<span style="color: #333333">.</span>print_char()
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
 </pre></td></tr></table></div>
 
       
@@ -837,6 +837,8 @@
 
       <h4>Before next class (Monday 10/25)</h4>
       <b>[Due for everyone]</b>  
+      <br>
+      ZyBooks Chapters 9.1, 9.2, and 9.3
       <br>
       Check out this file : <a href="http://www.science.smith.edu/~jorourke/111/Graphics/graphics.py">graphics.py</a>
       <br>
