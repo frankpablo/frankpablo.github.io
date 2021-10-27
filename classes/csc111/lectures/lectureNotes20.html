@@ -122,14 +122,14 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 19: Inheritance, Polymorphism, and Importing</h1>
+      <h1>Lecture Notes 20: Inheritance, Polymorphism, and Importing</h1>
       <p>
         <br>
       </p>
 
       <p><br></p><hr><p><br></p>
 
-      <h2>Removing elements Recap</h2>
+      <h2>Recap: Inheritance and Polymorphism</h2>
 
       <p>
 
@@ -359,8 +359,10 @@
       <h2>One last example (To analyze at home)</h2>
 
       <p>
-        
-
+      
+      <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
 
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
  2
@@ -495,7 +497,11 @@
   main()
 </pre></td></tr></table></div>
 
+        </details>
+        </div>
+
       </p>
+                  <br><br><br><br>   
 
       <p><br></p><hr><p><br></p>
 
@@ -503,6 +509,114 @@
 
       <p>
 
+        A <b>Module</b> is Python code that has already been written and that we simply want to use in the <i>current</i> program.
+        <br><br>
+        These odules can be written by you or downloaded from some (trusted) source. An example, is the <b><tt>graphycs.py</tt></b> Module.
+
+        <br><br>
+
+        The way to let Python know that we "want to use module &lt; this module &gt;" is to do the following:
+        <br><br>
+        <ol>
+          <li>the module's code should be written in a file with a <b><tt>.py</tt></b></li> extension.
+          <li>in the <b>current file</b> you should use the following syntax (imagine we're importing the graphics.py module)
+            <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">graphics</span>
+</pre></div>
+        
+          </li>
+
+        </ol>
+            <br><br>
+
+            When using this approach, we can acces attributes and methods inside of the module by using ts name and the dot operator...like this:
+            <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">graphics</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+    win <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>GraphWin()
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+
+            <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">     
+
+          Try to run the code shown above in the Exercise called <b>Importing</b> in Replit.
+        </div>
+
+
+            <br><br>
+
+
+            <h3>namespaces</h3>
+
+            A namespace is actually just a normal Python dictionary whose keys are the names and whose values are the objects.
+
+            <br><br>
+
+            A module object is simply a namespace that contains definitions from the module. If the module has already been loaded, then the existing module object is used.
+
+            <br><br>
+
+            Definitions in the module's code, e.g., variable assignments and function definitions, are placed in the module's namespace. The module is then added to the importing script or module's namespace, so that the importer can access the definitions.
+
+            <br><br>
+
+            In short, <b>loading a module using <tt>import</tt> adds the module's namespace definitions to the current one</b>
+
+            <br><br>
+
+        <h3>Location of modules</h3>
+
+        The easiest thing to do is to place the modules in the same directory than the file that uses it.
+        <br><br>
+        <br><br>
+
+
+            <h3>The <b><tt>from</tt></b> syntax</h3>
+
+            Another way to do it is by using the <b><tt>from</tt></b> syntax:
+
+            <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">graphics</span> <span style="color: #008800; font-weight: bold">import</span> <span style="color: #333333">*</span>
+</pre></div>
+
+            <br><br>
+
+            using <b><tt>from</tt></b> adds only the specified names to the global namespace.
+            <br><br>
+
+            <h4>A practical example</h4>
+            <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">graphics</span> <span style="color: #008800; font-weight: bold">import</span> <span style="color: #333333">*</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  win <span style="color: #333333">=</span> GraphWin( )
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+
+          <li>Note that in main, we're using a function defined in the graphics module, called <b><tt>GraphWin</tt></b>, but we don't need to use the <b><tt>graphics.</tt></b> notation </li>
 
 
       </p>
@@ -514,7 +628,153 @@
 
       <p>
 
+        The <a href="../resources/graphics.py">graphics.py</a> library has several small classes, each with their own methods and inherited properties.
+        <br><br>
+
+        You can define points and lines, draw circles, rectangles, lines, Ovals, Text, and Polygons.
+        <br><br>
+
+        It also lets you do coordinate transformations (that help with displacements or rotations).
+        <br><br>
+
+        Additionally, it can react to mouse and keyboard events (<b>Can you think of somethig you could build with this?</b>)
+
+        <br><br><br><br>
+
+        It is recommended that you consider using it for Your final project!
+        <br><br>
+        The documentation can be found in <a href="../resources/graphics.pdf">graphics.pdf</a>
+
+        <br><br><br><br>
+
+
+          <br><br><br><br>
+          Comment out or save the current code in another file.
+          <br><br>
+
+          
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+           Now, We're going to construct a little scene (we'll be using the <b><tt>from</tt> syntax for this example</b>).
+
+          <br><br>
+          First, write the following lines in main:
+          <br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture20/graph05.png" alt="" style="width:80%">
+          <br><br>
+        </div>
+
+        <br><br>
+
+        <h3>Now, let's add a shape</h3>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Modify the code to add a circle
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture20/graph06.png" alt="" style="width:80%">
+          <br><br>
+        </div>
+
+
+        <br><br>
+
+
+<!-- 
+        <h3>Now, we will use different objects to draw something a bit more complex</h3>
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Change your code to draw a red circle in the window:
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture20/graph06.png" alt="" style="width:80%">
+          <br><br>
+        </div>
+ -->
+        <br><br>
+
+        The following calls allow you to  draw lines:
+        <br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    p1 <span style="color: #333333">=</span> Point( <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">100</span> )
+    p2 <span style="color: #333333">=</span> Point( <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">100</span> )
+    line <span style="color: #333333">=</span> Line( p1, p2 )
+    line<span style="color: #333333">.</span>setFill( <span style="background-color: #fff0f0">&#39;yellow&#39;</span> )
+    line<span style="color: #333333">.</span>draw( win )
+</pre></div>
+
+        <br><br>
+
+        The method (inside the appropriate object) to make the line wider is:
+        <br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">setWidth( <span style="color: #0000DD; font-weight: bold">2</span> )
+</pre></div>
+
+        <br><br>
+
+        You can also set your own colors, like this:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">win<span style="color: #333333">.</span>setBackground( color_rgb(<span style="color: #0000DD; font-weight: bold">140</span>, <span style="color: #0000DD; font-weight: bold">200</span>, <span style="color: #0000DD; font-weight: bold">250</span>) )
+</pre></div>
+
+          <br><br>
+
+          You can draw a rectangle with this code:
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%">    <span style="color: #888888"># Draw a rectangle</span>
+    pbl <span style="color: #333333">=</span> Point(<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>, <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>)
+    ptr <span style="color: #333333">=</span> Point(<span style="color: #0000DD; font-weight: bold">50</span>, <span style="color: #0000DD; font-weight: bold">50</span>)
+    rec <span style="color: #333333">=</span> Rectangle(pbl, ptr)
+    rec<span style="color: #333333">.</span>draw(win)
+</pre></td></tr></table></div>
+
+          <br><br>
+
+          <b>You can open up the graphics.py or the graphics.pdf files and check how to draw a polygon!</b>
+
+          <br><br><br><br>
         
+        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Can you find out what the coordinate system is like?
+          <br>
+          Where is the origin?
+          <br>
+          Which is the x axis?
+          <br>
+          Where is +ve x?
+          <br>
+          Where is the y axis?
+          <br>
+          Where is +ve y?
+<!--           <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture20/graph07.png" alt="" style="width:80%">
+          <br><br> -->
+        </div>
+
+        <br><br><br><br>
+
+        <h3>And now, for a greater challenge:</h3>
+        <br><br>
+        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [10 minutes] [<b>5 HW Bonus point</b>]: <br>
+        <div class="mx-lg-5">
+          Figure out how to draw this image (or one close to it)
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture20/graph07.png" alt="" style="width:80%">
+          <br><br>
+        </div>
+
+
 
       </p>
       
@@ -524,25 +784,70 @@
       <h2>Additional readings</h2>
 
       <p>
-        <!-- Check out this article on <a href="https://www.programiz.com/python-programming/inheritance">Inheritance</a>
+        Check out this article on <a href="https://www.programiz.com/python-programming/inheritance">Inheritance</a>
         <br><br>
-        Also this one with a <a href="https://realpython.com/courses/python-data-classes/">Polymorphism</a> -->
+        Also this one with a <a href="https://realpython.com/courses/python-data-classes/">Polymorphism</a>
       </p>
-
 
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Monday 10/25)</h4>
+      <h2>Final Project!</h2>
+
+      <p>
+
+        Final Project Speciffication
+        <ol>
+          <li>Teams of 2 or 3</li>
+          <li>If you want to self select, tell me by next class</li>
+          <li>Any others will be assigned randomly</li>
+          <li>YOU design the project (with notes from me)</li>
+          <li>Should inclde enough complexity (think Classes and Objects, Loops, User interaction, Graphics, etc)</li>
+          <li>Can be a Practical tool, a Game, an Artistic program, etc.</li>
+          <li>There will be 3 deadlines:
+            <ol>
+              <li>Project Proposal: By Wednesday, November 3rd.</li>
+              <li>Project Skeleton: Show me the design (sketch + comments + basic class/function skeletons); Due Friday, November 12th</li>
+              <li>Project Prototype: Show me a <b>working</b> prototype with basic functionality. Due Monday, November 22nd.</li>
+              <li>Project Submission: Full project due on Wednesday, December 1st.</li>
+              <li>Project Presentation / Video (Show us your project in class): Wednesday, December 8th.</li>
+            </ol>
+          </li>
+        </ol>
+
+        <h3>Project Examples</h3>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture20/proj01_Tamagotchi.jpeg" alt="" style="width:50%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture20/proj02_BernardStomach.jpeg" alt="" style="width:50%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture20/proj03_Breakout.jpeg" alt="" style="width:50%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture20/proj03_Breakout_b.jpeg" alt="" style="width:50%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture20/proj04_Game2048.png" alt="" style="width:50%">
+        <br><br>
+        Check out the actual game <a href="https://play2048.co/">Here</a>
+
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Monday 10/29</h4>
       <b>[Due for everyone]</b>  
       <br>
-      Check out this file : <a href="http://www.science.smith.edu/~jorourke/111/Graphics/graphics.py">graphics.py</a>
-      <br>
-      And their documentation <a href="http://www.science.smith.edu/~jorourke/111/Graphics/graphics.pdf">graphics.pdf </a>
+      Bring me your teams members!
       <br>
 
       <br>
-      Assignment 04 is Due 10/27
+      Assignment 05 will be released later today... Due Wednesday, November 3rd.
 
       <br><br>
 
