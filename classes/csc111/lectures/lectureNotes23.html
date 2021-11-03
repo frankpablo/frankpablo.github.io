@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes22.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes24.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 21: Classes and Objects Lab</h1>
+      <p>
+        <br>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Important Modules</h2>
+
+      <p>
+
+
+        Several important modules can be imported and used.
+        <br><br>
+
+        Some of the most popular are:
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/modules.png" alt="" style="width:80%">
+        <br><br>
+
+        With the following documentation links:
+        <ul>
+          <li>https://docs.python.org/3/library/datetime.html</li>
+          <li>https://docs.python.org/3/library/random.html</li>
+          <li>https://docs.python.org/3/library/copy.html</li>
+          <li>https://docs.python.org/3/library/time.html</li>
+          <li>https://docs.python.org/3/library/math.html</li>
+          <li>https://docs.python.org/3/library/os.html</li>
+          <li>https://docs.python.org/3/library/sys.html</li>
+          <li>https://docs.python.org/3/library/pdb.html</li>
+          <li>https://docs.python.org/3/library/urllib.html</li>
+        </ul>
+
+        <br><br>
+
+        <h3>The Random Module</h3>
+
+        One of the most useful modules is the random module.
+        <br><br>
+        It let's you:
+
+
+        <ul>
+          <li>generate a random range: <b><tt>random.randrange(stop)</tt></b> or <b><tt>random.randrange(start, stop[, step])</tt></b></li>
+          <li>generate a random number in an interval: <b><tt>random.randint(a, b)</tt></b></li>
+          <li>extract a random choice from a sequence: <b><tt>random.choice(seq)</tt></b></li>
+          <li>shiffle the items in a sequence (in place): <b><tt>random.shuffle(x[, random]</tt></b></li>
+          <li>and many more</li>
+        </ul>
+
+        Please check out this reference <a href="https://docs.python.org/3/library/random.html">Documentation for Random</a>
+
+        <br><br>
+
+        <h3>Using Random</h3>
+
+        Starting slow:
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [5 minutes]: <br>
+        <div class="mx-lg-5">
+          Open up <b><tt>Random-Platoon</tt></b> in Replit and complete the following task:
+          <br><br>
+
+              <ol>
+                <li>Make teams of 2 or 3</li>
+                <li>make a main (and the if that calls it) and add the following:</li>
+                <li>creates an empty list called <b><tt>squad</tt></b></li>
+                <li>create a for loop (the inner loop) that runs 10 times; each time it:
+                  <ol>
+                    <li><b><tt>append</tt></b> a 0 to squad</li>
+                  </ol>
+                <li>At the end of the inner loop, print <b><tt>squad</tt></b></li>
+              </ol>
+            
+          </ol>
+        </div>
+
+        
+        Including an outer loop:
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [5 minutes]: <br>
+        <div class="mx-lg-5">
+          Modify your code to achieve the following task:
+          <br><br>
+          <ol>
+            <li>create an empty list called <b><tt>platoon</tt></b></li>
+            <li>(TODO:) create a for loop (outer loop) that runs 4 times; each time it runs the previous inner loop:
+              <br>
+              (<b>you've done this above!</b>)
+              <ol>
+                <li>creates an empty list called <b><tt>squad</tt></b></li>
+                <li>create a for loop (the inner loop) that runs 10 times; each time it:
+                  <ol>
+                    <li><b><tt>append</tt></b> a 0 to squad</li>
+                  </ol>
+                <li>(<b>Instead of printing, do the next step</b>)</li>
+                <li>At the end of the inner loop, <b><tt>append</tt></b> the list <b><tt>squad</tt></b> to the list <b><tt>platoon</tt></b></li>
+              </ol>
+            </li>
+<!--             <li>get an integer <b><tt>num</tt></b> from user input</li>
+            <li>Generate <b><tt>num</tt></b> random numbers</li> -->
+          </ol>
+        </div>
+
+        Including a print_platoon function:
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [5 minutes]: <br>
+        <div class="mx-lg-5">
+          Modify your code to complete the following task:
+          <br><br>
+          <ol>
+            <li>create a function below main called <b><tt>print_platoon</tt></b></li>
+            <li>it should receive a list of lists as input</li>
+            <li>copy the code that creates the platoon inside of it</li>
+            <li>modify it so that, instead of creating the platoon, it accesses and prints <b><tt>platoon[i][j]</tt></b> at each inner loop iteration</li>
+          </ol>
+        </div>
+
+        Adding random prints
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Modify your code yet again to complete the following task:
+          <br><br>
+          <ol>
+            <li>AFTER the nested loop, in main, add the following:</li>
+            <li>Add a comment: <b><tt># RANDOM SECTION</tt></b></li>
+            <li>Generate a random number and print it out when the user enters <b>any key</b></li>
+          </ol>
+        </div>
+
+        Including a loop:
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Modify your <b><tt>Random Section</tt></b>  to achieve the following task:
+          <br><br>
+          <ol>
+            <li>AFTER <b><tt># RANDOM SECTION</tt></b></li></li>
+            <li>get an integer <b><tt>num</tt></b> from user input</li>
+            <li>(TODO:) in a for loop that runs <b><tt>num</tt></b> times, do the following:
+              <ol>
+                <li>Generate a random number and print it out</li>
+              </ol>
+            </li>
+            
+          </ol>
+        </div>
+
+        Connecting <b><tt>platoon</tt></b> and the random number generation:
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Modify your <b><tt>Random Section</tt></b>  to achieve the following task:
+          <br><br>
+          <ol>
+            <li>AFTER <b><tt># RANDOM SECTION</tt></b></li></li>
+            <li>(TODO:) <b>instead of a user input, get <tt>cols</tt> as the length of the first list inside platoon! (platoon[0])</b></li>
+            <li>in a for loop that runs <b><tt>cols</tt></b> times, do the following:
+              <ol>
+                <li>Generate a random number and save it in a variable called <b><tt>rnum</tt></b></li>
+                <li>Access each of the elements in <b><tt>platoon[0]</tt></b> and assign to it <b><tt>rnum</tt></b></li>
+              </ol>
+            </li>
+            
+          </ol>
+        </div>
+
+        Finishing up the random number <b><tt>platoon</tt></b>:
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Modify your <b><tt>Random Section</tt></b>  to achieve the following task:
+          <br><br>
+          <ol>
+            <li>AFTER <b><tt># RANDOM SECTION</tt></b></li></li>
+            <li>get <b><tt>rows</tt></b> as the length of the platoon list</li>
+            <li>in an outer for loop that runs <b><tt>rows</tt></b> times, do the following (already written):
+              <ol>
+                <li><b>instead of a user input, get <tt>cols</tt> as the length of the current row's list inside platoon!</b></li>
+                <li>in a for loop that runs <b><tt>cols</tt></b> times, do the following:
+                  <ol>
+                    <li>Generate a random number and save it in a variable called <b><tt>rnum</tt></b></li>
+                    <li>Access each of the elements in the current <b><tt>squad</tt></b> and assign to it <b><tt>rnum</tt></b></li>
+                  </ol>
+                </li>
+              </ol>                                            
+            </li>  
+            <li>
+              At the end, call the <b><tt>print_platoon</tt></b> method on input <b><tt>platoon</tt></b>
+            </li>          
+          </ol>
+        </div>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>What to do next?</h2>
+
+      <p>
+        <ul>
+          <li>Make sure Pablo has your Final Project Team</li>
+          <li>Work on Assignment 05</li>
+        </ul>
+      </p>
+      
+
+     <p><br></p><hr><p><br></p>
+
+      <h2>Additional readings</h2>
+
+      <p>
+          <li>Do check out the details for the <a href="https://docs.python.org/3/library/random.html">random module</a></li>
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Reminder: Final Project!</h2>
+
+      <p>
+
+        Final Project Speciffication
+        <ol>
+          <li><strike>Teams of 2 or 3</strike></li>
+          <li><strike>If you want to self select, tell me by next class</strike></li>
+          <li><strike>Any others will be assigned randomly</strike></li>
+          <li>YOU design the project (with notes from me)</li>
+          <li>Should inclde enough complexity (think Classes and Objects, Loops, User interaction, Graphics, etc)</li>
+          <li>Can be a Practical tool, a Game, an Artistic program, etc.</li>
+          <li>There will be 3 deadlines:
+            <ol>
+              <li><Big><b>Project Proposal: By Wednesday, November 3rd (TODAY).</b></Big></li>
+              <li>Project Skeleton: Show me the design (sketch + comments + basic class/function skeletons); Due Friday, November 12th</li>
+              <li>Project Prototype: Show me a <b>working</b> prototype with basic functionality. Due Monday, November 22nd.</li>
+              <li>Project Submission: Full project due on Wednesday, December 1st.</li>
+              <li>Project Presentation / Video (Show us your project in class): Wednesday, December 8th.</li>
+            </ol>
+          </li>
+        </ol>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Friday 11/05</h4>
+      <b>[Due for everyone]</b>  
+      <br>
+      ZyBook Chapters 
+      <br>
+
+      <br>
+      Assignment 06: Design a sketch of a UML diagram for your final project.
+      
+
+      <br><br>
+
+      <b>[Optional]</b>
+      <br>
+      <li>Practice for loops: ZyBooks chapters: </li>
+      
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes22.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes24.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>

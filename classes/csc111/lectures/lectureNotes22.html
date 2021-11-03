@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes21.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 22: Fancy graphics with user-objects (Lab)</h1>
+      <p>
+        <br>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Designing and building a complex multi-class project</h2>
+
+      <p>
+
+        Today, we'll design, develop, and test, a slightly more complex graphics-based project.
+
+        <br><br>
+
+        <h3>Steps</h3>
+
+        <li>Before we start... sit with your final project teams</li>
+        <li>For each task, one should code while the others supervise / direct the steps</li>
+        <li>The person coding <b>should not</b> be the person making the "what to code next" decisions</li>
+        <br><br>
+
+        <h4>The Task:</h4>
+        <br>
+      <ol>
+        <li>We will choose a type of scene to draw that contains:
+          <ul>
+            <li>multiple identical complex objects</li>
+            <li>placed randomly in a scene</li>
+          </ul>
+        </li>
+        <li>We will design the classes that need to be created to complete this project</li>
+        <li>We will develop in modules:
+          <ul>
+            <li>We will develop base classes first --- <b>and TEST them (using ad-hoc testing functions)</b></li>
+            <li>We will develop any inherited classes next --- <b>and TEST them (using ad-hoc testing functions)</b></li>
+            <li>We will develop the implementation code that uses these classes in small steps --- <b>while TESTING them (using ad-hoc testing functions)</b></li>            
+          </ul>
+        </li>
+      </ol>
+
+      <br><br><br><br>
+
+      <h3>Example scenes (pick one):</h3>
+
+      <br><br>
+
+      <h4>Complex Objects - Simple Scene</h4>
+      These objects are too complex for this lecture... but you get the ides
+      <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture22/calaveritas.png" alt="" style="width:60%">
+      <br><br>
+      The actual task for something like this would be: Make the base class, make the derived classes, place randomly in the scene.
+
+      <br><br><br><br>
+
+      <h4>Complex Scene - Simpl(er) Objects</h4>
+      This scene is too complex for this lecture... but you get the ides
+      <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture22/pumpkin-patch.png" alt="" style="width:60%">
+      <br><br>
+      The actual task for something like this would be: Make the base class, make the derived classes, place randomly in the scene.
+
+
+     </p>
+
+     <p><br></p><hr><p><br></p>
+
+      <h2>Additional readings</h2>
+
+      <p>
+          <li>Check out ZyBooks 8.14, and 8.15 to understand about Multiple inheritance</li>
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Reminder: Final Project!</h2>
+
+      <p>
+
+        Final Project Speciffication
+        <ol>
+          <li><strike>Teams of 2 or 3</strike></li>
+          <li><strike>If you want to self select, tell me by next class</strike></li>
+          <li><strike>Any others will be assigned randomly</strike></li>
+          <li>YOU design the project (with notes from me)</li>
+          <li>Should inclde enough complexity (think Classes and Objects, Loops, User interaction, Graphics, etc)</li>
+          <li>Can be a Practical tool, a Game, an Artistic program, etc.</li>
+          <li>There will be 3 deadlines:
+            <ol>
+              <li><Big><b>Project Proposal: By Wednesday, November 3rd (TODAY).</b></Big></li>
+              <li>Project Skeleton: Show me the design (sketch + comments + basic class/function skeletons); Due Friday, November 12th</li>
+              <li>Project Prototype: Show me a <b>working</b> prototype with basic functionality. Due Monday, November 22nd.</li>
+              <li>Project Submission: Full project due on Wednesday, December 1st.</li>
+              <li>Project Presentation / Video (Show us your project in class): Wednesday, December 8th.</li>
+            </ol>
+          </li>
+        </ol>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Friday 11/05)</h4>
+      <b>[Due for everyone]</b>  
+      <br>
+      ZyBook Chapters [NONE]
+      <br>
+      READING (With self-guided exercises on Replit's Scratchpad): <a href="https://realpython.com/python-super/">Super()</a>
+      <br>
+      Then, complete the following actions:
+      <ol>
+        <li>Draw a "sketch" of the classes you will use in your final project. <br>
+          The following notation is recommended: <a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/">UML</a>
+          <br>
+          If you use UML, 
+          <ol>
+            <li>You ONLY need to specify the class attributes and methods as well as the inheritance relations for your classes.</li>
+            <li>No need to specify Association, Cardinality, Aggregation, Composition, Dependency, or Realization</li>
+          </ol>
+        </li>
+        <li>[Optionally] sign-up for and watch this video: <a href="https://realpython.com/lessons/uml-diagrams/">UML Diagrams</a></li>
+        <li>[Optionally] read: <a href="https://realpython.com/inheritance-composition-python/">Inheritance and COmposition</a> (don't go past "Abstract Base Classes in Python")</li>
+      </ol>
+      
+
+      
+
+      <br><br>
+
+      <b>[Optional]</b>
+      <br>
+
+      </li>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes21.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
