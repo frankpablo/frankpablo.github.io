@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes26.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes27.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -129,17 +129,60 @@
 
       <p><br></p><hr><p><br></p>
 
-      <h2>Examples and Exercises</h2>
+      <h2>Recap: Setup exercise</h2>
 
       <p>
+        <h3>Call and Return</h3>
+
+        Look at the following code:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  
+13  
+14  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># Normal call and return</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">foo</span>(n):
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;foo-Before: &quot;</span>, n)
+  bar(n<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>)
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;foo-After: &quot;</span>, n)
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">bar</span>(x):
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;bar: &quot;</span>, x)
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  foo(<span style="color: #0000DD; font-weight: bold">5</span>)
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></td></tr></table></div>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          What does this program do?
+        </div>
+
+        <br><br>
+
+        Follow the call/return sequence <a href="https://pythontutor.com/visualize.html#code=%23%20Normal%20call%20and%20return%0Adef%20foo%28n%29%3A%0A%20%20%20%20print%20%28%22foo-Before%3A%20%22,%20n%29%0A%20%20%20%20bar%28n-1%29%0A%20%20%20%20print%20%28%22foo-After%3A%20%22,%20n%29%0A%0Adef%20bar%28x%29%3A%0A%20%20print%20%28%22bar%3A%20%22,%20x%29%0A%0Adef%20main%28%29%3A%0A%20%20foo%285%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">In the Python Tutor</a>
+
+        <br><br>
+
+        <h3>Things to note</h3>
 
         <ol>
-          <li>factorial</li>
-          <li>fibbonacci</li>
-          <li>palindrome</li>
-          <li>Sierpinski gasket: https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/the-sierpinksi-gasket</li>
-          <li>Memorization (fibo): https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/improving-efficiency-of-recursive-functions</li>
-
+          <li>each function terminates when its code runs out</li>
+          <li>currently, they are just printing the input and not asking any questions about it</li>
         </ol>
 
 
@@ -147,11 +190,321 @@
 
       <p><br></p><hr><p><br></p>
 
-      <h2><strike>Task 1: Design the Structure</strike></h2>
+      <h2>Recap: A recursive tweak</h2>
 
       <p>
 
+        <h3>Now, instead of calling another function, let's have it call itself!!</h3>
+
+        <br><br>
+
+        Look at the code below:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #888888"># Recursive call and return</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">foo</span>(n):
+    <span style="color: #008800; font-weight: bold">if</span> n <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+      <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;foo-Before: &quot;</span>, n)
+      foo(n<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>)
+      <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;foo-After: &quot;</span>, n)
+
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+    foo(<span style="color: #0000DD; font-weight: bold">5</span>)
+
+  <span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()        
+</pre></td></tr></table></div>
+
+
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          What does this program do?
+        </div>
+
+        <br><br>
+
+        Follow the call/return sequence <a href="https://pythontutor.com/visualize.html#code=%23%20Recursive%20call%20and%20return%0Adef%20foo%28n%29%3A%0A%20%20if%20n%20%3E%200%3A%0A%20%20%20%20print%20%28%22foo-Before%3A%20%22,%20n%29%0A%20%20%20%20foo%28n-1%29%0A%20%20%20%20print%20%28%22foo-After%3A%20%22,%20n%29%0A%0Adef%20main%28%29%3A%0A%20%20foo%285%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">In the Python Tutor</a>
+
+        <br><br>
+
+        <h3>How does this work?</h3>
+        The following image shows a visual representation of the call/return sequence (starting at <tt>foo(2)</tt>):
+        <br><br>
+
+        <br><br>
+        <img class="mx-auto d-block" src="../figures/lecture27/subroutines.png"  style="width:100%">
+        <br><br>
+
       </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Examples and Exercises</h2>
+
+      <p>
+
+        <h3>Recursion-01</h3>
+
+        First, we'll continue woth the examples in the Replit: <b>Recursion-01</b>
+        <ol>
+          <li>counting</li>
+          <li>parentheses</li>
+          <li>binary-search</li>
+        </ol>
+
+        <br><br>
+
+
+        <h3>More Examples!!</h3>
+
+        Now, we're going to construct recursive funcitions to solve the following problems:
+
+        <ol>
+          <li>Calculate the factorial of a number</li>
+          <li>Print out the Fibonacci sequence up to a number</li>
+          <li>Check if a string is a palindrome</li>          
+          <!-- https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/the-sierpinksi-gasket -->
+        </ol>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Advanced Tweaks!: Memorization</h2>
+
+      <p>
+
+        In many cases, recursive programs go over work that was done before.
+        <br><br>
+        One technique is to <b>store</b> results for work that was performed before and simply <b>look it up</b> when available.
+        <br><br>
+
+        <h3>Why do we need this?</h3>
+        Check out this program:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">####### Fibonacci (no memo)</span>
+<span style="color: #888888">###############################</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">fibonacci</span>(input_value):
+    <span style="color: #008800; font-weight: bold">if</span> input_value <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">elif</span> input_value <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">2</span>:
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">elif</span> input_value <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">2</span>:
+        <span style="color: #008800; font-weight: bold">return</span> fibonacci(input_value <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">+</span> fibonacci(input_value <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">2</span>)
+
+<span style="color: #888888"># fast</span>
+<span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">11</span>):
+     <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;fib({}) = &quot;</span><span style="color: #333333">.</span>format(i), fibonacci(i))
+</pre></td></tr></table></div>
+
+        <br><br>
+
+        Now change the value to:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># slow</span>
+<span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">40</span>):
+     <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;fib({}) = &quot;</span><span style="color: #333333">.</span>format(i), fibonacci(i))
+</pre></div>
+
+      <br><br>
+      Notice any issues?
+      <br><br>
+      Why is this happening?
+      <br><br><br><br>
+
+      <h3>With memorization</h3>
+
+      We can improve the performance of this algorithm by <b>storing</b> previously executed calls in a dictionary:
+      <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">######## Fibonacci (no memo)</span>
+<span style="color: #888888">################################</span>
+fibonacci_cache <span style="color: #333333">=</span> {}
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">fibonacci_memo</span>(input_value):
+    <span style="color: #008800; font-weight: bold">if</span> input_value <span style="color: #000000; font-weight: bold">in</span> fibonacci_cache:
+        <span style="color: #008800; font-weight: bold">return</span> fibonacci_cache[input_value]
+    <span style="color: #008800; font-weight: bold">if</span> input_value <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+            value <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">elif</span> input_value <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">2</span>:
+            value <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">elif</span> input_value <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">2</span>:           
+            value <span style="color: #333333">=</span>  fibonacci_memo(input_value <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">+</span> fibonacci_memo(input_value <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">2</span>)
+    fibonacci_cache[input_value] <span style="color: #333333">=</span> value
+    <span style="color: #008800; font-weight: bold">return</span> value
+
+<span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">201</span>):
+     <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;fib({}) = &quot;</span><span style="color: #333333">.</span>format(i), fibonacci_memo(i))
+</pre></td></tr></table></div>
+
+
+
+
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Assignment 08: Sierpinski</h2>
+
+      <p>
+        You will write a recursive algorithm to draw a Sierpinski triangle.
+          <ol>
+            <li>Draw a Sierpinski gasket: <br>
+              <br><br>
+              <img class="mx-auto d-block" src="../figures/lecture27/sierpinski1.png"  style="width:40%">
+              <br><br>
+            </li>
+          </ol>
+
+          The structure of Sierpinski:
+          <br>
+          <br><br>
+          <img class="mx-auto d-block" src="../figures/lecture27/sierpinski2.png"  style="width:80%">
+          <br><br>
+
+          <br><br>
+
+          To draw it, we'll use the <b><tt>turtle</tt></b> module in Python!
+          <br><br>
+
+          Turtle is a simple drawing package where the "pen" can be directed to move straight or turn in other directions...
+          <br><br>
+          Imagine you are directing a trained "turtle" that can rotate in place or walk forward while drawing on the ground or not.
+          <br><br>
+
+          <h4>Basic turtle program:</h4>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">turtle</span>
+window <span style="color: #333333">=</span> turtle<span style="color: #333333">.</span>Screen()
+window<span style="color: #333333">.</span>setup(<span style="color: #0000DD; font-weight: bold">400</span>, <span style="color: #0000DD; font-weight: bold">400</span>)
+t <span style="color: #333333">=</span> turtle<span style="color: #333333">.</span>Turtle()
+t<span style="color: #333333">.</span>fd(<span style="color: #0000DD; font-weight: bold">50</span>)
+t<span style="color: #333333">.</span>right(<span style="color: #0000DD; font-weight: bold">90</span>)
+t<span style="color: #333333">.</span>fd(<span style="color: #0000DD; font-weight: bold">50</span>)
+t<span style="color: #333333">.</span>right(<span style="color: #0000DD; font-weight: bold">90</span>)
+t<span style="color: #333333">.</span>fd(<span style="color: #0000DD; font-weight: bold">50</span>)
+t<span style="color: #333333">.</span>right(<span style="color: #0000DD; font-weight: bold">90</span>)
+t<span style="color: #333333">.</span>fd(<span style="color: #0000DD; font-weight: bold">50</span>)
+t<span style="color: #333333">.</span>right(<span style="color: #0000DD; font-weight: bold">90</span>)
+</pre></td></tr></table></div>
+
+          <br><br>
+          With the following results:
+
+          <br><br>
+          <img class="mx-auto d-block" src="../figures/lecture27/turtleSquare.png"  style="width:30%">
+          <br><br>
+
+
+          <br><br><br><br>
+
+          And now, to draw a hexagon: 
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">turtle</span>
+window <span style="color: #333333">=</span> turtle<span style="color: #333333">.</span>Screen()
+window<span style="color: #333333">.</span>setup(<span style="color: #0000DD; font-weight: bold">400</span>, <span style="color: #0000DD; font-weight: bold">400</span>)
+t <span style="color: #333333">=</span> turtle<span style="color: #333333">.</span>Turtle()
+t<span style="color: #333333">.</span>fd(<span style="color: #0000DD; font-weight: bold">50</span>)
+t<span style="color: #333333">.</span>right(<span style="color: #0000DD; font-weight: bold">60</span>)
+t<span style="color: #333333">.</span>fd(<span style="color: #0000DD; font-weight: bold">50</span>)
+t<span style="color: #333333">.</span>right(<span style="color: #0000DD; font-weight: bold">60</span>)
+t<span style="color: #333333">.</span>fd(<span style="color: #0000DD; font-weight: bold">50</span>)
+t<span style="color: #333333">.</span>right(<span style="color: #0000DD; font-weight: bold">60</span>)
+t<span style="color: #333333">.</span>fd(<span style="color: #0000DD; font-weight: bold">50</span>)
+t<span style="color: #333333">.</span>right(<span style="color: #0000DD; font-weight: bold">60</span>)
+t<span style="color: #333333">.</span>fd(<span style="color: #0000DD; font-weight: bold">50</span>)
+t<span style="color: #333333">.</span>right(<span style="color: #0000DD; font-weight: bold">60</span>)
+t<span style="color: #333333">.</span>fd(<span style="color: #0000DD; font-weight: bold">50</span>)
+t<span style="color: #333333">.</span>right(<span style="color: #0000DD; font-weight: bold">60</span>)
+</pre></td></tr></table></div>
+
+          <br><br>
+          With the following results:
+
+          <br><br>
+          <img class="mx-auto d-block" src="../figures/lecture27/turtleHex.png"  style="width:30%">
+          <br><br>
+
+
+
+
+
+
+          <br><br>
+
+          Read the following <a href="https://realpython.com/beginners-guide-python-turtle/">Turtle Tutorial</a>
+
+      </p>
+
+
+      
 
 
       <p><br></p><hr><p><br></p>
@@ -174,7 +527,7 @@
 
       <p>
 
-        Final Project Speciffication
+        Final Project Specification
         <ol>
           <li><strike>Teams of 2 or 3</strike></li>
           <li><strike>If you want to self select, tell me by next class</strike></li>
@@ -206,6 +559,8 @@
       <!-- Assignment 06: Finish the pumpkin patch (Due TODAY, November 12th). -->
       <br><br>
       Assignment 07 (Replit); due Wed 11/17 before 11:59 PM
+      <br><br>
+      Assignment 08 (Replit); due Wed 11/24 before 11:59 PM
       <br>
       <!-- ZyBooks Chapters 7.1 to 7.4 (7.5 Optional) -->
       
@@ -233,10 +588,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes26.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes27.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Next Module</a>
               </li>
             </ul>
           </div>
