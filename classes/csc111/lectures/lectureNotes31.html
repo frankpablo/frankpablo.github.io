@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes30.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes32.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 31: Python vs other Languages + In-class work: Final Project</h1>
+      <p>
+        <br>
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>The same program in multiple languages</h2>
+
+      <p>
+
+        Today we will look at the code for a simple program as written in multiple languages.
+
+        <br><br><br>
+
+        <h3>Python</h3>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">for</span> k <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">10</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>):
+  <span style="color: #007020">print</span> k
+</pre></div>
+
+<br>
+
+<a href="https://tio.run/##K6gsycjPM/7/Py2/SCFbITNPoSgxLz1Vw9BAx0BH11DTiktBoaAoM69EQSNb8/9/AA" title="Python 3 – Try It Online">Try it online!</a>
+
+      <br><br><br>
+
+
+      <h3>Java</h3>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">revl</span> <span style="color: #333333">{</span>
+  <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String <span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+    <span style="color: #333399; font-weight: bold">int</span> k<span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span>k<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">;</span> k<span style="color: #333333">&gt;=</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span> k<span style="color: #333333">--)</span> <span style="color: #333333">{</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>k<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+  <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+
+<br>
+
+<a href="https://tio.run/##NYy9DoMgFIV3n@KMOGDqbOxLODYdbtUaBMHAlaQxPjtSmw7nZ/jOmSmSnAedUm8oBPgxGuwFsG4vo3oEJs4RnRqwkLKiY6/shMcT5KdQXiygLEM3V307D6Hb@tZA39s6u5R/DOg@gcelchtXaz5iY4Uuf8Oj@OpI6QQ" title="Java (JDK) – Try It Online">Try it online!</a>
+
+      <br><br><br>
+
+
+      <h3>C</h3>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;stdio.h&gt;</span>
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>() {
+  <span style="color: #333399; font-weight: bold">int</span> k;
+  <span style="color: #008800; font-weight: bold">for</span> (k<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">10</span>; k<span style="color: #333333">&gt;=</span><span style="color: #0000DD; font-weight: bold">1</span>; k<span style="color: #333333">--</span>) {
+    printf(<span style="background-color: #fff0f0">&quot;%d</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>,k);
+  }
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+
+
+
+
+<br>
+
+<a href="https://tio.run/##JcpNCoAgFATgvacYisAgo9ZWJ2kT2o9YrzBbRWc3o8UMM/ApMSsVQmpIrZce0Zxem71cOmbIYxsM8Rw3A75rZRzT7sBtW1cStmvr2EL8BDhcZBNPMt1TUtj880@MG/3lCJVkTwgv" title="C (gcc) – Try It Online">Try it online!</a>
+
+
+      <br><br><br>
+
+
+      <h3>C++</h3>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #008800; font-weight: bold">namespace</span> std;
+<span style="color: #557799">#include &lt;iostream&gt;</span>
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>() {
+  <span style="color: #333399; font-weight: bold">int</span> k;
+  <span style="color: #008800; font-weight: bold">for</span> (k<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">10</span>; k<span style="color: #333333">&gt;=</span><span style="color: #0000DD; font-weight: bold">1</span>; k<span style="color: #333333">--</span>) {
+    cout <span style="color: #333333">&lt;&lt;</span> k <span style="color: #333333">&lt;&lt;</span> endl;
+  }
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+
+
+
+<br><br>
+
+<a href="https://tio.run/##JYu7CsQgFER7v2Jgm2whJLUm/yLmbhDjVXxUS77dVbaYwxyYsSnJy9reW3F8gU2gkowllHoq8XJs73YStIulZjLhEI4rgnG8vPEVwFSvRvnEjMXv26rgj30blPI/AWxsFVrDTxCf9zw8I5lqy4xViaf3Hw" title="C++ (gcc) – Try It Online">Try it online!</a>
+
+
+      <br><br><br>
+
+
+      <h3>Shell (ksh and bash)</h3>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">let a=10
+a=10
+while [[ $a -ge 1 ]] ; do
+  echo $a
+  let a-=1
+done
+</pre></div>
+
+
+<br><br>
+
+<a href="https://tio.run/##S0oszvj/P9HW0ICrPCMzJ1UhOlpBJVFBNz1VwVAhNlbBWiEln0tBITU5Ix8oDmTlpJYoJOraGnKl5Oel/v8PAA" title="Bash – Try It Online">Try it online!</a>
+       
+
+        <br><br><br>
+
+        Check the original article <a href="http://www.wellho.net/mouth/2700_The-same-very-simple-program-in-many-different-programming-languages.html">Here</a>
+
+        <br><br><br>
+
+
+      <h3>Other strange beasts</h3>
+
+      So far, we discussed languages that are under the broad category of "Imperative Programming" and some under the sub-categories of "Object-Oriented".
+
+      <br><br>
+
+      Here are some other Programming Language Paradigms:
+      <ol>
+        <li>Functional Programming</li>
+        <li>Logic Programming</li>
+        <li>Parallel Programming (for parallel computing)</li>
+      </ol>
+
+      <br><br>
+
+      There are even some esotheric programming languages that are worth looking at:
+      <br><br>
+
+      Check some examples <a href="https://esolangs.org/wiki/Hello_world_program_in_esoteric_languages_(nonalphabetic_and_A-M)">here</a>.
+
+
+
+
+
+        
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Work on the Final Project</h2>
+
+      <p>
+        <ul>
+          <li>Call Pablo over f you want help/pointers/to brag</li>
+        </ul>
+      </p>
+
+      
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>What to do next?</h2>
+
+      <p>
+        <ul>
+          <li>Make sure Pablo has seen and given you feedback on your Final Project in Replit</li>
+        </ul>
+      </p>
+      
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Reminder: Final Project!</h2>
+
+      <p>
+
+        Final Project Specification
+        <ol>
+          <li><strike>Teams of 2 or 3</strike></li>
+          <li><strike>If you want to self select, tell me by next class</strike></li>
+          <li><strike>Any others will be assigned randomly</strike></li>
+          <li>YOU design the project (with notes from me)</li>
+          <li>Should inclde enough complexity (think Classes and Objects, Loops, User interaction, Graphics, etc)</li>
+          <li>Can be a Practical tool, a Game, an Artistic program, etc.</li>
+          <li>There will be 3 deadlines:
+            <ol>
+              <li><b><strike>Project Proposal: By Wednesday, November 3rd (FIVE DAYS AGO!!!).</strike></b></li>
+              <li><strike>Project Skeleton: Show me the design (sketch + comments + basic class/function skeletons); <b>Due Wednesday, November 17th</b></strike></li>
+              <li>Project Prototype: Show me a <b>working</b> prototype with basic functionality. <b>Due wednesday, December 1st.</b></li>
+              <li>Working Project Submission: Full project due on <b>Monday, Wednesday 8th.</b></li>
+              <li>Project Presentation / Video (Show us your project in class): <b>Friday, December 10th.</b></li>
+              <li>Final Project Submission: Full project due on <b>Wednesday, Friday 17th.</b></li>
+            </ol>
+          </li>
+        </ol>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>    
+
+      <h2>1-Minute Debrief</h2>
+
+      <p>
+        Please fill this out before leaving:
+        <br>
+        <div class="mx-lg-5"> 
+          <a href="https://forms.gle/UC7YHCnsEeZPKaHh6">1-Minute Debrief</a>
+        </div>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Monday 11/29)</h4>
+      <b>[Due for everyone]</b>  
+      <br>
+      <!-- ZyBook Chapters 7.1 to 7.4 (7.5 Optional) -->
+      <!-- Assignment 06: Finish the pumpkin patch (Due TODAY, November 12th). -->
+      <br><br>
+      Assignment 08 (Replit); due Wed 11/24 before 11:59 PM
+      <br><br>
+      Work on your Final Project
+      <br>
+      <!-- ZyBooks Chapters 7.1 to 7.4 (7.5 Optional) -->
+      
+
+      <br><br>
+
+      <b>[Optional]</b>
+      <br>
+      
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes30.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes32.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
