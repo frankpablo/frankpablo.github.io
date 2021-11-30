@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes31.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes33.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 32: List Comprehension + In-class work: Final Project</h1>
+      <p>
+        <br>
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>What is List Comprehension</h2>
+
+      <p>
+        List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list.
+        <br><br>
+
+        This approach requires a deeper understanding of how python works but let's you write fancier code.
+        <br><br><br>
+
+        It follows the mathematical notation for describing sets:
+
+        \[
+        P = \{ x \in \mathbb{R} \mid x > 0 \}
+        \]
+
+        <br>
+        <center>or</center>
+        <br>
+
+
+        \[
+        E = \{ x \in \mathbb{R} \mid x \mod 2 \text{  is equal to 0} \}
+        \]
+        
+
+
+        <br><br><br>
+
+
+
+        <h3>Example 1: </h3>
+
+        <br><br>
+
+        <h4>Using a for loop</h4>
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">squares <span style="color: #333333">=</span> []
+<span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">10</span>):
+    squares<span style="color: #333333">.</span>append(i <span style="color: #333333">*</span> i)
+</pre></div>
+
+
+
+<br>
+
+<a href="https://pythontutor.com/visualize.html#code=squares%20%3D%20%5B%5D%0Afor%20i%20in%20range%2810%29%3A%0A%20%20%20%20squares.append%28i%20*%20i%29%0Asquares&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" title="Python 3 – Try It Online">Try it online!</a>
+
+      <br><br><br>
+
+        <h4>Using <tt>map()</tt> Objects</h4>
+
+        map() needs a function and an iterable, and it will create an object (we didn't see this in class until now).
+        <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">TAX_RATE <span style="color: #333333">=</span> <span style="color: #333333">.</span><span style="color: #0000DD; font-weight: bold">08</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">get_price_with_tax</span>(txn):
+    <span style="color: #008800; font-weight: bold">return</span> txn <span style="color: #333333">*</span> (<span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">+</span> TAX_RATE)
+<span style="color: #888888"># makes the iterable &quot;final_prices&quot;</span>
+final_prices <span style="color: #333333">=</span> <span style="color: #007020">map</span>(get_price_with_tax, txns)
+<span style="color: #007020">list</span>(final_prices)
+</pre></div>
+
+
+
+        <br><br>
+
+
+<a href="https://pythontutor.com/visualize.html#code=txns%20%3D%20%5B1.09,%2023.56,%2057.84,%204.56,%206.78%5D%0ATAX_RATE%20%3D%20.08%0Adef%20get_price_with_tax%28txn%29%3A%0A%20%20%20%20return%20txn%20*%20%281%20%2B%20TAX_RATE%29%0Afinal_prices%20%3D%20map%28get_price_with_tax,%20txns%29%0Alist%28final_prices%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" title="Python 3 – Try It Online">Try it online!</a>
+        
+        <br><br><br>
+
+        <h4>Using List Comprehensions</h4>
+
+        you could rewrite the for loop from the first example in just a single line of code:
+
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">squares <span style="color: #333333">=</span> [i <span style="color: #333333">*</span> i <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">10</span>)]
+</pre></div>
+
+
+        <br><br>
+
+
+<a href="https://pythontutor.com/visualize.html#code=squares%20%3D%20%5Bi%20*%20i%20for%20i%20in%20range%2810%29%5D&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">Try it online!</a>
+        
+
+
+      <br><br>
+
+      This approach follows this format:
+      <br><br>
+
+      <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">new_list <span style="color: #333333">=</span> [expression <span style="color: #008800; font-weight: bold">for</span> member <span style="color: #000000; font-weight: bold">in</span> iterable]
+</pre></div>
+
+      <br><br>
+
+      Note the key words: <b><tt>for</tt></b> and <b><tt>in</tt></b>
+
+      <br><br><br>
+
+
+
+      <h4>Every list comprehension in Python includes three elements</h4>:
+
+      <ol>
+        <li><b>expression</b> is the member itself, a call to a method, or any other valid expression that returns a value. In the example above, the expression i * i is the square of the member value.</li>
+        <li><b>member</b> is the object or value in the list or iterable. In the example above, the member value is i.</li>
+        <li><b>iterable</b> is a list, set, sequence, generator, or any other object that can return its elements one at a time. In the example above, the iterable is range(10).</li>
+      </ol>
+
+      <br><br>
+
+      You can think of it in reverse:
+
+      <br><br>
+
+      For every <b>member</b> in the original <b>iterable</b>, apply an <b>expression</b> and add to the "<tt>new_list</tt>"
+
+
+
+      <br><br><br>
+
+
+      <h3>Example 2</h3>
+
+      We'll rewrite the "Tax" Example using list comprehension too:
+      <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">txns <span style="color: #333333">=</span> [<span style="color: #6600EE; font-weight: bold">1.09</span>, <span style="color: #6600EE; font-weight: bold">23.56</span>, <span style="color: #6600EE; font-weight: bold">57.84</span>, <span style="color: #6600EE; font-weight: bold">4.56</span>, <span style="color: #6600EE; font-weight: bold">6.78</span>]
+TAX_RATE <span style="color: #333333">=</span> <span style="color: #333333">.</span><span style="color: #0000DD; font-weight: bold">08</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">get_price_with_tax</span>(txn):
+    <span style="color: #008800; font-weight: bold">return</span> txn <span style="color: #333333">*</span> (<span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">+</span> TAX_RATE)
+final_prices <span style="color: #333333">=</span> [get_price_with_tax(i) <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> txns]
+</pre></div>
+
+
+<br><br>
+
+In particular, look at the last line of this program:
+<br>
+
+<a href="https://pythontutor.com/visualize.html#code=txns%20%3D%20%5B1.09,%2023.56,%2057.84,%204.56,%206.78%5D%0ATAX_RATE%20%3D%20.08%0Adef%20get_price_with_tax%28txn%29%3A%0A%20%20%20%20return%20txn%20*%20%281%20%2B%20TAX_RATE%29%0Afinal_prices%20%3D%20%5Bget_price_with_tax%28i%29%20for%20i%20in%20txns%5D&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" title="Java (JDK) – Try It Online">Try it online!</a>
+
+      <br><br><br>
+
+
+      <h3>Advanced Version (Conditionals)</h3>
+
+      A more complete description of the comprehension formula adds support for optional conditionals. The most common way to add conditional logic to a list comprehension is to add a conditional to the end of the expression:
+
+      <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">new_list <span style="color: #333333">=</span> [expression <span style="color: #008800; font-weight: bold">for</span> member <span style="color: #000000; font-weight: bold">in</span> iterable (<span style="color: #008800; font-weight: bold">if</span> conditional)]
+</pre></div>
+
+
+      <br><br>
+
+      <h4>Example 3: list comprehension with conditionals</h4>:
+      <br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">sentence <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;the rocket came back from mars&#39;</span>
+vowels <span style="color: #333333">=</span> [i <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> sentence <span style="color: #008800; font-weight: bold">if</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="background-color: #fff0f0">&#39;aeiou&#39;</span>]
+</pre></div>
+
+
+<a href="https://pythontutor.com/visualize.html#code=sentence%20%3D%20'the%20rocket%20came%20back%20from%20mars'%0Avowels%20%3D%20%5Bi%20for%20i%20in%20sentence%20if%20i%20in%20'aeiou'%5D&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" title="C (gcc) – Try It Online">Try it online!</a>
+
+      <br><br>
+
+      <h3>Further reading</h3>
+
+        <br>
+
+        Check this article <a href="https://realpython.com/list-comprehension-python/"> about when to use list comprehension</a>
+
+        <br><br><br>
+        
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Work on the Final Project</h2>
+
+      <p>
+        <ul>
+          <li>Call Pablo over f you want help/pointers/to brag</li>
+        </ul>
+      </p>
+
+      
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>What to do next?</h2>
+
+      <p>
+        <ul>
+          <li>Make sure Pablo has seen and given you feedback on your Final Project in Replit</li>
+        </ul>
+      </p>
+      
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Reminder: Final Project!</h2>
+
+      <p>
+
+        Final Project Specification
+        <ol>
+          <li><strike>Teams of 2 or 3</strike></li>
+          <li><strike>If you want to self select, tell me by next class</strike></li>
+          <li><strike>Any others will be assigned randomly</strike></li>
+          <li>YOU design the project (with notes from me)</li>
+          <li>Should inclde enough complexity (think Classes and Objects, Loops, User interaction, Graphics, etc)</li>
+          <li>Can be a Practical tool, a Game, an Artistic program, etc.</li>
+          <li>There will be 3 deadlines:
+            <ol>
+              <li><b><strike>Project Proposal: By Wednesday, November 3rd (FIVE DAYS AGO!!!).</strike></b></li>
+              <li><strike>Project Skeleton: Show me the design (sketch + comments + basic class/function skeletons); <b>Due Wednesday, November 17th</b></strike></li>
+              <li>Project Prototype: Show me a <b>working</b> prototype with basic functionality. <b>Due wednesday, December 1st.</b></li>
+              <li>Working Project Submission: Full project due on <b>Monday, Wednesday 8th.</b></li>
+              <li>Project Presentation / Video (Show us your project in class): <b>Friday, December 10th.</b></li>
+              <li>Final Project Submission: Full project due on <b>Wednesday, Friday 17th.</b></li>
+            </ol>
+          </li>
+        </ol>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>    
+
+      <h2>1-Minute Debrief</h2>
+
+      <p>
+        Please fill this out before leaving:
+        <br>
+        <div class="mx-lg-5"> 
+          <a href="https://forms.gle/UC7YHCnsEeZPKaHh6">1-Minute Debrief</a>
+        </div>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Monday 11/29)</h4>
+      <b>[Due for everyone]</b>  
+      <br>
+      <!-- ZyBook Chapters 7.1 to 7.4 (7.5 Optional) -->
+      <!-- Assignment 06: Finish the pumpkin patch (Due TODAY, November 12th). -->
+      <br><br>
+      Assignment 08 (Replit); due Wed 11/24 before 11:59 PM
+      <br><br>
+      Work on your Final Project
+      <br>
+      <!-- ZyBooks Chapters 7.1 to 7.4 (7.5 Optional) -->
+      
+
+      <br><br>
+
+      <b>[Optional]</b>
+      <br>
+      
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes31.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes33.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
