@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 102  How The Internet Works</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #table td {
+          padding: 1em;
+          border: 1px solid black;
+      }
+
+
+      #table.show tr > *:nth-child(1) {
+          display: block;
+      }
+
+
+      /*For tree view*/
+
+      /* Remove default bullets */
+      ul, #myUL {
+        list-style-type: none;
+      }
+
+      /* Remove margins and padding from the parent ul */
+      #myUL {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Style the caret/arrow */
+      .caret {
+        cursor: pointer;
+        user-select: none; /* Prevent text selection */
+      }
+
+      /* Create the caret/arrow with a unicode, and style it */
+      .caret::before {
+        content: "\25B6";
+        color: black;
+        display: inline-block;
+        margin-right: 6px;
+      }
+
+      /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+      .caret-down::before {
+        transform: rotate(90deg);
+      }
+
+      /* Hide the nested list */
+      .nested {
+        display: none;
+      }
+
+      /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+      .active {
+        display: block;
+      }
+
+      /* Style the caret/arrow */
+      .caret2 {
+        cursor: pointer;
+        user-select: none; /* Prevent text selection */
+      }
+
+      /* Create the caret/arrow with a unicode, and style it */
+      .caret2::before {
+        content: "\25B6";
+        color: grey;
+        display: inline-block;
+        margin-right: 6px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="Smit Logo" height="120">
+      <!-- <img class="float-right" src="../../../images/pabloFaceIcon.png" alt="Smith Logo" height="120"> -->
+      <h1 class="display-3 m-0">CSC 102</h1>
+      <p class="lead">How The Internet Works</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes11.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 10: CSS and Bootstrap in HTML</h1>
+      <p>
+        <br>
+      </p>
+
+
+      <p><br></p><hr><p><br></p>    
+
+      <h2>Styles in HTML!</h2>
+
+      <p>
+
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-06.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-07.png" alt="" style="width:100%">
+        <br><br>
+
+         <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-08.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-09.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-10.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-11.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-12.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-13.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-14.png" alt="" style="width:100%">
+        <br><br>
+      
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-15.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-16.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-17.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-18.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-19.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-20.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-21.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <h4>LAB exercise 1 Tasks</h4>
+
+        <ol>
+          <li>Open the Project called <b><tt>Style-Tags</tt></b> in Replit</li>
+          <li>Follow the instructions to use the  tags to insert style info to all items in the page</li>
+          <li>Jump to the "<tt>otherpage.html</tt>" and check the style there</li>
+          <li>Also check the use of Tab in a Replit html doc!</li>
+        </ol>
+
+        <br><br>
+
+        <h4>LAB exercise 2 Tasks</h4>
+
+        You might nptice that the "otherpage" does not acquire the style from the first.
+        <br>
+        We'll use another approach here (the <tt>style.css</tt> file!)
+        <br><br>
+
+        <ol>
+          <li>Cut everything that is inside the <tt>style</tt> tags into the file called <tt>style.css</tt></li>
+          <li>remove the <tt>style</tt> tags from the code pasted into <tt>style.css</tt></li>
+          <li>Add the following line to the <tt>head</tt> of both pages: <br>
+            <center> <tt>&lt;link rel="stylesheet" href="style.css"&gt;</tt> </center></li>
+          <li>Run the page!</li>
+        </ol>
+<!-- 
+        <ol>
+          <li>In a section of the <b>Scratchpad</b>, reproduce the section shown above using inline <b><tt>style</tt></b></li>
+          <br>
+          <li>
+            When you are done, You will follow these steps:
+            <ol>
+              <li>Go to the CSC-102-Fall21-Section-01 team's dashboard and expand the left "hamburger" menu.</li>
+              <br>
+              <li>Press the <b>Create Repl</b> button:
+                <br>
+                <img src="../figures/lecture09/create.png" style="width:30%;">
+              </li>
+              <br>
+              <li>Select, under <b>Template</b>: HTML, CSS, JS</li>
+              <br>
+              <li>Under <b>Title</b>, name your project: "CSS-exercise"</li>
+              <br>
+              <li>Press "+ Create Repl"</li>
+              <br>
+              <li>You can share your Repl with me by simply sending me the URL (you should know what that means now!) <br>
+              OR by inviting me using the top-right button "Invite" and searching for <b><tt>pfrank</tt></b>
+              <br>
+              <img src="../figures/lecture09/invite.png" style="width:20%;">
+              </li>
+              <br>
+              <li>Now, inside your "CSS-exercise" Replit, you will select the "files" tab on the right-side panel:
+                <br>
+                <img src="../figures/lecture09/files.png" style="width:40%;">
+              </li>
+              <br>
+              <li>If you don't have the "style.css" file, you will create it with the "Add file" button: 
+                <br>
+                <img src="../figures/lecture09/addfile.png" style="width:40%;">
+              </li>
+              <br>
+              <li>And Finally: Add the appropriate CSS rules to obtain the SAME results as what we did with inline style</li>
+            </ol>
+          </li>
+        </ol>
+ -->
+
+        <p><br></p><hr><p><br></p>
+
+        <h2>Bootstrap</h2>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-22.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-23.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-24.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <h3>The code is in Moodle and in the Replit file "<tt>extra-stuff.txt</tt>", for you to copy-paste</h3>     
+
+        <br><br><br><br>
+
+        Here is the link to the <a href="https://getbootstrap.com/docs/5.1/getting-started/introduction/">Bootstrap Intro</a>
+
+        <br><br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-25.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-26.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-27.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-28.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-29.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-30.png" alt="" style="width:100%">
+        <br><br> 
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-31.png" alt="" style="width:100%">
+        <br><br> 
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-32.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-33.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-34.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-35.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-36.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-37.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture09/HTML3-38.png" alt="" style="width:100%">
+        <br><br>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>    
+
+      <h2>Final Project: Team Wiki Website!</h2>
+
+      <p>
+        This class will NOT have a final exam.
+        <br><br>
+
+        Instead, we will build a website in teams of 3, where you explain how the internet works in your own words and with your own style.
+
+        <br><br>
+
+        The project stages will be:
+
+        <br><br>
+
+        <ol>
+          <li>
+            Make teams of 3 (a max of 2 teams of 2 will be accepted) <b>[Let me know before Thursday 11/24]</b>
+            <br>
+            If you don't have people in mind, I can make random teams with all of those who remain without a team before next class. <b>[Let me know before Thursday 11/24]</b>
+          </li>
+          <br>
+          <li>Your team will create a website that will include the following parts:
+            <br>
+            <ol>
+              <li>[Due 12/02] A single member will create a single Repl for your final project and invite your teammates. <br>
+              Then you will also invite "pfrank". All your work will be done here!</li>
+              <li>[Due 12/03] A <b>bio page for each member</b> telling the reader who you are and what you like.</li>
+              <li>[Due 12/07] A <b>landing page</b> for your team's webpage with your <b>team name</b>, <b>logo</b>, and <b>welcome blurb.</b></li>              
+              <li>[Due 12/10]A <b>wiki page by each member</b> explaining how the internet works using analogies (the model to follow is Wikipedia).               
+                <ol>
+                  <li>This page is the <b>principal gradeable section</b> and should explain how the main blocks of the OSI model work (Data-Link, Network, Transport, and Application).</li>
+                  <li>You should use <b>Analogies</b> to explain this to the layperson. The analogies <b>must be your own!</b> (not in the book; not used by me in class;)</li>
+                  <li>You should include an index (with links to sections), sections (headers), and images.</li>
+                  <li>You should include a references section where you cite all the resources (at least 5) you used to explain your materials (lecture notes, wikipedia, online book, etc)</li>
+                  <li>You should include an "External Links" section, with hyperlinks to relevant webpages (at least 5)</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+
+        <br><br>
+        <big><b>Note: The aforementioned dates are the recommended ones. I will grade it on December 18th.</b></big>
+        <br><br>
+
+        <h4>Grading Criteria</h4>
+        Each student will receive Individual and Team grades. <br>
+        <b>The Team grade is 20% of the total</b> and will come from the "Landing page" and an "Overall Quality" grade.
+        <br><br>
+        <b>The Individual grade is 80% of the total</b> and will come from the bio and wiki pages for each member.
+        <br><br>
+
+        Each page will be graded with the following rubric:
+        <br>
+
+        <ul>
+          <li><b>Completeness: 40%</b> <br>
+          This refers to the page having all specified sections</li>
+          <li><b>Correctness: 20%</b> <br>
+          The HTML is correct and works without issues</li>
+          <li><b>Richness: 20%</b> <br>
+          The HTML uses all required tags (headers, paragraphs, lists, tables, images, links, and anchors) </li>
+          <li><b>Clarity: 20%</b> <br>
+          The text is well written and any explanations are coherent, simple, and precise (even while using analogies).</li>
+        </ul>
+
+        <br><br><br>
+
+        <h4>Notes</h4>
+        <ol>
+          <li>You may start now and build a basic skeleton of your bio and wiki pages</li>
+          <br>
+          <li>Next Tuesday, we'll talk about CSS and Bootstrap, which will be EXTRA mechanisms to let you build fancy-looking pages. They will not be required (but you might want to include them to make it look cool)</li>
+          <br>
+          <li>The ONLY way to build this webpage is by performing <b>small increments with testing</b> <br>.
+            That means that you should start with a basic skeleton and perform the following actions: <br>
+            <ol>
+              <li>Add a small part (basically every time you add a tagged section)</li>
+              <li>View the file in a browser</li>
+              <li>Check if it shows what you expected. If YES, go to (1) or End; If NO, fix it immediately! and go to (3)</li>
+            </ol>
+          </li>
+        </ol>
+
+
+      </p>
+
+
+
+      <p><br></p><hr><p><br></p>    
+
+      <h2>1-Minute Debrief</h2>
+
+      <p>
+        Please fill this out before leaving:
+        <br>
+        <div class="mx-lg-5"> 
+          <a href="https://forms.gle/UC7YHCnsEeZPKaHh6">1-Minute Debrief</a>
+        </div>
+
+      </p>
+        
+
+      <p><br></p><hr><p><br></p>
+
+      <h3>Next class: More HTML</h3>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Tuesday)<h4>
+      <br>      
+      <b>[Due for everyone]</b>
+      <div class="mx-5">
+         Quiz released Today... you have until Monday midnight to complete it.
+      </div> 
+      <br>
+      <b>[Optional]</b> 
+      <div class="mx-5">
+        TODO<p></p>
+      </div>
+      <br><br>
+
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes11.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjIntrokuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+   <!--  <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
