@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes19.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes20.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes21.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes22.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,7 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 20: More NP-Completeness</h1>
+      <h1>Lecture Notes 21: UnRecognizable Ls and Poly-Time Reductions in NP-C</h1>
       <p>
         <br>
       </p>
@@ -206,8 +206,8 @@
 
       This class we'll discuss:
       <ul>
-        <li>Recap: P vs NP vs NP-Hard vs NP-Complete</li>
-        <li>Poly-time reductions</li>
+        <li>UnRecognizable Languages</li>
+        <li>Poly-time reductions in NP-Complete</li>
         <li>Final Exam format</li>
       </ul>
 
@@ -220,242 +220,211 @@
       <h2>Recap: P vs NP vs NP-Hard vs NP-Complete</h2>
       <p>
 
-<!-- 
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-01.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-02.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-03.png" alt="" style="width:100%">
-        <br><br>
--->
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-04.png" alt="" style="width:100%">
-        <br><br>
 
-<!-- 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-05.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-06.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-01.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-07.png" alt="" style="width:60%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-02.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-08.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-09.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-10.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-11.png" alt="" style="width:100%">
-        <br><br>
- -->        
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-12.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-03.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-13.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-04.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-14.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-05.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-06.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-07.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-08.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-09.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-10.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-11.png" alt="" style="width:100%">
+        <br><br>
+    
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-12.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br><br>
+
+        <big><span style="color:#003470;font-size:200%">More Polynomial-Time Reductions in NP-Complete</span></big>
+
+
+        <br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-13.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-15.png" alt="" style="width:100%">
-        <br><br>
-
-<!--         
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-16.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-14.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-17.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-15.png" alt="" style="width:100%">
+        <br><br>
+
+        
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-16.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-18.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-17.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-19.png" alt="" style="width:100%">
-        <br><br>
- -->
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-20.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-18.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-21.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-22.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-23.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-24.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-25.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-19.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-26.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-27.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-28.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-29.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-20.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-30.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-21.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-31.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-22.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-32.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-23.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-24.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-25.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-26.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-27.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-28.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-29.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-30.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-31.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-32.png" alt="" style="width:100%">
         <br><br>
  
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-33.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-33.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-34.png" alt="" style="width:100%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-35.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-36.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-34.png" alt="" style="width:100%">
         <br><br>
 
-
-<!--         </p>
-
-        <h2>Time Complexity Classes</h2>
-        <p>
- -->
-
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-37.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-35.png" alt="" style="width:100%">
         <br><br>
-<!-- 
-        <big><span style="color:#003470;font-size:200%">Some Typical Classes</span></big>
-
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/T-compare.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-36.png" alt="" style="width:100%">
         <br><br>
 
-        Check out examples <a href="https://en.wikipedia.org/wiki/Time_complexity">Here</a>
- -->
+
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-38.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-37.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-38.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-39.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-39.png" alt="" style="width:100%">
         <br><br>        
 
                 <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-40.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-40.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-41.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-41.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-42.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-42.png" alt="" style="width:100%">
         <br><br>
 
-<!-- 
-        <big><span style="color:#003470;font-size:200%">Example:</span></big>
 
         <br><br>
-        <big><span style="color:#003470;font-size:150%">SEL = {&lt;A&gt; | integer array A can be sorted using SELECTION-SORT }</span></big>
-
- -->
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-43.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-43.png" alt="" style="width:100%">
         <br><br>
         
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-44.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-44.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-45.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-45.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-46.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-46.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-47.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-47.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-48.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-48.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture20/NPC-48b.png" alt="" style="width:100%">
-        <br><br>   
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-49.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-49.png" alt="" style="width:100%">
         <br><br>     
 <!-- 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-50.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-50.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-51.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-51.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-52.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-52.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-53.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-53.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture19/NPC-54.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture21/PolyRed-54.png" alt="" style="width:100%">
         <br><br> 
       -->
         
       </p>
 
-      <!-- <p><br></p><hr><p><br></p>
-
-      <h2>Assignment 04</h2>
-
-      <p>
-        <ol>
-          <li>Due Wednesday 11/17</li>
-          <li>In groups of 2 or 3 (form up now and send a single email to me with your team composition)</li>
-          <li>If you don;t have a team, I will add you to one</li>
-          <li>You must meet up (live/zoom) and discuss each problem</li>
-          <li>provide a short and clear answer in a pdf (add all your names)</li>
-        </ol>
-      </p> -->
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Monday 12/06)</h4>
+      <h4>Before next class (Wednesday 12/08)</h4>
       <br>      
       <b>[Due for everyone]</b>
       <br>
@@ -490,10 +459,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes19.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes20.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes21.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes22.html">Next Module</a>
               </li>
             </ul>
           </div>
