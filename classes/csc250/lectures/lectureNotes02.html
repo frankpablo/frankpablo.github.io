@@ -711,26 +711,84 @@
             </tr>
           </tbody>
         </table>
+
+        <br><br>
+
+        <span style="color:purple">Think of the <b>whole statement</b> as a promise; 
+          <br>
+          You only "tag" it as FALSE when you break the promise.
+        </span>
+        <br><br>
+
+
+        Rows 3 and 4 are the "normal" ones:
+        <ul>
+          <li>
+            In Row 3, The promise "IF p is True, then q is also True" has been broken! (because q is NOT True)... so the statement is <span style="color:darkred;">False</span> (the promise is broken)
+          </li>
+          <li>
+            In Row 4, the "IF p is True, then q is also True" has been kept! so the whole statement is <span style="color:green;">True</span>!
+          </li>
+        </ul>
+        <br>
+        <b>But what is happening in rows 1 and 2?</b>
+        <br>
+         Rows 1 and 2 are <span style='color:#ccaa55'>True</span> because they "technically" are not breaking the promise. We call the Truth value of these statements "Vacuous Truths"
+         <br>
+        <ul>
+          <li>
+            In Row 1, The promise "IF p is True, then q is also True" is not being employed (because p is NOT True), regardless of the value of q... so the statement is <span style='color:#ccaa55'>True</span> (the promise is not broken)
+          </li>
+           <li>
+            In Row 2, The promise "IF p is True, then q is also True" is not being employed either (because p is NOT True), regardless of the value of q... so the statement is <span style='color:#ccaa55'>True</span> (the promise is not broken)
+          </li>
+        </ul>
+
         
         <br><br>
-        Rows 1 and 2, where the <b>antecedent</b> p is False, are called <i>vacuous truths</i>.
-        <br>
-        Example:
+        <b>Examples</b>:
 
-        For the implication "For any integer \(x\), if \(x > 5 \rightarrow  x > 3 \)", <br>
-        some of its implications are <i>vacuously true</i>, like when \(x\) is 2, which implies the vacuous truth that
-        <br>
-        if \(2 > 5 \rightarrow  2 > 3 \)
-        <br><br>
+        <ul>
+          <li>"All my children are goats" is a vacuous truth, when spoken by someone without children</li>
+          <li>
+            For the implication "For any integer \(x\), if \(x > 5 \rightarrow  x > 3 \)", <br>
+            some of its implications are <i>vacuously true</i>, like when \(x\) is 2, which implies the vacuous truth that
+            <br>
+            if \(2 > 5 \rightarrow  2 > 3 \)
+          <br><br>
+          </li>
+          <li>
+            Another example would be:
+            <br>
+            "All living people in the world are resistant to moonlight" 
+            <br>
+            This can be written as:
+            <br>
+            if \( \text{P: living person} \quad \text{and M: resistant to moonlight}\), then the statement is: 
+            <br>
+            \(P \rightarrow M\)
+            <br><br>
 
-        Another example would be:
-        <br>
-        "<b>All the vampires in the world are resistant to moonlight</b>"
-        <br><br>
-        Is (vacuously) True because there are no vampires in the world (I hope).
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture02/scienceVsVamp.png" alt="Science!" style="width:40%">
-        <br><br>
+            The combination when \( \neg P \text{ (not P, or P:False) and } \neg M \text{ (not M, or M:False)\)"
+            <br><br>
+            Would be <span style='color:#ccaa55'>True</span>: \(\neg P \rightarrow \neg M\)
+            <br><br>
+
+            So the sentence:
+            <br><br>
+
+            <b>All the vampires in the world are susceptible to moonlight</b>"
+            <br><br>
+            Is (vacuously) True (I hope).
+            <br><br>
+            <img class="img-fluid" src="../figures/lecture02/scienceVsVamp.png" alt="Science!" style="width:40%">
+            <br><br>
+          </li>
+
+        </ul>
+        
+
+        
 
         The left of the \(\rightarrow\) operator in an implication is called the <b>antecedent</b>, and the sentence to the right is called the <b>consequent</b>.
 
@@ -747,7 +805,7 @@
 
 
         <div class="container mx-lg-5">
-          <span style='color:#888888'>One possible answer: 
+          <!-- <span style='color:#888888'>One possible answer:  -->
             <details><summary>(Wait; then Click)</summary>
               <p>
                 <img class="img-fluid" src="../figures/lecture02/implication.png" alt="Implication" style="width:20%">
