@@ -8,7 +8,7 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
       .img-max {
         max-width: 500px;
@@ -22,95 +22,6 @@
       #HIDDENDIV.show  {
         display: block;
       }
-
-      @import url('https://fonts.googleapis.com/css?family=Inter|Dosis&display=swap');
-
-      /* Crucial */
-      .highlight {
-        background-color: #EEF43B;
-          padding-right: 0px;
-          padding-left: 0px;
-      }
-
-
-      /* Just for styling */
-      /*body {
-        font-family: 'Inter', sans-serif;
-      }*/
-
-      /*.container {
-        box-sizing: border-box;
-        margin: 0 auto;
-        max-width: 960px;
-        padding: 0 2%;
-      }*/
-
-      .search-container {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        margin: 10px auto 20px auto;
-        max-width: 450px;
-        padding: 0 2%;
-      }
-
-      label {
-        color: #535353;
-        font-family: 'Dosis', sans-serif;
-        font-size: 14px;
-        margin-bottom: 6px;
-        text-transform: uppercase;
-      }
-
-      input {
-        background: #fff;
-        border: 1px solid #535353;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
-        height: 38px;
-        line-height: 38px;
-        outline: none;
-        padding: 0 10px;
-        transition: all 0.5s;
-        width: 100%;
-      }
-
-      input:focus {
-        border: 1px solid #3a5bd3;
-        box-shadow: 0 0 4px 0 #7d90de;
-      }
-
-      blockquote {
-        background-color: #f1f1f1;
-        border-radius: 0 4px 4px 0;
-        color: #515151;
-        font-style: italic;
-        line-height: 1.7;
-        margin: 0;
-        padding: 20px 40px 20px 20px;
-        position: relative;
-      }
-
-      blockquote::before {
-        color: #ccc;
-        content: '”';
-        font-size: 80px;
-        position: absolute;
-        right: 30px;
-        top: -20px;
-      }
-
-      figcaption {
-        color: #aaa;
-        font-size: 14px;
-        font-style: italic;
-        margin-bottom: 20px;
-        margin-top: 10px;
-        text-align: center;
-      }
-
     </style>
 
 
@@ -196,25 +107,610 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 03: <br>
-      Regular Languages and Regular Expressions</h1>
+      <h1>Lecture Notes 03: Logic, Proofs, and Overleaf</h1>
       <p>
         <br>
       </p>
+      
       <h2>Outline </h2>
 
       This class we'll discuss:
       <ul>
-        <li>LaTeX vs Word</li>
-        <li>Motivating smart matching</li>
-        <li>Regular Expressions</li>
-        <li>Regular Languages</li>
+        <li>Recap: Crash course in logic</li>
+        <li>What makes a good proof?</li>
+        <li>Three kinds of proofs:</li>
+        <ul>
+          <li>Direct</li>
+          <li>Contradiction</li>
+          <li>Contrapositive</li>
+        </ul>
+        <li>Intro to Overleaf</li>
       </ul>
 
       <p><br></p><hr><p><br></p>
 
       <h2>
-        Latex vs Word
+        Recap: Logic and Logical Thinking
+      </h2>
+      <br><br>
+      <ul>
+        <li>We use propositions as logical operands</li>
+        <li>propositions are statements that have a truth value (either true or false).</li>
+        <li>
+          propositional logic allows us to <i>combine</i> propositions, in a <b>logical computation</b>, to obtain valid conclusions, OR with which we can detect errors in the logical computation and refute a conclusion.
+        </li>
+        <li>
+          We can operate on the propositions with logical operators:
+          <ul>
+            <li>Negation: \( \neg p\)</li>
+            <li>AND (conjunction): \( p \wedge q\)</li>
+            <li>OR (disjunction): \( p \lor q\)</li>
+            <li>XOR (exclusive disjunction): \( p \oplus q\)</li>
+            <li>Implication: \( p \rightarrow q\)</li>
+            <li>IFF: \( p \leftrightarrow q \)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <br><br><br><br>
+
+      <h4>Leftover Exercises:</h4>
+
+        
+      <p>Referring to <b>Implication</b>:
+        <br>
+      </p>
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: Can you draw the Venn Diagram for this one?
+
+
+        <div class="container mx-lg-5">
+          <!-- <span style='color:#888888'>One possible answer:  -->
+            <details><summary>(Wait; then Click)</summary>
+              <p>
+                <img class="img-fluid" src="../figures/lecture02/implication.png" alt="Implication" style="width:20%">
+              </p>
+            </details>
+          </span>
+        </div>
+      </p>
+
+      <br><br><br><br>
+
+      <p>Referring to <b>IFF: IF and Only IF</b>:
+        <br>
+      </p>
+      <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: Can you draw the Venn Diagram for this one?
+        <br><br>
+        <div class="mx-4">
+          <span style='color:#888888'>If you look at the p, q, and p\( \Leftrightarrow \)q columns, you might see something that looks familiar</span>
+        </div>
+        <br><br>
+
+        <div class="container mx-lg-5">
+          <span style='color:#888888'>One possible answer: 
+            <details><summary>(Wait; then Click)</summary>
+              <p>
+                <img class="img-fluid" src="../figures/lecture02/iff.png" alt="if and only if" style="width:20%">
+              </p>
+            </details>
+          </span>
+        </div>
+      </p>
+
+      <br><br>
+
+      <h4>Curious Constructions: Tautology</h4>
+      <p>
+      <br>
+      
+      <span style='color:#06a015'><b><big>Activity 8</big></b></span> [4 minutes]: What can you tell about the following proposition?
+      <br><br>
+      \[ (p \lor q) \wedge (\neg q) \rightarrow p \]
+
+     <!--  p     |     q     |     p ∨ q     |     ¬q      |     (p ∨ q) ∧ (¬q)    |       (p ∨ q) ∧ (¬q) →p -->
+
+
+        <p><b>Answer below</b></p>
+        <div id="passw">
+          <div>
+              <!-- (THE PASSWORD IS true) -->
+              Enter the password to proceed:
+          </div>
+          <div>
+            <input type="password" id="password" onkeydown="if (event.keyCode == 13) document.getElementById('button').click()" /> 
+            <!-- IMPORTANT! this part is so if you click enter, it works. -->
+          </div>
+                    
+          <div>
+            <br/>
+            <input id="button" type="button" value="Reveal" onclick="if (document.getElementById('password').value == 'true') { 
+            document.getElementById('HIDDENDIV').classList.toggle('show');   document.getElementById('passw').style.display='none'; } 
+            else {  alert('Invalid Password!'); password.setSelectionRange(0, password.value.length);   } " />
+          </div>
+            <!-- it will autoselect wrong input if wrong -->
+            <br /><br /><br />
+        </div>
+        <br><br>
+
+        <div id="HIDDENDIV">
+          <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-0lax{text-align:left;vertical-align:top}
+          </style>
+          <table class="tg">
+          <thead>
+            <tr>
+              <th class="tg-0lax">p</th>
+              <th class="tg-0lax">q</th>
+              <th class="tg-0lax">p ∨ q</th>
+              <th class="tg-0lax">¬q</th>
+              <th class="tg-0lax">(p ∨ q) ∧ (¬q)</th>
+              <th class="tg-0lax">(p ∨ q) ∧ (¬q) →p</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">1</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">1</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">1</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">1</td>
+            </tr>
+          </tbody>
+          </table>  
+          <br><br>
+          A Tautology is an assertion that is always true.
+          <br>
+          In its most basic form, it is:
+          \[ q \lor \neg q \]
+        </div>
+      </p>
+      <br><br>
+
+       <h4>Curious Constructions: Contradiction</h4>
+      <p>
+      <br>
+      
+      <span style='color:#06a015'><b><big>Activity 9</big></b></span> [1 minute]: What can you tell about the following proposition?
+      <br><br>
+      \[ q \wedge \neg q \]
+
+      <div class="container mx-lg-5">
+        <span style='color:#888888'>answer: 
+          <details><summary>(Wait; then Click)</summary>
+            <p>
+              <i>This proposition is always false!</i><br>
+            </p>
+          </details>
+        </span>
+      </div>
+
+
+      <p><br></p><hr><p><br></p>
+
+
+      <h2>What makes a Convincing Argument?</h2>
+      <p>
+        In spoken English we talk of "making a point".
+        <br><br>
+        We usually "grant" said point when the person has made a convincing argument or revealed an unforeseen truth. 
+        <br><br>
+        As we mentioned before, using English leaves you exposed to ambiguity, contradictions, or language artifacts.
+        <br><br>
+        In propositional logic, we can create a convincing argument using propositional logic by chaining together a series of boolean statements until we get to the desired conclusion.
+      </p>
+      <br><br>
+
+
+      <h4>A Logic puzzle</h4>
+      <p>
+        Aleks, Benita, Chas, and Dora are quadruplets, and they’ve all been invited to a birthday party. 
+      Unfortunately the quadruplets don’t get along very well: 
+      <ul>
+        <li>If Aleks goes to the party, then Benita will not go. </li>
+        <li>If Chas goes to the party, then Aleks will not go. </li>
+        <li>If Dora goes to the party, then Chas will not go. </li>
+      </ul>
+      <span style='color:#06a015'><b><big>Activity 10</big></b></span> [4 minutes, if we have time]: What is the largest possible number that will go to the party?
+      </p>
+<!-- 
+      (a implies !b) and (c implies !a) and (d implies !c)
+
+      a b c d ((a → ¬b) ∧ ((c → ¬a) ∧ (d → ¬c)))
+      F F F F                 T
+      F F F T                 T
+      F F T F                 T
+      F F T T                 F
+      F T F F                 T
+      F T F T                 T
+      F T T F                 T
+      F T T T                 F
+      T F F F                 T
+      T F F T                 T
+      T F T F                 F
+      T F T T                 F
+      T T F F                 F
+      T T F T                 F
+      T T T F                 F
+      T T T T                 F
+-->
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Proofs</h2>
+
+      <p>
+        We will see a <i>very high-level intro</i> to three types of proofs: 
+          <br>
+          <ul>
+            <li>direct proofs (deduction)</li>
+            <li>proof by contradiction</li>
+            <li>proof by contrapositive</li>
+          </ul>
+      </p>
+      <br><br>
+
+      <h4>Direct proof: <a href="https://en.wikipedia.org/wiki/Deductive_reasoning">Deduction</a></h4>
+      <p>
+        To quote Wikipedia: "Deductive reasoning goes in the same direction as that of the conditionals, and links premises with conclusions. If all premises are true, the terms are clear, and the rules of deductive logic are followed, then the conclusion reached is necessarily true."
+        <br><br>
+        Example: 
+        <br>
+        <ul>
+          <li>Yak is the best dog</li>
+          <li>half of all dogs are better than all cats</li> 
+          <li>Therefore: <tt>Yak is better than all cats</tt></li>
+          <li><span style='color:#888888'>
+            Here, a simple sketch might help with the clarity of the proof: 
+            <br>
+            <img class="img-fluid" src="../figures/lecture03/Yak-better-than-all-cats.png" alt="Yak is the best" style="width:60%">
+          </span></li>
+        </ul>
+      </p>
+      <br><br>
+
+      <h4>Proof by <a href="https://en.wikipedia.org/wiki/Proof_by_contradiction"></a>Contradiction</h4>
+      <p>
+        Start by assuming (taking as a true proposition) the opposite of what you wish to prove.
+        <br>
+        Follow the normal rules of propositional logic and if:
+        <ul>
+          <li>You arrive at a valid conclusion: you were wrong</li>
+          <li>You arrive at a contradiction: then the opposite of your initial assumption is true (what you wanted to prove)</li>
+        </ul>
+        <br><br>
+
+        <b>Example</b>: 
+
+        <br><br>
+        Let's say we want to prove that:  "there is no smallest rational number greater than 0"
+        <br>
+        <span style='color:#888888'>(in other words: given a candidate, we can always find a smaller number)</span>
+        <br><br>
+
+        Using proof by contradiction, we say:
+        <ul>
+          <li>"there <b>is</b> a smallest rational number r greater than 0"</li>
+          <li>however, we can make a new number s = r/2 that is >0 since r > 0</li> 
+          <li>Since s < r, and s is a rational number, then r was <b>not</b> the smallest (<b>a contradiction</b>)</li>
+          <li>Therefore: "there is no smallest rational number r greater than 0"</li>
+        </ul>
+      </p>
+<!-- 
+      Example B
+      The set of all possible binary strings is infinite
+      Assume the negation: the set of binary strings is finite.
+      Because binary strings can be ordered, there must be a “longest one”. Call this x.
+      Append a 0 to the end of x, and call it x’.
+      x’ is longer than x by one bit, which means it wasn’t the longest one.
+      Contradiction.
+      There isn’t a longest binary string, which means the set of binary strings is infinite.
+ -->
+      <br><br>
+
+      <h4>Proof by <a href="https://en.wikipedia.org/wiki/Proof_by_contrapositive"></a>Contrapositive</h4>
+      <p>
+        If we take an implication proposition as true, there is another proposition we can extract from it by performing some manipulations:
+        <br><br>
+        To obtain the contrapositive of a proposition, we:
+        <ul>
+          <li>negate both terms</li>
+          <li>reverse the direction of inference</li>
+        </ul>
+        So if we have have the proposition \( p \rightarrow q \), then, the steps are:
+        <ul>
+          <li>negate both terms: \( \neg p \rightarrow \neg q \) &nbsp;&nbsp; ---><span style='color:#ff0000'><b>this is not correct...yet!</b></span></li>
+          <li>reverse the direction of inference: \( \neg q \rightarrow \neg p \) &nbsp;&nbsp; ---><span style='color:#00cc00'><b>this is the new proposition!</b></span></li>
+        </ul>
+        <br><br>
+        So, both \( p \rightarrow q \) and \( \neg q \rightarrow \neg p \) are true.
+        <br><br>
+
+        <b>Example</b>: 
+        <br>
+        Let's say we accept that: "For any integer k, if 3k + 1 is even, then k is odd."
+        <br><br>
+        We could represent this symbolically:
+        <ul>
+          <li>\(p\) is "3k + 1 is even"</li>
+          <li>\(q\) is "k is odd"</li>
+          <li>Then the phrase is: \(\forall k \in \mathbb{Z}, \text{ } p \rightarrow q \)</li>
+          <li>Then the contrapositive of the phrase is: \(\forall k \in \mathbb{Z}, \text{ }  \neg q \rightarrow \neg p \)</li>
+          <li>Which translates to: "For any integer k, if k is not odd, then 3k + 1 is not even"</li>
+          <li>OR more clearly: "For any integer k, if k is even, 3k + 1 is odd."</li>
+        </ul>
+        An example of a full proof by contrapositive would  be:
+        <br><br>
+        <i>Proof</i>: We will prove the contrapositive of this claim, 
+        i.e. that <b>for any integer k, if k is even, 3k + 1 is odd</b>.
+        <br>
+        Suppose that k is an integer and k is even. Then, k = 2m for some integer m. 
+        <br>
+        Then 3k + 1 = 3(2m) + 1 = 2(3m) + 1. 
+        <br>
+        Since m is an integer, so is 3m. If we say n = 3m, Then 2(3m) + 1 = 2n + 1, which is an odd number.
+        <br>
+        This means 3k + 1 = 2(3m)+1 = 2n + 1 = an odd number, which is what we needed to show.
+        <br><br>
+        <span style='color:#888888'>Example from the University of Illinois Urbana-Champaign, CS173</span>
+      </p>
+      <br>
+
+      <p>
+        <span style='color:#06a015'><b><big>Activity 11</big></b></span> [4 minutes, if we have time]: 
+        <br>
+        Prove the following statement: "Theorem: For any \(n \in \mathbb{Z}\), if \(n^2\) is even, then \(n\) is even."
+      </p>
+<!-- 
+Proof: By contrapositive; we prove that if n is odd, then n^2 is odd. 
+
+Since n is odd, there is some integer k such that n = 2k + 1. Squaring both sides of this equality and simplifying gives the following: 
+n^2 = (2k + 1)^2 
+n^2 = 4k^2 + 4k + 1 
+n^2 = 2(2k^2 + 2k) + 1. 
+ -->
+
+      <br><br><br><br>
+
+      <h4>Proofs by Induction</h4>
+      <br>      
+
+      Induction is a technique where we try to prove that some rule is true by showing that the rule holds for all possible cases. 
+      <br><br>
+      We do this in a clever way (not by actually trying all cases!) 
+      <br><br>
+
+      It is common for these "rules" that we want to prove true have "cases" that depend on an input of different natural number... so the cases are : \( n=0, 1, 2, 3, ...\)
+
+      <br><br>
+
+      <div class="mx-5">
+        <li>First, we prove that the rule in question is true for its <b>base case</b> (sometimes that is \(n=0\) and sometimes \(n=1\).</li>
+        <li>Then, we want to make the <b>induction hypothesis</b> that the rule works for some intermediate input value (case), say \(n=k\)</li>
+        <li>Lastly, (the <b>induction step</b>) we must show that the rule also works for the case that follows the one from the Induction hypothesis: \(n=k+1\). We do this by relating the rule at the case \(n=k+1\) to the two previous "accepted" cases.</li>
+      </div>
+
+      <br><br>
+
+      <b>Example 1</b>: Prove \( 1+2+...+n = \frac{n(n+1)}{2} \) using a proof by induction.
+      <br><br>
+
+      <ol>
+        <li><b>Case n=1:</b> \( 1=1(2)/2=1 \) checks.</li>
+        <br><br>
+        <li><b>Assume n=k holds:</b> \( 1+2+...+k= \frac{k(k+1)}{2} \) (Induction Hypothesis)</li>
+        <br><br>
+        <li>
+          <b>Show n=k+1 holds:</b> \( 1+2+...+k+(k+1)= \frac{(k+1)((k+1)+1)}{2} \)
+          <br><br>
+          <ul>
+            <li>I just substitute k and k+1 in the formula to get these lines. Notice that I write out what I want to prove.</li>
+            <br>
+            <li>Now I start with the left side of the equation I want to show and proceed using the induction hypothesis and algebra to reach the right side of the equation. 
+              <br><br>
+              \( 1+2+...+(k+1) = 1+2+...+k+(k+1) \) showing k and k+1 explicitly in the summation.
+            </li>
+            <br><br>
+            <li style="list-style-type:none"> \( = \frac{k(k+1)}{2} + (k+1)  \) by the Induction Hypothesis</li>
+            <br>
+            <li style="list-style-type:none"> \( = \frac{k(k+1)+2(k+1)}{2} \) second factor by 2/2 and distribution of division over addition</li>
+            <br>
+            <li style="list-style-type:none"> \( = \frac{(k+2)(k+1)}{2}  \) by distribution of multiplication over addition (we factored out \( (k+1) \))</li>
+            <br>
+            <li style="list-style-type:none"> \( = \frac{(k+1)(k+2)}{2}  \) by commutativity of multiplication</li>
+            <br>
+            <li style="list-style-type:none"> \( = \frac{(k+1)((k+1)+1)}{2}   \qquad\qquad \blacksquare \qquad \leftarrow \) that symbol means "Q.E.D." (what we wanted to prove) </li>
+
+          </ul>
+
+        </li>
+      </ol>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Logical Errors</h2>
+
+      <p>
+        <span style='color:#06a015'><b><big>Activity 12</big></b></span> [4 minutes, if we have time]: 
+        <br>
+        What is wrong with this statement:
+        <div class="mx-5">
+          If the weather is stormy, we can’t go swimming. 
+          <br>
+          If we can’t go swimming, we won’t go to the beach. 
+          <br>
+          We aren’t at the beach. 
+          <br>
+          Therefore, the weather must be stormy.
+        </div>
+      </p>
+<!--       
+p: the weather is stormy
+q: we are swimming
+r: we are at the beach
+
+P1:  p → ¬q
+P2: ¬q → ¬r
+P3: ¬r → p
+
+we can use transitivity to construct P1-2: p → ¬q → ¬r and say: p → ¬r 
+but the converse ¬r → p is NOT necessarily true.
+ -->
+
+      <br><br>
+
+      <h4>Converse</h4>
+
+      <p>
+        The <b>converse</b> of an implication is is the result of inverting the direction of the implication, so if:
+        <br>
+         \( p \rightarrow q \)
+         <br><br>
+         The converse would be:
+         <br>
+         \( q \rightarrow p \)
+         <br><br>
+         The error would be in believing that just because an implication is true, its converse is too.
+         <br><br>
+         <b>Example</b>:
+         <br>
+         "Petting dogs makes me happy." 
+         <br>
+         "I am happy, therefore I am petting a dog"
+         <br>
+         <span style='color:#888888'>OR (Jordan's example!) "Being happy makes me pet dogs."</span>
+      </p>
+      <br><br>
+      One way to prove this is by examining the table and noticing which information has been given:
+      <br><br>
+      "Petting a dog" is \(P\)
+      <br>
+      "Being Happy"  is \(H\)
+      <br>
+      "If I pet a dog I am happy." is \(P \rightarrow H\)
+      <br><br>
+      And we know that "I am Happy" or \(H = 1\)
+      <br><br>
+
+      If we assume that the implication is true ( \(P \rightarrow H\) ) we can examine the table to see if we know enough to state that "I must be petting a dog":
+      <br><br>
+      <table class="tg">
+          <thead>
+            <tr>
+              <th class="tg-0lax">P</th>
+              <th class="tg-0lax">H</th>
+              <th class="tg-0lax">\( P \rightarrow H \)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">0</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">1</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">0</td>
+              <td class="tg-0lax">1</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">1</td>
+              <td class="tg-0lax">1</td>
+            </tr>
+          </tbody>
+          </table>
+      <br><br>
+      As you can see, the second and fourth rows are valid cases, and both have a different value for \(P\), which means we cannot know for sure that I am petting a dog (the converse is not necessarily true). 
+      <br><br>
+
+
+      <br><br><br><br>
+
+      <h4>Inverse</h4>
+
+      <p>
+        The <b>inverse</b> of an implication is is the result of inverting (negating) its propositions while maintaining the direction of the implication, so if:
+        <br>
+         \( p \rightarrow q \)
+         <br><br>
+         The inverse would be:
+         <br>
+         \( \neg p \rightarrow \neg q \)
+         <br><br>
+         The error would be in believing that just because an implication is true, its inverse is too.
+         <br><br>
+         <b>Example</b>:
+         <br>
+         "Petting dogs makes me happy. 
+         <br>
+         "I am not petting a dog, therefore I must not be happy"
+      </p>
+
+      <br><br>
+
+      <b>You should check the table for this case as well!</b>
+
+      <br><br><br><br>
+
+      <p>
+        <span style='color:#06a015'><b><big>Activity 12</big></b></span> [4 minutes, if we have time]: 
+        <br>
+        Think about the following "puzzle":
+      <div class="mx-5">
+        A prosecutor in Logic Court (which is totally a thing) says to the defendant: 
+        <br>
+        "If you committed the crime, then you must have had an accomplice" (this is known). 
+        <br>
+        The defendant hotly denies that the <i>implication</i> is true.
+        <br><br>
+        Therefore, the jury (being apt logicians) convicts the defendant.
+        <br><br>
+        Explain what happened in this story.
+      </div>
+      </p>
+
+      
+      <br><br>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        If we have time: Overleaf and Latex vs Word
       </h2>
       <p>
         Typesetting is not required: legibly-written-and-then-Typed (Word/OpenOffice/etc) submissions are totally fine;
@@ -235,7 +731,7 @@
         </ul>
         You can copy-paste the contents of <a href="../resources/latex_basics.tex" download>latex_basics.tex</a> into Overleaf and see the tex source as well as the resulting pdf.
         <br><br>
-        You can also <b>Import a Zip file with the necessary info</b>. Try this one: <a href="../resources/CSC250-A01.zip" download>CSC250-A01.zip</a>
+        You can also <b>Import a Zip file with the necessary info</b>. Try this one: <a href="../resources/CSC250s22-A01.zip" download>CSC250s22-A01.zip</a>
         <br><br>
 
         here are some links to help you with:
@@ -255,594 +751,53 @@
 
       <p><br></p><hr><p><br></p>
 
-      <h2>
-        Motivation 
-      </h2>
-
-      <p>
-        Have you heard of <a href="https://www.youtube.com/watch?v=fCn8zs912OE">Zipf's distribution</a>?
-        <br><br>
-        How would we ask a computer to count the number of appearances of the word "the"?          
-        <br><br>
-        Let's start to think about how we would verify this with a sample text.
-        <br>
-        <span style='color:#888888'>(read the whole story later.. it's good!)</span>
-        <br><br> 
-
-        <div class="container">
-          <figure>
-            <blockquote id="box">
-              <span class="small">
-                [...]
-                <br>
-                The numerologist moved one gnarled hand over the other. "Before that, sir, there's a little—"
-                <br>
-                "A little matter of the fee?"
-                <br>
-                "I have already done the work, sir. I have earned the money."
-                <br>
-                Zebatinsky raised no objection. He was prepared to pay. If he had come this far, it would be silly to turn
-                <br>
-                back just because of the money.
-                <br>
-                He counted out five ten-dollar bills and shoved them across the counter. "Well?" 
-                <br>
-                The numerologist counted the bills again slowly, then pushed them into a cash drawer in his desk.
-                <br>
-                He said, "Your case was very interesting. I would advise you to change your name to Sebatinsky."
-                <br>
-                "Seba— How do you spell that?"
-                <br>
-                "S-e-b-a-t-i-n-s-k-y."
-                <br>
-                Zebatinsky stared indignantly. "You mean change the initial? Change the Z to an S? That's all?"
-                <br>
-                "It's enough. As long as the change is adequate, a small change is safer than a big one." 
-                <br>
-                [...]
-              </span>
-            </blockquote>
-            <figcaption>
-              ~ from <cite>"Spell My Name With An S", by Isaac Asimov</cite>
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="search-container">
-          <label for="search">Search within quoted text</label>
-          <input
-            id="search"
-            placeholder="Type `/the/` for example"
-            type="search"
-            autocomplete="off"
-          />
-          <br><br>
-          Searched Text:
-          <span class="mx-5" id = "regex-text">
-            
-          </span>
-
-          Flags:
-          <span class="mx-5" id="regex-flags">
-            
-          </span>
-
-
-
-      </div>
-
-      </p>
-      
-      <script id="rendered-js" >
-        const $box = document.getElementById('box');
-        const $search = document.getElementById('search');
-
-        $search.addEventListener('input', event => {
-          const searchText = event.target.value;
-
-          //const regex = new RegExp(searchText, 'g');
-          // EXTRA lines
-            const parts = searchText.split("\/");  
-            //const str = '(?<!<)'+parts[1]+'|(?<!<b)'+ parts[1];
-            //let str = "(?&lt;!&lt;) " + parts[1] + "|(?&lt;!&ltb) " + parts[1];
-            document.getElementById('regex-text').innerHTML = parts[1];
-            console.log('The array has ', parts.length, ' elements: ', parts.join(' / '));
-            if (parts.length > 2)
-            {
-              document.getElementById('regex-flags').innerHTML = parts[2];
-            }
-            else{
-              document.getElementById('regex-flags').innerHTML = "";
-            }
-
-            //replace unless match is preceeded by "<" or "<b"
-            //onst regex = new RegExp(parts[1], parts[2]);     
-            const regex = new RegExp( parts[1]+"(?!r>|>)",parts[2]);
-          // End EXTRA lines
-
-          let text = $box.innerHTML;
-
-          if (searchText !== ""){
-            text = text.replace(/(<mark class="highlight">|<\/mark>)/gim, '');
-
-            const newText = text.replace(regex, '<mark class="highlight">$&</mark>');
-            $box.innerHTML = newText;
-
-          } else {
-            text = text.replace(/(<mark class="highlight">|<\/mark>)/gim, '');
-            $box.innerHTML = text;
-            document.getElementById('regex-text').innerHTML = "";
-            document.getElementById('regex-flags').innerHTML = "";
-          }
-
-        });
-        //# sourceURL=pen.js
-      </script>  
-
-      <br><br>
-
-      <span style='color:#888888'>(If the searhcer above gives you trouble, try it <a href="https://regexr.com/65mgq" target='blank'>here</a>)</span>
-      <br><br>
-
-      <p>          
-      <span style='color:#06a015'><b><big>Activity 1</big></b></span> [1 minute]: 
-      <br>
-      Go back to the search bar and search for the word "the"  like this: "/the/".
-      <br><br>
-      Did we find all the "the"s?
-      <br><br>
-      Now try this: "/the/g" (the flag "g" means "global").
-      <br><br>
-      Did we find (only) all the "the"s?
-      <br><br>
-      <div  class="mx-5">
-        <span style="color:#888888">Note that the search for "/the/g" is a regular expression.
-        <br> 
-        It states that the search is for the literal string of letters 't','h','e' (in strict order), and globaly (all appearances, not just the first).</span>   
-      </div>     
-      </p>
-      
-      <br><br>
-      <h4>Errors</h4>
-      <p>
-        You might have noticed more than one type of error.
-        <br><br>
-        <div class="container mx-lg-3">
-        Error type A:  
-          <details><summary>(Wait; then Click)</summary>
-            <p>
-              False Positive: It is counted as a "match" but it is not actually one of the instances we desired.
-              <img class="img-fluid" src="../figures/lecture03/falsePositives.png" alt="False Positive!" style="width:40%">
-            </p>
-          </details>
-        
-      </div>
-      <div class="container mx-lg-3">
-        Error type B:  
-          <details><summary>(Wait; then Click)</summary>
-            <p>
-              False Negative: It should be counted as a "match" but it is not found by our search.
-              <img class="img-fluid" src="../figures/lecture03/falseNegative.png" alt="False Negative!" style="width:40%">
-            </p>
-          </details>
-        
-      </div>
-      </p>
-
-      <p>          
-        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [1 minute]: 
-        <br>
-        Let's eliminate the False Negatives first;
-        <br>
-        How should we modify our search in order to include "The" instances in our matches?
-        <br>
-        Tell me in english and I'll show you how to add it to our search.
-        <!-- Answer: /[Tt]he/g -->
-      </p>
-      
-
-      
-       <p>
-        <!-- Answer:  /\b[Tt]he\b/g -->
-        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [1 minute]: 
-        <br>
-        Let's eliminate the False Positives;
-        <br>
-        How should we modify our search in order to exclude "them", "there", etc instances in our matches?
-        <br>
-        Tell me in english and I'll show you how to add it to our search.
-      </p>
-        
-      <br><br>
-
-      Now, we will work towards understanding what it is we are defining and how to do it.
-
+    
       <p><br></p><hr><p><br></p>
 
-      <h2>
-        Regular Expressions 
-      </h2>      
-
-      <p>
-        An expression is a combination of objects and operators that can be "resolved" into a value.
-        <br><br>
-        In <b>Arithmetic</b>, the objects are numbers, and the operators are: \( + \text{, } - \text{, } *  \text{, } ÷ \text{, }\) etc.
-        <br>
-        A (correct) arithmetic expression looks like this: 
-        \[ (27 - 6)* 2\]        
-        <div class="mx-4">The value of a resolved arithmetic expression is a <i>number</i>, in this case \(42\).</div>
-        <br><br>
-
-        A <b>Reglar Expression</b> (or RegEx) is an algebraic way to describe a set of words.
-        <br><br>
-        In reglar expressions, we also have objects and symbols, which can be combined to form an expression that might look like this:
-        \[/\backslash b[Tt]he\backslash b/\]
-        <!-- \mathrm{L} -->        
-        <div class="mx-4">The value of a resolved regular expression is a <i>Language</i>, in this case: "the sequence that <i>starts</i> with a boundary, is followed with either 'T' or 't',  then by 'h' and 'e', and terminates in a boundary".</div>
-        <br><br>
-
-        Another way you'll see this written is as: \( \mathrm{L} (/\backslash b[Tt]he\backslash b/) \), <br>
-        which refers to the <i>Language</i> (set of words) described by the expression inside parenthesis (same as above).
-        <br><br>
-
-        We sometimes refer to the Language with some symbol like \(\mathrm{L}_A\), where language \(L\) has some property \(A\).
-      </p>
-      <br><br>
-
-      <h3>Defining a Regular Expression</h3>
-      <p>
-        We will follow a sequence of steps to understand how to build regular expressions.
-        <br>
-        First, we'll need some basic definitions
-      </p>
-
-
-      <h4>RegEx Definitions</h4>
-      <p>
-        <ul>
-          <li>
-            A <b>set</b> is a group of items under the same property. <br>
-            We'll use set operations like union (\(\cup\)), concatenation, and complement ( of \(A\) is \( \bar{A} \));
-          </li>
-          <li>
-            \( \emptyset \) : the set with no members is called the <b>empty set</b>: \( \emptyset \) or \(\{ \} \) ;
-          </li>
-          <li>
-            \(\Sigma\): an <b>alphabet</b> \(\Sigma\) is a nonempty set of symbols (letters), for example:
-            <ul>
-              <li>\(\Sigma = \{a  \text{, } b  \text{, } c  \text{, } \dots\}\), or</li>
-              <li>\(\Sigma = \{0,1\}\)</li>
-            </ul>
-          </li>
-          <li>
-            \(w\): a <b>string</b> (or word) \(w\) is a sequence of symbols from an alphabet.
-          </li>
-          <li>
-            \(\epsilon\): a string with no letters is the <b>empty string</b> \(\epsilon\);
-          </li>
-          <li>
-            a <b>Language</b> is a <i>set</i> of words.
-          </li>
-        </ul>
-      </p>
-      <br><br>
-
-      <h4>Regular Operations</h4>
-      <p>
-        <ul>
-          <li>
-            The <b>Union</b> of two sets \(A\) and \(B\): \(A\cup B\) is the set that has both the members of \(A\) and from \(B\)
-            <br>
-            For example: If \(A: \{ white  \text{, }  blue\}\), and \(B: \{ duck  \text{, }  rabbit\}\), 
-            <br>
-            The union would be: \(A\cup B: \{ white  \text{, }  blue  \text{, }  duck  \text{, }  rabbit\}\)
-            <br><br>
-            Another example: If \(A: \{ 0  \text{, }  1\}\), and \(B: \{ x  \text{, }  y\}\), 
-            <br>
-            The union would be: \(A\cup B: \{ 0  \text{, }  1  \text{, }  x  \text{, }  y\}\)
-          </li>
-          <br>
-          <li>
-            The <b>Concatenation</b> of two sets \(A\) and \(B\): \(A\circ B\) or simply \(AB\) is the set that has a sequences of two symbols: a member of \(A\) before a member of \(B\): \(AB: \{ whiteduck   \text{, } whiterabbit  \text{, }  blueduck  \text{, }  bluerabbit \}\).
-            <br><br>
-            <div class="mx-3"> Note that in the expression \(AB\), we're saying "any element from \(A\) followed by any element from \(B\)", not "all of \(A\) followed by all of \(B\)"! </div>
-            <br>
-            Another example: If \(A: \{ 0  \text{, }  1\}\), and \(B: \{ x  \text{, }  y\}\), 
-            <br>
-            \(AB: \{ 0x   \text{, } 0y  \text{, }  1x  \text{, }  1y \}\).
-
-          </li>
-          <br>
-          <li>
-            The <b>Star</b> (or <b>Kleen Star</b>) operator \(A^*\) is a <i>unary</i> operator that returns the set of sequences that have zero or more symbols from a set \(A\):
-            <br>
-            \(A^*: \{ \emptyset \text{, } white  \text{, } blue  \text{, } whiteblue  \text{, } bluewhite \text{, } whitewhiteblue \text{, } whitebluewhite \text{, } \dots\}\)
-            <br><br>
-            Another example: If \(A: \{ 0  \text{, }  1\}\),
-            <br>
-            \(A^*: \{ \emptyset \text{, } 0  \text{, } 1  \text{, } 01  \text{, } 10 \text{, } 001 \text{, } 010 \text{, } \dots\}\)
-          </li>
-        </ul>
-      </p>
-      <br><br>
-
-      <h4>Definition of Regular Expressions (Recursively)</h4>
-      <p>
-        <b>Basic (axiomatic) definitions:</b>
-        <ul>
-          <li>Basis 1: \(\emptyset\) is a regular expression, and \( \mathrm{L} (\emptyset) = \emptyset\)</li>
-          <li>Basis 2: \(\epsilon\) is a regular expression, and \( \mathrm{L} (\epsilon) = \{\epsilon\} \)</li>
-          <li>Basis 3: \(a\) is a symbol, then \(a\) is a regular expression, and \( \mathrm{L} (a) = \{a\} \)</li>
-        </ul>
-        <br>
-        <b>Recursive extensions:</b>
-        <ul>
-          <li>Alternation: 
-            <br>
-            One expression <b>or</b> another,
-            <div class="mx-3">
-              If \(\mathrm{R}_1\) and \(\mathrm{R}_2\) are regular expressions, 
-              <br>
-              then \(\mathrm{R}_1 + \mathrm{R}_2\) is a regular expression,<br>
-            and \( \mathrm{L} (\mathrm{R}_1 + \mathrm{R}_2) = \mathrm{L} (\mathrm{R}_1) \cup  \mathrm{L} (\mathrm{R}_2)\)
-            </div>
-            </li>
-          <li>Concatenation:
-            <div class="mx-3">
-              If \(\mathrm{R}_1\) and \(\mathrm{R}_2\) are regular expressions, 
-              <br>
-              then \(\mathrm{R}_1 \mathrm{R}_2\) is a regular expression,<br>
-            and \( \mathrm{L} (\mathrm{R}_1 \mathrm{R}_2) = \mathrm{L} (\mathrm{R}_1)  \mathrm{L} (\mathrm{R}_2)\)
-            </div>
-          </li>
-          <li>Kleene star: 
-            <div class="mx-3">
-              If \(\mathrm{R}_1\) is a regular expression, 
-              <br>
-              then \(\mathrm{R}^*_1\) is a regular expression,<br>
-            and \( \mathrm{L} (\mathrm{R}_1^*) = \big( \mathrm{L} (\mathrm{R}_1) \big)^* \)
-            </div>
-          </li>
-        </ul>
-
-        <br><br>
-        <b>Precedence</b> rules are: do star first, then concatenation, then union.
-
-      </p>
-
-      <br><br>
-
-      Let's trt some exercises:
-      <br><br>
-
-      <p>
-        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: 
-        <br>
-        What is the expression that gives us <b>all binary strings</b>?
-        <br>
-        Describe it in words or with any notation you find useful. We'll develop the rigorous notation later.
-        <br>
-        Hint: 1) what is the alphabet \(\Sigma\)? 2)Which operator might help us expand this into the correct language \(\mathrm{L}_b\)?
-        <!-- ∑={0,1}; Lb : ∑* -->
-      </p>
-        
-      <br><br>
-
-      <p>
-        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: 
-        <br>
-        What is the expression that gives us <b>all binary strings that begin with a 1</b>?
-        <!-- ∑={0,1}; Lb : 1∑* -->
-      </p>
-
-      <br><br>
-
-      <p>
-        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: 
-        <br>
-        What is the expression that gives us <b>all binary strings that begin with a 1, end with a 0, and have an even number of digits</b>?
-        <!-- ∑={0,1}; Lb : 1(∑∑)*0 -->
-      </p>
-
-      <br><br>
-
-      <h2>The RegEx Minigolf!</h2>
-
-      <br>
-      <img class="img-fluid" src="../figures/lecture03/RegExMinigolf.png" alt="golf" style="width:80%">        
-      <br><br>
-
-      <p>
-        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [5-10 minutes!!]: 
-        <br>
-        Make teams of 2 or 3 and complete the following challenges.
-        <br>
-        Let me know when your team is done.
-      </p>
-
-      <div class="mx-5">
-        <p>
-          <span style='color:#06a015'><b><big>Hole 1</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ contains a single 1}\}\)</div>
-          <!-- ∑={1}; Lb : L(1) or L{∑}-->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 2</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ contains at least one 1}\}\)</div>
-          <!-- ∑={...,1}; Lb : L(∑*1∑*) -->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 3</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ contains 001 as a substring}\}\)</div>
-          <!-- ∑={...,0,1}; Lb : L(∑*001∑*) -->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 4</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid \text{ every 0 in w is followed by at least one 1}\}\)</div>
-          <!-- ∑={anything,0,1}; Lb : L( ((01)*1*)* )
-            or \b((?:01)*1*)*\b in regex-->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 5</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ w is a string of even length}\}\)</div>
-          <!-- ∑={...}; Lb : L ( (∑∑)* ) -->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 6</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ w is a string of odd length}\}\)</div>
-          <!-- ∑={...}; Lb : L ( ∑(∑∑)* ) -->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 7</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ the length of w is a multiple of 3}\}\)</div>
-          <!-- ∑={...}; Lb : L ( (∑∑∑)* ) -->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 8</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">How do we search for this set exactly: \( \{ 01 \text{, } 10\} \)?</div>
-          <!-- ∑={...}; Lb : L ( 01+10 ) -->
-        </p>
-        <br><br>
-
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 9</big></b></span>: 
-          <br>
-          If \( \Sigma={0,1} \), how do we get the following expression?
-          <br>
-          <div class="mx-3"> \( \{w \mid w \text{ w starts and ends with the same symbol} \} \) </div>
-          <!-- ∑={0,1}; Lb : L ( 1∑*1 + 0∑*0 ) -->
-        </p>
-        <br><br>
-
-      </div>
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        Regular Languages 
-      </h2>  
-
-      <p>
-        A <b>regular language</b> is one that can be generated using a regular expression.
-      </p>
-
-      <span style='color:#06a015'><b><big>Activity 8</big></b></span> [1 minute]: 
-      <br>
-      Answer the following questions:
-      <ul>
-        <li>Are all finite languages regular?</li>
-        <!-- Yes, because we could just union all the words together -->
-        <li>Are all regular languages finite?</li>
-        <!-- NO! (e.g. L(1*) ) -->
-      </ul>
-      
-
-
-      <br>
-      <details><summary>(Wait; then Click)</summary>
-            <p>
-              Regular Languages are more powerful!
-              <br>
-              <img class="img-fluid" src="../figures/lecture03/regLangs.png" alt="more descriptive power!" style="width:50%">
-            </p>
-          </details>
-              
-      <br><br>
-
-      
-      <h4>Properties</h4>
-      <p>
-        The following properties are true about regular languages:
-      </p>
-      <ul>
-        <li>Claim: Regular languages are closed under union</li>
-        <li>Claim: Regular languages are closed under concatenation</li>
-        <li>Claim: Regular languages are closed under intersection</li>
-        <li>Claim: Regular languages are closed under complement</li>
-        <li>Claim: Regular languages are closed under difference</li>
-        <li>Claim: Regular languages are closed under reversal</li>
-      </ul>
-
-      <br><br>
-      <h4>Practice Proof!</h4>
-      Claim: Regular languages are closed under union
-      <br><br>
-      Tips: Use the axioms defined above!
-      <br>
-      In particular:  
-      <ul>
-        <li>A regular language is, by definition, the language generated by a regular expression.</li>
-        <li>The Alternation rule</li>
-      </ul>
-      
-
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h4>Next Class: Finite Automata!!</h4>
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h4>Before next class (Monday 09/20)</h4>
+      <h4>Before next class (Friday 01/28)</h4>
       <br>      
-      <b>[Due for everyone]</b>
-      <div class="mx-5">
-        Review today's class and keep working on the Problem Set 1!
-      </div> 
+      <b>[Due for everyone]</b>: 
+                <br>
+      <ul>
+        <li>
+          If you wish to be on a team, fill out <a href="https://forms.gle/91DjFhNPkADNdu328">this form</a> to indicate one of three things: <br>
+          <ul>
+            <li>If you'd like to be alone or in a team</li>
+            <li>Or to indicate that you are OK being assigned to a random team of 2 or 3 people</li>
+            <li>Or to indicate the names of the other members of the team (each one should submit the form)</li>
+            
+          </ul>
+        </li>
+        <li>Each team submits a single write-up (a pdf) to Moodle</li>
+        <li>If you are in a multi-person team, only one of you submits the pdf.</li>
+        <li>Two pieces of information required for all submissions:</li>
+        <ol>
+          <li>
+            The names of all collaborating students be listed at the top of the submission. If you worked alone, please state: 
+            <br>
+            “I did not collaborate with anyone on this assignment.”
+          </li>
+          <li>
+            A “References” section, with in-line citations to any resources you used. 
+            <br>
+            If you did not use any resources, please state:
+            <br>            
+            “I did not use any external resources in completing this assignment.”
+          </li>
+        </ol>             
+      </ul>
+
+      <h4>Before next Week's Friday 02/04 at 5pm EST</h4>
+
+      <b>[Due for everyone]</b> 
       <br>
-      <b>[Optional]</b> How would you build a "flowchart" to solve this regex:
-
-      <div class="mx-5">
-        Given a \(\Sigma = \{0,1\}\), get the regex that gets the language 
-        \( \{w \mid w \text{ contains at least one 1} \}\)
-      </div>
+      <span style='color:#0000ff'><b><big>Problem Set 1</big></b></span> ( which is <a href="../resources/latex_basics.tex" download>latex_basics.tex</a> and it is also released in Moodle)
       <br><br>
-
-
-
-
+      <ul>
+        <li>
+          Problem Sets can be worked in teams of up to 3 students.
+        </li>
+      </ul>
 
   
       <div class="col-xs-0 col-md-2"></div>
@@ -859,7 +814,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes02.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes03.html">Previous Module</a>
               </li>
               <li class="nav-item ">
                 <a class="nav-link mx-lg-2" href="./lectureNotes04.html">Next Module</a>
@@ -887,7 +842,5 @@
          document.onclick=reEnable
      }
    </script> -->
-
-
   </body>
 </html>
