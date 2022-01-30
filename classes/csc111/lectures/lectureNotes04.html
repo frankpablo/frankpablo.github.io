@@ -231,6 +231,8 @@ w <span style="color: #333333">=</span> x <span style="color: #333333">+</span> 
         <br><br>
 
         This is the same as \( \texttt{floor(17/5)} \)
+        <br>
+        <span style="color:#888888">(This is equivalent to rounding down, or in the direction of \(-\infty\))</span>
 
         <!-- <span style="color:#888888">(Now we use "=" as "assignment")</span>
         <br> -->
@@ -265,7 +267,7 @@ w <span style="color: #333333">=</span> x <span style="color: #333333">+</span> 
         \(5*3 + 2 = 17 \)
         <br><br>
 
-        What <b>modulo</b> does is ignore the quotient and "return" the remainder.
+        What <b>modulo</b> does is ignore the quotient and it "returns" the remainder.
         <br>
         So, the operation:
         \(17 % 5 = 2 \)
@@ -274,9 +276,21 @@ w <span style="color: #333333">=</span> x <span style="color: #333333">+</span> 
         Note that Python chooses to return a remainder (modulo result) with the <b>same sign</b> as the <b>denominator</b>!
         <br><br>  
 
+        <b>Another way to think about it is this</b>: 
+        <br><br>
+        if we want to know \(17 % 5\), we can first obtain \(17 // 5\), which is \(\mathbf{3}\), 
+        <br>
+        and then see what the remainder would be <b>if substitute that as the quotient</b>:
+        <br>
+        \(17 = \mathbf{3} \cdot 5 + x \)
+        <br>
+        Whatever \(x\) must be here is the correct remainder. In this case, it is 2 because \(17 = 3 \cdot 5 + \mathbf{2} \)
+
+        <br><br>
+
         <span style='color:#06a015'><b><big>Activity 4</big></b></span> [1 minute]: <br>
         <div class="mx-lg-5">
-          try it out, step by step, <a href="https://pythontutor.com/visualize.html#code=print%2817%255%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"  target="_blank">here</a>.
+          try it out, step by step, <a href="https://pythontutor.com/visualize.html#code=print%28%2217//5%20%3D%20%22,%2017//5%29%0Aprint%28%2217%255%20%3D%20%22,%2017%255%29%0Aprint%28%29%0Aprint%28%2217//-5%20%3D%20%22,%2017//-5%29%0Aprint%28%2217%25-5%20%3D%20%22,%2017%25-5%29%0Aprint%28%29%0Aprint%28%22-17//5%20%3D%20%22,%20-17//5%29%0Aprint%28%22-17%255%20%3D%20%22,%20-17%255%29%0Aprint%28%29%0Aprint%28%22-17//-5%20%3D%20%22,%20-17//-5%29%0Aprint%28%22-17%25-5%20%3D%20%22,%20-17%25-5%29%0A&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"  target="_blank">here</a>.
           <br><br>
           <ul>
             <li>Now subtitute the parameter of the print statement for: "17 % -5"; What happens? Why?</li>
@@ -288,17 +302,126 @@ w <span style="color: #333333">=</span> x <span style="color: #333333">+</span> 
         
         <br><br>
 
-        Modulo is useful for situations in which you are working in a "cyclic" system, like a calendar or a .
-        <br><br>
-        For example: if a submarine works in 3 shifts of 8 hours (shift_0, shift_1, and shift_2 ), and it will go on a mission for 330 hours, which shift will be working when they arrive?
-        <br><br>
-        You can do integer division and modulo arithmetic like this:
-        <br><br>
-        \( \texttt{num_days = 330 // 24 # this is 13 (total days) }\)
+        Modulo is useful for situations in which you are working in a "cyclic" system, like a calendar or the Caesar Cipher!.
+        <br><br><br>
+        
+        <b>Example 1</b>: 
         <br>
-        \( \texttt{remaining_hours = 320 % 24 # this is 18 }\)
+        You are using a Caesar cipher to encode letters by shifing <b>5</b> spots <b>forward</b>, and you want to encode the letter <b><tt>X</tt></b>.
         <br><br>
-        This means that the last shift will be working, since only two full shifts may fit in 18 hours.
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 12px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 12px;word-break:normal;}
+.tg .tg-wp8o{border-color:#000000;text-align:center;vertical-align:top}
+.tg .tg-iqet{border-color:#000000;color:#cb0000;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-wp8o">0</th>
+    <th class="tg-wp8o">1</th>
+    <th class="tg-wp8o">2</th>
+    <th class="tg-wp8o">3</th>
+    <th class="tg-wp8o">4</th>
+    <th class="tg-wp8o">5</th>
+    <th class="tg-wp8o">6</th>
+    <th class="tg-wp8o">7</th>
+    <th class="tg-wp8o">8</th>
+    <th class="tg-wp8o">9</th>
+    <th class="tg-wp8o">10</th>
+    <th class="tg-wp8o">11</th>
+    <th class="tg-wp8o">12</th>
+    <th class="tg-wp8o">13</th>
+    <th class="tg-wp8o">14</th>
+    <th class="tg-wp8o">15</th>
+    <th class="tg-wp8o">16</th>
+    <th class="tg-wp8o">17</th>
+    <th class="tg-wp8o">18</th>
+    <th class="tg-wp8o">19</th>
+    <th class="tg-wp8o">20</th>    
+    <th class="tg-wp8o">21</th>
+    <th class="tg-wp8o">22</th>
+    <th class="tg-iqet">23</th>
+    <th class="tg-wp8o">24</th>
+    <th class="tg-wp8o">25</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-wp8o">A</td>
+    <td class="tg-wp8o">B</td>
+    <td class="tg-wp8o">C</td>
+    <td class="tg-wp8o">D</td>
+    <td class="tg-wp8o">E</td>
+    <td class="tg-wp8o">F</td>
+    <td class="tg-wp8o">G</td>
+    <td class="tg-wp8o">H</td>
+    <td class="tg-wp8o">I</td>
+    <td class="tg-wp8o">J</td>
+    <td class="tg-wp8o">K</td>
+    <td class="tg-wp8o">L</td>
+    <td class="tg-wp8o">M</td>
+    <td class="tg-wp8o">N</td>
+    <td class="tg-wp8o">O</td>
+    <td class="tg-wp8o">P</td>
+    <td class="tg-wp8o">Q</td>
+    <td class="tg-wp8o">R</td>
+    <td class="tg-wp8o">S</td>
+    <td class="tg-wp8o">T</td>
+    <td class="tg-wp8o">U</td>
+    <td class="tg-wp8o">V</td>
+    <td class="tg-wp8o">W</td>
+    <td class="tg-iqet">X</td>
+    <td class="tg-wp8o">Y</td>
+    <td class="tg-wp8o">Z</td>    
+  </tr>
+</tbody>
+</table>
+
+        <br><br>
+        We would like to add 5 to whatever X's index is and obtain a new one, however, that would be:
+        <br>
+        \( \text{New_index} = \text{X_index} + 5 = 23 + 5 = 28\)
+        <br>
+        and there is no letter at index <b>28</b>.
+        <br><br><br>
+        So, you can use modulo arithmetic like this:
+        <br><br>
+        \( \text{New_index} = (\text{X_index} + 5) \% 26 = 28 \% 26 = 2\)
+        <br>
+        Which corresponds to the letter <b>C</b>.
+
+        <br><br><br>
+
+        <b>Example 2</b>: 
+        <br>
+        You are using a Caesar cipher to encode letters by shifing <b>5</b> spots <b>back</b>, and you want to encode the letter <b><tt>C</tt></b>.
+        <br><br>
+        We would like to subtract 5 from whatever C's index is and obtain a new one, however, that would be:
+        <br>
+        \( \text{New_index} = \text{C_index} - 5 = 2 - 5 = -3\)
+        <br>
+        and there is no letter at index <b>-3</b>.
+        <br><br><br>
+        So, you can use modulo arithmetic like this:
+        <br><br>
+        \( \text{New_index} = (\text{C_index} - 5) \% 26 = -3 % 26 = 23\)
+        <br>
+        this is because \( -3/26 \approx -0.12 \) which means that \( -3//26 = -1 \)
+        <br>
+        So if we subtitute that as the quotient: 
+        <br>
+        \(-3 = \mathbf{-1} \cdot 26 + remainder\), 
+        <br>
+        the remainder value that would make this true is <b>23</b>
+        <br>
+        Which corresponds to the letter <b>X</b>.
+
+
       </p>
 
       <br><br>  
@@ -432,7 +555,7 @@ w <span style="color: #333333">=</span> x <span style="color: #333333">+</span> 
 
         
 
-        
+<!--
 
 
         <h3>The <tt>eval</tt> function</h3>
@@ -456,7 +579,7 @@ w <span style="color: #333333">=</span> x <span style="color: #333333">+</span> 
             <li>What would happen here: <tt>print( eval( str(x) + "*" + str(y) ) )</tt></li>
           </ol>
         </div>
-
+  -->
       </p>
 
       <br><br>
@@ -469,7 +592,7 @@ w <span style="color: #333333">=</span> x <span style="color: #333333">+</span> 
         A program may accept input from the keyboard, and print it or use it to make decisions.
         <br><br>
 
-        In python, the way to tell the program to "read input from the keyboard at this point", is too
+        In python, the way to tell the program to "read input from the keyboard at this point", is to
         <br>
         use the <tt><b>input()</b></tt> built-in function. 
         <br><br>
@@ -491,6 +614,16 @@ w <span style="color: #333333">=</span> x <span style="color: #333333">+</span> 
 
         If we want to have the input interpreted as a number, we need to use the built-in functions (int, float) to get Python to do this.
       </p>
+
+      <div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 6</big></b></span> [3 minutes]: <br>
+
+          Fix the program: <a href="https://pythontutor.com/visualize.html#code=x%20%3D%20input%20%28give%20me%20an%20even%20integer%20in%20%5B0,8%5D%29%20%20%23%202%20errors%0Ay%20%3D%20input%20%28give%20me%20an%20odd%20integer%20in%20%5B11,19%5D%29%23%202%20errors%0Az%20%3D%20y/x%20%20%20%20%23%20the%20result%20should%20be%20an%20integer%20greater%20than%200&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">linked here</a>
+          <br><br>
+          You can fix the bugs and add functions or change operators to get it to work.
+          <br><br>
+          Hint: the final result should be an integer greater than 0!.
+        </div>
 
       <p><br></p><hr><p><br></p>
 
@@ -543,13 +676,16 @@ w <span style="color: #333333">=</span> x <span style="color: #333333">+</span> 
 
     <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Wednesday)</h4>
-      <b>[Due for everyone]</b> Complete ZyBook chapter 1.21 and 3.1<br>
-      Note: chapter 3.1 is a bit complex, but don't worry, we'll discuss it together during lecture.
+      <h4>Homework</h4>
 
+      <b>[Due for everyone]</b> Friday, 02/04 5PM: Homework 01 (Published in Replit).
       <br><br>
 
-      <b>[Optional]</b> play around with the <b><tt>input</tt></b>, <b><tt>int</tt></b>, <b><tt>float</tt></b>, and <b><tt>eval</tt></b> functions (using the base code linked above). <br>
+      <b>[Optional]</b> 
+      <br>
+      Read <a href="https://greenteapress.com/thinkpython2/html/thinkpython2003.html">Chapter 2 of Think Python</a>
+      <br>
+      play around with the <b><tt>input</tt></b>, <b><tt>int</tt></b>, <b><tt>float</tt></b>, and <b><tt>eval</tt></b> functions (using the base code linked above). <br>
       This will give you some advantage in the assignment to come.
 
 
