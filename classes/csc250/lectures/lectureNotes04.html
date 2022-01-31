@@ -197,7 +197,7 @@
 
 
       <h1>Lecture Notes 04: <br>
-      Finite Automata</h1>
+      Regular Languages and Regular Expressions</h1>
       <p>
         <br>
       </p>
@@ -205,339 +205,796 @@
 
       This class we'll discuss:
       <ul>
-        <li>Recap: RegEx (colorful example)</li>
-        <li>Finite Automata (AKA Finite State Machines)</li>
-        <li>Formal Definitions</li>
-        <li>FA properties</li>
+        <li>What are we doing?</li>
+        <li>Regular Expressions</li>
+        <li>Regular Languages</li>
       </ul>
 
-
       <p><br></p><hr><p><br></p>
 
       <h2>
-        Recap: RegExes  
+        A Map of what we'll be doing in class 
       </h2>
 
+
       <p>
-        Let's go over the following examples:
+        <h4>What are we going to do?</h4>
+        <br>
+        As we mentioned last class, We are going to analyze what types of problems can be solved with minimal "machinery".
+        <br>
+        <ul>
+          <li>what can we do with a specific type of "machine", or in other words: "what types of problems can we solve?"</li>
+          <li>Another way to look at it is: "Giva problem A, what is the minimal "machine" that can help me solve it.</li>
+        </ul>
         <br><br>
-        <img class="img-fluid" src="../figures/lecture04/regexColors.png" alt="Regex Colors!" style="width:80%">
+        We are going to work up from basic machines up to the modern computer. 
+        <br><br><br><br>
+
+        <h4>How are we going to do? it</h4>
+        <br>
+        Since we are not really going to build those machines in hardware, we will need to "represent" them symbolically. 
+        <br><br>
+        We will be <i>building symbolic machines</i> to solve problems of greater and greater complexity.
+
+
+        <br><br><br><br>
+
+        <h4>A candidate "simple" problem: </h4>
+
+        \[ 
+          \begin{align*}
+          & 1001011 \\
+          & +       \\
+          & 0111011
+          \end{align*}
+        \]
+
         <br><br>
 
-        How about the Languages generated?
+        While this might look simple, this is really a very advanced problem, it requires that the machine know:
+        <ul>
+          <li>what <tt>1001011</tt> is</li>
+          <li>what <tt>+</tt> means</li>
+          <li>what <tt>0111011</tt> is, and</li>
+          <li>How to do it</li>
+        </ul>
         <br><br>
-        Regular Languages are more powerful than Finite Languages (can encompass more)
+
+        In other words, performing <b>Arithmetic operations</b> is a few "machines" away.
+
+
+        <br><br><br><br>
+
+        <h4>Step 1: recognizing a pattern</h4>
         <br>
-          <img class="img-fluid" src="../figures/lecture03/regLangs.png" alt="more descriptive power!" style="width:50%">
-        </p>
+        You can think of a machine that recognizes things and can clasify them as being in a set of known elements or being outside that set of know elements.
         <br><br>
-        <center>Still confused about RExs? Go to Office Hours with Winnie!! (and with me)</center>
-        
+
+        With our <i>symbolic</i> replicas, a first task would be to be able to specify the structure or pattern of a set of symbols that we would like to be able to recognize.
+
+        <br><br>
+
+        <h4>How to build a "recognizing" machine</h4>
+        <br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [1 minute]: 
+        <br>
+        Can you think of a super simple (mechanical) machine that "recognizes" things?
+        <div class="container mx-lg-3">
+        Think before revealing some examples:  
+          <details><summary>(Wait; then Click)</summary>
+            <p>
+              think of a sieve:
+              <img class="img-fluid" src="../figures/lecture04/sieve.png" alt="Recognize small/big!" style="width:20%">
+              <br>
+              It "recognizes" small particles and lets them through!
+            </p>
+          </details>
+        </div>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [1 minute]: 
+        <br>
+        Can you think of a super simple (mechanical) machine that "recognizes" a pattern (sequence of things)?
+        <div class="container mx-lg-3">
+        Think before revealing some examples:  
+          <details><summary>(Wait; then Click)</summary>
+            <p>
+              think of a <a href="https://www.youtube.com/watch?v=1NUu0PiM-YI">locking mechanism</a>:              
+              <br>
+              It "recognizes" small particles and lets them through!
+            </p>
+          </details>
+        </div>
+
+        <br><br>
+
+        <b>Regular Expressions</b> are like lock mechanisms that can be built to recognize one or many "keys".
+
+      </p>
+<!--  
+      <p>
+        Have you heard of <a href="https://www.youtube.com/watch?v=fCn8zs912OE">Zipf's distribution</a>?
+        <br><br>
+        How would we ask a computer to count the number of appearances of the word "the"?          
+        <br><br>
+        Let's start to think about how we would verify this with a sample text.
+        <br>
+        <span style='color:#888888'>(read the whole story later.. it's good!)</span>
+        <br><br> 
+
+        <div class="container">
+          <figure>
+            <blockquote id="box">
+              <span class="small">
+                [...]
+                <br>
+                The numerologist moved one gnarled hand over the other. "Before that, sir, there's a little—"
+                <br>
+                "A little matter of the fee?"
+                <br>
+                "I have already done the work, sir. I have earned the money."
+                <br>
+                Zebatinsky raised no objection. He was prepared to pay. If he had come this far, it would be silly to turn
+                <br>
+                back just because of the money.
+                <br>
+                He counted out five ten-dollar bills and shoved them across the counter. "Well?" 
+                <br>
+                The numerologist counted the bills again slowly, then pushed them into a cash drawer in his desk.
+                <br>
+                He said, "Your case was very interesting. I would advise you to change your name to Sebatinsky."
+                <br>
+                "Seba— How do you spell that?"
+                <br>
+                "S-e-b-a-t-i-n-s-k-y."
+                <br>
+                Zebatinsky stared indignantly. "You mean change the initial? Change the Z to an S? That's all?"
+                <br>
+                "It's enough. As long as the change is adequate, a small change is safer than a big one." 
+                <br>
+                [...]
+              </span>
+            </blockquote>
+            <figcaption>
+              ~ from <cite>"Spell My Name With An S", by Isaac Asimov</cite>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="search-container">
+          <label for="search">Search within quoted text</label>
+          <input
+            id="search"
+            placeholder="Type `/the/` for example"
+            type="search"
+            autocomplete="off"
+          />
+          <br><br>
+          Searched Text:
+          <span class="mx-5" id = "regex-text">
+            
+          </span>
+
+          Flags:
+          <span class="mx-5" id="regex-flags">
+            
+          </span>
+
+
+
+      </div>
+
       </p>
       
-      <p><br></p><hr><p><br></p>
+      <script id="rendered-js" >
+        const $box = document.getElementById('box');
+        const $search = document.getElementById('search');
 
-      <h2>
-        Algorithms: Code, RegExes, and Diagrams   
-      </h2>
+        $search.addEventListener('input', event => {
+          const searchText = event.target.value;
 
+          //const regex = new RegExp(searchText, 'g');
+          // EXTRA lines
+            const parts = searchText.split("\/");  
+            //const str = '(?<!<)'+parts[1]+'|(?<!<b)'+ parts[1];
+            //let str = "(?&lt;!&lt;) " + parts[1] + "|(?&lt;!&ltb) " + parts[1];
+            document.getElementById('regex-text').innerHTML = parts[1];
+            console.log('The array has ', parts.length, ' elements: ', parts.join(' / '));
+            if (parts.length > 2)
+            {
+              document.getElementById('regex-flags').innerHTML = parts[2];
+            }
+            else{
+              document.getElementById('regex-flags').innerHTML = "";
+            }
+
+            //replace unless match is preceeded by "<" or "<b"
+            //onst regex = new RegExp(parts[1], parts[2]);     
+            const regex = new RegExp( parts[1]+"(?!r>|>)",parts[2]);
+          // End EXTRA lines
+
+          let text = $box.innerHTML;
+
+          if (searchText !== ""){
+            text = text.replace(/(<mark class="highlight">|<\/mark>)/gim, '');
+
+            const newText = text.replace(regex, '<mark class="highlight">$&</mark>');
+            $box.innerHTML = newText;
+
+          } else {
+            text = text.replace(/(<mark class="highlight">|<\/mark>)/gim, '');
+            $box.innerHTML = text;
+            document.getElementById('regex-text').innerHTML = "";
+            document.getElementById('regex-flags').innerHTML = "";
+          }
+
+        });
+        //# sourceURL=pen.js
+      </script>  
+
+      <br><br>
+
+      <span style='color:#888888'>(If the searcher above gives you trouble, try it <a href="https://regexr.com/65mgq" target='blank'>here</a>)</span>
+      <br><br>
+
+      <p>          
+      <span style='color:#06a015'><b><big>Activity 1</big></b></span> [1 minute]: 
+      <br>
+      Go back to the search bar and search for the word "the"  like this: "/the/".
+      <br><br>
+      Did we find all the "the"s?
+      <br><br>
+      Now try this: "/the/g" (the flag "g" means "global").
+      <br><br>
+      Did we find (only) all the "the"s?
+      <br><br>
+      <div  class="mx-5">
+        <span style="color:#888888">Note that the search for "/the/g" is a regular expression.
+        <br> 
+        It states that the search is for the literal string of letters 't','h','e' (in strict order), and globaly (all appearances, not just the first).</span>   
+      </div>     
+      </p>
+      
+      <br><br>
+      <h4>Errors</h4>
       <p>
-        As we saw above, an algorithm can be <i>encoded</i> as:
-        <ol>
-          <li>RegEx</li>
-          <li>(pseudo) Code </li>
-        </ol>
-        But we know that a piece of code can also be drawn using things like a "Flow Diagram"!
+        You might have noticed more than one type of error.
         <br><br>
-        In this section, we'll use a special type of diagram called a <b>State Diagram</b>.
-
-        <br><br>
-
-        <h3>State Diagram</h3>
-
-        A State diagram looks like this:
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/stateDiagram.png" alt="not a map" style="width:80%">
-        <br><br><br><br>
-
-        <h3>Finite Automaton AKA: Finite State Machine (FSM)</h3>
-
+        <div class="container mx-lg-3">
+        Error type A:  
+          <details><summary>(Wait; then Click)</summary>
+            <p>
+              False Positive: It is counted as a "match" but it is not actually one of the instances we desired.
+              <img class="img-fluid" src="../figures/lecture03/falsePositives.png" alt="False Positive!" style="width:40%">
+            </p>
+          </details>
         
-        <ol>
-          <li>Finite number of states</li>
-          <li>Follows Rules that have been programmed beforehand</li>
-        </ol>
-
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/FSM.png" alt="phsm" style="width:80%">
-        <br><br>
-
-        <h3>Operation Examples</h3>
-
-        <h4>Example 01: Processing a String</h4>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/processingString01.png" alt="proc 1!" style="width:80%">
-        <br><br>
-
-        <h4>Example 02: Processing a String</h4>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/processingString02.png" alt="proc 2!" style="width:80%">
-        <br><br>
-
-        <h4>Example 03: Processing a String</h4>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/processingString03.png" alt="proc 3!" style="width:80%">
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Try to build your own machine. One that "Accepts" this set:
-          <br><br>
-          <img class="img-fluid" src="../figures/lecture04/zeroFollowedBy1.png" alt="zero 1 zero 1!" style="width:80%">
-          <br><br>
-
-          <div class="mx-lg-5">
-            <details>
-              <summary>(Wait; then Click)<br><br></summary>
-              <p>
-                <br><br>
-                <img class="img-fluid" src="../figures/lecture04/zeroFollowedBy1FSM.png" alt="0 one 0 one!" style="width:80%">
-                <br><br>
-              </p>
-            </details>
-          </div>
-        </div>  
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        Alphabets and languages  
-      </h2>
-
-      <p>
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/alphabetsAndLangs.png" alt="Alphabeast!" style="width:80%">
-        <br><br>
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        Formal Definition  
-      </h2>
-
-      <p>
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/formalDef.png" alt="very formal" style="width:80%">
-        <br><br>
-
-        <h3>Our Last Example:</h3>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/defLastExample.png" alt="DEFINE!" style="width:80%">
-        <br><br>
-
-        <h3>Operators in FSMs: OR</h3>
-
-        How might we handle a language that contains an or?
-        <br><br>
-        Example:
-
-        <center>{w|w doesn’t contain either 00 or 11 as a substring}</center>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/orFSM.png" alt="ORRRRRR!" style="width:80%">
-        <br><br>
-
-        Let's try one basic example:
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/exampleString00.png" alt="Yak is a good dog!" style="width:80%">
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Explain the sequence of states for these words:
-          <ul>
-            <li>
-              101010
-            </li>
-            <li>
-              010110
-            </li>
-            <li>
-              110011
-            </li>
-          </ul>
-        </div>  
-
-        <br><br>
-
-
+      </div>
+      <div class="container mx-lg-3">
+        Error type B:  
+          <details><summary>(Wait; then Click)</summary>
+            <p>
+              False Negative: It should be counted as a "match" but it is not found by our search.
+              <img class="img-fluid" src="../figures/lecture03/falseNegative.png" alt="False Negative!" style="width:40%">
+            </p>
+          </details>
         
-        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Answer the following questions:
-
-          <div class="mx-lg-5">
-            <li>What is the descriptive power of Finite Automata?</li>
-            <details>
-              <summary>(Wait; then Click)<br><br></summary>
-              <br><br>
-                We need to compare it with regular expressions... we'll do that bit by bit.
-              <br><br>
-                <img class="img-fluid" src="../figures/lecture03/regLangs.png" alt="Reg Lang descriptive power!" style="width:50%">
-            </details>
-            <br><br>
-
-            <li>Are there languages that <b>Cannot</b> be described by a finite automaton?</li>
-            <br>
-            (try to come up with a counter example)
-            <details>
-              <summary>(Wait; then Click)<br><br></summary>
-              <br><br>
-                YES! NON Regular Languages!
-              <br><br>
-                <img class="img-fluid" src="../figures/lecture04/nonRegularExample.png" alt="Can't do it!" style="width:100%">
-              <br><br>
-            </details>
-          </div>
-        </div>  
-
+      </div>
       </p>
 
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        Useful Properties  
-      </h2>
-
-      <p>
-        These are some properties that can help you deduce, generalize, or analyze FSMs with respect to their RegEx and Regular Languages.
-        <br><br>
-
-        <h3>Complement</h3>
-        IF a Language \(L_1\) is recognizable by an FA \( M_1\),
+      <p>          
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [1 minute]: 
         <br>
-        is language \( (L_1)^{c} \) also recognizable by some FA?
-        <br><br>
-        Or in other words, 
-        \[\exists M_2 \quad | \quad L(M_2) = L(M_1)^{c} \]
+        Let's eliminate the False Negatives first;
+        <br>
+        How should we modify our search in order to include "The" instances in our matches?
+        <br>
+        Tell me in english and I'll show you how to add it to our search.
+       
+      </p>
+      
+-->
+ <!-- Answer: /[Tt]he/g -->
+<!-- 
+       <p>
+        
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [1 minute]: 
+        <br>
+        Let's eliminate the False Positives;
+        <br>
+        How should we modify our search in order to exclude "them", "there", etc instances in our matches?
+        <br>
+        Tell me in english and I'll show you how to add it to our search.
+      </p>
+-->
+ <!-- Answer:  /\b[Tt]he\b/g -->
 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/complement.png" alt="complement!" style="width:80%">
-        <br><br><br><br>
+      <br><br>
+<!--
+      Now, we will work towards understanding what it is we are defining and how to do it.
+ -->
 
-        <h3>Intersection</h3>
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Regular Expressions 
+      </h2>      
+
+      <p>
+        An expression is a combination of objects and operators that can be "resolved" into a value.
         <br><br>
-        <img class="img-fluid" src="../figures/lecture04/intersection.png" alt="interX!" style="width:80%">
+        In <b>Arithmetic</b>, the objects are numbers, and the operators are: \( + \text{, } - \text{, } *  \text{, } ÷ \text{, }\) etc.
+        <br>
+        A (correct) arithmetic expression looks like this: 
+        \[ (27 - 6)* 2\]        
+        <div class="mx-4">The value of a resolved arithmetic expression is a <i>number</i>, in this case \(42\).</div>
         <br><br>
 
-        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          How would you prove this (by construction)?
+        A <b>Reglar Expression</b> (RE or RegEx) is an algebraic way to describe a set of words.
+        <br><br>
+        In reglar expressions, we also have objects and symbols, which can be combined to form an expression that might look like this:
+        \[ 0^*(101 + 11011)0^* \]
+        <!-- \mathrm{L} -->        
+        <div class="mx-4">The value of a resolved regular expression is a <i>Language</i> (or a set of possible <i>words</i>), or
+        <br> <b>"the set of words that follow the pattern of the regular expression"</b>. 
+        <br><br>
+        in this case: 
+        <br><br>
+        a sequence that <i>starts</i> with any number of sequential zeroes (zero or more 0s); followed by either the exact sequence <b>101</b> or the exact sequence <b>11011</b>;  and concluding with any number of zeros (zero or more 0s)"</div>
+        <br><br>
 
-          <div class="mx-lg-5">
-            <details>
-              <summary>(Wait; then Click)<br><br></summary>
-              <br><br>
-                <ol>
-                  <li>run both machines “in parallel”</li>
-                  <li>accept <b>if (and only if) both</b> reach an accepting state</li>
-                </ol>              
-            </details>
+        Another way you'll see this written is as: \( \mathrm{L} (R) \), (for some RE \(R\))<br>
+        which refers to the <i>Language</i> (set of words) described by the expression ( \(R\) ) inside parenthesis.
+        <br><br>
+
+        We sometimes refer to the Language with some symbol like \(\mathrm{L}_A\), where language \(L\) has some property \(A\).
+      </p>
+      <br><br>
+
+      <h3>Defining a Regular Expression</h3>
+      <p>
+        We will follow a sequence of steps to understand how to build regular expressions.
+        <br>
+        First, we'll need some basic definitions
+      </p>
+
+
+      <h4>RE Definitions</h4>
+      <p>
+        <ul>
+          <li>
+            A <b>set</b> is a group of items under the same property. <br>
+            We'll use set operations like union (\(\cup\)), concatenation, and complement ( of \(A\) is \( \bar{A} \));
+          </li>
+          <li>
+            \( \emptyset \) : the set with no members is called the <b>empty set</b>: \( \emptyset \) or \(\{ \} \) ;
+          </li>
+          <li>
+            \(\Sigma\): an <b>alphabet</b> \(\Sigma\) is a nonempty set of symbols (letters), for example:
+            <ul>
+              <li>\(\Sigma = \{a  \text{, } b  \text{, } c  \text{, } \dots\}\), or</li>
+              <li>\(\Sigma = \{0,1\}\)</li>
+            </ul>
+          </li>
+          <li>
+            \(w\): a <b>string</b> (or word) \(w\) is a sequence of symbols from an alphabet.
+          </li>
+          <li>
+            \(\epsilon\): a string with no letters is the <b>empty string</b> \(\epsilon\);
+          </li>
+          <li>
+            a <b>Language</b> is a <i>set</i> of words.
+          </li>
+        </ul>
+        <br><br>
+
+        The following are some examples: 
+        <br>
+        <ul>
+          <li>The set with no elements: \( \emptyset \) or \(\{ \} \)</li>
+          <li>The set with the the empty string as its <b>single element</b> : \(\{ \epsilon \} \)</li>
+          <li>the set with three words: \(\{  Larry \quad , \quad Curly \quad , \quad Moe \} \)</li>
+          <li>The Language with all two-bit binary words: \(\{  00 \quad , \quad 01 \quad , \quad 10 \quad , \quad 11\} \)</li>
+          <li>In the last example, the alphabet \(\Sigma = \{0,1\}\)</li>
+        </ul>
+      </p>
+      <br><br>
+
+      <h4>Regular Operations</h4>
+      <p>
+        <ul>
+          <li>
+            The <b>Union</b> of two sets \(A\) and \(B\): \(A\cup B\) is the set that has both the members of \(A\) and from \(B\)
+            <br>
+            For example: If \(A: \{ white  \text{, }  blue\}\), and \(B: \{ duck  \text{, }  rabbit\}\), 
+            <br>
+            The union would be: \(A\cup B: \{ white  \text{, }  blue  \text{, }  duck  \text{, }  rabbit\}\)
             <br><br>
-          </div>
-        </div>  
-
-        Example:
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/intersectionExample.png" alt="interX Exmpl!" style="width:50%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/intersectionSolution.png" alt="inX Exmpl!" style="width:50%">
-        <br><br>
-
-
-        <br><br>
-
-        <h4>Intersection: General Rule</h4>
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/intersectionRule.png" alt="inX rule!" style="width:100%">
-        <br><br>
-
-
-
-        <br><br><br><br>
-
-        <h3>Union</h3>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/union.png" alt="uni | on!" style="width:80%">
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          How would you prove this (by construction)?
-
-          <div class="mx-lg-5">
-            <details>
-              <summary>(Wait; then Click)<br><br></summary>
-              <br><br>
-                <ol>
-                  <li>run both machines “in parallel”</li>
-                  <li>accept if <b>either</b> reach an accepting state</li>
-                </ol>              
-            </details>
+            Another example: If \(A: \{ 0  \text{, }  1\}\), and \(B: \{ x  \text{, }  y\}\), 
+            <br>
+            The union would be: \(A\cup B: \{ 0  \text{, }  1  \text{, }  x  \text{, }  y\}\)
+          </li>
+          <br>
+          <li>
+            The <b>Concatenation</b> of two sets \(A\) and \(B\): \(A\circ B\) or simply \(AB\) is <b>a set</b>.
+            <br>
+            This is the set that has a sequences of two symbols: a member of \(A\) before a member of \(B\): \(AB: \{ whiteduck   \text{, } whiterabbit  \text{, }  blueduck  \text{, }  bluerabbit \}\).
             <br><br>
-          </div>
-        </div>  
+            <div class="mx-3"> Note that in the expression \(AB\), we're saying "any element from \(A\) followed by any element from \(B\)", not "all of \(A\) followed by all of \(B\)"! </div>
+            <br>
+            Another example: If \(A: \{ 0  \text{, }  1\}\), and \(B: \{ x  \text{, }  y\}\), 
+            <br>
+            \(AB: \{ 0x   \text{, } 0y  \text{, }  1x  \text{, }  1y \}\).
 
-        Example:
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/unionExample.png" alt="union Exmpl!" style="width:50%">
-        <br><br>
+          </li>
+          <br>
+          <li>
+            The <b>Star</b> (or <b>Kleene Star</b>) operator \(A^*\) is a <i>unary</i> operator that returns the set of sequences that have zero or more symbols from a set \(A\):
+            <br>
+            \(A^*: \{ \epsilon \text{, } white  \text{, } blue  \text{, } whiteblue  \text{, } bluewhite \text{, } whitewhiteblue \text{, } whitebluewhite \text{, } \dots\}\)
+            <br><br>
+            Another example: If \(A: \{ 0  \text{, }  1\}\),
+            <br>
+            \(A^*: \{ \epsilon \text{, } 0  \text{, } 1  \text{, } 01  \text{, } 10 \text{, } 001 \text{, } 010 \text{, } \dots\}\)
+            <br><br>
+            You can think of it as a zero or more concatenation operator.
+          </li>
+        </ul>
+      </p>
+      <br><br>
+
+      <h4>Definition of Regular Expressions (Recursively)</h4>
+      <p>
+        <b>Basic (axiomatic) definitions:</b>
+        <ul>
+          <li>Basis 1: \(\emptyset\) is a regular expression, and \( \mathrm{L} (\emptyset) = \emptyset\)</li>
+          <li>Basis 2: \(\epsilon\) is a regular expression, and \( \mathrm{L} (\epsilon) = \{\epsilon\} \)</li>
+          <li>Basis 3: \(a\) is a symbol, then \(a\) is a regular expression, and \( \mathrm{L} (a) = \{a\} \)</li>
+        </ul>
+        <br>
+        <b>Recursive extensions:</b>
+        <ul>
+          <li><b>Alternation</b>: 
+            <br>
+            One expression <b>or</b> another,
+            <div class="mx-3">
+              If \(\mathrm{R}_1\) and \(\mathrm{R}_2\) are regular expressions, 
+              <br>
+              then \(\mathrm{R}_1 + \mathrm{R}_2\) is a regular expression,<br>
+              and \( \mathrm{L} (\mathrm{R}_1 + \mathrm{R}_2) = \mathrm{L} (\mathrm{R}_1) \cup  \mathrm{L} (\mathrm{R}_2)\)
+              <br><br>
+              <b>Example:</b>
+              <br>
+              If \( R_1 = 0\) and \( R_2 = 1\), 
+              <br>              
+              what is \( R_3 = R_1 + R_2\) ?  
+              <br>
+              <div class="container mx-lg-3">
+              Think before revealing the answer:  
+                <details><summary>(Wait; then Click)</summary>
+                    \(R_3 = 0 + 1\)
+                </details>
+              </div>
+              <br>
+              what is \( \mathrm{L} (\mathrm{R}_1 + \mathrm{R}_2) \)?
+              <div class="container mx-lg-3">
+              Think before revealing the answer:  
+                <details><summary>(Wait; then Click)</summary>
+                    \( \mathrm{L} (\mathrm{R}_3 ) = \{ 0, 1\} \)
+                </details>
+              </div>
+            </div>          
+          </li>
+          <br><br>
+
+          <li><b>Concatenation</b>:
+            <div class="mx-3">
+              If \(\mathrm{R}_1\) and \(\mathrm{R}_2\) are regular expressions, 
+              <br>
+              then \(\mathrm{R}_1 \mathrm{R}_2\) is a regular expression,<br>
+            and \( \mathrm{L} (\mathrm{R}_1 \mathrm{R}_2) = \mathrm{L} (\mathrm{R}_1)  \mathrm{L} (\mathrm{R}_2)\)
+            <br><br>
+              <b>Example:</b>
+              <br>
+              If \( R_3 = (0 + 1)\) and \( R_4 = 1\), 
+              <br>              
+              what is \( R_5 = R_3  R_4\) ?  
+              <br>
+              <div class="container mx-lg-3">
+              Think before revealing the answer:  
+                <details><summary>(Wait; then Click)</summary>
+                    \(R_5 = (0 + 1)1\)
+                </details>
+              </div>
+              <br>
+              what is \( \mathrm{L} (\mathrm{R}_3 \mathrm{R}_4) \)?
+              <div class="container mx-lg-3">
+              Think before revealing the answer:  
+                <details><summary>(Wait; then Click)</summary>
+                    \( \mathrm{L} (\mathrm{R}_5 ) = \mathrm{L} ( \; (0 + 1)1 \; ) = \{ 01, 11\} \)
+                </details>
+              </div>
+            </div>
+          </li>
+
+          <br><br>
+          <li><b>Kleene star</b>: 
+            <div class="mx-3">
+              If \(\mathrm{R}_1\) is a regular expression, 
+              <br>
+              then \(\mathrm{R}^*_1\) is a regular expression,<br>
+            and \( \mathrm{L} (\mathrm{R}_1^*) = \big( \mathrm{L} (\mathrm{R}_1) \big)^* \)
+            <br><br>
+              <b>Example:</b>
+              <br>
+              If \( R_5 = (0 + 1)1 \), 
+              <br>              
+              what is \( R_5^*\) ?  
+              <br>
+              <div class="container mx-lg-3">
+              Think before revealing the answer:  
+                <details><summary>(Wait; then Click)</summary>
+                    \(R_5^* = ( \; (0 + 1)1 \; )^*\)
+                </details>
+              </div>
+              <br>
+              what is \( \mathrm{L} (\mathrm{R}_5^*) \)?
+              <div class="container mx-lg-3">
+              Think before revealing the answer:  
+                <details><summary>(Wait; then Click)</summary>
+                    \( \mathrm{L} (\mathrm{R}_5^* ) = \mathrm{L} ( \; ((0 + 1)1)^* \; ) = (\mathrm{L}  ( \; (0 + 1)1 \;))^*   = ( \; \{ 01, 11\} \; )^* \)
+                    <br>
+                    \( = \{ \epsilon, \quad 01, \quad 11, \quad 0101, \quad 0111, \quad 1101, \quad 1111, \quad 010101, \quad \dots \} \)
+                </details>
+              </div>
+            </div>
+          </li>
+        </ul>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture04/unionSolution.png" alt="union Sol" style="width:50%">
+        <b>Precedence</b> rules are: do parenthesis first, then do star first, then concatenation, then union.
+
+      </p>
+
+      <br><br>
+
+      Let's trt some exercises:
+      <br><br>
+
+      <p>
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: 
+        <br>
+        What is the expression that gives us <b>all binary strings</b>?
+        <br>
+        Describe it in words or with any notation you find useful. We'll develop the rigorous notation later.
+        <br>
+        Hints: 
+        <br>
+        1) what is the alphabet \(\Sigma\)? 
+        <br>
+        2)Which operator might help us expand this into the correct language \(\mathrm{L}_b\)?
+        <!-- ∑={0,1}; Lb : ∑* -->
+      </p>
+        
+      <br><br>
+
+      <p>
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: 
+        <br>
+        What is the expression that gives us <b>all binary strings that begin with a 1</b>?
+        <!-- ∑={0,1}; Lb : 1∑* -->
+      </p>
+
+      <br><br>
+
+      <p>
+        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: 
+        <br>
+        What is the expression that gives us <b>all binary strings that begin with a 1, end with a 0, and have an even number of digits</b>?
+        <!-- ∑={0,1}; Lb : 1(∑∑)*0 -->
+      </p>
+
+      <br><br>
+
+      <h2>The RegEx Minigolf!</h2>
+
+      <br>
+      <img class="img-fluid" src="../figures/lecture04/RegExMinigolf.png" alt="golf" style="width:80%">        
+      <br><br>
+
+      <p>
+        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [5-10 minutes!!]: 
+        <br>
+        Make teams of 2 or 3 and complete the following challenges.
+        <br>
+        Let me know when your team is done.
+      </p>
+
+      <div class="mx-5">
+        <p>
+          <span style='color:#06a015'><b><big>Hole 1</big></b></span>: 
+          <br>
+          What is the expression that gives us:
+          <br>
+          <div class="mx-3">\(\{w \mid w \text{ contains a single 1}\}\)</div>
+          <!-- ∑={1}; Lb : L(1) or L{∑}-->
+        </p>
+        <br><br>
+
+        <p>
+          <span style='color:#06a015'><b><big>Hole 2</big></b></span>: 
+          <br>
+          What is the expression that gives us:
+          <br>
+          <div class="mx-3">\(\{w \mid w \text{ contains at least one 1}\}\)</div>
+          <!-- ∑={...,1}; Lb : L(∑*1∑*) -->
+        </p>
+        <br><br>
+
+        <p>
+          <span style='color:#06a015'><b><big>Hole 3</big></b></span>: 
+          <br>
+          What is the expression that gives us:
+          <br>
+          <div class="mx-3">\(\{w \mid w \text{ contains 001 as a substring}\}\)</div>
+          <!-- ∑={...,0,1}; Lb : L(∑*001∑*) -->
+        </p>
+        <br><br>
+
+        <p>
+          <span style='color:#06a015'><b><big>Hole 4</big></b></span>: 
+          <br>
+          What is the expression that gives us:
+          <br>
+          <div class="mx-3">\(\{w \mid \text{ every 0 in w is followed by at least one 1}\}\)</div>
+          <!-- ∑={anything,0,1}; Lb : L( ((01)*1*)* )
+            or \b((?:01)*1*)*\b in regex-->
+        </p>
+        <br><br>
+
+        <p>
+          <span style='color:#06a015'><b><big>Hole 5</big></b></span>: 
+          <br>
+          What is the expression that gives us:
+          <br>
+          <div class="mx-3">\(\{w \mid w \text{ w is a string of even length}\}\)</div>
+          <!-- ∑={...}; Lb : L ( (∑∑)* ) -->
+        </p>
+        <br><br>
+
+        <p>
+          <span style='color:#06a015'><b><big>Hole 6</big></b></span>: 
+          <br>
+          What is the expression that gives us:
+          <br>
+          <div class="mx-3">\(\{w \mid w \text{ w is a string of odd length}\}\)</div>
+          <!-- ∑={...}; Lb : L ( ∑(∑∑)* ) -->
+        </p>
+        <br><br>
+
+        <p>
+          <span style='color:#06a015'><b><big>Hole 7</big></b></span>: 
+          <br>
+          What is the expression that gives us:
+          <br>
+          <div class="mx-3">\(\{w \mid w \text{ the length of w is a multiple of 3}\}\)</div>
+          <!-- ∑={...}; Lb : L ( (∑∑∑)* ) -->
+        </p>
+        <br><br>
+
+        <p>
+          <span style='color:#06a015'><b><big>Hole 8</big></b></span>: 
+          <br>
+          What is the expression that gives us:
+          <br>
+          <div class="mx-3">How do we search for this set exactly: \( \{ 01 \text{, } 10\} \)?</div>
+          <!-- ∑={...}; Lb : L ( 01+10 ) -->
+        </p>
         <br><br>
 
 
+        <p>
+          <span style='color:#06a015'><b><big>Hole 9</big></b></span>: 
+          <br>
+          If \( \Sigma={0,1} \), how do we get the following expression?
+          <br>
+          <div class="mx-3"> \( \{w \mid w \text{ w starts and ends with the same symbol} \} \) </div>
+          <!-- ∑={0,1}; Lb : L ( 1∑*1 + 0∑*0 ) -->
+        </p>
         <br><br>
 
-        <h4>Union: General Rule</h4>
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/unionRule.png" alt="union rule" style="width:100%">
-        <br><br>
+      </div>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Regular Languages 
+      </h2>  
+
+      <p>
+        A <b>regular language</b> is one that can be generated using a regular expression.
+      </p>
+
+      <span style='color:#06a015'><b><big>Activity 8</big></b></span> [1 minute]: 
+      <br>
+      Answer the following questions:
+      <ul>
+        <li>Are all finite languages regular?</li>
+        <!-- Yes, because we could just union all the words together -->
+        <li>Are all regular languages finite?</li>
+        <!-- NO! (e.g. L(1*) ) -->
+      </ul>
+      
+
+
+      <br>
+      <details><summary>(Wait; then Click)</summary>
+            <p>
+              Regular Languages are more powerful!
+              <br>
+              <img class="img-fluid" src="../figures/lecture04/regLangs.png" alt="more descriptive power!" style="width:50%">
+            </p>
+          </details>
+              
+      <br><br>
+
+      
+      <h4>Properties</h4>
+      <p>
+        The following properties are true about regular languages:
+      </p>
+      <ul>
+        <li>Claim: Regular languages are closed under union</li>
+        <li>Claim: Regular languages are closed under concatenation</li>
+        <li>Claim: Regular languages are closed under intersection</li>
+        <li>Claim: Regular languages are closed under complement</li>
+        <li>Claim: Regular languages are closed under difference</li>
+        <li>Claim: Regular languages are closed under reversal</li>
+      </ul>
+
+      <br><br>
+      <h4>Practice Proof!</h4>
+      Claim: Regular languages are closed under union
+      <br><br>
+      Tips: Use the axioms defined above!
+      <br>
+      In particular:  
+      <ul>
+        <li>A regular language is, by definition, the language generated by a regular expression.</li>
+        <li>The Alternation rule</li>
+      </ul>
+      
 
 
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Next Class: DFA vs NFA vs RE!!</h4>
+      <h4>Next Class: Overleaf + Latex, Regex Recap, and Intro to Finite Automata!!</h4>
 
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Wednesday 09/22)</h4>
+      <h4>Before next class (Wednesday 02/02)</h4>
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
-       Finish Problem Set 1 (Come to OHs if you want help!!)
+        Review today's class and keep working on the Problem Set 1!
+        <br>
+        Fill out the <a href="https://www.when2meet.com/?14368898-HiMnz">When2Meet Form!!</a> Today.
+        <br><br>
+        Fill out the <a href="https://forms.gle/A5yTUwo5SxneYyKH6"> Team Forming Formy Form</a> Today!
+        <br>
+        Today at ~4, I will assign teams for the homework due this Friday.
       </div> 
       <br>
-      <b>[Optional]</b> 
+      <b>[Optional]</b> How would you build a "flowchart" to solve this regex:
+
       <div class="mx-5">
-        Read the next Lecture in advance!
+        Given a \(\Sigma = \{0,1\}\), get the regex that gets the language 
+        \( \{w \mid w \text{ contains at least one 1} \}\)
       </div>
       <br><br>
 
