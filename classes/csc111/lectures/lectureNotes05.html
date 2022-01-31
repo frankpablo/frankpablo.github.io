@@ -104,6 +104,77 @@
 
       <p><br></p><hr><p><br></p>
 
+      <h2>Recap: Printing</h2>
+
+      <p>
+        <h4>Default printing</h4>
+        <br>
+        The default print "adds" a "new line" after every print statement:
+        <br><br>
+        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;this is one line&#39;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;this is another&#39;</span>)
+</pre></div>
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=print%28'this%20is%20one%20line'%29%0Aprint%28'this%20is%20another'%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br>
+
+        <h4>Continuious printing</h4>
+        <br>
+        If, for any reason, you want print to NOT add a newline after the text, you can do this:
+        <br><br>
+        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;this is one line;&#39;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot; &quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;this is in the same one;&#39;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;this is a new one&#39;</span>)
+</pre></div>
+
+        <br><br>
+        (<span style="color:#888888">Note that the third print displays in a second line because the second print is the default one that adds a newline</span>)
+
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=print%28'this%20is%20one%20line%3B',%20end%20%3D%20%22%20%22%29%0Aprint%28'this%20is%20in%20the%20same%20one%3B'%29%0Aprint%28'this%20is%20a%20new%20one'%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br>
+
+        <b>Space vs NO-space</b>
+        <br>
+        Notice that if we run the following example: <a href="https://pythontutor.com/visualize.html#code=print%28'abcd',%20end%20%3D%20%22%20%22%29%0Aprint%28'def'%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">with space</a>, we end up with the output:
+        <br>
+        <tt>abcd def</tt>
+        <br><br>
+        But if we run this example: <a href="https://pythontutor.com/visualize.html#code=print%28'abcd',%20end%20%3D%20%22%22%29%0Aprint%28'def'%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">with nothing</a>, we end up with the output:
+        <br>
+        <tt>abcddef</tt>
+        <br><br>
+        The only difference is the <tt><b>end</b></tt> character that was specified; in one it is a space (<tt><b>" "</b></tt>), and in the other a "nothing" (<tt><b>""</b></tt>).
+
+
+        <br><br>
+
+        <h4>Multi-element printing</h4>
+        <br>
+        You can print multiple elements by separating them with commas:
+        <br><br>
+        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;My name is&quot;</span>, <span style="background-color: #fff0f0">&quot;Pablo;&quot;</span>, <span style="background-color: #fff0f0">&quot;My dog, Yak, is&quot;</span>, x, <span style="background-color: #fff0f0">&quot;years old.&quot;</span>)
+</pre></div>
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=x%20%3D%202%0Aprint%28%22My%20name%20is%22,%20%22Pablo%3B%22,%20%22My%20dog,%20Yak,%20is%22,%20x,%20%22years%20old.%22%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br>
+        
+
+
+
+
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
       <h2>Intro to Strings</h2>
 
       <p>
@@ -369,7 +440,7 @@
         Before we use it, let's talk about <b>placeholders</b>: 
         <br><br>
 
-        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
           Solve the following "riddle":
           <br><br>
@@ -404,7 +475,7 @@
 
         <br><br>
 
-        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
         try it out in the <a href="https://pythontutor.com/visualize.html#code=print%28'the%20%7B%7D%20ate%20the%20%7B%7D.'.format%28'dog'%20,%20'pizza'%20%29%29%0A&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">python visualizer</a>
         <br><br>
         <li>Here, the placeholders are the pairs of curly brackets: <b><tt>{}</tt></b>, and the items are the parameters passed to the <b><tt>format</tt></b> function (inside the parens).</li>
@@ -436,7 +507,7 @@ word2 <span style="color: #333333">=</span> <span style="background-color: #fff0
 
         <br><br>
 
-        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
         try it out in the <a href="https://pythontutor.com/visualize.html#code=word1%20%3D%20'dog'%0Aword2%20%3D%20'pizza'%0Aprint%28'the%20%7B%7D%20ate%20the%20%7B%7D.'.format%28word1%20,%20word2%20%29%29%0A&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">python visualizer</a>
         <br><br>
 
@@ -448,7 +519,7 @@ word2 <span style="color: #333333">=</span> <span style="background-color: #fff0
         An example: 
         <br>
 
-        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [2 minutes]: <br>
         try it out in the <a href="https://pythontutor.com/visualize.html#code=item1%20%3D%20'a'%0Aitem2%20%3D%20ord%28'a'%29%0Aprint%28'the%20character%20symbol%20%7B%3As%7D%20has%20ascii%20number%20%7B%3Ad%7D,%20and%20binary%20value%20%7B%3Ab%7D'.format%28item1%20,%20item2,%20item2%20%29%29%0A&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">python visualizer</a>
         <br><br>
 
@@ -474,7 +545,7 @@ word2 <span style="color: #333333">=</span> <span style="background-color: #fff0
 
         <br><br>
 
-        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 8</big></b></span> [2 minutes]: <br>
         try it out in the <a href="https://pythontutor.com/visualize.html#code=my_string%20%3D%20'The%20pizza'%20%2B%20'%20is%20%24'%20%23first%20concatenation%0Aprint%20%28my_string%29%0Aprint%20%28%29%0Aprint%20%28%20my_string,%20'20',',%20please'%20%29%20%23multi-element%20print%0A&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">python visualizer</a>
         <br><br>
 
@@ -482,7 +553,7 @@ word2 <span style="color: #333333">=</span> <span style="background-color: #fff0
         <br>
         This causes the dollar sign to be separated from the number and the comma to be separated by one space from the number (annoying no?)
         <br><br>
-        <span style='color:#06a015'><b><big>Activity 8</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 9</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
           Replace the last print statement for one that uses concatenation so that we get the following output:
           <br><br>
@@ -501,22 +572,24 @@ word2 <span style="color: #333333">=</span> <span style="background-color: #fff0
 
         <br><br>
 
-        Now, let's talk about Assignment 01.
+        Now, let's talk about Homework 01.
       </p>   
 
 
     <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Friday)</h4>
+      <h4>Homework</h4>
       <b>[Due for everyone]</b>  
       <br>
-      <b><big>Assignment 01 will be opened in Repl.it and will be due on 09/22 BEFORE 11:59 PM</big></b>
+      <b><big>Homework 01 is due Friday BEFORE 17:00 (5PM)</big></b>
       <br>
       ZyBook chapters 5.1, and 5.3 
 
       <br><br>
 
       <b>[Optional]</b> 
+
+<!--  
       <br>
       Write a program in Replit that uses input() calls, string variables, and format, to tell a story using four inputs from the user: 
       <ol>
@@ -542,7 +615,7 @@ word2 <span style="color: #333333">=</span> <span style="background-color: #fff0
           <br>
           Many years later, the old <b>dog</b> still had a picture in the mantelpiece where one could see that <b>dog</b> proudly holding the championship <b>bone</b> while standing at the top of the podium.
         </tt>
-
+ -->
       </div>
       
 
