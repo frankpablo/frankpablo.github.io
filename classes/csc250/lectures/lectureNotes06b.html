@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
     <style>
       .img-max {
         max-width: 500px;
@@ -177,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes04.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes05.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -196,8 +198,8 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 05: <br>
-      DFAs, NFAs, and REs</h1>
+      <h1>Lecture Notes 06: <br>
+      Recap and Review: DFAs, NFAs, and REs</h1>
       <p>
         <br>
       </p>
@@ -205,298 +207,22 @@
 
       This class we'll discuss:
       <ul>
-        <li>Recap: Finite Automata </li>
-        <li>FA properties</li>
-        <li>Nondeterminism</li>
-        <li>NFAs Formal Definition</li>
-        <li>NFA computation (tree)</li>
-        <li>DFA-NFA equivalence</li>
+        <li>Recap: DFA-NFA equivalence</li>
       </ul>
 
-
       <p><br></p><hr><p><br></p>
 
       <h2>
-        Recap: FAs  
+        Recap: DFA-NFA equivalence
       </h2>
 
       <p>
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/formalDef.png" alt="very formal" style="width:80%">
-        <br><br>
-
-        <br><br><br><br>
-
-        <h3>Set Difference</h3>
-
-        \[  L_3 = L_1 - L_2 \]
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/setDif.png" alt="uni | on!" style="width:80%">
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          How would you prove this (draw the Venn Diagram and use previous properties)?
-
-          <div class="mx-lg-5">
-            <details>
-              <summary>(Wait; then Click)<br><br></summary>
-              <br><br>
-                \[  L_3 = L_1 - L_2  = L_1 \cap (L_2)^c\]
-
-                <br><br>
-                <img class="img-fluid" src="../figures/lecture04/differenceExample1.png" alt="L1 - L2" style="width:30%">
-                <br><br>
-                <img class="img-fluid" src="../figures/lecture04/differenceExample2.png" alt="L1 - L2" style="width:30%">
-                <br><br>
-                <img class="img-fluid" src="../figures/lecture04/differenceExample3.png" alt="L1 - L2" style="width:30%">
-                <br><br>
-                <img class="img-fluid" src="../figures/lecture04/differenceExample4.png" alt="L1 - L2" style="width:30%">
-                <br><br>         
-            </details>
-            <br><br>
-          </div>
-        </div>  
-
-        <br><br>
-
-
-
-        <h3>Concatenation</h3>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/Concatenation.png" alt="con Kat" style="width:80%">
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          How would you prove this (by construction)?
-
-          <div class="mx-lg-5">
-            <details>
-              <summary>(Wait; then Click)<br><br></summary>
-              <br><br>
-              <ol>
-                <li>Let’s say we have two FAs \(M_1\) and \(M_2\), both with the same \(\Sigma\)</li>
-                <li>Want to build another FA \(M_3\) with \( L(M_3)=L(M_1) \circ L(M_2) \texttt{, which is } \{ 𝑥_1  𝑥_2  |  𝑥_1  \in 𝐿(𝑀_1) \texttt{ and } 𝑥_2 \in 𝐿(𝑀_2) \} \)</li>
-                <li>Just need to attach the accepting states of \(M_1\) to the start state of \(M_2\)</li>
-                <li>Caution: since we don’t know when we’re done with the L(\(M_1\)) part of the string; could go through accepting states of \(M_1\) several times!</li>                
-              </ol>            
-            </details>
-            <br><br>
-          </div>
-        </div>  
-        <br><br>
-
-        Example:
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture04/concatenationExample.png" alt="concat Exmpl!" style="width:80%">
-        <br><br>
-
-        <h4>How to combine them?</h4>
-
-        We seem to need to be able to “guess” when to shift to the second machine.
-        <br><br>
-        And we can't do that yet.
-
-        <br><br>
-
-        An example of the logic and the issue: 
-        <ol>
-          <li>Say we have: \(M_1\): all strings with an odd number of 1's</li>
-          <li>And \(M_2\): all strings with alternating 0s and 1s</li>
-          <li>Is \(L(M_3) = L(M_1) \circ L(M_2)\) FA-recognizable? </li>
-          <li>Say we have the string \(101001101010101\)</li>
-          <li>is this recognizable if we split the string into \(x_1\) and \(x_2\)</li>
-          <li>such that \(M_1\) recognizes \(x_1\), and</li>
-          <li>such that \(M_2\) recognizes \(x_2\)</li>
-          <li>What happens if \(x_1 = 101001101\) and \(x_2 = 010101\)?</li>
-          <li>What happens if \(x_1 = 1010011\) and \(x_2 = 01010101\)?</li>
-        </ol>
-
-        <br><br>
-
-
-
-        <h3>Kleene Star</h3>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture05/KleeneClosure.png" alt="con Kat" style="width:80%">
-        <br><br>
-
-        <ol>
-          <li>Start with FA \(M_1\)</li>
-          <li>Build another FA \(M_2\), with \(L(M_2) = L(M_1 )^∗\)</li>
-          <li>Same problem as with concatenation: we need to guess...</li>         
-        </ol>
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        Nondeterminism
-      </h2>
-
-      <p>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture05/Nondeterminism.png" alt="con Kat" style="width:80%">
-        <br><br>
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        NFAs Formal Definition
-      </h2>
-
-      <p>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture05/NonDetFormalDef.png" alt="con Kat" style="width:80%">
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Why would this be useful at all?
-        </div>
-
-
-        <br><br>
-
-        <h3>Remember Union?</h3>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture05/RememberUnion.png" alt="con Kat" style="width:80%">
-        <br><br>
-
-        <h4>With an NFA:</h4>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture05/UnionExmplWithNFA.png" alt="con Kat" style="width:80%">
-        <br><br>
-
-        So how do NFA's <b>Compute</b>?
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture05/HowNFAsCompute.png" alt="con Kat" style="width:80%">
-        <br><br>
-
-
-        <!-- <span style='color:#880000'><b><big>TODO</big></b></span> -->
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        NFA computation (tree)
-      </h2>
-
-      <p>
-
-        We can visualize what happens with the computation of a string with an NFA by building a <b>NFA computation Tree</b>.
-        <br><br>
-        This is like "unrolling an FA as we walk it into paths", except with two extra rules:
-        <ol>
-          <li>You add a possible path into a "next" state for every outgoing symbol option, and</li>
-          <li>You add a possible path into a "next" state any states we might get to through an arrow labeled with \(\epsilon\)</li>
-        </ol>
-
-        <br><br>
         
-
-
-        An Example:
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture05/NFAcomputationTree.png" alt="tree!" style="width:80%">
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Does the above example <b>Accept</b> or <b>Reject</b> string: &nbsp; \( 0 \; 1 \)?
-        </div>
-
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Build the computation tree for the Union example for the string &nbsp; \( 1 \; 0 \)
-          <br><br>
-          The example is repeated here for your convenience (you're welcome)
-          <br><br>
-          <img class="img-fluid" src="../figures/lecture05/repeatedUnionExample.png" alt="M1 u M2 again" style="width:60%">
-          <br><br>
-          "Walk" the NFA and add a path for every possible choice (given the symbol read)
-          <div class="mx-lg-5">
-            <details>
-              <summary>(Wait; then Click)<br><br></summary>              
-                <br><br>
-                <img class="img-fluid" src="../figures/lecture05/unionTree.png" alt="M1 u M2" style="width:60%">
-                <br><br>                 
-            </details>
-            <br><br>
-          </div>
-        </div>  
-
-        <h3>Remember Concatenation?</h3> 
-        <br><br>
-
-        The problem was we could not "guess" at which part of the string one Machine should accept (reject) and the next begin processing.
-        <br><br>
-
-        <h4>With an NFA:</h4>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture05/ConcatExmplWithNFA.png" alt="con Kat" style="width:80%">
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Build the computation tree for the Concatenation example above, given the string: 
-          <br>
-          \( 1 \quad 1 \quad 1 \quad 0 \)
-          <!-- <div class="mx-lg-5">
-            <details>
-              <summary>(Wait; then Click)<br><br></summary>
-              <br><br>                
-                <br><br>
-                <img class="img-fluid" src="../figures/lecture05/unionTree.png" alt="M1 u M2" style="width:30%">
-                <br><br>                 
-            </details>
-            <br><br> 
-          </div> -->
-        </div>  
-
-      </p>
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        Sneak peak or next part?
-      </h2>
-
-      <p>
-        I don't think we're making it this far, but just in case: this is a sneak peak of next class
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        DFA-NFA equivalence
-      </h2>
-
-      <p>
-        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Are NFAs stronger than DFAs?
-        </div>
+          Last lecture we asked the question: <b>Are NFAs stronger than DFAs?</b>
 
         <br><br><br><br><br><br>
 
-        Let's make a claim!
+        We made the following claim:
         <br><br>
 
         <h4>NFAs and DFAs are equally powerful!</h4>
@@ -504,19 +230,24 @@
         <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal.png" alt="DFA VS NFA" style="width:80%">
         <br><br>
 
-        Let's proove it by construction:
+        The proof approach was by construction (in two steps):
         <br><br>
 
+        What we know: \(M_{NFA}=(Q,\Sigma,\delta, q_0, F)\)
 
-
-        <ul>
-          <li>What we know: \(M_{NFA}=(Q,\Sigma,\delta, q_0, F)\)</li>
+        <ol>
           <li>Need to construct: \(M_{DFA}=(Q^\prime,\Sigma,\delta^\prime, q_0^\prime, F^\prime)\) that recognizes L(M)</li>
-        </ul>
+          <li>Prove that \( L(M_{DFA}) = L(M_{NFA}) \)</li>
+        </ol>
 
         <br><br>
 
-        <h3>Let's start with the states \(Q \rightarrow Q^\prime \)</h3>
+        <h3>Step 1: Building the equivalent \(M_{DFA}\)</h3>
+
+        We need to make the 5-tuple for the DFA equivalent to out NFA:
+        <br><br>
+
+        <h4>From NFA to DFA: the states \(Q \rightarrow Q^\prime \)</h4>
 
         It’s possible that in an NFA, we could be in multiple states at each step. If we want to emulate the NFA’s behavior, we’ll have to have a state for each combination.
 
@@ -526,7 +257,7 @@
         <br><br><br><br>
 
 
-        <h3>Now the Start states \(q_0 \rightarrow q_0^\prime\)</h3>
+        <h4>From NFA to DFA: the Start states \(q_0 \rightarrow q_0^\prime\)</h4>
 
         <br><br>
         <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-start-states.png" alt="DFA VS NFA" style="width:80%">
@@ -535,7 +266,7 @@
 
         <br><br><br><br>
         
-        <h3>Now the Accepting states \(F \rightarrow F^\prime\)</h3>
+        <h4>From NFA to DFA: the Accepting states \(F \rightarrow F^\prime\)</h4>
 
         <br><br>
         <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-final-states.png" alt="DFA VS NFA" style="width:80%">
@@ -543,7 +274,7 @@
         (In this case, \( \{  C, AC, BC, ABC  \} \))
         <br><br><br><br>       
 
-        <h3>Now the Transitions \(\delta \rightarrow \delta^\prime\)</h3>
+        <h4>From NFA to DFA: the Transitions \(\delta \rightarrow \delta^\prime\)</h4>
 
         At each symbol reading, if there are multiple paths to follow, we want to jump the the single state (in the DFA) that is the <b>Union</b> of all the possible destination states (in the NFA) for that symbol.
         <br><br>
@@ -560,31 +291,25 @@
         Let's see it in action.
         <br><br>
 
-        <span style='color:#06a015'><b><big>Activity 8</big></b></span> [5 minutes]: <br>
         <div class="mx-lg-5">
-          Let's build the DFA for this NFA
+          Example: building the DFA for this NFA
           <br><br>
           <br><br>
           <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions-pre.png" alt="DFA VS NFA" style="width:80%">
           <br><br> 
 
           Solution:
-          <div class="mx-lg-5">
-              <details>
-                <summary>(Wait; then Click)<br><br></summary>
-                <br><br>                
-                <br><br>
-                <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions.png" alt="DFA VS NFA" style="width:80%">
-                <br><br>                  
-              </details>
-              <br><br> 
-            </div> 
+          <div class="mx-lg-5">             
+            <br><br>
+            <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions.png" alt="DFA VS NFA" style="width:80%">
+            <br><br>                  
+          </div> 
         </div>
 
 
       <br><br><br><br>
 
-      <h3>The next step in L(DFA) == L(NFA): </h3>
+      <h3>Step2: Prove \(L(M_{DFA}) = L(M_{NFA}) \): </h3>
 
 
         <br><br>
@@ -592,18 +317,13 @@
         <br><br> 
          <h4>Hint:</h4>
          To prove that L(DFA) = L(NFA), use induction to show that the result of running the DFA on a word \(w\) (denoted \( \hat{\delta}^\prime(q_0^{\prime} , w))\) is equivalent to the result of running the NFA on the same word [denoted \(\hat{\delta}(q_0, w)\)] for every word \(w \in \Sigma^*\).
+         <br><br>
 
-        
+         Note: : this will be exercise 5 on assignment 3!
+         <br><br>
 
+         We'll see a review on induction at the end of today's class.
       </p>
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>
-        <span style="color:#880088"> This will probably be the end of the Lecture! </span>
-      </h2>
-
 
       <p><br></p><hr><p><br></p>
 
@@ -612,8 +332,6 @@
       </h2>
 
       <p>
-        Last class we asked:
-        <br><br>
         Where do FA-Recognizable Languages stand with respect to Regular Languages?
         <br><br>
         <img class="img-fluid" src="../figures/lecture03/regLangs.png" alt="Reg Lang descriptive power!" style="width:50%">
@@ -660,6 +378,14 @@
         <br><br>
         <h3>NOW, Try Proving: REs are at least as powerful as FAs</h3>
 
+        Example FA:
+        <br><br>
+        <center>
+          <img class="img-fluid" src="../figures/lecture06/baseFA.png" alt="A garden Variet FA" style="width:40%">
+        </center>
+        <br><br>
+
+
         <br><br>
         <h4>Proof Idea:</h4>
         convert the FA that recognizes L into a RE
@@ -680,6 +406,27 @@
         <br><br><br><br>
         <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2a.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
+
+        <h4>A more difficult one:</h4>
+
+        <ul>
+          <li>To get into A: nothing to read</li>
+          <li>Any numnber of 1s</li>
+          <li>You need a 0 to get out</li>
+        </ul>
+
+        But removing A also changes B!
+        <br>
+        I need to accont for the transitions going back and forth between A and B!
+        <br><br>
+        So how could one get into B?
+        <ul>
+          <li>We could read a 0 to get into B, OR</li>
+          <li>Read a 1 from inside B, read any number of 1s while at A, and then a 0 to get back to B</li>
+        </ul>
+
+        
+
 
         <br><br><br><br>
         <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2b.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
@@ -702,16 +449,63 @@
 
       <p><br></p><hr><p><br></p>
 
+      <h2>A Primer on Induction</h2>
+
+      <p>
+        Induction is an approach to proving a statement about a pattern \(P\) or law involving an infinite number of cases
+        <br>
+         (one for some input numner of elements): \( P(0), P(1), \dots , P(k), P(k+1), \dots  \) <br>
+         This is done in three steps:
+        <br><br>
+        <ol>
+          <li>The rule works for a base case, usually \( P(0) \), or \( P(1) \)</li>
+          <li>Asume the rule is valid for some intermediate case \( P(k)\)</li>
+          <li>Prove it works for the next case: \( P(k+1) \)</li>
+        </ol>
+
+        <span style='color:#aa2288'><b><big>Example</big></b></span><br>
+        <div class="mx-lg-5">
+          Prove that \(1+2+3 \dots + n = \frac{n(n+1)}{2}\) 
+          <script type="text/tikz">
+            \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+          </script>
+
+          <br><br>
+          <ol>
+            <li>Base case [n=1]: \( 1 = \frac{k(k+1)}{2} = \frac{1(1+1)}{2} = \frac{(2)}{2} =1 \qquad \checkmark\) </li>
+            <li>Asume this is true for some [n=k]: \( 1+2+\dots+k = \frac{k(k+1)}{2}  \qquad \checkmark\) (OK, sure) </li>
+            <li>Inductive step \(\rightarrow \) show that if step (2) holds, then it holds for [n=k+1]:
+              <br>
+              \[              
+                \begin{alignat}{2}
+                \text{if } 1+2+\dots+k &= \frac{k(k+1)}{2}\text{, then} \\
+                1+2+\dots+k+(k+1) &= \frac{k(k+1)}{2} + (k+1) \\
+                &= \frac{k(k+1) + 2(k+1)}{2}\\
+                &= \frac{(k+1)(k+2)}{2}\\
+                &= \frac{(k+1)((k+1)+1)}{2} \qquad \square
+                \end{alignat}
+              \]
+            </li>
+          </ol>
+        </div>
+
+        <br><br>
+
+        Read the following <a href="http://web.stanford.edu/class/archive/cs/cs103/cs103.1164/handouts/240%20Guide%20to%20Induction.pdf">Guide to Induction</a> for a deeper dive into the steps.
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
       <h3>Next class: What lives outside that set of languages?</h3>
 
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Monday 09/27)</h4>
+      <h4>Before next class (Wednesday 09/27)</h4>
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
-       Remember: Problem Set 2 (Moodle) [Due Wednesday 09/29] <big>Start Early!</big>
+       Remember: Problem Set 2 (Moodle) [Due Friday 10/01] <big>Go to OHs if you're stuck!</big>
       </div> 
       <br>
       <b>[Optional]</b> 
@@ -739,10 +533,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes04.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes05.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Next Module</a>
               </li>
             </ul>
           </div>

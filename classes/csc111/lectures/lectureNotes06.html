@@ -162,21 +162,24 @@
 
         <b>To go A to B</b>
         <div class="row">
-          <div class="col-lg-5 col-md-5 col-xs-5 thumb">
+          <div class="col-lg-6 col-md-6 col-xs-6 thumb">
               <ol>
                 <li>Get into the car</li>
                 <li>put the key in the ignition</li>
                 <li>turn the key</li>
                 <li>put the car in Drive</li>
                 <li>press the accelerator until you reach 1000 feet</li>
-                <li>turn the wheel left until the car is facing 90 degrees left from the "original direction", </li>
+                <li>turn the wheel left until the car is facing 90 degrees left from the "previous direction", </li>
                 <li>then straighten the wheel</li>
                 <li>press the accelerator until you reach 1000 feet</li>
-                <li>turn the wheel right until the car is facing 90 degrees right from the "original direction", </li>
+                <li>turn the wheel right until the car is facing 90 degrees right from the "previous direction", </li>
                 <li>then straighten the wheel</li>
                 <li>press the accelerator until you reach 200 feet</li>
                 <li>press the breaks until you get to 0 mph and park.          </li>
               </ol>
+          </div>
+          <div class="col-lg-1 col-md-1 col-xs-1">
+
           </div>
           <div class="col-lg-5 col-md-5 col-xs-5">
               <img class="img-responsive" src="../figures/lecture06/MexicoCity-Drive-AB.png" alt="" style="width:100%">
@@ -186,28 +189,31 @@
         <br>
         <b>To go B to A</b>
         <div class="row">
-          <div class="col-lg-5 col-md-5 col-xs-5 thumb">
+          <div class="col-lg-6 col-md-6 col-xs-6 thumb">
             <ol>
               <li>Get into the car</li>
               <li>put the key in the ignition</li>
               <li>turn the key</li>
               <li>put the car in Drive</li>
               <li>press the accelerator until you reach 200 feet</li>
-              <li>turn the wheel left until the car is facing 90 degrees left from the "original direction", </li>
+              <li>turn the wheel left until the car is facing 90 degrees left from the "previous direction", </li>
               <li>then straighten the wheel</li>
               <li>press the accelerator until you reach 200 feet</li>
-              <li>turn the wheel left until the car is facing 90 degrees left from the "original direction", </li>
+              <li>turn the wheel left until the car is facing 90 degrees left from the "previous direction", </li>
               <li>then straighten the wheel</li>
               <li>press the accelerator until you reach 1450 feet</li>
-              <li>turn the wheel left until the car is facing 90 degrees left from the "original direction", </li>
+              <li>turn the wheel left until the car is facing 90 degrees left from the "previous direction", </li>
               <li>then straighten the wheel</li>
               <li>press the accelerator until you reach 1200 feet</li>
-              <li>turn the wheel left until the car is facing 90 degrees left from the "original direction", </li>
+              <li>turn the wheel left until the car is facing 90 degrees left from the "previous direction", </li>
               <li>then straighten the wheel</li>
               <li>press the accelerator until you reach 1200 feet</li>
               <li>press the breaks until you get to 0 mph and park.</li>
             </ol>
-        </div>
+          </div>
+          <div class="col-lg-1 col-md-1 col-xs-1">
+
+          </div>
           <div class="col-lg-5 col-md-5 col-xs-5">
               <img class="img-responsive" src="../figures/lecture06/MexicoCity-Drive-BA.png" alt="" style="width:100%">
           </div>
@@ -249,14 +255,14 @@
 
         <b>turn_right (x degrees)</b>:
         <ol>
-          <li>turn the wheel right until the car is facing x degrees right from the "original direction", </li>
+          <li>turn the wheel right until the car is facing x degrees right from the "previous direction", </li>
           <li>then straighten the wheel</li>
         </ol>
 
 
         <b>turn_left (x degrees)</b>:
         <ol>
-          <li>turn the wheel left until the car is facing x degrees left from the "original direction", </li>
+          <li>turn the wheel left until the car is facing x degrees left from the "previous direction", </li>
           <li>then straighten the wheel</li>
         </ol>
 
@@ -271,7 +277,7 @@
 
         <b>To go A to B</b>
         <div class="row">
-          <div class="col-lg-5 col-md-5 col-xs-5 thumb">
+          <div class="col-lg-6 col-md-6 col-xs-6 thumb">
             <ol>        
               <li>turn_on_car ()</li>
               <li>drive_straight (1000)</li>
@@ -282,6 +288,9 @@
               <li>apply_breaks()</li>
             </ol>
           </div>
+          <div class="col-lg-1 col-md-1 col-xs-1">
+
+          </div>
           <div class="col-lg-5 col-md-5 col-xs-5">
               <img class="img-responsive" src="../figures/lecture06/MexicoCity-Drive-AB.png" alt="" style="width:100%">
           </div>
@@ -290,7 +299,7 @@
 
         <b>To go B to A</b>
         <div class="row">
-          <div class="col-lg-5 col-md-5 col-xs-5 thumb">
+          <div class="col-lg-6 col-md-6 col-xs-6 thumb">
             <ol>
               <li>turn_on_car ()</li>
               <li>drive_straight (200)</li>
@@ -304,6 +313,9 @@
               <li>drive_straight (50)</li>
               <li>apply_breaks()</li>
             </ol>
+          </div>
+          <div class="col-lg-1 col-md-1 col-xs-1">
+
           </div>
           <div class="col-lg-5 col-md-5 col-xs-5">
               <img class="img-responsive" src="../figures/lecture06/MexicoCity-Drive-BA.png" alt="" style="width:100%">
@@ -805,7 +817,7 @@ remainder <span style="color: #333333">=</span> mod(<span style="color: #0000DD;
 <span style="color: #DD4422">  Args: an integer representing an angle in degrees </span>
 <span style="color: #DD4422">  Returns: nothing</span>
 <span style="color: #DD4422">  &quot;&quot;&quot;</span>
-  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;turn the wheel right until the car is facing {:d} degrees right from the &#39;original direction&#39;,&quot;</span><span style="color: #333333">.</span>format(x))
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;turn the wheel right until the car is facing {:d} degrees right from the &#39;previous direction&#39;,&quot;</span><span style="color: #333333">.</span>format(x))
   <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;then straighten the wheel&quot;</span>)
 
 <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">turn_left</span> (x):
@@ -814,7 +826,7 @@ remainder <span style="color: #333333">=</span> mod(<span style="color: #0000DD;
 <span style="color: #DD4422">  Args: an integer representing an angle in degrees </span>
 <span style="color: #DD4422">  Returns: nothing</span>
 <span style="color: #DD4422">  &quot;&quot;&quot;</span>
-  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;turn the wheel left until the car is facing {:d} degrees left from the &#39;original direction&#39;,&quot;</span><span style="color: #333333">.</span>format(x))
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;turn the wheel left until the car is facing {:d} degrees left from the &#39;previous direction&#39;,&quot;</span><span style="color: #333333">.</span>format(x))
   <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;then straighten the wheel&quot;</span>)
 
 <span style="color: #888888"># main() IS THE START POINT FOR EXECUTION</span>

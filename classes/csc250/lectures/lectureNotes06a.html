@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 250  Theory of Computation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+
+      @import url('https://fonts.googleapis.com/css?family=Inter|Dosis&display=swap');
+
+      /* Crucial */
+      .highlight {
+        background-color: #EEF43B;
+          padding-right: 0px;
+          padding-left: 0px;
+      }
+
+
+      /* Just for styling */
+      /*body {
+        font-family: 'Inter', sans-serif;
+      }*/
+
+      /*.container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 0 2%;
+      }*/
+
+      .search-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto 20px auto;
+        max-width: 450px;
+        padding: 0 2%;
+      }
+
+      label {
+        color: #535353;
+        font-family: 'Dosis', sans-serif;
+        font-size: 14px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      input {
+        background: #fff;
+        border: 1px solid #535353;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        height: 38px;
+        line-height: 38px;
+        outline: none;
+        padding: 0 10px;
+        transition: all 0.5s;
+        width: 100%;
+      }
+
+      input:focus {
+        border: 1px solid #3a5bd3;
+        box-shadow: 0 0 4px 0 #7d90de;
+      }
+
+      blockquote {
+        background-color: #f1f1f1;
+        border-radius: 0 4px 4px 0;
+        color: #515151;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 0;
+        padding: 20px 40px 20px 20px;
+        position: relative;
+      }
+
+      blockquote::before {
+        color: #ccc;
+        content: '”';
+        font-size: 80px;
+        position: absolute;
+        right: 30px;
+        top: -20px;
+      }
+
+      figcaption {
+        color: #aaa;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+    </style>
+
+
+
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 250</h1>
+      <p class="lead">Theory of Computation</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes04.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 06: <br>
+      DFAs, NFAs, and REs</h1>
+      <p>
+        <br>
+      </p>
+      <h2>Outline </h2>
+
+      This class we'll discuss:
+      <ul>
+        <li>Recap: Finite Automata </li>
+        <li>FA properties</li>
+        <li>Nondeterminism</li>
+        <li>NFAs Formal Definition</li>
+        <li>NFA computation (tree)</li>
+        <li>DFA-NFA equivalence</li>
+      </ul>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Recap: FAs  
+      </h2>
+
+      <p>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/formalDef.png" alt="very formal" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+
+        <h3>Set Difference</h3>
+
+        \[  L_3 = L_1 - L_2 \]
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/setDif.png" alt="uni | on!" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          How would you prove this (draw the Venn Diagram and use previous properties)?
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>
+                \[  L_3 = L_1 - L_2  = L_1 \cap (L_2)^c\]
+
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/differenceExample1.png" alt="L1 - L2" style="width:30%">
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/differenceExample2.png" alt="L1 - L2" style="width:30%">
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/differenceExample3.png" alt="L1 - L2" style="width:30%">
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/differenceExample4.png" alt="L1 - L2" style="width:30%">
+                <br><br>         
+            </details>
+            <br><br>
+          </div>
+        </div>  
+
+        <br><br>
+
+
+
+        <h3>Concatenation</h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/Concatenation.png" alt="con Kat" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          How would you prove this (by construction)?
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>
+              <ol>
+                <li>Let’s say we have two FAs \(M_1\) and \(M_2\), both with the same \(\Sigma\)</li>
+                <li>Want to build another FA \(M_3\) with \( L(M_3)=L(M_1) \circ L(M_2) \texttt{, which is } \{ 𝑥_1  𝑥_2  |  𝑥_1  \in 𝐿(𝑀_1) \texttt{ and } 𝑥_2 \in 𝐿(𝑀_2) \} \)</li>
+                <li>Just need to attach the accepting states of \(M_1\) to the start state of \(M_2\)</li>
+                <li>Caution: since we don’t know when we’re done with the L(\(M_1\)) part of the string; could go through accepting states of \(M_1\) several times!</li>                
+              </ol>            
+            </details>
+            <br><br>
+          </div>
+        </div>  
+        <br><br>
+
+        Example:
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/concatenationExample.png" alt="concat Exmpl!" style="width:80%">
+        <br><br>
+
+        <h4>How to combine them?</h4>
+
+        We seem to need to be able to “guess” when to shift to the second machine.
+        <br><br>
+        And we can't do that yet.
+
+        <br><br>
+
+        An example of the logic and the issue: 
+        <ol>
+          <li>Say we have: \(M_1\): all strings with an odd number of 1's</li>
+          <li>And \(M_2\): all strings with alternating 0s and 1s</li>
+          <li>Is \(L(M_3) = L(M_1) \circ L(M_2)\) FA-recognizable? </li>
+          <li>Say we have the string \(101001101010101\)</li>
+          <li>is this recognizable if we split the string into \(x_1\) and \(x_2\)</li>
+          <li>such that \(M_1\) recognizes \(x_1\), and</li>
+          <li>such that \(M_2\) recognizes \(x_2\)</li>
+          <li>What happens if \(x_1 = 101001101\) and \(x_2 = 010101\)?</li>
+          <li>What happens if \(x_1 = 1010011\) and \(x_2 = 01010101\)?</li>
+        </ol>
+
+        <br><br>
+
+
+
+        <h3>Kleene Star</h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/KleeneClosure.png" alt="Kleeeeeeneeee" style="width:80%">
+        <br><br>
+
+        <ol>
+          <li>Start with FA \(M_1\)</li>
+          <li>Build another FA \(M_2\), with \(L(M_2) = L(M_1 )^∗\)</li>
+          <li>Same problem as with concatenation: we need to guess...</li>         
+        </ol>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Nondeterminism
+      </h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/Nondeterminism.png" alt="Nondet" style="width:80%">
+        <br><br>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        NFAs Formal Definition
+      </h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NonDetFormalDef.png" alt="NonDeF" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Why would this be useful at all?
+        </div>
+
+
+        <br><br>
+
+        <h3>Remember Union?</h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/RememberUnion.png" alt="Union" style="width:80%">
+        <br><br>
+
+        <h4>With an NFA:</h4>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/UnionExmplWithNFA.png" alt="NFA-union" style="width:80%">
+        <br><br>
+
+        So how do NFA's <b>Compute</b>?
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/HowNFAsCompute.png" alt="How to NFA" style="width:80%">
+        <br><br>
+
+
+        <!-- <span style='color:#880000'><b><big>TODO</big></b></span> -->
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        NFA computation (tree)
+      </h2>
+
+      <p>
+
+        We can visualize what happens with the computation of a string with an NFA by building a <b>NFA computation Tree</b>.
+        <br><br>
+        This is like "unrolling an FA as we walk it into paths", except with two extra rules:
+        <ol>
+          <li>You add a possible path into a "next" state for every outgoing symbol option, and</li>
+          <li>You add a possible path into a "next" state any states we might get to through an arrow labeled with \(\epsilon\)</li>
+        </ol>
+
+        <br><br>
+        
+
+
+        An Example:
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFAcomputationTree.png" alt="tree!" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Does the above example <b>Accept</b> or <b>Reject</b> string: &nbsp; \( 0 \; 1 \)?
+        </div>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Build the computation tree for the Union example for the string &nbsp; \( 1 \; 0 \)
+          <br><br>
+          The example is repeated here for your convenience (you're welcome)
+          <br><br>
+          <img class="img-fluid" src="../figures/lecture05/repeatedUnionExample.png" alt="M1 u M2 again" style="width:60%">
+          <br><br>
+          "Walk" the NFA and add a path for every possible choice (given the symbol read)
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>              
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/unionTree.png" alt="M1 u M2" style="width:60%">
+                <br><br>                 
+            </details>
+            <br><br>
+          </div>
+        </div>  
+
+        <h3>Remember Concatenation?</h3> 
+        <br><br>
+
+        The problem was we could not "guess" at which part of the string one Machine should accept (reject) and the next begin processing.
+        <br><br>
+
+        <h4>With an NFA:</h4>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/ConcatExmplWithNFA.png" alt="con Kat" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Build the computation tree for the Concatenation example above, given the string: 
+          <br>
+          \( 1 \quad 1 \quad 1 \quad 0 \)
+          <!-- <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>                
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/unionTree.png" alt="M1 u M2" style="width:30%">
+                <br><br>                 
+            </details>
+            <br><br> 
+          </div> -->
+        </div>  
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Sneak peak or next part?
+      </h2>
+
+      <p>
+        I don't think we're making it this far, but just in case: this is a sneak peak of next class
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        DFA-NFA equivalence
+      </h2>
+
+      <p>
+        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Are NFAs stronger than DFAs?
+        </div>
+
+        <br><br><br><br><br><br>
+
+        Let's make a claim!
+        <br><br>
+
+        <h4>NFAs and DFAs are equally powerful!</h4>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal.png" alt="DFA VS NFA" style="width:80%">
+        <br><br>
+
+        Let's proove it by construction:
+        <br><br>
+
+
+
+        <ul>
+          <li>What we know: \(M_{NFA}=(Q,\Sigma,\delta, q_0, F)\)</li>
+          <li>Need to construct: \(M_{DFA}=(Q^\prime,\Sigma,\delta^\prime, q_0^\prime, F^\prime)\) that recognizes L(M)</li>
+        </ul>
+
+        <br><br>
+
+        <h3>Let's start with the states \(Q \rightarrow Q^\prime \)</h3>
+
+        It’s possible that in an NFA, we could be in multiple states at each step. If we want to emulate the NFA’s behavior, we’ll have to have a state for each combination.
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-states.png" alt="DFA VS NFA" style="width:80%">
+        <br><br><br><br>
+
+
+        <h3>Now the Start states \(q_0 \rightarrow q_0^\prime\)</h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-start-states.png" alt="DFA VS NFA" style="width:80%">
+        <br><br>        
+        (In this case, only \(A\))
+
+        <br><br><br><br>
+        
+        <h3>Now the Accepting states \(F \rightarrow F^\prime\)</h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-final-states.png" alt="DFA VS NFA" style="width:80%">
+        <br><br> 
+        (In this case, \( \{  C, AC, BC, ABC  \} \))
+        <br><br><br><br>       
+
+        <h3>Now the Transitions \(\delta \rightarrow \delta^\prime\)</h3>
+
+        At each symbol reading, if there are multiple paths to follow, we want to jump the the single state (in the DFA) that is the <b>Union</b> of all the possible destination states (in the NFA) for that symbol.
+        <br><br>
+        This can be expressed like this:
+        \[ 
+          \begin{alignat}{2}
+              &\delta^\prime ( q, \mathit{a} ) = \bigcup\limits_{p\in q} \delta(\mathit{p}, a) \\
+              &\qquad \text{ where $q \in Q^\prime$; $a \in \Sigma$}  \\
+              &\qquad \text{ and $q$ can be a set of states from $Q$}
+            \end{alignat}
+        \]
+        <br><br>
+
+        Let's see it in action.
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 8</big></b></span> [5 minutes]: <br>
+        <div class="mx-lg-5">
+          Let's build the DFA for this NFA
+          <br><br>
+          <br><br>
+          <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions-pre.png" alt="DFA VS NFA" style="width:80%">
+          <br><br> 
+
+          Solution:
+          <div class="mx-lg-5">
+              <details>
+                <summary>(Wait; then Click)<br><br></summary>
+                <br><br>                
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions.png" alt="DFA VS NFA" style="width:80%">
+                <br><br>                  
+              </details>
+              <br><br> 
+            </div> 
+        </div>
+
+
+      <br><br><br><br>
+
+      <h3>The next step in L(DFA) == L(NFA): </h3>
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/Lang-DFA-is-Lang-NFA.png" alt="DFA VS NFA" style="width:80%">
+        <br><br> 
+         <h4>Hint:</h4>
+         To prove that L(DFA) = L(NFA), use induction to show that the result of running the DFA on a word \(w\) (denoted \( \hat{\delta}^\prime(q_0^{\prime} , w))\) is equivalent to the result of running the NFA on the same word [denoted \(\hat{\delta}(q_0, w)\)] for every word \(w \in \Sigma^*\).
+
+        
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        <span style="color:#880088"> This will probably be the end of the Lecture! </span>
+      </h2>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        FAs Vs REs
+      </h2>
+
+      <p>
+        Last class we asked:
+        <br><br>
+        Where do FA-Recognizable Languages stand with respect to Regular Languages?
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture03/regLangs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <br><br>
+
+        <h3>Where are FA-recognizable languageswith respect to Regular Languages?</h3>
+
+
+        <br><br><br><br>
+
+        <h3>Try Proving: FAs are at least as powerful as REs</h3>
+
+        We can use the same approach as we did when defining REs (a recursive definition out of base cases).
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-1.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-2.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-3.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-4.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-5.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-6.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <h3>So What did we prove?</h3>
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-atLeast-REs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <br><br>
+
+        <br><br>
+        <h3>NOW, Try Proving: REs are at least as powerful as FAs</h3>
+
+        <br><br>
+        <h4>Proof Idea:</h4>
+        convert the FA that recognizes L into a RE
+        <br><br>
+
+        <b>Step 1: modify the FA so that </b>
+        <ol>
+          <li>the start state doesn’t consume any letters</li>
+          <li>there is only one final state</li>
+          <li>the final state doesn’t consume any letters</li>
+        </ol>
+
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-1.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2a.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2b.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2c.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2d.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <br><br>
+
+        <h3>So What did we prove?</h3>
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture05/FA-equal-REs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <br><br>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h3>Next class: What lives outside that set of languages?</h3>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Monday 09/27)</h4>
+      <br>      
+      <b>[Due for everyone]</b>
+      <div class="mx-5">
+       Remember: Problem Set 2 (Moodle) [Due Wednesday 09/29] <big>Start Early!</big>
+      </div> 
+      <br>
+      <b>[Optional]</b> 
+      <div class="mx-5">
+        TODO
+      </div>
+      <br><br>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes04.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+<!--     <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+
+
+  </body>
+</html>
