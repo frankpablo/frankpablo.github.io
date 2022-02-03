@@ -731,13 +731,40 @@ remainder <span style="color: #333333">=</span> mod(<span style="color: #0000DD;
 
           <span style="color:darkgreen;font-size:18.0pt;"> From now on, except for some in-class examples, we'll structure more and more complex code using this approach!</span>
 
-
-
-
-
-
-
       </p> 
+
+    <p><br></p><hr><p><br></p>
+
+
+      <h2>Multiple returns (simple version)</h2>
+
+      <p> 
+
+      A function can return multiple elements, if needed. We'll see a more advanced way to do this later, but for now the following works:
+      <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">sum_and_mult</span> ( a, b):
+    num_sum <span style="color: #333333">=</span> a<span style="color: #333333">+</span>b
+    num_mult <span style="color: #333333">=</span> a<span style="color: #333333">*</span>b
+    <span style="color: #008800; font-weight: bold">return</span> num_sum, num_mult
+    
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span> ():
+    n1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">3</span>
+    n2 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">8</span>
+    x, y <span style="color: #333333">=</span> sum_and_mult(n1,n2)
+    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the sum of {} and {} is {};&quot;</span> \
+    <span style="background-color: #fff0f0">&quot;their mult is {}&quot;</span> <span style="color: #333333">.</span>format(n1, n2, x, y) )
+    
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></div>
+
+
+      <br><br>
+
+      You can try it out <a href="https://pythontutor.com/visualize.html#code=def%20sum_and_mult%20%28%20a,%20b%29%3A%0A%20%20%20%20num_sum%20%3D%20a%2Bb%0A%20%20%20%20num_mult%20%3D%20a*b%0A%20%20%20%20return%20num_sum,%20num_mult%0A%20%20%20%20%0Adef%20main%20%28%29%3A%0A%20%20%20%20n1%20%3D%203%0A%20%20%20%20n2%20%3D%208%0A%20%20%20%20x,%20y%20%3D%20sum_and_mult%28n1,n2%29%0A%20%20%20%20print%28%22the%20sum%20of%20%7B%7D%20and%20%7B%7D%20is%20%7B%7D%3B%22%20%5C%0A%20%20%20%20%22their%20mult%20is%20%7B%7D%22%20.format%28n1,%20n2,%20x,%20y%29%20%29%0A%20%20%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">Here</a>     
+
+      </p>
 
     <p><br></p><hr><p><br></p>
 
