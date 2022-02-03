@@ -230,7 +230,7 @@
 
         <h4>High level of abstraction:</h4>
 
-        Let's say you make flashcards to teach this person to drive; You give them these:
+        Let's say you quickly teach this person to drive; You tell them this:
 
         <br><br>
 
@@ -312,35 +312,316 @@
 
         <br><br>
 
-        <ul>
-          <li>
-            <span style="font-size:18.0pt"><b>Note 1</b></span>: When giving the instructions, we must "wait" for each step of the "invoked" set of actions to get executed, and only then do we continue where we left off. In other words, the sequence of execution (or <b>execution flow</b>) jumps around.
-          </li>
 
-          <br><br>
-
-          <li>
-            <span style="font-size:18.0pt"><b>Note 2</b></span>: There are two sections of actions here: <br>
-            <ol>
-              <li>
-                the "memorized" sequences (or known routines);
-              </li>
-              <br>
-              <li>
-                the set of instruction calls.
-              </li>
-            </ol>
-          </li>
-        </ul>
-        
-
-
+        <b>Note that when giving the instructions, we must still "wait" for each step of the "invoked" set of actions to get executed.</b>
   
 
 
       </p>
+<!-- 
+      <p>
+        When a program gets executed, it is executed one statement at a time.
+        <br><br>
+        One seemingly dumb question one could ask is: <b>which one comes next</b>?
+        <br><br>
 
-      <p><br></p><hr><p><br></p>
+        <h4>An example with music</h4>
+        <br><br>
+
+        The execution of a piece of classical music depends on many things:
+        <ol>
+          <li>The piece</li>
+          <li>The arrangement</li>
+          <li>The conductor</li>
+          <li>The number of musicians</li>
+          <li>The instruments</li>
+        </ol>
+
+        So, let's say that we are talking about something like this:
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture06/pianoRecital.png"  style="width:50%">
+        <br><br>
+        
+
+        So, that the musician and conductor is the same, and they follow sheet music that looks like this:
+        
+        <br><br>
+        <div class="card">
+          <img src="../figures/lecture06/imperialMarchSheet1.png" alt="Card Back" style="width:50%">
+          <img src="../figures/lecture06/imperialMarchSheet2.png" class="img-top" alt="Card Front"  style="width:50%">
+        </div>
+        <br><br>
+
+        Pretty easy.
+        <br><br>
+
+        Now imagine that the context is this one:
+
+        <br><br>
+        <div class="card">
+          <img src="../figures/lecture06/orchestra1.png" alt="Card Back" style="width:80%">
+          <img src="../figures/lecture06/orchestra2.png" class="img-top" alt="Card Front"  style="width:80%">
+        </div>
+        (And there are many musicians and one conductor)
+        <br><br>
+
+        Also, the sheet music might be <b>different for each instrument</b>!!!
+
+        <br>
+        How could this ever work!
+        <br><br>
+
+        One possible solution (not necessarily how it is actually done) is the following:
+        <br>
+        (Look at the image below)
+        <br><br>
+
+        <ol>
+          <li>Despite each instrument being capable of playing many different tunes (don't hover over image),</li>
+          <li>we could pick <b>a specific tune</b> for each instrument and let it know <b>when</b> to execute it (hover over image).</li>
+        </ol>
+        
+
+
+        <br><br>
+        <div class="card">
+          <img src="../figures/lecture06/manyPiecesPerInstrument.png" alt="Card Back" style="width:80%">
+          <img src="../figures/lecture06/eachInstrumentAPart.png" class="img-top" alt="Card Front"  style="width:80%">
+        </div>
+
+        <br><br>
+        <ul>                
+          <li>If the Sheet music that the <b>Conductor</b> is reading indicates that it is the violin's turn, 
+            <br>
+            She points to the violin section:
+            <br><br>
+            <img class="img-fluid" src="../figures/lecture06/orchestraLayout1.png"  style="width:50%">
+            <br>
+            And they do their bit.          
+          </li>
+          <br>
+          <li>If the Sheet music that the <b>Conductor</b> is reading indicates that it is the trumpet's turn, 
+            <br>
+            She points to the trumpet section:
+            <br><br>
+            <img class="img-fluid" src="../figures/lecture06/orchestraLayout2.png"  style="width:50%">
+            <br>
+            And they do their bit.          
+          </li>
+          <br>
+          <li>If the Sheet music that the <b>Conductor</b> is reading indicates that it is the piano's turn, 
+            <br>
+            She points to the piano section:
+            <br><br>
+            <img class="img-fluid" src="../figures/lecture06/orchestraLayout3.png"  style="width:50%">
+            <br>
+            And they do their bit.          
+          </li>
+          <br>
+
+        </ul>
+
+
+        As an audience member, you would simply hear a sequence o tunes played by some sequence of instruments (in reality you might have simultaneous instruments playing, but let's <i>keep the analogy simple</i>).
+
+        <br><br>
+
+        However, in practice, the <b>flow of execution</b> is going from one location to another!
+        <br><br>
+
+        <h3>What does this look like for a program?</h3>
+
+        (I'm glad you asked)
+        <br><br>
+
+        <h4>"Single person version"</h4>
+
+        If a single person playing notes in a straight sequence looks like this:
+        <br><br>
+        \[A, A, A, F, C, A, F, C, A,  ... E, E, E, F, C, G, F, C, A\]
+        <br><br>
+        <img class="mx-auto d-block" src="../figures/lecture06/DarthVaderThemeNotes.png"  style="width:50%">
+        <br>
+        And sounds like this:
+        <br>
+
+        <audio controls>
+
+          <source src="../figures/lecture06/DarthVaderTheme.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <br><br>
+        Then the program could be imagined like this:
+        <br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;A&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;A&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;A&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;F&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;C&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;A&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;F&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;C&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;A&#39;</span>)
+<span style="color: #007020">print</span>()
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;E&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;E&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;E&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;F&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;C&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;G&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;F&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;C&#39;</span>)
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;A&#39;</span>)
+</pre></div>
+
+      You may open and run the program: Functions Example 01 in Replit
+      <br><br>
+
+      What's wrong with this? Not much.
+      <br><br>
+      But can we make this a bit more <b>concise</b>?
+      <br><br>
+
+      <h4>"Calling different players"</h4>
+
+      <b>Let's try grouping repeated sections and assigning that section to a function</b>:
+      <br><br>
+      That would be like giving a sequence of notes to one musician and another sequence to another musician.
+      <br><br>
+      The <b>conductor</b> (control flow) would then <b>call on</b> (invoke) the correct section at the correct time:
+      <br><br>
+      This might look, in code, like this:
+      <br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">tripleA</span>():
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;A</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">A</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">A&#39;</span>)
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">FCA</span>():
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;F</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">C</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">A&#39;</span>)
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">tripleE</span>():
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;E</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">E</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">E&#39;</span>)
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">FCG</span>():
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;F</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">C</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">G&#39;</span>)  
+
+tripleA()
+FCA()
+FCA()
+<span style="color: #007020">print</span>()
+tripleE()
+FCG()
+FCA()
+</pre></div>
+        You may open and run the program: Functions Example 02 in Replit
+        <br><br>
+
+        Here, there are <b>Two types of code blocks</b>:
+        <ol>
+          <li>The "sheet music" code blocks: 
+          <br> 
+          the sequence of statements to execute IF that part is <b>called upon</b>
+            <br>
+            <img class="mx-auto d-block" src="../figures/lecture06/sectionDefinition.png"  style="width:20%">
+            <br><br>
+          and</li>
+          <li>The "Conductor conducting" code section: which is the sequence of instructions carried out
+            <br>
+            <img class="mx-auto d-block" src="../figures/lecture06/sectionCalls.png"  style="width:20%">
+            <br><br>
+          </li>
+
+        </ol>
+
+        <br><br>
+
+        <big><b>THIS is where it gets good...</b></big>
+
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          How is it that we get the <b>same</b> result?
+          <br><br>
+          Can somebody venture a guess at what is the sequence followed in the control flow? 
+          <br>
+          (just tell me the sequence of line numbers that is executed in the following image)
+          <br><br>
+          <img class="mx-auto d-block" src="../figures/lecture06/numberedDarthVader.png"  style="width:40%">
+          <br><br>
+
+
+          <div id="passw">
+          <div>
+              Enter the password to proceed:
+          </div>
+          <div>
+            <input type="password" id="password" onkeydown="if (event.keyCode == 13) document.getElementById('button1').click()" /> 
+          </div>
+                    
+          <div>
+            <br/>
+            <input id="button1" type="button" value="Reveal" onclick="if (document.getElementById('password').value == 'fun') { 
+            document.getElementById('HIDDENDIV').classList.toggle('show');   document.getElementById('passw').style.display='none'; } 
+            else {  alert('Invalid Password!'); password.setSelectionRange(0, password.value.length);   } " />
+          </div>
+            <br /><br /><br />
+        </div>
+        <br><br>
+
+        <div id="HIDDENDIV">
+          <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">Definitions</th>
+    <th class="tg-0lax">11-12</th>
+    <th class="tg-0lax">14-15</th>
+    <th class="tg-0lax">17-18</th>
+    <th class="tg-0lax">20-21</th>
+    <th class="tg-0lax"></th>
+    <th class="tg-0lax"></th>
+    <th class="tg-0lax"></th>
+    <th class="tg-0lax"></th>
+    <th class="tg-0lax"></th>
+    <th class="tg-0lax"></th>
+    <th class="tg-0lax"></th>
+    <th class="tg-0lax"></th>
+    <th class="tg-0lax"></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">Actions</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">23</span></td>
+    <td class="tg-0lax">(11)-12</td>
+    <td class="tg-0lax">24</td>
+    <td class="tg-0lax">(14)-15</td>
+    <td class="tg-0lax">25</td>
+    <td class="tg-0lax">(14)-15</td>
+    <td class="tg-0lax">26</td>
+    <td class="tg-0lax">27</td>
+    <td class="tg-0lax">(17)-18</td>
+    <td class="tg-0lax">28</td>
+    <td class="tg-0lax">(20)-21</td>
+    <td class="tg-0lax">29</td>
+    <td class="tg-0lax">(14)-15</td>
+  </tr>
+</tbody>
+</table>
+        </div>
+      </div>
+
+      </p>
+ -->
+    <p><br></p><hr><p><br></p>
 
 
       <h2>Functions: Motivation</h2>
@@ -382,45 +663,63 @@
 
     <p><br></p><hr><p><br></p>
 
-
-      <h2>Indentation</h2>
+      <h2>Functions: API for Built-in functions</h2>
 
       <p> 
-
-        Just as in the example with the "Driving Directions", there are two "types" of sections of instructions:
-        <ul>
-          <li>The section that has series of actions that have been memorized but are not currently in use</li>
-          <li>And the section that has either simple instructions to be executed, or calls to routines that should be executed at that point</li>
-        </ul> 
-
-        <br><br>
-
-        It is important to be able to <b>Package</b> or <b>Encapsulate</b> series of statements inside a block so that they are considered to be "together".
-        <br><br>
-        In python, we do this with <b>indentation</b>
-
-        <br><br><br><br>
-<!--         
-        Grouping is important for clarifying the context of each "statement".
-        <br><br>
-
-        <h4>Text grouping: Novels</h4>
-        For example, in a mystery novel, the sentences:
+        We use built-in functions depending how they were constructed.
         <br>
-        <div class="mx-lg-5">
-          "I confess! ... I am the murderer!"
-        </div>
-        <br>
-        would have a very different meanings if it appeared under the speech section for the antagonist, or if it appeared under the speech section for the protagonist. 
+        We know hoe to use a thing whe it is intuitive OR when it comes with instructions!
+        <br><br>
+
+        The instructions for using built-in functions for programming an application is called the <br>
+        <b>Application Programming Interface</b>, or API.
+        <br><br>
+
+        A good API for Python can be found here: <a href="https://docs.python.org/3/c-api/index.html">Python 3.9.7 API</a>
+        <br><br>
+
+        The API section specific to built-in functions can be found here: <a href="https://docs.python.org/3/library/functions.html">Built-In Functions in Python 3.9.7 API</a>
 
         <br><br>
-        
+<!-- 
+        For example,  the info for the <tt>eval</tt> function will have a way of using it: 
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture06/eval-API.png"  style="width:50%">
+        <br>
+        Note that the things in brackets are optional parameters (you can choose to add them if you need them).
  -->
-        <h4>Indentation in Python</h4>
+
+  For example,  the info for the <tt>round</tt> function will have a way of using it: 
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture06/round-API.png"  style="width:50%">
+        <br>
+        Note that the things in brackets are optional parameters (you can choose to add them if you need them).
+
+        <br><br>
+        As an example of how to read the input with the <tt>round</tt> function:
+<!-- 
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture06/round-API.png"  style="width:50%">
+        <br>
+
+        Where one can use it with: 
+-->
+        <ol>
+          <li><tt>round(2.672)</tt> &nbsp;&nbsp; # which will round up to 3; or, with</li>
+          <li><tt>round(2.672, 2)</tt> &nbsp;&nbsp; # which will round down to 2.67</li>
+        </ol>
+        <br>
+        The description also indicates what the function <b>returns</b> if anything at all
+      </p>
+
+    <p><br></p><hr><p><br></p>
+
+      <h2>Before proceeding: Indentation in Python</h2>
+
+      <p> 
+        Indentation means something in python.
         <br><br>
         A piece of code indented with respect to the previous line means "this code block is <b>inside the previous block header</b>".
-
-<!--         
         <br><br>
         this is like when we use parenthesis to group operations in arithmetic; 
         <br>
@@ -437,27 +736,21 @@
            }^\text{add 3 elements}) }_\text{Multiply}
          \]
         <br><br>
--->
+
         In Python, indentation indicates the begining and end of a section block.
         <br><br>
-        It is structured like a piece of text where you indent once every time you start a new section or sub-section.
-
-        <br><br>
-
-        In the following lesson sections, we'll show how this is used:
-<!-- 
-
+        It is structured like a piece of text where you indent once every time you start a new section or sub-section:
         <br><br>
         <center>
           <img class="img-fluid" src="../figures/lecture06/blocks.png"  style="width:50%">
         </center>
         <br>
-
--->
       </p>  
 
     <p><br></p><hr><p><br></p>
 
+
+    <p><br></p><hr><p><br></p>
 
       <h2>Functions: How to make them?</h2>
 
@@ -637,107 +930,62 @@ remainder <span style="color: #333333">=</span> mod(<span style="color: #0000DD;
 
     <p><br></p><hr><p><br></p>
 
+      <h2>Functions: Terminology</h2>
 
-
-      <h2>The main</h2>
-
-      <p>
-        Python executes instructions top-down unless we split the code into "functions".
-        <br><br>
-
-
-        There is a way to force Python to start execution inside a function.
-        <br><br>
-
-        This is a good idea for reasons that will be explaned later.
-        <br><br>
-
-        <h4>Forcing the start of a <b>main</b> function</h4>
-
-        The following construction is standard in a Pyhton program that we want to be able to <br>
-         1) execute starting in a know location (main), and <br>  
-         2) import into another python program (and use any functions defined in it)
-         <br><br>
-
-         The construction we'll use is this one: 
-         <br><br>
-         <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
-2  
-3  
-4  
-5  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
-    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Hello World!&quot;</span>)
-
-<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-    main()
-</pre></td></tr></table></div>
-
-        <br><br>
-        Try <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20%20%20print%28%22Hello%20World!%22%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">it out</a>
-        
-        <br><br>
-
-        Let's see another (not recommended) example, to get another view of how this works:
-        <br><br>
-
-        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
-2  
-3  
-4  
-5  
-6  
-7  
-8  
-9  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
-    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Larry&quot;</span>)
-
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Curly&quot;</span>)
-
-<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-    main()
-    
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Moe&quot;</span>)
-</pre></td></tr></table></div>
-        <br><br>
-
-          Answer the following question before trying it out:
-          <br><br>
-
-          <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
-          <div class="mx-lg-5">
-             <ol>
-              <li>What is the output of this program?</li>
-            </ol>
-          </div>
-
-          <br><br>
-
-          Try <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20%20%20print%28%22Larry%22%29%0A%0Aprint%28%22Curly%22%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29%0A%20%20%20%20%0Aprint%28%22Moe%22%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">it out</a>
-
-
-          <br><br>
-
-          We will not explain this section yet:
-          <br>
-          <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-    main()
-</pre></div>
-
-          <br><br>
-
-          Sufice it to say: <b>It forces the sart of the function <tt>main</tt></b>.
-          <br><br><br><br>
-
-
-          <span style="color:darkgreen;font-size:18.0pt;"> From now on, except for some in-class examples, we'll structure more and more complex code using this approach!</span>
-
-
-
-
-
-
-
-      </p> 
+      <p> 
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">Term</th>
+    <th class="tg-0lax">Meaning</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">function</td>
+    <td class="tg-0lax">A named block of code</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">definition</td>
+    <td class="tg-0lax">The list of statements constituting the body of the function: def</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">call</td>
+    <td class="tg-0lax">Using the function's name to transfer executing control to it</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">invocation</td>
+    <td class="tg-0lax">Invoking a funtion is the same as calling it</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">parameter</td>
+    <td class="tg-0lax">An identifier/variable set in the function definition to recieve input passed to the function</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">argument</td>
+    <td class="tg-0lax">The value passed to the function and bound to the parameter</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">binding, bound</td>
+    <td class="tg-0lax">The act of assigning a variable/parameter a specific value</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">return value</td>
+    <td class="tg-0lax">The value of the expression returned via return</td>
+  </tr>
+</tbody>
+</table>        
+       
+      </p>  
+ 
 
     <p><br></p><hr><p><br></p>
 
@@ -835,115 +1083,6 @@ remainder <span style="color: #333333">=</span> mod(<span style="color: #0000DD;
     <p><br></p><hr><p><br></p>
 
 
-      <h2>Functions: Terminology</h2>
-
-      <p> 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0lax">Term</th>
-    <th class="tg-0lax">Meaning</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0lax">function</td>
-    <td class="tg-0lax">A named block of code</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">definition</td>
-    <td class="tg-0lax">The list of statements constituting the body of the function: def</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">call</td>
-    <td class="tg-0lax">Using the function's name to transfer executing control to it</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">invocation</td>
-    <td class="tg-0lax">Invoking a funtion is the same as calling it</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">parameter</td>
-    <td class="tg-0lax">An identifier/variable set in the function definition to recieve input passed to the function</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">argument</td>
-    <td class="tg-0lax">The value passed to the function and bound to the parameter</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">binding, bound</td>
-    <td class="tg-0lax">The act of assigning a variable/parameter a specific value</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">return value</td>
-    <td class="tg-0lax">The value of the expression returned via return</td>
-  </tr>
-</tbody>
-</table>        
-       
-      </p>  
- 
-    <p><br></p><hr><p><br></p>
-
-
-      <h2>Functions: API for Built-in functions</h2>
-
-      <p> 
-        We use built-in functions depending how they were constructed.
-        <br>
-        We know hoe to use a thing whe it is intuitive OR when it comes with instructions!
-        <br><br>
-
-        The instructions for using built-in functions for programming an application is called the <br>
-        <b>Application Programming Interface</b>, or API.
-        <br><br>
-
-        A good API for Python can be found here: <a href="https://docs.python.org/3/c-api/index.html">Python 3.9.7 API</a>
-        <br><br>
-
-        The API section specific to built-in functions can be found here: <a href="https://docs.python.org/3/library/functions.html">Built-In Functions in Python 3.9.7 API</a>
-
-        <br><br>
-<!-- 
-        For example,  the info for the <tt>eval</tt> function will have a way of using it: 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture06/eval-API.png"  style="width:50%">
-        <br>
-        Note that the things in brackets are optional parameters (you can choose to add them if you need them).
- -->
-
-  For example,  the info for the <tt>round</tt> function will have a way of using it: 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture06/round-API.png"  style="width:50%">
-        <br>
-        Note that the things in brackets are optional parameters (you can choose to add them if you need them).
-
-        <br><br>
-        As an example of how to read the input with the <tt>round</tt> function:
-<!-- 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture06/round-API.png"  style="width:50%">
-        <br>
-
-        Where one can use it with: 
--->
-        <ol>
-          <li><tt>round(2.672)</tt> &nbsp;&nbsp; # which will round up to 3; or, with</li>
-          <li><tt>round(2.672, 2)</tt> &nbsp;&nbsp; # which will round down to 2.67</li>
-        </ol>
-        <br>
-        The description also indicates what the function <b>returns</b> if anything at all
-      </p>
-
-    <p><br></p><hr><p><br></p>
 
         
       </p>
