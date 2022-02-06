@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,458 +122,302 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 08: Conditionals and Operators</h1>
+      <h1>Lecture Notes 09: More Conditionals</h1>
       <p>
         <br>
       </p>
 
       <p><br></p><hr><p><br></p>
 
-      <h2>The IF statement</h2>
+      <h2>Recap: Conditions</h2>
 
       <p>
-
-        An <b>If block</b> is a piece of code that will be executed only when a condition (a boolean expression) is evaluated as <b>True</b>.
-        <br><br>
-
-        This is what it looks like:
-
-        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">&lt;</span>condition<span style="color: #333333">&gt;</span> :
-    <span style="color: #333333">&lt;</span>Block To Execute<span style="color: #333333">&gt;</span>
-</pre></div>
-
-        <br><br>
-        Notice the main parts:
-        <br><br>
-        <ul>
-          <li>The Keyword <b>if</b></li>
-          <li>a condition: expression that evaluates to True or False</li>
-          <li>A colon (&nbsp; : &nbsp;)</li>
-          <li>The block of code that is executed if the condition is true</li>
-        </ul>
-        <br><br>
-
-        An Example:
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
-2  
-3  
-4  
-5  
-6  
-7  
-8  
-9  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># before the if</span>
-x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
-
-<span style="color: #888888"># if statement</span>
-<span style="color: #008800; font-weight: bold">if</span> x <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span>:
-  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;positive&#39;</span>) <span style="color: #888888"># if body</span>
-
-<span style="color: #888888"># after the if</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;done&#39;</span>)
-</pre></td></tr></table></div>
-
-        <br><br>
-
-        <h3>Comparison Operators</h3>
-        <br><br>
-
-        The condition inside the if statement <b><tt>x < 2</tt></b> can be read as: 
-        <br>
-        <b><tt>IF x has a value that is smaller than 2, resolve to True; False otherwise</tt></b>.
-        <br><br>
-
-        The basic numeric comparison operators are:
-        <br>
+        Any of the IF blocks can ask about numeric relationships as seen with the operators:
         <ul>
           <li>\(<\): less than &nbsp; example: <b><tt>x < 2</tt></b></li>
           <li>\(<=\): less or equal than &nbsp; example: <b><tt>x &lt;= 2</tt></b></li>
           <li>\(>\): greater than &nbsp; example: <b><tt>x > 2</tt></b></li>
           <li>\(>=\): greater or equal than &nbsp; example: <b><tt>x &gt;= 2</tt></b></li>
         </ul>
+        We can also ask about equality or difference with:
+        <ul>
+          <li>\(==\): equal to &nbsp; example: <b><tt>x == 2</tt></b></li>
+          <li>\(!=\): different than &nbsp; example: <b><tt>x != 2</tt></b></li>
+        </ul>
 
         <br><br>
-        Also, you'll notice that in the example, the if statement is sandwitched between two statements. 
+
+        Later, we'll see other operators we can use in the conditions.
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Recap: Booleans</h2>
+
+      <p>
+        Boolean values are <b><tt>True</tt></b> or <b><tt>False</tt></b>.
+        <br><br>
+        These are the ones that let an <b><tt>IF</tt></b> body get executed or not.
         <br><br>
 
-        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        You can directly print them, use them in expressions, or have them get printed as the result of Boolean expression:
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020">print</span>( <span style="color: #008800; font-weight: bold">True</span> ) 
+<span style="color: #007020">print</span>( <span style="color: #008800; font-weight: bold">False</span> )
+<span style="color: #007020">print</span> ( (<span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">3</span>) <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">True</span> )
+<span style="color: #007020">print</span> ( (<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">3</span> <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">10</span>) <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">True</span> )
+<span style="color: #007020">print</span>( <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">2</span> )
+</pre></div>
+
+        <br><br>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Intervals</h2>
+
+      <p>
+        We said we could evaluate if a number belongs in the following types of intervals:
+        <ul>
+          <li>\(<\): less than some number y; example: <b><tt>x < y</tt></b>; x could be in the interval [min integer, y) </li>
+          <li>\(<=\): less or equal than &nbsp; example: <b><tt>x &lt;= y</tt></b>; x could be in the interval [-min integer, y]</li>
+          <li>\(>\): greater than &nbsp; example: <b><tt>x > y</tt></b>; x could be in the interval (y, max integer]</li>
+          <li>\(>=\): greater or equal than &nbsp; example: <b><tt>x &gt;= 2</tt></b>; x could be in the interval [y, max integer]</li>
+        </ul>
+        <br><br>
+        How do we evaluate if a number <b><tt>num</tt></b> is in between two other numbers <b><tt>a</tt></b> and <b><tt>b</tt></b>?
+
+        <br><br>
+
+        <h3>Operator chaining</h3>
+        Python supports operator chaining, as in: <b><tt>a &lt; num &lt; b</tt></b>.
+        <br><br>
+
+        Check the following example:
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">num <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">0.5</span>
+
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #333333">&lt;</span> num <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;in between&quot;</span>)
+<span style="color: #008800; font-weight: bold">elif</span> num<span style="color: #333333">==</span><span style="color: #0000DD; font-weight: bold">1</span>:
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Max&quot;</span>)
+<span style="color: #008800; font-weight: bold">else</span>:
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Error&quot;</span>)
+</pre></div>
+
+        <br><br>
+
+        The <b><tt>IF</tt></b>'s condition asks if <b><tt>num</tt></b> is in between the values of 0 and 1.
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [5 minutes]: <br>
         <div class="mx-lg-5">
-          What is the order of operations executed in this code?
-          <details>
-            <summary>(Wait; then Click)<br><br></summary>
-              In this case, it is simple: 2, 5, 6, 9
-          </details>
-          <br><br>
-          What is the order of operations if we change the value assigned to <tt>x</tt> to <tt>-1</tt>?
-          <details>
-            <summary>(Wait; then Click)<br><br></summary>
-              It <b>skips the body!!</b>: 2, 5, 9
-          </details>
-          <br><br>
-          
+          Open the Scratch pad and write a program that
+          <ol>
+            <li>Gets an integer from the user in the range (0 to 100)</li>
+            <li>Uses Operator Chaining to figure out a Letter grade according to the following rules:
+              <ul>
+                <li>A if the grade was in the ange [93 to 100]</li>
+                <li>A- if the grade was in the ange [90 to 93)</li>
+                <li>B+ if the grade was in the ange [87 to 90)</li>
+                <li>B if the grade was in the ange [83 to 87)</li>
+                <li>B- if the grade was in the ange [80 to 83)</li>
+                <li>C+ if the grade was in the ange [77 to 80)</li>
+                <li>C if the grade was in the ange [73 to 77)</li>
+                <li>C- if the grade was in the ange [70 to 73)</li>
+                <li>D+ if the grade was in the ange [67 to 70)</li>
+                <li>D if the grade was in the ange [63 to 67)</li>
+                <li>D- if the grade was in the ange [60 to 63)</li>                
+                <li>E Otherwise</li>
+              </ul>
+            </li>
+          </ol>
         </div>
 
-        <br>
-
-        <h3>Equality</h3>
-        <br><br>
-
-        Asking the question:
-        <br>
-        <b><tt>Is this equal to that</tt></b> is tricky, since we are already using the equals sign (&nbsp;  = &nbsp; ) to indicate an <b>assignment</b>.
-
-        <br><br>
-
-        This is why we need to have a different way of checking for equality.
-        <br><br>
-
-        The symbols we use to ask for equality are the <b>double equal signs</b> (&nbsp;  == &nbsp; ).
-        <br><br>
-        For example:
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># before the if</span>
-x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
-
-<span style="color: #888888"># if statement</span>
-<span style="color: #008800; font-weight: bold">if</span> x <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">2</span>:
-  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;it is a two&#39;</span>) <span style="color: #888888"># if body</span>
-
-<span style="color: #888888"># after the if</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;done&#39;</span>)
-</pre></div>
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          What hapens if we use a single equals for the comparison?
-        </div>      
-
-        <br><br>
-        <h3>Difference</h3>
-        <br><br>
-
-        Asking the question:
-        <br>
-        <b><tt>Is this different to that</tt></b> uses the sign (&nbsp;  != &nbsp; ).  
-
-
-        <br><br>
-
-        Example:
-
-        <br><br>
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># before the if</span>
-x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
-
-<span style="color: #888888"># if statement</span>
-<span style="color: #008800; font-weight: bold">if</span> x <span style="color: #333333">!=</span> <span style="color: #0000DD; font-weight: bold">0</span>:
-    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;x is not zero&#39;</span>)
-
-<span style="color: #888888"># after the if</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;done&#39;</span>)
-</pre></div>
-
-
-
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Write an example, using the scratch pad, where:
-          <ol>
-            <li>The program asks for an input integer</li>
-            <li>The program indicates whether the integer is positive, negative, or Zero</li>
-          </ol>
-        </div>  
-
-        <br><br>
-
-        <h3>Complex expressions</h3>
-        <br><br>
-
-        The condition can be anything that evaluates to True or False.
-        <br><br>
-        For example, the following is a valid condition:
-        <br><br>
-        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># before the if</span>
-x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">6</span>
-
-<span style="color: #888888"># complex condition</span>
-<span style="color: #008800; font-weight: bold">if</span> x<span style="color: #333333">%</span><span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
-    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;x is divisible by 2&#39;</span>)
-
-<span style="color: #888888"># after the if</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;done&#39;</span>)
-</pre></div>
-
-
-
       </p>
 
       <p><br></p><hr><p><br></p>
 
-      <h2>The IF-ELSE statement</h2>
+      <h2>Boolean Operators in Conditions</h2>
 
       <p>
-        In the example above, we have three options that <i>can be executed</i>.
-        <br><br>
-        The nature of the problem makes it so that one of them always is (a number has to be <0, 0, or >= than 0).
-        <br><br>
-        However, there are problems where a sequence of if statements might not be ideal, because there is always        
-        a default option: <b>none of them get executed!</b>
-
-        <br><br>
-        For example:
-        <br><br>
-
-        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># before the if</span>
-x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
-y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
-
-<span style="color: #888888"># if statement</span>
-<span style="color: #008800; font-weight: bold">if</span> x <span style="color: #333333">&lt;</span> y:
-  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;x is smallest&#39;</span>)
-
-<span style="color: #888888"># another (independent) if statement</span>
-<span style="color: #008800; font-weight: bold">if</span> x <span style="color: #333333">&gt;</span> y:
-  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;y is smallest&#39;</span>)
-
-<span style="color: #888888"># after the if</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;done&#39;</span>)
-</pre></div>
-
-
-
-        <br><br><br><br>
-
-        If we want one of two options to be executed, we can use an <b><tt>IF-Else</tt></b> statement.
-        <br><br>
-        This is what it looks like:
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">&lt;</span>condition<span style="color: #333333">&gt;</span> :
-    <span style="color: #333333">&lt;</span>Block To Execute<span style="color: #333333">&gt;</span>
-<span style="color: #008800; font-weight: bold">else</span>:
-    <span style="color: #333333">&lt;</span>Alternative Block To Execute<span style="color: #333333">&gt;</span>
-</pre></div>
-        <br><br>
-
-        Notice that the else has no condition.
-        <br>
-        It is the alternative that gets ecxecuted when the <b><tt>IF</tt></b> block is not.
-
-
-        <br><br>
-
-        This is an example of how to use it:
-        <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># before the if</span>
-x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
-y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
-
-<span style="color: #888888"># if-else statement</span>
-<span style="color: #008800; font-weight: bold">if</span> x <span style="color: #333333">&lt;</span> y:
-  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;x is smallest&#39;</span>)
-<span style="color: #008800; font-weight: bold">else</span>:
-  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;y is smaller or equal than x&#39;</span>)
-
-<span style="color: #888888"># after the if</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;done&#39;</span>)
-</pre></div>
-
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Write an example, using the scratch pad, where:
-          <ol>
-            <li>The program asks for an input integer</li>
-            <li>The program indicates whether the integer is greater than zero or not</li>
-          </ol>
-        </div> 
-
-      </p>
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>The IF-ELIF-ELSE statement</h2>
-
-      <p>
-        What happens when we want alternative paths, <b>each with its own condition</b>?
-        <br><br>
-        It turns out that you can combine IF and IF-ELSE statements to do anything, but to make things easier, 
-        <br>
-        Python provides the if-elif-else block:
-        <br><br>
-        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">&lt;</span>condition<span style="color: #333333">&gt;</span> :
-    <span style="color: #333333">&lt;</span>Block To Execute<span style="color: #333333">&gt;</span>
-<span style="color: #008800; font-weight: bold">elif</span> <span style="color: #333333">&lt;</span>condition<span style="color: #333333">&gt;</span>:
-    <span style="color: #333333">&lt;</span>Another Block To Execute<span style="color: #333333">&gt;</span>
-<span style="color: #008800; font-weight: bold">else</span>:
-    <span style="color: #333333">&lt;</span>Default Block To Execute<span style="color: #333333">&gt;</span>
-</pre></div>
-        <br><br>
-
-        An example of how to use it:
-
-        <br><br>
-        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># before the if</span>
-x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
-y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
-
-<span style="color: #888888"># if-elif-else statement</span>
-<span style="color: #008800; font-weight: bold">if</span> x <span style="color: #333333">&lt;</span> y:
-    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;x is smallest&#39;</span>)
-<span style="color: #008800; font-weight: bold">elif</span> x <span style="color: #333333">&gt;</span> y:
-    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;y is smallest&#39;</span>)
-<span style="color: #008800; font-weight: bold">else</span>:
-    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;x and y are equal&#39;</span>)
-
-<span style="color: #888888"># after the if</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;done&#39;</span>)
-</pre></div>
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Try it out in the scratch pad
-          <ol>
-            <li>Then modify it to display who the greatest is</li>
-          </ol>
-        </div> 
-
-
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Scope and IF-blocks</h2>
-
-      <p>
-        A variable's scope is that of the innermost function, class or module in which they're assigned.
-        <br><br>
-        The IF/ELIF/ELSE block does not establish its own scope (This is different than in Java or C!).
-        <br><br>
-        Example:
-        <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">x <span style="color: #333333">=</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">2</span>
-
-<span style="color: #008800; font-weight: bold">if</span> x<span style="color: #333333">&lt;</span><span style="color: #0000DD; font-weight: bold">0</span>:
-  y <span style="color: #333333">=</span> x<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>
-  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;y is the next number:&#39;</span>,y)
-    
-<span style="color: #007020">print</span>(x)
-<span style="color: #007020">print</span>(y)
-</pre></div>
-        <br><br>
-        Try <a href="https://pythontutor.com/visualize.html#code=x%20%3D%20-2%0A%0Aif%20x%3C0%3A%0A%20%20y%20%3D%20x%2B1%0A%20%20print%28'y%20is%20the%20next%20number%3A',y%29%0A%20%20%20%20%0Aprint%28x%29%0Aprint%28y%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target = "blank">it out</a>
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Cascading If statements</h2>
-
-      <p>
-        Sometimes, we want sub-conditions to be true before we perform an action.
-        <br><br>
-
-        Think of the following situation:
-        <br><br>
-        A professor issues two assignments <b>X</b> and <b>Y</b>.
-        <br>
-        And the rules for grading are: 
-        <ol>
-          <li>If students flunk <b>X</b> (a passing grade is 60), they need a grade of 80 or above in <b>Y</b> to pass the class (C+)</li>.
-          <li>If students pass <b>X</b>, and if they also get 80 or above in <b>Y</b>, students get a final grade of A (otherwise C+).</li>
-        </ol>
-
-        <br>
-
-        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [4 minutes]: <br>
-        <div class="mx-lg-5">
-          How would we code this using the if blocks (of any kind) seen above?          
-        </div> 
-        
-        <br><br><br>
-
-        The following is an alternative:
-        <br><br>
-
-        <b>We can have conditional statements INSIDE conditional statements</b>
-        <br><br>
-
-        For example, you could have this:
-        <br>
-
-        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># before the if</span>
-x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">6</span>
-
-<span style="color: #888888"># a &quot;nested&quot; conditional</span>
-<span style="color: #008800; font-weight: bold">if</span> x<span style="color: #333333">%</span><span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
-    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;x is divisible by 2&#39;</span>)
-    <span style="color: #008800; font-weight: bold">if</span> x<span style="color: #333333">%</span><span style="color: #0000DD; font-weight: bold">3</span> <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
-        <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;x is divisible by 6&#39;</span>)
-
-<span style="color: #888888"># after the if</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;done&#39;</span>)
-</pre></div>
-
-
-
-        <br><br>
-
-        Let's see a diagram of the solution to the problem shown above:
-        <br><br>
-          <img id="image" class="img-responsive" src="../figures/lecture08/flunkPassA.png" alt="" style="width:80%">
-        <br><br>      
-
-        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Write the code for the logic shown in the diagram. Use the scratch pad.
-          <br><br>
-
-
-        </div> 
-        
-
-
-         <!--  <ol>
-            <li>Try it out in the scratch pad</li>
-          </ol> -->
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Forgotten Expressions</h2>
-
-      <p>
-        I forgot to show you some "shorthand" for some arithmetic operations:
-        <br><br>
-
+        We can also use the following <b>Boolean</b> operators in Python:
         <ul>
-          <li><b><tt>+=</tt></b> is an increment operator. <br>
-          Example:
-          <br>
-          Try this example in the <a href="https://pythontutor.com/visualize.html#code=x%20%3D%202%0Ax%2B%3D1%0Aprint%28x%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Python Tutor</a>          
-          </li>
-          <li><b><tt>-=</tt></b> is a decrement operator. <br>
-          Example:
-          <br>
-          Try this example in the <a href="https://pythontutor.com/visualize.html#code=x%20%3D%202%0Ax-%3D1%0Aprint%28x%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Python Tutor</a>
-          </li>
+          <li><big><span style="color:#0000cc">and</span></big>: <b><tt>True</tt></b> only if both operands are <b><tt>True</tt></b> example: <b><tt>(x &gt; 0) and (x &lt; 1)</tt></b>; x must be in the range (0,1) </li>
+          <li><big><span style="color:#0000cc">or</span></big>: <b><tt>True</tt></b> if either operand is <b><tt>True</tt></b> example: <b><tt>(x &lt; 0) or (x &gt; 0)</tt></b>; x could be any number except 0 </li>
+          <li><big><span style="color:#0000cc">not</span></big>: <b><tt>True</tt></b> if the operand is <b><tt>False</tt></b> example: <b><tt>not (x == 0); x could be any number except 0</tt></b></li>
         </ul>
+        <br><br>
+
+        Check the following example:
+        <br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">num <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">0.5</span>
+
+<span style="color: #008800; font-weight: bold">if</span> num <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #000000; font-weight: bold">and</span> num <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;in between&quot;</span>)
+<span style="color: #008800; font-weight: bold">elif</span> num <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #000000; font-weight: bold">or</span> num <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Outside&quot;</span>)
+<span style="color: #008800; font-weight: bold">else</span>:
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;In a limit&quot;</span>)
+</pre></div>
+        <br><br>
+
+        Why would one to do this if we have operator chaining?
+        <br><br>
+
+        Because <b>we can generate complex conditions that be very specific</b>!         
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [5 minutes]: <br>
+        <div class="mx-lg-5">
+          Open the Scratch pad.
+          <br>
+          You can comment out your previous program or save it in another file! (ASK PABLO ABOUT THIS NOW!))
+          <br>
+          Now, write a program that:
+          <ol>
+            <li>Gets an integers from the user in the range (0 to 100) and saves it in variable <b><tt>x</tt></b></li>
+            <li>Gets an integers from the user in the range (0 to 100) and saves it in variable <b><tt>y</tt></b></li>
+            <li>Uses Boolean Operators to figure out one of the following cases:
+              <ol>
+                <li>If <b>x &lt; 60</b> and <b>y &lt; 80</b>, print "E"</li>
+                <li>If <b>x &lt; 60</b> and <b>y &gt; 80</b>, print "C+"</li>
+                <li>If <b>x &gt; 60</b> and <b>y &lt; 80</b>, print "C+"</li>
+                <li>If <b>x &gt; 60</b> and <b>y &gt; 80</b>, print "A"</li>
+              </ol>
+            </li>
+          </ol>
+          You can use any of the IF blocks you like, but try to avoid using any nested IF statements.
+        </div>
+
       </p>
 
-  
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Friday)</h4>
-      <b>[Due for everyone]</b>  ZyBooks Sections 2.5, 2.6, 2.7<br>
+      <h2>Multiple Complex Clauses</h2>
+
+      <p>
+        Each single section of a condition that can be evaluated to a <b><tt>True</tt></b> or a <b><tt>False</tt></b> is called a <b>Clause</b>.
+        <br><br>
+
+        Using the Boolean operators, we can combine complex clauses into very complex conditions.
+        <br><br>
+
+        There is a tradeof between nesting IF statements and using more complex conditions. 
+        <br>
+        In general, clarity is preferable to compactness, but simple multi-clause conditions are acceptable.
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Clauses with other variable types</h2>
+
+      <p>
+        <h4>How do we compare text?</h4>
+        The usual coparisson operators <b><tt>&lt;</tt></b>, <b><tt>&lt;=</tt></b>, <b><tt>==</tt></b>, <b><tt>!=</tt></b>, <b><tt>&gt;=</tt></b>, and <b><tt>&gt;</tt></b> can be used to compare strings. 
+        <br><br>
+        The strings will be compared lexicographically (index to index and by order of the letters in the alphablet).  
+        <br><br>
+
+        Unicode values of letters in each string are compared one by one. 
+        <br><br>
+
+        The effect is comparing their placement according to <b>alphabetical ordering.</b>
+
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [5 minutes]: <br>
+        <div class="mx-lg-5">
+          Open the Scratch pad.
+          <br>
+          Now, write a program that:
+          <ol>
+            <li>Gets a word from the user and saves it in variable <b><tt>str1</tt></b></li>
+            <li>Gets a word from the user and saves it in variable <b><tt>str2</tt></b></li>
+            <li>It performs the following actions
+              <ol>
+                <li>Creates the variable <b><tt>str3</tt></b> as the concatenation of <b><tt>str1</tt></b> and <b><tt>str2</tt></b></li>
+                <li>Prints <b><tt>&lt; the first word&gt; is 'smaller' than &lt; the second word&gt;</tt></b> &nbsp; If  <b><tt>str1</tt></b> is lexicographicaly smaller than <b><tt>str2</tt></b></li>
+                <li>Prints <b><tt>&lt; the second word&gt; is 'smaller' than &lt; the first word&gt;</tt></b> &nbsp; If  <b><tt>str2</tt></b> is lexicographicaly smaller than <b><tt>str1</tt></b></li>
+                <li>Prints <b><tt>&lt; the first word&gt; is 'equal' to &lt; the second word&gt;</tt></b> &nbsp; If  <b><tt>str1</tt></b> is lexicographicaly equal to <b><tt>str2</tt></b></li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+
+        the following is a good <a href="https://www.tutorialsteacher.com/articles/compare-strings-in-python">read about comparing strings</a> 
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>The <b><tt>in</tt></b> Operator</h2>
+
+      <p>
+        In Python, the <b><tt>in</tt></b> operator in checks if a specified value is part of a sequence like a string. It also works with thing's we'll see soon, like arrays, lists, or tuples.
+        <br><br>
+
+        An example is the following:
+        <br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">hangman_word <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;abracadabra&quot;</span>
+guess <span style="color: #333333">=</span> <span style="color: #007020">input</span>(<span style="background-color: #fff0f0">&quot;give me a letter: &quot;</span>)
+<span style="color: #008800; font-weight: bold">if</span> (guess <span style="color: #000000; font-weight: bold">in</span> hangman_word):
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;you guessed right!&quot;</span>)
+<span style="color: #008800; font-weight: bold">else</span>:
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;You guessed wrong!&quot;</span>) 
+</pre></div>
+        <br><br>
+        This works for <b>values in general!</b>, not just single letters, so a word might be found inside a sentence!
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [5 minutes]: <br>
+        <div class="mx-lg-5">
+          Open the Scratch pad and write a program that:
+          <br><br>
+          <ol>
+            <li>Get's a string from te user</li>
+            <li>Get's another string from the user</li>
+            <li>Your program should return whether or noth the first string is inside the second one.</li>
+          </ol>
+        </div>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Single-Round Battleship</h2>
+
+      <p>
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [5 minutes]: <br>
+        <div class="mx-lg-5">
+          Open the Scratch pad and write a program let's you play one round of Battleship!.
+          <br><br>
+          It must do the following:
+          <ol>
+            <li>
+              Defines two strings with the following (hardcoded) values: :
+              <ul>
+                <li><b><tt>ship01_start</tt></b>: a letter in [A-Z] concatenated with a number in [0-9]; example 'B4'</li>
+                <li><b><tt>ship01_end</tt></b>: a letter in [A-Z] concatenated with a number in [0-9]; example 'B6'</li>
+              </ul>
+            </li>
+            <li>Gets a letter from the user in the range (A to Z)</li>
+            <li>Gets an integer from the user in the range (0 to 9)</li>
+            <li>Uses any of the instructions we learned today to figure out if the user input "Hits the Ship!"</li>            
+          </ol>
+          HINT: 
+          <br>
+          A ship that is between 'B4 and B6' would be hit if the user indicates a letter 'B' and any number between 4 <b>and</b> 6.
+          <br>
+          A ship that is between 'C7 and E7' would be hit if the user indicates the number '7' <b>and</b> the indicated letter is <b>in</b> the range of letters "CDE".
+        </div>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Monday 09/27)</h4>
+      <b>[Due for everyone]</b>  ZyBooks Sections 3.2, 3.4, 3.5<br>
 
       <br><br>
 
@@ -596,10 +440,10 @@ x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
               </li>
             </ul>
           </div>
