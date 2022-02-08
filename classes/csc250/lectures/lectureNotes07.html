@@ -177,10 +177,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes04.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -196,7 +196,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 06: <br>
+      <h1>Lecture Notes 07: <br>
       DFAs, NFAs, and REs</h1>
       <p>
         <br>
@@ -221,9 +221,179 @@
       </h2>
 
       <p>
+
+        <b>Example Finite Automaton</b>:
+        <br>
+        <img class="img-fluid" src="../figures/lecture05/zeroFollowedBy1FSM.png" alt="Zero-Followed-By-1" style="width:60%">
+        <br><br>
+
         <br><br>
         <img class="img-fluid" src="../figures/lecture05/formalDef.png" alt="very formal" style="width:80%">
+        <br><br><br><br>
+
+        <span style='color:#06a015'><b><big>Activity 0</big></b></span> [2 minutes]: <br>
+        <br>
+        What is the Language that this FA accepts?
+
+        <br><br><br><br>
+
+
+      <h2>
+        Useful Properties  
+      </h2>
+
+      <p>
+        These are some properties that can help you deduce, generalize, or analyze FSMs with respect to their RegEx and Regular Languages.
         <br><br>
+
+        <h3>Complement</h3>
+        IF a Language \(L_1\) is recognizable by an FA \( M_1\),
+        <br>
+        is language \( (L_1)^{c} \) also recognizable by some FA?
+        <br><br>
+        Or in other words, 
+        \[\exists M_2 \quad | \quad L(M_2) = L(M_1)^{c} \]
+
+        <br><br>
+
+        <center>Example: {w|w doesn’t contain either 00 or 11 as a substring}</center>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/orFSM.png" alt="ORRRRRR!" style="width:80%">
+        <br><br>
+
+        <br><br>
+
+        If the property in question is "<b>Containing either 00 or 11 as a substring</b>", then the Complement is:
+        <br>
+        the set of words that <b>do</b> have the property, or:
+        <br>
+        <center>Complement: {w|w contains either 00 or 11 as a substring}</center>
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/complement.png" alt="complement!" style="width:80%">
+        <br><br><br><br>
+
+        <h3>Intersection</h3>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/intersection.png" alt="interX!" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          How would you prove this (by construction)?
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>
+                <ol>
+                  <li>run both machines “in parallel”</li>
+                  <li>accept <b>if (and only if) both</b> reach an accepting state</li>
+                </ol>              
+            </details>
+            <br><br>
+          </div>
+        </div>  
+
+        <span style='font-size: 16pt;color:#0000cc'>Example: word \( w = 0111 \) </span>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/intersectionExample.png" alt="interX Exmpl!" style="width:50%">
+        <br><br>
+
+
+        <br><br>
+
+        <h4>Intersection: General Rule</h4>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/intersectionRule.png" alt="inX rule!" style="width:80%">
+        <br><br>
+
+        <b>The set of possible states <br>
+        \( Q_3 = \{ AD, BD, CD, AE, BE, CE \}\)</b>
+        <br><br>
+
+
+        
+        <b>Look at the rule for the transition function</b>:
+        <br>
+        \[ 
+        \delta_3 ( (q_1, q_2), a ) = (\delta_1(q_1,a), \delta_2(q_2,a)) \\
+        \]
+
+        That means:
+        <br><br>
+        \( \mathbf{ \delta_3 ( (q_1, q_2), a ) }\) : the transition for \(M_3\) starting at the combo state: \(q_1q_2\) and input symbol \(a\).
+        <br>
+        the combo state resulting from the output of \(M_1\) when starting at state \(q_1\) and input symbol \(a\), 
+        <br>
+        and the state resulting from the output of \(M_2\) when starting at state \(q_2\) and input symbol \(a\)
+        <br>
+        or \( \mathbf{ \delta_1(q_1,a), \delta_2(q_2,a)) }\)
+
+        <br><br>
+
+        <b>The set of starting states \( q_{03} = (q_1,q_2) \)</b>
+        <br>
+        Which is the combination state of the starting states of each of the machines: \(q_1\) from \(M_1\) and \(q_2\) from \(M_2\).
+        <br><br>
+
+        <b>The set of Accepting states \( F_3 = (q_1,q_2) \)</b>
+        <br>
+        Where <b>each one</b> is the combination state of states where <b>both</b> are accepting states in each of the machines: 
+        <br>
+        \(C\) from \(M_1\) <b>AND</b> \(E\) from \(M_2\).
+        <br><br>
+
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/intersectionSolution.png" alt="inX Exmpl!" style="width:50%">
+        <br><br>
+
+        Notice that for the example word <span style='font-size: 16pt;color:#0000cc'>\( w = 0111 \) </span>, the sequence of states is: 
+        <br>
+        \( AD \xrightarrow{0} BD \xrightarrow{1} CE \xrightarrow{1} CD \xrightarrow{1} CE \) (Accept)
+
+
+
+        <br><br><br><br>
+
+
+        <h3>Union</h3>
+
+        <br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/union.png" alt="uni | on!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/unionExample.png" alt="uni | on!" style="width:60%">
+        <br><br>
+
+        <br><br>
+        <h4>Union: General Rule</h4>
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/unionRule.png" alt="uni | on!" style="width:80%">
+        <br><br>
+
+        <br><br>
+
+        <b>NOW, the set of Accepting states \( F_3 = (q_1,q_2) \)</b>
+        <br>
+        Where <b>each one</b> is the combination state of states where <b>either</b> are accepting states in each of the machines: 
+        <br>
+        \(C\) from \(M_1\) <b>OR</b> \(E\) from \(M_2\).
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/unionSolution.png" alt="uni | on!" style="width:60%">
+        <br><br>
+
 
         <br><br><br><br>
 
@@ -289,10 +459,20 @@
         </div>  
         <br><br>
 
-        Example:
+        <span style='font-size: 16pt;color:#0000cc'>Example: word \( w = 000 \) </span>
         <br><br>
         <img class="img-fluid" src="../figures/lecture05/concatenationExample.png" alt="concat Exmpl!" style="width:80%">
         <br><br>
+
+        Notice that for the example word <span style='font-size: 16pt;color:#0000cc'>\( w = 000 \) </span>, the sequence of states might be: 
+        <br>
+        \( A \xrightarrow{0}\) "invisible reject state" (Reject)
+        <br>
+        or
+        <br>
+        \( A \rightarrow B \xrightarrow{0} C \xrightarrow{0} C \xrightarrow{0} C\) (Accept)
+
+        <br><br><br>
 
         <h4>How to combine them?</h4>
 
@@ -302,7 +482,7 @@
 
         <br><br>
 
-        An example of the logic and the issue: 
+        Another example of the logic and the issue: 
         <ol>
           <li>Say we have: \(M_1\): all strings with an odd number of 1's</li>
           <li>And \(M_2\): all strings with alternating 0s and 1s</li>
@@ -341,9 +521,51 @@
 
       <p>
 
+      Let's check a small video fragment from <a href="https://youtu.be/Ywn2Lz5zmYg?t=165"> MinutePhysics</a>.
+      <br><br>
+
+      The part we are interested in is the fact that there is a way to:
+      <br>
+      <li>Let multiple parallel options happen at the same time!</li>
+      <li>As long as any of them succeeds, all "timelines" collapse and the word is accepted.</li>
+
+      <br><br><br><br>
+
+
+
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/Nondeterminism.png" alt="Nondet" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture07/Nondeterminism.png" alt="Nondet" style="width:80%">
         <br><br>
+
+      <br><br>  
+
+        Think of it as having the option of "cloning yourself" into multiple word checkers... each checking one possible path.
+        <br><br>
+        We "split" or "clone" each time we:
+        <ul>
+          <li>see an \(\epsilon\) (or free jump without consuming a symbol), or</li>
+          <li>each time we see multiple paths for the same symbol.</li>
+        </ul>
+         
+        <br>
+        
+
+        <br><br>
+        <h4>Example</h4>
+        Notice that for the example word <span style='font-size: 16pt;color:#0000cc'>\( w = 011 \) </span>, the sequence of states is: 
+        <br>
+        \( D \xrightarrow{0} D \xrightarrow{1} E \dots \) and then we have a split!!
+        <br><br>
+        <ul>
+          <li>One path continues with: \( D \xrightarrow{0} D \xrightarrow{1} E \mathbf{  \xrightarrow{1} D }\) (Rejected)  ... </li>
+          <li>Another path continues with: \( D \xrightarrow{0} D \xrightarrow{1} E \mathbf{ \xrightarrow{1} E } \) (Accepted)  ... </li>
+          <li>Yet another path continues with: \( D \xrightarrow{0} D \xrightarrow{1} E \mathbf{ \xrightarrow{\epsilon} D \xrightarrow{1} E } \) (Accepted)
+          <li>The last path continues with: \( D \xrightarrow{0} D \xrightarrow{1} E \mathbf{ \xrightarrow{\epsilon} D \xrightarrow{1} E \xrightarrow{\epsilon} D} \) (Rejected)</li>
+
+
+        </ul>
+
+      
       </p>
 
       <p><br></p><hr><p><br></p>
@@ -355,7 +577,7 @@
       <p>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/NonDetFormalDef.png" alt="NonDeF" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture07/NonDetFormalDef.png" alt="NonDeF" style="width:80%">
         <br><br>
 
         <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
@@ -369,18 +591,18 @@
         <h3>Remember Union?</h3>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/RememberUnion.png" alt="Union" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture07/RememberUnion.png" alt="Union" style="width:80%">
         <br><br>
 
         <h4>With an NFA:</h4>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/UnionExmplWithNFA.png" alt="NFA-union" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture07/UnionExmplWithNFA.png" alt="NFA-union" style="width:80%">
         <br><br>
 
         So how do NFA's <b>Compute</b>?
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/HowNFAsCompute.png" alt="How to NFA" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture07/HowNFAsCompute.png" alt="How to NFA" style="width:80%">
         <br><br>
 
 
@@ -410,7 +632,7 @@
 
         An Example:
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/NFAcomputationTree.png" alt="tree!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture07/NFAcomputationTree.png" alt="tree!" style="width:80%">
         <br><br>
 
         <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
@@ -426,14 +648,14 @@
           <br><br>
           The example is repeated here for your convenience (you're welcome)
           <br><br>
-          <img class="img-fluid" src="../figures/lecture05/repeatedUnionExample.png" alt="M1 u M2 again" style="width:60%">
+          <img class="img-fluid" src="../figures/lecture07/repeatedUnionExample.png" alt="M1 u M2 again" style="width:60%">
           <br><br>
           "Walk" the NFA and add a path for every possible choice (given the symbol read)
           <div class="mx-lg-5">
             <details>
               <summary>(Wait; then Click)<br><br></summary>              
                 <br><br>
-                <img class="img-fluid" src="../figures/lecture05/unionTree.png" alt="M1 u M2" style="width:60%">
+                <img class="img-fluid" src="../figures/lecture07/unionTree.png" alt="M1 u M2" style="width:60%">
                 <br><br>                 
             </details>
             <br><br>
@@ -449,7 +671,7 @@
         <h4>With an NFA:</h4>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/ConcatExmplWithNFA.png" alt="con Kat" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture07/ConcatExmplWithNFA.png" alt="con Kat" style="width:80%">
         <br><br>
 
         <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
@@ -470,7 +692,7 @@
         </div>  
 
       </p>
-
+<!-- 
 
       <p><br></p><hr><p><br></p>
 
@@ -704,14 +926,14 @@
 
       <h3>Next class: What lives outside that set of languages?</h3>
 
-
+ -->
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Monday 09/27)</h4>
+      <h4>Homework</h4>
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
-       Remember: Problem Set 2 (Moodle) [Due Wednesday 09/29] <big>Start Early!</big>
+       Remember: Problem Set 2 (Moodle) [Due Friday 02/11] <big>Start Early!</big>
       </div> 
       <br>
       <b>[Optional]</b> 
@@ -739,10 +961,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes04.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Next Module</a>
               </li>
             </ul>
           </div>
