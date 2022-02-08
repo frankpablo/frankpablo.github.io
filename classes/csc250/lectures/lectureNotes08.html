@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes05.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,22 +198,16 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 06: <br>
-      Recap and Review: DFAs, NFAs, and REs</h1>
+      <h1>Lecture Notes 08: <br>
+      DFAs, NFAs, and REs</h1>
       <p>
         <br>
       </p>
-      <h2>Outline </h2>
-
-      This class we'll discuss:
-      <ul>
-        <li>Recap: DFA-NFA equivalence</li>
-      </ul>
 
       <p><br></p><hr><p><br></p>
 
       <h2>
-        Recap: DFA-NFA equivalence
+        DFA-NFA equivalence
       </h2>
 
       <p>
@@ -222,15 +216,15 @@
 
         <br><br><br><br><br><br>
 
-        We made the following claim:
+        Let's make a claim:
         <br><br>
 
         <h4>NFAs and DFAs are equally powerful!</h4>
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal.png" alt="DFA VS NFA" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/NFA-DFA-Equal.png" alt="DFA VS NFA" style="width:80%">
         <br><br>
 
-        The proof approach was by construction (in two steps):
+        The proof approach is by construction (in two steps):
         <br><br>
 
         What we know: \(M_{NFA}=(Q,\Sigma,\delta, q_0, F)\)
@@ -253,14 +247,14 @@
 
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-states.png" alt="DFA VS NFA" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/NFA-DFA-Equal-states.png" alt="DFA VS NFA" style="width:80%">
         <br><br><br><br>
 
 
         <h4>From NFA to DFA: the Start states \(q_0 \rightarrow q_0^\prime\)</h4>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-start-states.png" alt="DFA VS NFA" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/NFA-DFA-Equal-start-states.png" alt="DFA VS NFA" style="width:80%">
         <br><br>        
         (In this case, only \(A\))
 
@@ -269,7 +263,7 @@
         <h4>From NFA to DFA: the Accepting states \(F \rightarrow F^\prime\)</h4>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-final-states.png" alt="DFA VS NFA" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/NFA-DFA-Equal-final-states.png" alt="DFA VS NFA" style="width:80%">
         <br><br> 
         (In this case, \( \{  C, AC, BC, ABC  \} \))
         <br><br><br><br>       
@@ -295,13 +289,13 @@
           Example: building the DFA for this NFA
           <br><br>
           <br><br>
-          <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions-pre.png" alt="DFA VS NFA" style="width:80%">
+          <img class="img-fluid" src="../figures/lecture08/NFA-DFA-Equal-transitions-pre.png" alt="DFA VS NFA" style="width:80%">
           <br><br> 
 
           Solution:
           <div class="mx-lg-5">             
             <br><br>
-            <img class="img-fluid" src="../figures/lecture05/NFA-DFA-Equal-transitions.png" alt="DFA VS NFA" style="width:80%">
+            <img class="img-fluid" src="../figures/lecture08/NFA-DFA-Equal-transitions.png" alt="DFA VS NFA" style="width:80%">
             <br><br>                  
           </div> 
         </div>
@@ -313,7 +307,7 @@
 
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture05/Lang-DFA-is-Lang-NFA.png" alt="DFA VS NFA" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/Lang-DFA-is-Lang-NFA.png" alt="DFA VS NFA" style="width:80%">
         <br><br> 
          <h4>Hint:</h4>
          To prove that L(DFA) = L(NFA), use induction to show that the result of running the DFA on a word \(w\) (denoted \( \hat{\delta}^\prime(q_0^{\prime} , w))\) is equivalent to the result of running the NFA on the same word [denoted \(\hat{\delta}(q_0, w)\)] for every word \(w \in \Sigma^*\).
@@ -334,7 +328,7 @@
       <p>
         Where do FA-Recognizable Languages stand with respect to Regular Languages?
         <br><br>
-        <img class="img-fluid" src="../figures/lecture03/regLangs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <img class="img-fluid" src="../figures/lecture04/regLangs.png" alt="Reg Lang descriptive power!" style="width:50%">
         <br><br>
 
         <h3>Where are FA-recognizable languageswith respect to Regular Languages?</h3>
@@ -347,32 +341,32 @@
         We can use the same approach as we did when defining REs (a recursive definition out of base cases).
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-1.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/FA-vs-REs-1.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-2.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/FA-vs-REs-2.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-3.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/FA-vs-REs-3.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-4.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/FA-vs-REs-4.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-5.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/FA-vs-REs-5.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/FA-vs-REs-6.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/FA-vs-REs-6.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <h3>So What did we prove?</h3>
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/FA-atLeast-REs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <img class="img-fluid" src="../figures/lecture08/FA-atLeast-REs.png" alt="Reg Lang descriptive power!" style="width:50%">
         <br><br>
 
         <br><br>
@@ -381,7 +375,7 @@
         Example FA:
         <br><br>
         <center>
-          <img class="img-fluid" src="../figures/lecture06/baseFA.png" alt="A garden Variet FA" style="width:40%">
+          <img class="img-fluid" src="../figures/lecture08/baseFA.png" alt="A garden Variet FA" style="width:40%">
         </center>
         <br><br>
 
@@ -400,11 +394,11 @@
 
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-1.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/RE-vs-FAs-1.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2a.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/RE-vs-FAs-2a.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <h4>A more difficult one:</h4>
@@ -429,20 +423,20 @@
 
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2b.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/RE-vs-FAs-2b.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2c.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/RE-vs-FAs-2c.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/RE-vs-FAs-2d.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture08/RE-vs-FAs-2d.png" alt="FA vs Reg Lang descriptive power!" style="width:80%">
         <br><br>
 
         <h3>So What did we prove?</h3>
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture05/FA-equal-REs.png" alt="Reg Lang descriptive power!" style="width:50%">
+        <img class="img-fluid" src="../figures/lecture08/FA-equal-REs.png" alt="Reg Lang descriptive power!" style="width:50%">
         <br><br>
 
       </p>
@@ -452,6 +446,7 @@
       <h2>A Primer on Induction</h2>
 
       <p>
+
         Induction is an approach to proving a statement about a pattern \(P\) or law involving an infinite number of cases
         <br>
          (one for some input numner of elements): \( P(0), P(1), \dots , P(k), P(k+1), \dots  \) <br>
@@ -501,11 +496,13 @@
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Wednesday 09/27)</h4>
+      <h4>Homework</h4>
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
-       Remember: Problem Set 2 (Moodle) [Due Friday 10/01] <big>Go to OHs if you're stuck!</big>
+       Remember: Problem Set 2 (Moodle) [Due Friday 02/11] <big>Go to OHs if you're stuck!</big>
+       <br>
+       IF you upload your progress (and it is >=50%), you have an automatic extension until Moday at 5PM
       </div> 
       <br>
       <b>[Optional]</b> 
@@ -533,10 +530,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes05.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Next Module</a>
               </li>
             </ul>
           </div>
