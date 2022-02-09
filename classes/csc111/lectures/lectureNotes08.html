@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,7 +122,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 09: More Conditionals</h1>
+      <h1>Lecture Notes 08: More Conditionals</h1>
       <p>
         <br>
       </p>
@@ -173,6 +173,82 @@
         <br><br>
 
       </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Recap: Cascading IF statements</h2>
+
+      <p>
+        Remember, from last class:
+        <br><br>
+         Think of the following situation:
+        <br><br>
+        A professor issues two assignments <b>X</b> and <b>Y</b>.
+        <br>
+        And the rules for grading are: 
+        <ol>
+          <li>If students flunk <b>X</b> (a passing grade is 60), they need a grade of 80 or above in <b>Y</b> to pass the class (C+)</li>.
+          <li>If students pass <b>X</b>, and if they also get 80 or above in <b>Y</b>, students get a final grade of A (otherwise C+).</li>
+        </ol>
+        <br><br>
+
+        We came up with a flowchart like this:
+        <br><br>
+
+        <div class="row">
+          <div class="col-lg-5 col-md-5 col-xs-5 thumb">
+            One answer:<br>
+                  <img class="img-responsive" src="../figures/lecture08/gradingDiagramA.png" alt="" style="width:100%">
+          </div>
+          <div class="col-lg-1 col-md-1 col-xs-1 thumb">
+            &nbsp;
+          </div>
+          <div class="col-lg-5 col-md-5 col-xs-5 thumb">
+            Another answer:<br>
+                  <img class="img-responsive" src="../figures/lecture08/gradingDiagramB.png" alt="" style="width:100%">
+          </div>
+        </div>
+
+        <br><br>
+
+        Note that the opposite of: \( x < 60\) 
+        <br>
+        is 
+        <br>
+        \( x \geq 60 \)!
+
+        <br><br><br>
+
+
+        <br><br><br>
+
+        So how do we have conditionals that "activate" after the <b>TRUE</b> path of other conditionals?:
+        <br><br><br><br>
+
+        <b>We can have conditional statements INSIDE conditional statements</b>
+        <br><br>
+
+        Look at the example shown in the Replit Exercise called <b>ThreeGrades</b>
+        <br><br>
+        You can also see the code in the Python Tutor: <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20x%20%3D%2070%0A%20%20y%20%3D%2090%0A%0A%20%20if%20x%3E%3D60%3A%0A%20%20%20%20if%20y%3E%3D80%3A%0A%20%20%20%20%20%20print%28%22you%20got%20an%20A%22%29%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20print%28%22you%20got%20a%20C%2B%22%29%20%0A%20%20else%3A%0A%20%20%20%20if%20y%3E%3D80%3A%0A%20%20%20%20%20%20print%28%22you%20got%20an%20C%2B%22%29%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20print%28%22you%20got%20an%20E%22%29%20%20%0A%0Aif%20__name__%20%3D%3D%20'__main__'%3A%0A%20%20main%28%29%20&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br>
+<!-- 
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># before the if</span>
+x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">6</span>
+
+<span style="color: #888888"># a &quot;nested&quot; conditional</span>
+<span style="color: #008800; font-weight: bold">if</span> x<span style="color: #333333">%</span><span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;x is divisible by 2&#39;</span>)
+    <span style="color: #008800; font-weight: bold">if</span> x<span style="color: #333333">%</span><span style="color: #0000DD; font-weight: bold">3</span> <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+        <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;x is divisible by 6&#39;</span>)
+
+<span style="color: #888888"># after the if</span>
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;done&#39;</span>)
+</pre></div>
+ -->
+      </p>
+
 
       <p><br></p><hr><p><br></p>
 
@@ -267,7 +343,7 @@
         Why would one to do this if we have operator chaining?
         <br><br>
 
-        Because <b>we can generate complex conditions that be very specific</b>!         
+        Because <b>we can generate complex conditions that can be very specific</b>!         
         <br><br>
 
         <span style='color:#06a015'><b><big>Activity 2</big></b></span> [5 minutes]: <br>
@@ -376,8 +452,8 @@ guess <span style="color: #333333">=</span> <span style="color: #007020">input</
           Open the Scratch pad and write a program that:
           <br><br>
           <ol>
-            <li>Get's a string from te user</li>
-            <li>Get's another string from the user</li>
+            <li>Gets a string from te user</li>
+            <li>Gets another string from the user</li>
             <li>Your program should return whether or noth the first string is inside the second one.</li>
           </ol>
         </div>
@@ -416,12 +492,13 @@ guess <span style="color: #333333">=</span> <span style="color: #007020">input</
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Monday 09/27)</h4>
-      <b>[Due for everyone]</b>  ZyBooks Sections 3.2, 3.4, 3.5<br>
+      <h4>Homework</h4>
+      <b>[Due for everyone]</b>  <br>
+      Homework 03 is due on Friday, 02/18 at 5PM
 
       <br><br>
 
-      <b>[Optional]</b> <b><big>TODO</big></b><br>
+      <b>[Optional]</b> <b><big>ZyBooks Sections 3.2, 3.4, 3.5</big></b><br>
 
 
 
@@ -440,10 +517,10 @@ guess <span style="color: #333333">=</span> <span style="color: #007020">input</
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Next Module</a>
               </li>
             </ul>
           </div>
