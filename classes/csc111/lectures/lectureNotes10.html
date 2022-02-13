@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes13.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes11.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,543 +122,528 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 10: Strings</h1>
+      <h1>Lecture Notes 14: More Loops</h1>
       <p>
         <br>
       </p>
 
       <p><br></p><hr><p><br></p>
-
-      <h2>Recap: String Access</h2>
+      <h2>Three concepts: None, in, and is</h2>       
 
       <p>
 
-        Accessing elements from a string is done through the <b>Squar Brackets Operator</b>, like this:
-        <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;duckrabbit&quot;</span>
-idx <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">3</span>
-my_char <span style="color: #333333">=</span> my_str[idx]
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Char, at index {:d} in {:s} is: {:s}&quot;</span><span style="color: #333333">.</span>format(idx, my_str, my_char) )
-</pre></div>
-        <br><br>
+        <h3>None</h3>
 
-        We are using the appropriate index value to access each element in the string.
+        If one does not explicitly return a value in a vunction, the default "return" is <b><tt>None</tt></b>.
         <br><br>
-
-        Remember that:
+        <b><tt>None</tt></b> is a python reserved word, used to define a "null value", or "the absence of a value".
+        <br><br>
         <ul>
-          <li>Indices start at <b><tt>0</tt></b></li>
-          <li>The maximum index is <b><tt>len(&lt;the string&gt;) - 1</tt></b></li>
-        </ul>        
-        
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Bonus String Trick</h2>
-
-      <p>
-        One can apply the multiplication operator to a string in order to cause it to create a copy where it "self concatenates":
-        <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">str1 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;na&quot;</span>
-<span style="color: #007020">print</span>(<span style="color: #0000DD; font-weight: bold">8</span><span style="color: #333333">*</span>str1 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; Batman!&quot;</span>)
-</pre></div>
-
-        <br><br>
-        Try it <a href="https://pythontutor.com/visualize.html#code=str1%20%3D%20%22na%22%0Aprint%288*str1%20%2B%20%22%20Batman!%22%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">Here!</a>
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Slicing Basics</h2>
-
-      <p>
-
-        Slicing refers to the act of accessing (reading) multiple characters at a time from a string.
-        <br><br>
-
-        The notation is the following:
-        <br><br>
-
-        <span style="color:#220088">my_string</span>
-        <span style="color:#00cc00">[</span> 
-        &lt; start index &gt;
-        <span style="color:#aa0000">:</span>
-        &lt; end index &gt;
-        <span style="color:#00cc00">]</span>
-        <br><br>
-
-        This returns a <b>substring</b> with a copy of the charcters that go from the <tt>start index</tt> to  <span style="color:#cc0000">end index -1</span>
-
-        <br><br>
-
-        It is crucial to understand that the second parameter is <b>NON INCLUSSIVE</b>!.
-        <br><br>
-
-        <h4>Example</h4>
-
-        <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;duckrabbit&quot;</span>
-str_len <span style="color: #333333">=</span> <span style="color: #007020">len</span>(my_str)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The length of {:s} is {:d}&quot;</span><span style="color: #333333">.</span>format(my_str, str_len) )
-sub_str1 <span style="color: #333333">=</span> my_str[<span style="color: #0000DD; font-weight: bold">0</span>:str_len]
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The substring of {:s}, from 0 to {:d}, is {:s}&quot;</span><span style="color: #333333">.</span>format(my_str,str_len, sub_str1) )
-</pre></div>
-        <br><br>
-        Run it <a href="https://pythontutor.com/visualize.html#code=my_str%20%3D%20%22duckrabbit%22%0Astr_len%20%3D%20len%28my_str%29%0Aprint%28%22The%20length%20of%20%7B%3As%7D%20is%20%7B%3Ad%7D%22.format%28my_str,%20str_len%29%20%29%0Asub_str1%20%3D%20my_str%5B0%3Astr_len%5D%0Aprint%28%22The%20substring%20of%20%7B%3As%7D,%20from%200%20to%20%7B%3Ad%7D,%20is%20%7B%3As%7D%22.format%28my_str,str_len,%20sub_str1%29%20%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>       
-
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [5 minutes]: <br>
-        <div class="mx-lg-5">
-          Open the Scratch pad and copy the example shown above.
-          <br><br>
-          Then, make the following additions:
-          <ol>
-            <li>create <b><tt>sub_str2</tt></b> by extracting the word "duck" from <b><tt>my_str</tt></b>;</li>
-            <li>print a formatted string with the contents of <b><tt>sub_str2</tt></b></li>
-            <li>create <b><tt>sub_str3</tt></b> by extracting the word "rabbit" from <b><tt>my_str</tt></b>;</li>
-            <li>print a formatted string with the contents of <b><tt>sub_str3</tt></b></li>
-          </ol>
-        </div>
-
-        <br><br>
-
-        <h3>The Slice is a new object</h3>
-
-        The sliced substring is a new object so modifying this object does not change the original string and vice-versa.
-        <br><br>
-
-        For example:
-        <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;duckrabbit&quot;</span>
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The contents of my_str are:&quot;</span>, my_str)
-str_len <span style="color: #333333">=</span> <span style="color: #007020">len</span>(my_str)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The length of {:s} is {:d}&quot;</span><span style="color: #333333">.</span>format(my_str, str_len) )
-sub_duck <span style="color: #333333">=</span> my_str[<span style="color: #0000DD; font-weight: bold">0</span>:<span style="color: #0000DD; font-weight: bold">4</span>]
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The contents of sub_duck are:&quot;</span>, sub_duck)
-my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;overwritten!&quot;</span>
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The new contents of my_str are:&quot;</span>, my_str)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The contents of sub_duck after overwritting my_str are:&quot;</span>, sub_duck)
-</pre></div>
-
-        <br><br>
-        Try it <a href="https://pythontutor.com/visualize.html#code=my_str%20%3D%20%22duckrabbit%22%0Aprint%28%22The%20contents%20of%20my_str%20are%3A%22,%20my_str%29%0Astr_len%20%3D%20len%28my_str%29%0Aprint%28%22The%20length%20of%20%7B%3As%7D%20is%20%7B%3Ad%7D%22.format%28my_str,%20str_len%29%20%29%0Asub_duck%20%3D%20my_str%5B0%3A4%5D%0Aprint%28%22The%20contents%20of%20sub_duck%20are%3A%22,%20sub_duck%29%0Amy_str%20%3D%20%22overwritten!%22%0Aprint%28%22The%20new%20contents%20of%20my_str%20are%3A%22,%20my_str%29%0Aprint%28%22The%20contents%20of%20sub_duck%20after%20overwritting%20my_str%20are%3A%22,%20sub_duck%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
-
-        
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Slicing variations</h2>
-
-      <p>
-        We can use different variations when doing string slicing.
-        <br><br>
-
-        <h3>Using negative values for indices</h3>
-
-        Using negative values in the <b><tt>end index</tt></b> position indicates an index relative to the end.
-        <br><br>
-        For example, 
-        <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;duckrabbit&quot;</span>
-str_len <span style="color: #333333">=</span> <span style="color: #007020">len</span>(my_str)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The length of {:s} is {:d}&quot;</span><span style="color: #333333">.</span>format(my_str, str_len) )
-sub_str_neg <span style="color: #333333">=</span> my_str[<span style="color: #0000DD; font-weight: bold">0</span>:<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">6</span>]
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The substring of {:s}, from 0 to &#39;-6&#39;, is {:s}&quot;</span><span style="color: #333333">.</span>format(my_str, sub_str_neg) )
-</pre></div>
-        <br><br>
-        Try it <a href="https://pythontutor.com/visualize.html#code=my_str%20%3D%20%22duckrabbit%22%0Astr_len%20%3D%20len%28my_str%29%0Aprint%28%22The%20length%20of%20%7B%3As%7D%20is%20%7B%3Ad%7D%22.format%28my_str,%20str_len%29%20%29%0Asub_str_neg%20%3D%20my_str%5B0%3A-6%5D%0Aprint%28%22The%20substring%20of%20%7B%3As%7D,%20from%200%20to%20'-6',%20is%20%7B%3As%7D%22.format%28my_str,%20sub_str_neg%29%20%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>    
-        
-
-        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [5 minutes]: <br>
-        <div class="mx-lg-5">
-          Open the Scratch pad and write code that:
-          <ol>
-            <li>creates <b><tt>my_str</tt></b> with the word <b><tt>duckrabbit</tt></b>
-            <li>print a formatted string with the contents of <b><tt>my_str</tt></b></li>
-            <li>create <b><tt>sub_duck</tt></b> by extracting the word "duck" from <b><tt>my_str</tt></b>;</li>
-            <li>create <b><tt>sub_rabb</tt></b> by extracting the word "rabbit" from <b><tt>my_str</tt></b> using negative notation;</li>
-            <li>create <b><tt>new_str</tt></b> by concatenating <b><tt>sub_rabb</tt></b> to <b><tt>sub_duck</tt></b>;</li>
-            <li>print a formatted string with the contents of <b><tt>new_str</tt></b> </li>
-          </ol>
-        </div>    
-
-        <br><br>
-
-        <h3>Omitting indices</h3>
-
-        One can omit the start index, the end index, or both!.
-
-        <br><br>
-
-        <h4>Omitting the start index</h4>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;duckrabbit&quot;</span>
-str_omit_start <span style="color: #333333">=</span> my_str[:<span style="color: #0000DD; font-weight: bold">4</span>]
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The substring of {:s}, with slice [:4], is {:s}&quot;</span><span style="color: #333333">.</span>format(my_str, str_omit_start) )
-</pre></div>
-        <br><br>
-        Try it <a href="https://pythontutor.com/visualize.html#code=my_str%20%3D%20%22duckrabbit%22%0Astr_omit_start%20%3D%20my_str%5B%3A4%5D%0Aprint%28%22The%20substring%20of%20%7B%3As%7D,%20with%20slice%20%5B%3A4%5D,%20is%20%7B%3As%7D%22.format%28my_str,%20str_omit_start%29%20%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>  
-
-        <br><br>
-
-        <h4>Omitting the end index</h4>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;duckrabbit&quot;</span>
-str_omit_end <span style="color: #333333">=</span> my_str[<span style="color: #0000DD; font-weight: bold">4</span>:]
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The substring of {:s}, with slice [5:], is {:s}&quot;</span><span style="color: #333333">.</span>format(my_str, str_omit_end) )
-</pre></div>
-
-        <br><br>
-        Try it <a href="https://pythontutor.com/visualize.html#code=my_str%20%3D%20%22duckrabbit%22%0Astr_omit_end%20%3D%20my_str%5B4%3A%5D%0Aprint%28%22The%20substring%20of%20%7B%3As%7D,%20with%20slice%20%5B5%3A%5D,%20is%20%7B%3As%7D%22.format%28my_str,%20str_omit_end%29%20%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>  
-
-        <br><br>
-
-
-
-        <h4>Omitting both indices</h4>
-        This is equivalent to specifying "<b>from start to finish</b>".
-
-        <br><br>
-
-        <h3>Erroneous indices</h3>
-
-        <ul>
-          <li>Specifying the start index beyond the end of the string, or beyond the end index, results in an empty string
-            <br>
-            Example:
-            <br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020">print</span>(my_str[<span style="color: #0000DD; font-weight: bold">4</span>:<span style="color: #0000DD; font-weight: bold">2</span>]) <span style="color: #888888"># start &gt; end (prints newline only)</span>
-</pre></div>
-</li>
-          <li>Specifying an end index beyond the end of the string is equivalent to specifying the end of the string.
-            <br>
-          Example:
-          <br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020">print</span>(my_str[<span style="color: #0000DD; font-weight: bold">4</span>:<span style="color: #0000DD; font-weight: bold">13</span>]) <span style="color: #888888"># same as [4:10] (prints rabbit)</span>
-</pre></div>          
-          </li>
+          <li><b><tt>None</tt></b> is not 0</li>
+          <li><b><tt>None</tt></b> is not False</li>
+          <li><b><tt>None</tt></b> is of type <b><tt>NoneType</tt></b></li>
         </ul>
 
         <br><br>
 
-        <h3>The Slicing Stride</h3>
-
-        There is a third slicing parameter which is optional.
-        <br><br>
-        This parameter is the <b>stride</b>, and it refers to the amount of "skip" to perform after each read.
-        <br><br>
-        The default skip is 1: go to the immediate next character.
-        <br><br>
-        For example, the following are equivalent:
-        <br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">#these all print &quot;duckrabbit&quot;</span>
-<span style="color: #007020">print</span>(my_str) 
-<span style="color: #007020">print</span>(my_str[<span style="color: #0000DD; font-weight: bold">0</span>:<span style="color: #0000DD; font-weight: bold">10</span>])
-<span style="color: #007020">print</span>(my_str[<span style="color: #0000DD; font-weight: bold">0</span>:])
-<span style="color: #007020">print</span>(my_str[:<span style="color: #0000DD; font-weight: bold">10</span>])
-<span style="color: #007020">print</span>(my_str[:])
-<span style="color: #007020">print</span>(my_str[<span style="color: #0000DD; font-weight: bold">0</span>:<span style="color: #0000DD; font-weight: bold">10</span>:<span style="color: #0000DD; font-weight: bold">1</span>])
-</pre></div>
-
-
-        <br><br>
-        <h4>A stride of 2</h4>
-        For a stride of 2, we access every other character, depending on the start and end indices specified:
-        <br>
-        For example:
-        <br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020">print</span>(my_str[<span style="color: #0000DD; font-weight: bold">0</span>:<span style="color: #0000DD; font-weight: bold">10</span>:<span style="color: #0000DD; font-weight: bold">2</span>]) <span style="color: #888888">#prints dcrbi</span>
-<span style="color: #007020">print</span>(my_str[<span style="color: #0000DD; font-weight: bold">1</span>:<span style="color: #0000DD; font-weight: bold">10</span>:<span style="color: #0000DD; font-weight: bold">2</span>]) <span style="color: #888888">#prints ukabt </span>
-</pre></div>
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Open the Scratch pad and write code that:
-          <ol>
-            <li>creates <b><tt>my_nums</tt></b> with the string <b><tt>123456789</tt></b>
-            <li>print a formatted string with the contents of <b><tt>my_nums</tt></b></li>
-            <li>create and print <b><tt>sub_odd</tt></b> by extracting all the odd number characters from <b><tt>my_nums</tt></b>;</li>
-            <li>create and print <b><tt>sub_even</tt></b> by extracting all the odd number characters from <b><tt>my_nums</tt></b>;</li>
-            <li>create and print <b><tt>sub_3s</tt></b> by extracting all the multiples of 3 number characters from <b><tt>my_nums</tt></b>;</li>
-          </ol>
-        </div> 
-
-      </p>
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>String Methods</h2>
-
-      <p>
-        As we mentioned before, <b>Strings are Objects</b>, and in Python, objects have values inside them <b>as well as member functions we call "Methods"</b>. 
-        <br><br>
-        We can access these by using the <b>dot</b> operator, as in: 
-        <br>
-        <b><tt>&lt; my_str &gt; <big><span style="color: #aa0000">.</span></big></tt> &lt; method name &gt; <span style="color: #00aa00">(</span>&lt; method arguments &gt; <span style="color: #00aa00">)</span> </b>
-        <br><br>
-
-        One example we've been using a lot is <b><tt>format</tt></b>, as in:
-        <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;duckrabbit&quot;</span>
-str_rabb <span style="color: #333333">=</span> my_str[<span style="color: #0000DD; font-weight: bold">4</span>:]
-out_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;a substring of {:s} is {:s}&quot;</span>
-<span style="color: #007020">print</span>(out_str<span style="color: #333333">.</span>format(my_str, str_rabb) )
-</pre></div>
-        <br><br>
-        Here, we're accessing the <b><tt>format</tt></b> member method from the string variable <b><tt>out_str</tt></b> and passing in the arguments <b><tt>my_str</tt></b>, and <b><tt>str_rabb</tt></b>
-        <br><br>
-
-        Try it out <a href="https://pythontutor.com/visualize.html#code=my_str%20%3D%20%22duckrabbit%22%0Astr_rabb%20%3D%20my_str%5B4%3A%5D%0Aout_str%20%3D%20%22a%20substring%20of%20%7B%3As%7D%20is%20%7B%3As%7D%22%0Aprint%28out_str.format%28my_str,%20str_rabb%29%20%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>.
-
-        <br><br>
-        The following are some useful String methods.
-        <br>
-        Remember that you can read more about how to use them in the <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">Python String API</a> 
+        Example:
 
         <br><br>
 
-        <h4>replace</h4>
-        You might want to edit the contents of a string by "replacing" fragments with a known pattern for another pattern.
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  
+13  
+14  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>
+  
+  <span style="color: #888888"># If I try to get a return value from no_return</span>
+  ret_value <span style="color: #333333">=</span> no_return(num)
+  
+  <span style="color: #888888"># I get None</span>
+  <span style="color: #007020">print</span> (ret_value)
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">no_return</span> (num):
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;only displays num: &quot;</span>, num)
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()  
+</pre></td></tr></table></div>
+
         <br><br>
-        However, since strings, once created, cannot be edited, what happens is that a new string is created which can be used to overwrite the old one.
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20num%20%3D%205%0A%20%20%0A%20%20%23%20If%20I%20try%20to%20get%20a%20return%20value%20from%20no_return%0A%20%20ret_value%20%3D%20no_return%28num%29%0A%20%20%0A%20%20%23%20I%20get%20None%0A%20%20print%20%28ret_value%29%0A%0Adef%20no_return%20%28num%29%3A%0A%20%20print%28%22only%20displays%20num%3A%20%22,%20num%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29%20%20&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
+
+        <br><br>
+        <br><br><br><br>
+
+        <h3>in</h3>
+
+        The <b>Membership Operator</b>  <b><tt>in</tt></b> returns <b><tt>True</tt></b> if a sequence with the specified value is present in the object.
+
         <br><br>
 
         Example:
-        <br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">phrase <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;time consumes everything but it is also the best&quot;</span>
-phrase <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&quot;time&quot;</span>, <span style="background-color: #fff0f0">&quot;Yak&quot;</span>)
-phrase <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&quot;but&quot;</span>, <span style="background-color: #fff0f0">&quot;and&quot;</span>)
-phrase <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&quot;best&quot;</span>, <span style="background-color: #fff0f0">&quot;beast&quot;</span>)
-<span style="color: #007020">print</span>(phrase)
+
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
+2  
+3  </pre></td><td><pre style="margin: 0; line-height: 125%">word <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;abracadabra&quot;</span>
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;ada&quot;</span> <span style="color: #000000; font-weight: bold">in</span> word) <span style="color: #888888"># prints True</span>
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;aaa&quot;</span> <span style="color: #000000; font-weight: bold">in</span> word) <span style="color: #888888"># prints False</span>
+</pre></td></tr></table></div>
+
+        <br><br>
+
+        One can also ask the opposite!
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
+2  
+3  </pre></td><td><pre style="margin: 0; line-height: 125%">sentence <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;the password is &#39;Cat&#39;&quot;</span>
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Yak&quot;</span> <span style="color: #000000; font-weight: bold">not</span> <span style="color: #000000; font-weight: bold">in</span> sentence) <span style="color: #888888"># prints True</span>
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Cat&quot;</span> <span style="color: #000000; font-weight: bold">not</span> <span style="color: #000000; font-weight: bold">in</span> sentence) <span style="color: #888888"># prints False</span>
+</pre></td></tr></table></div>
+
+
+        <br><br>
+
+        <h3>is</h3>
+
+        <b><tt>is</tt></b> and <b><tt>is not</tt></b> are the identity operators in Python. 
+        <br><br>
+        They are used to check if two values (or variables) are located on the same part of the memory. 
+        <br><br>
+
+        Two variables that are equal does not imply that they are identical.
+
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  
+13  
+14  
+15  </pre></td><td><pre style="margin: 0; line-height: 125%">x1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>
+y1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>
+x2 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Hello&#39;</span>
+y2 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Hello&#39;</span>
+x3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">2</span>,<span style="color: #0000DD; font-weight: bold">3</span>]
+y3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">2</span>,<span style="color: #0000DD; font-weight: bold">3</span>]
+
+<span style="color: #888888"># Output: False</span>
+<span style="color: #007020">print</span>(x1 <span style="color: #000000; font-weight: bold">is</span> <span style="color: #000000; font-weight: bold">not</span> y1)
+
+<span style="color: #888888"># Output: True</span>
+<span style="color: #007020">print</span>(x2 <span style="color: #000000; font-weight: bold">is</span> y2)
+
+<span style="color: #888888"># Output: False</span>
+<span style="color: #007020">print</span>(x3 <span style="color: #000000; font-weight: bold">is</span> y3)
+</pre></td></tr></table></div>
+
+        <br><br>
+
+        Let's visualize te example <a href="https://pythontutor.com/visualize.html#code=x1%20%3D%205%0Ay1%20%3D%205%0Ax2%20%3D%20'Hello'%0Ay2%20%3D%20'Hello'%0Ax3%20%3D%20%5B1,2,3%5D%0Ay3%20%3D%20%5B1,2,3%5D%0A%0A%23%20Output%3A%20False%0Aprint%28x1%20is%20not%20y1%29%0A%0A%23%20Output%3A%20True%0Aprint%28x2%20is%20y2%29%0A%0A%23%20Output%3A%20False%0Aprint%28x3%20is%20y3%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
+
+        <br><br>
+        Check out the nice summary on <a href="https://www.programiz.com/python-programming/operators">Operators</a>.
+
+
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>While Vs For: Our two Running examples</h2>
+
+      <p>
+
+        <h3>The While Loop</h3>
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">while</span> expression:  <span style="color: #888888"># Loop expression</span>
+    <span style="color: #888888"># Loop body: Sub-statements to execute</span>
+    <span style="color: #888888"># if the loop expression evaluates to True</span>
+
+<span style="color: #888888"># Statements to execute after the expression evaluates to Fals</span>
 </pre></div>
-        <br><br>
-
-        The notation <b><tt>my_str.replace(&lt;old&gt;, &lt; new &gt;, &lt; count &gt;)</tt></b> only replaces the first <b><tt>&lt; count &gt;</tt></b> instances of the matched pattern.
-
-        <br><br>
-
-        <h4>find</h4>
-        The following are variations of the use of the <b><tt>find</tt></b> method:
-
-find(x) -- Returns the index of the first occurrence of item x in the string, else returns -1. x may be a string variable or string literal. 
-<br>
-find(x, start) -- Same as find(x), but begins the search at index start.
-<br>
-find(x, start, end) -- Same as find(x, start), but stops the search at index end - 1:
-<br>
-rfind(x)  -- Same as find(x) but searches the string in reverse, returning the last occurrence in the string
 <br><br>
 
-Examples: 
-<br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;abracadabra&quot;</span><span style="color: #333333">.</span>find(<span style="background-color: #fff0f0">&#39;abra&#39;</span>))  <span style="color: #888888"># Returns 0</span>
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;abracadabra&quot;</span><span style="color: #333333">.</span>find(<span style="background-color: #fff0f0">&#39;dab&#39;</span>))  <span style="color: #888888"># Returns 6</span>
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;abracadabra&quot;</span><span style="color: #333333">.</span>find(<span style="background-color: #fff0f0">&#39;yak&#39;</span>))  <span style="color: #888888"># Returns -1</span>
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;abracadabra&quot;</span><span style="color: #333333">.</span>find(<span style="background-color: #fff0f0">&#39;ra&#39;</span>)) <span style="color: #888888"># Returns 2</span>
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;abracadabra&quot;</span><span style="color: #333333">.</span>find(<span style="background-color: #fff0f0">&#39;ra&#39;</span>, <span style="color: #0000DD; font-weight: bold">3</span>)) <span style="color: #888888"># (after 3) Returns 9</span>
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;abracadabra&quot;</span><span style="color: #333333">.</span>find(<span style="background-color: #fff0f0">&#39;ra&#39;</span>, <span style="color: #0000DD; font-weight: bold">3</span>,<span style="color: #0000DD; font-weight: bold">7</span>)) <span style="color: #888888"># (in 3,7) Returns -1</span>
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;abracadabra&quot;</span><span style="color: #333333">.</span>rfind(<span style="background-color: #fff0f0">&#39;ra&#39;</span>))  <span style="color: #888888"># (reverse) Returns 9</span>
-</pre></div>
+      <b>Example 1</b>:
+      <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  draw(<span style="color: #0000DD; font-weight: bold">5</span>)
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">draw</span>(lim):
+    i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">while</span> i <span style="color: #333333">&lt;=</span> lim :
+        <span style="color: #007020">print</span>(i <span style="color: #333333">*</span> <span style="background-color: #fff0f0">&#39;*&#39;</span>) <span style="color: #888888"># this prints x stars in a row</span>
+        i<span style="color: #333333">+=</span><span style="color: #0000DD; font-weight: bold">1</span>
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+        <br><br>
+
+        Let's try it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20draw%285%29%0A%0Adef%20draw%28lim%29%3A%0A%20%20%20%20i%20%3D%201%0A%20%20%20%20while%20i%20%3C%3D%20lim%20%3A%0A%20%20%20%20%20%20%20%20print%28i%20*%20'*'%29%20%23%20this%20prints%20x%20stars%20in%20a%20row%0A%20%20%20%20%20%20%20%20i%2B%3D1%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
+
+<br><br>
+
+      <b>Example 2</b>:
+      <br><br>
+
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  
+13  
+14  
+15  
+16  
+17  
+18  
+19  
+20  
+21  
+22  
+23  
+24  
+25  
+26  
+27  
+28  
+29  
+30  
+31  
+32  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># Calc if a number is a prime</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #888888"># what if num is 50? and 1147?</span>
+  num <span style="color: #333333">=</span>  <span style="color: #0000DD; font-weight: bold">25</span>
+
+  <span style="color: #888888"># let&#39;s find out if x is prime</span>
+  result <span style="color: #333333">=</span> is_prime(num)
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Is {:d} a prime?: Result: {}&quot;</span><span style="color: #333333">.</span>format(num, result))
+
+<span style="color: #888888"># checks if there is a divisor in [2,x/2]</span>
+<span style="color: #888888"># not the most efficient, but ok</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">is_prime</span>(x):
+  divisor <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
+  lim <span style="color: #333333">=</span> x<span style="color: #333333">//</span><span style="color: #0000DD; font-weight: bold">2</span>
+  <span style="color: #008800; font-weight: bold">while</span> divisor <span style="color: #333333">&lt;=</span> lim:
+    result <span style="color: #333333">=</span> is_divisor(x,divisor)
+    <span style="color: #008800; font-weight: bold">if</span> result:
+      <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;{:d} divides {:d}!&quot;</span><span style="color: #333333">.</span>format(divisor, x))
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #000000; font-weight: bold">not</span> result
+    divisor<span style="color: #333333">+=</span><span style="color: #0000DD; font-weight: bold">1</span>    
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>  
+
+<span style="color: #888888"># finds out if d is an exact divisor of x</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">is_divisor</span>(x, d):
+  r <span style="color: #333333">=</span> x<span style="color: #333333">%</span>d
+  <span style="color: #008800; font-weight: bold">if</span> r <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>
+  <span style="color: #008800; font-weight: bold">else</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>  
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+        <br><br>
+
+        Let's try it out <a href="https://pythontutor.com/visualize.html#code=%23%20Calc%20if%20a%20number%20is%20a%20prime%0Adef%20main%28%29%3A%0A%20%20%23%20what%20if%20num%20is%2050%3F%20and%201147%3F%0A%20%20num%20%3D%20%2025%0A%0A%20%20%23%20let's%20find%20out%20if%20x%20is%20prime%0A%20%20result%20%3D%20is_prime%28num%29%0A%20%20print%20%28%22Is%20%7B%3Ad%7D%20a%20prime%3F%3A%20Result%3A%20%7B%7D%22.format%28num,%20result%29%29%0A%0A%23%20checks%20if%20there%20is%20a%20divisor%20in%20%5B2,x/2%5D%0A%23%20not%20the%20most%20efficient,%20but%20ok%0Adef%20is_prime%28x%29%3A%0A%20%20divisor%20%3D%202%0A%20%20lim%20%3D%20x//2%0A%20%20while%20divisor%20%3C%3D%20lim%3A%0A%20%20%20%20result%20%3D%20is_divisor%28x,divisor%29%0A%20%20%20%20if%20result%3A%0A%20%20%20%20%20%20print%20%28%22%7B%3Ad%7D%20divides%20%7B%3Ad%7D!%22.format%28divisor,%20x%29%29%0A%20%20%20%20%20%20return%20not%20result%0A%20%20%20%20divisor%2B%3D1%20%20%20%20%0A%20%20return%20True%20%20%0A%0A%23%20finds%20out%20if%20d%20is%20an%20exact%20divisor%20of%20x%0Adef%20is_divisor%28x,%20d%29%3A%0A%20%20r%20%3D%20x%25d%0A%20%20if%20r%20%3D%3D%200%3A%0A%20%20%20%20return%20True%0A%20%20else%3A%0A%20%20%20%20return%20False%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
 
         <br><br>
 
-        <h4>count</h4>
-        The method <b><tt>count(x)</tt></b> returns the number of times x occurs in the string:
-        <br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">phrase <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;The future ain&#39;t what it used to be.&quot;</span>
-<span style="color: #888888"># next line prints 8</span>
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Number of words in &#39;{:s}&#39; is {:d}&quot;</span><span style="color: #333333">.</span>format(phrase,phrase<span style="color: #333333">.</span>count(<span style="background-color: #fff0f0">&quot; &quot;</span>)<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>) )
-</pre></div>
-        <br><br>
+        <br><br><br><br>
 
-        <h4>Questions about the String's format</h4>        
-        You can use some methods to ask questions about the string:
-
-        <ul>
-          <li>isalnum()</li>
-          <li>isdigit()</li>
-          <li>islower()</li>
-          <li>isupper()</li>
-          <li>isspace()</li>
-          <li>startswith(x)</li>
-          <li>endswith(x)  </li>
-        </ul> 
-
-        <h4>New strings with modifications</h4>        
-        You can use create new strings with the following methods:
-
-        <ul>
-          <li>capitalize()</li>
-          <li>lower()</li>
-          <li>upper()</li>
-          <li>strip()</li>
-          <li>title()</li>
-        </ul> 
+      <h3>What could go wrong?</h3>
 
 
-        <br><br>
-
-        For example, one creates a new string when capitalizing a base one:
-        <br><br>
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;asap&quot;</span>
-new_str <span style="color: #333333">=</span> my_str<span style="color: #333333">.</span>upper()
-<span style="color: #007020">print</span>(new_str)
-</pre></div>
-        <br><br>
-
-        <h3>Chaining method calls</h3>
-
-        sequences of calls can be done on each resulting string. Since one call results in a string, the next call can be simply appended to the previous one.
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
-          What does the following program print?
-          <br>
-<br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;   nEVer tHe leSs    &quot;</span>
-<span style="color: #007020">print</span> ( my_str<span style="color: #333333">.</span>strip()<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&quot; &quot;</span>, <span style="background-color: #fff0f0">&quot;&quot;</span>)<span style="color: #333333">.</span>title() )
-</pre></div>
-        </div> 
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Splitting and Joining Strings</h2>
-
-      <p>
-        Another typical task is to separate a string into a <b><tt>list</tt></b> of component substrings, or <b><tt>tokens</tt></b>.
-        <br><br>
-
-        <h3>split</h3>
-
-        The <b><tt>split</tt></b> method can achieve this by specifying the character(s) that are to be considered the <b><tt>separators</tt></b> between the tokens.
-        <br><br>
-
-        We will learn how to work with lists next lecture, but for now, we'll just print the results directly (which <b><tt>print</tt></b> ca handle). 
-        <br><br>
-
-        Let's do some splits:
-        <br><br>
-
-        Example:
-        <br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">phrase <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;time consumes everything but it is also the best&quot;</span>
-tokens <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>split()
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the phrase &#39;{:s}&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(phrase, tokens))
-</pre></div>
-        <br><br>
-
-        Try it <a href="https://pythontutor.com/visualize.html#code=phrase%20%3D%20%22time%20consumes%20everything%20but%20it%20is%20also%20the%20best%22%0Atokens%20%3D%20phrase.split%28%29%0Aprint%28%22the%20phrase%20'%7B%3As%7D'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28phrase,%20tokens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
-
-        <br><br>
-        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          What happens if you change the input to <b><tt>split</tt></b> to the space: <b><tt>" "</tt></b>?
+          Make a change in the "draw" example to show two possible issues with the while          
         </div>
 
         <br><br>
 
-        You can use different tokens (I actually wrote "Tolkiens" there!):
-        <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">url <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;https://frankpablo.github.io/classes/csc111/lectures/lectureNotes10.html&quot;</span>
-tolkiens <span style="color: #333333">=</span> url<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot;/&quot;</span>)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the url &#39;{:s}&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(url, tolkiens))
-</pre></div>
-        <br><br>
+        Before we see the syntax for the <b><tt>for</tt></b> loop, we'll see one useful function: <b><tt>range</tt></b>.
 
-        Try it <a href="https://pythontutor.com/visualize.html#code=url%20%3D%20%22https%3A//frankpablo.github.io/classes/csc111/lectures/lectureNotes10.html%22%0Atolkiens%20%3D%20url.split%28%22/%22%29%0Aprint%28%22the%20url%20'%7B%3As%7D'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28url,%20tolkiens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
-  
-<br><br>
-        You can also separate into tokens composed of strings (longer than 1 character).
+        <br><br>
+        <br><br><br><br>
+
+        <h3>The range function</h3>
+
+        <a href="https://docs.python.org/3/library/stdtypes.html#range">range</a> is a built-in function that accepts integer arguments (<b><tt>start , stop , step</tt></b>) and returns an immutable sequence of numbers.      
+
+        <br><br>
+        the range is not like a string or a list, where the individual elements are stored independently.
         <br>
-        Example:
+        It is an interval of integers.
         <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">quote <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Baseball is ninety percent mental and the other half is physical.&quot;</span>
-tokens <span style="color: #333333">=</span> quote<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot;al&quot;</span>)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the quote &#39;{:s}&#39;, separated by &#39;al&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(quote, tokens))
+        It can be converted to a list (if so desired) but for our purposes, it is enough to use it directly as the <tt>container</tt> in the <b><tt>for</tt></b> loop parameters.
+        <br><br>
+
+
+        <br><br><br><br>
+
+        <h3>The For Loop</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">for</span> variable <span style="color: #000000; font-weight: bold">in</span> container:
+    <span style="color: #888888"># Loop body: Sub-statements to execute</span>
+    <span style="color: #888888"># for each item in the container</span>
+
+<span style="color: #888888"># Statements to execute after the for loop is complete</span>
 </pre></div>
+      <br><br>
+
+      <b>Example 1</b>:
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
+2  
+3  
+4  
+5  
+6  
+7  
+8  
+9  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  draw(<span style="color: #0000DD; font-weight: bold">5</span>)
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">draw</span>(lim):
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">5</span>) :
+        <span style="color: #007020">print</span>(i <span style="color: #333333">*</span> <span style="background-color: #fff0f0">&#39;*&#39;</span>) <span style="color: #888888"># this prints x stars in a row</span>
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
         <br><br>
-        Try it <a href="https://pythontutor.com/visualize.html#code=quote%20%3D%20%22Baseball%20is%20ninety%20percent%20mental%20and%20the%20other%20half%20is%20physical.%22%0Atokens%20%3D%20quote.split%28%22al%22%29%0Aprint%28%22the%20quote%20'%7B%3As%7D',%20separated%20by%20'al'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28quote,%20tokens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+        Let's try it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20draw%285%29%0A%0Adef%20draw%28lim%29%3A%0A%20%20%20%20for%20i%20in%20range%281,5%29%20%3A%0A%20%20%20%20%20%20%20%20print%28i%20*%20'*'%29%20%23%20this%20prints%20x%20stars%20in%20a%20row%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
 
         <br><br>
 
 
-        <h3>join</h3>
-
-        Another useful task is to join tokens into a longer string.
-        <br><br>
-        The format is:
-        <br><br>
-        <b><tt>&lt; separator &gt; . join ( &lt; list of tokens &gt; )</tt></b>
         <br><br>
 
-        Example:
+        <b>Example 2</b>:
         <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">num_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;1 2 3 4 5 6 7 8 9&quot;</span>
-<span style="color: #888888">#making the tokens</span>
-tokens <span style="color: #333333">=</span> num_str<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot; &quot;</span>)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the num_str &#39;{:s}&#39;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">is composed of the tokens:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">{}&quot;</span><span style="color: #333333">.</span>format(num_str, tokens))
-<span style="color: #007020">print</span>()
-<span style="color: #888888"># joining with &#39;+&#39;</span>
-num_expr <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;+&quot;</span><span style="color: #333333">.</span>join(tokens)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;expression:&quot;</span>,num_expr)
-<span style="color: #888888"># you can use this for something!</span>
-<span style="color: #007020">print</span>( <span style="color: #007020">eval</span>(num_expr) )
-</pre></div>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  
+13  
+14  
+15  
+16  
+17  
+18  
+19  
+20  
+21  
+22  
+23  
+24  
+25  
+26  
+27  
+28  
+29  
+30  
+31  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># Calc if a number is a prime</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #888888"># what if num is 50? and 1147?</span>
+  num <span style="color: #333333">=</span>  <span style="color: #0000DD; font-weight: bold">25</span>
+
+  <span style="color: #888888"># let&#39;s find out if x is prime</span>
+  result <span style="color: #333333">=</span> is_prime(num)
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Is {:d} a prime?: Result: {}&quot;</span><span style="color: #333333">.</span>format(num, result))
+
+<span style="color: #888888"># checks if there is a divisor in [2,x/2]</span>
+<span style="color: #888888"># not the most efficient, but ok</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">is_prime</span>(x):
+  divisor <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
+  lim <span style="color: #333333">=</span> x<span style="color: #333333">//</span><span style="color: #0000DD; font-weight: bold">2</span>
+  <span style="color: #008800; font-weight: bold">for</span> divisor <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">2</span>,lim):
+    result <span style="color: #333333">=</span> is_divisor(x,divisor)
+    <span style="color: #008800; font-weight: bold">if</span> result:
+      <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;{:d} divides {:d}!&quot;</span><span style="color: #333333">.</span>format(divisor, x))
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #000000; font-weight: bold">not</span> result   
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>  
+
+<span style="color: #888888"># finds out if d is an exact divisor of x</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">is_divisor</span>(x, d):
+  r <span style="color: #333333">=</span> x<span style="color: #333333">%</span>d
+  <span style="color: #008800; font-weight: bold">if</span> r <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>
+  <span style="color: #008800; font-weight: bold">else</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>  
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
         <br><br>
-        Try it <a href="https://pythontutor.com/visualize.html#code=num_str%20%3D%20%221%202%203%204%205%206%207%208%209%22%0A%23making%20the%20tokens%0Atokens%20%3D%20num_str.split%28%22%20%22%29%0Aprint%28%22the%20num_str%20'%7B%3As%7D'%5Cnis%20composed%20of%20the%20tokens%3A%5Cn%7B%7D%22.format%28num_str,%20tokens%29%29%0Aprint%28%29%0A%23%20joining%20with%20'%2B'%0Anum_expr%20%3D%20%22%2B%22.join%28tokens%29%0Aprint%28%22expression%3A%22,num_expr%29%0A%23%20you%20can%20use%20this%20for%20something!%0Aprint%28%20eval%28num_expr%29%20%29%0A&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
 
+        Let's try it out <a href="https://pythontutor.com/visualize.html#code=%23%20Calc%20if%20a%20number%20is%20a%20prime%0Adef%20main%28%29%3A%0A%20%20%23%20what%20if%20num%20is%2050%3F%20and%201147%3F%0A%20%20num%20%3D%20%2025%0A%0A%20%20%23%20let's%20find%20out%20if%20x%20is%20prime%0A%20%20result%20%3D%20is_prime%28num%29%0A%20%20print%20%28%22Is%20%7B%3Ad%7D%20a%20prime%3F%3A%20Result%3A%20%7B%7D%22.format%28num,%20result%29%29%0A%0A%23%20checks%20if%20there%20is%20a%20divisor%20in%20%5B2,x/2%5D%0A%23%20not%20the%20most%20efficient,%20but%20ok%0Adef%20is_prime%28x%29%3A%0A%20%20divisor%20%3D%202%0A%20%20lim%20%3D%20x//2%0A%20%20for%20divisor%20in%20range%282,lim%29%3A%0A%20%20%20%20result%20%3D%20is_divisor%28x,divisor%29%0A%20%20%20%20if%20result%3A%0A%20%20%20%20%20%20print%20%28%22%7B%3Ad%7D%20divides%20%7B%3Ad%7D!%22.format%28divisor,%20x%29%29%0A%20%20%20%20%20%20return%20not%20result%20%20%20%0A%20%20return%20True%20%20%0A%0A%23%20finds%20out%20if%20d%20is%20an%20exact%20divisor%20of%20x%0Adef%20is_divisor%28x,%20d%29%3A%0A%20%20r%20%3D%20x%25d%0A%20%20if%20r%20%3D%3D%200%3A%0A%20%20%20%20return%20True%0A%20%20else%3A%0A%20%20%20%20return%20False%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
 
-      </p>
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Next Wednesday: Midterm</h2>
-
-      <p>
-
-        How to prepare:
-        <ol>
-          <li>Study the notes and exercises</li>
-          <li>Bring questions for Friday!</li>
-          <li>Themes:
-            <ul>
-              <li>Distinguishing data types</li>
-              <li>Understanding assignment and variable naming</li>            
-              <li>Program tracing: given a program, and some possible input, you must be able to trace the program execution (using your miind, paper, and pencil only)</li>
-              <li>Built-in functions: what do they do (the ones we've used from <a href="https://docs.python.org/3/library/functions.html">these</a>) </li>              
-              <li>Writing Functions: given a function description, write it; given a function, describe its parts and how it works; Call functions with functions as arguments (finction composition).</li>
-              <li>Conditionals: how to write them to ask the right questions and to reach the right blocks; nested if statements and combining conditions.</li>
-              <li>Common errors (Exceptions) when coding (indentation, concatenating str and int, index out of range, variables not defined, etc)</li>
-              <li>Common logical errors (Bugs): <b><tt>=</tt></b> vs <b><tt>==</tt></b>, unreachable <b><tt>elif</tt></b> or <b><tt>else</tt></b>, not using integer division, etc.</li>
-              <li>Common string operations: concatenation, access, slicing, and joining</li>
-              <li>Using string methods</li>
-              <li>Common list operations: creating, editing, appending, slicing</li>
-              <li>Using list methods</li>
-            </ul>
-          </li>
-        </ol>
 
       </p>
 
       
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Friday)</h4>
-      <b>[Due for everyone]</b>  <br>
-      ZyBooks Sections 6.1, 6.2<br>
-      Assignment 02 (Replit); due on 09/29 before 11:59 PM
+      <h2>Loop Vs While</h2>
+
+      <p>
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          First, analyze the following code and explain what it does (and how!)
+          <br><br>
+          Then, open up your scratch pad (Replit) and transform the following While Loop into a For Loop
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  
+13  
+14  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>
+  fac <span style="color: #333333">=</span> factorial(num)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The factorial of {:d} is {:d}&quot;</span><span style="color: #333333">.</span>format(num, fac))
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">factorial</span>(x):
+  mult <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+  <span style="color: #008800; font-weight: bold">while</span> x <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+    mult <span style="color: #333333">*=</span> x
+    x<span style="color: #333333">-=</span><span style="color: #0000DD; font-weight: bold">1</span>
+  <span style="color: #008800; font-weight: bold">return</span> mult  
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+
+        </div>
 
       <br><br>
 
-      <b>[Optional]</b> <b><big>TODO</big></b><br>
+      <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          First, analyze the following code and explain what it does (and how!)
+          <br><br>
+          Then, open up your scratch pad (Replit) and transform the following For Loop into a While Loop
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  
+13  
+14  
+15  
+16  
+17  
+18  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  word <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;evolutionarily&quot;</span>
+  li_counts <span style="color: #333333">=</span> vowel_counts(word)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The vowel counts in {:s} are {}&quot;</span><span style="color: #333333">.</span>format(word, li_counts))
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">vowel_counts</span>(word):
+  wrd_low <span style="color: #333333">=</span> word<span style="color: #333333">.</span>lower()
+  vowels <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;aeiou&quot;</span>
+  counts <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #888888"># vowel counts</span>
+  <span style="color: #888888"># note the cool way to iterate chars over a string!</span>
+  <span style="color: #008800; font-weight: bold">for</span> char <span style="color: #000000; font-weight: bold">in</span> wrd_low:
+    <span style="color: #008800; font-weight: bold">if</span> char <span style="color: #000000; font-weight: bold">in</span> vowels:
+      idx <span style="color: #333333">=</span> vowels<span style="color: #333333">.</span>find(char)
+      counts[idx] <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+  <span style="color: #008800; font-weight: bold">return</span> counts  
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main() 
+</pre></td></tr></table></div>
+
+
+        </div>
+
+
+
+      </p>
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Friday 10/15)</h4>
+      <b>[Due for everyone]</b>  
+      <br>
+      ZyBooks Sections 4.8 - 4.10 
+      <br>
+      Assignment 03 is out (Due 10/20) but another assignment will be released on Friday and will be due 10/25 so work on this one early!!
+
+      <br><br>
+
+      <b>[Optional]</b>
+      <br>
+      ZyBooks Sections 4.11 - 4.12 
 
 
 
@@ -677,10 +662,10 @@ num_expr <span style="color: #333333">=</span> <span style="background-color: #f
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes13.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes11.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Next Module</a>
               </li>
             </ul>
           </div>

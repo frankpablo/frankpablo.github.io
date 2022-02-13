@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes13.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,31 +122,24 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 14: More Loops</h1>
+      <h1>Lecture Notes 09: Intro to Loops</h1>
       <p>
         <br>
       </p>
 
       <p><br></p><hr><p><br></p>
-      <h2>Three concepts: None, in, and is</h2>       
+
+      <h2>Repetition is Necessary</h2>
 
       <p>
 
-        <h3>None</h3>
-
-        If one does not explicitly return a value in a vunction, the default "return" is <b><tt>None</tt></b>.
-        <br><br>
-        <b><tt>None</tt></b> is a python reserved word, used to define a "null value", or "the absence of a value".
-        <br><br>
-        <ul>
-          <li><b><tt>None</tt></b> is not 0</li>
-          <li><b><tt>None</tt></b> is not False</li>
-          <li><b><tt>None</tt></b> is of type <b><tt>NoneType</tt></b></li>
-        </ul>
-
+        Sometimes, we need to do work over and over again.
         <br><br>
 
-        Example:
+        We've talked about ways to do this work in clever ways, for example: <b>by using function calls</b>
+        <br><br>
+
+        <b>Example 1</b>: Drawing a pyramid of stars
 
         <br><br>
 
@@ -161,73 +154,27 @@
  9  
 10  
 11  
-12  
-13  
-14  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
-  num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>
-  
-  <span style="color: #888888"># If I try to get a return value from no_return</span>
-  ret_value <span style="color: #333333">=</span> no_return(num)
-  
-  <span style="color: #888888"># I get None</span>
-  <span style="color: #007020">print</span> (ret_value)
+12  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  draw(<span style="color: #0000DD; font-weight: bold">1</span>)
+  draw(<span style="color: #0000DD; font-weight: bold">2</span>)
+  draw(<span style="color: #0000DD; font-weight: bold">3</span>)
+  draw(<span style="color: #0000DD; font-weight: bold">4</span>)
+  draw(<span style="color: #0000DD; font-weight: bold">5</span>)
 
-<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">no_return</span> (num):
-  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;only displays num: &quot;</span>, num)
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">draw</span>(x):
+  <span style="color: #007020">print</span>(x <span style="color: #333333">*</span> <span style="background-color: #fff0f0">&#39;*&#39;</span>) <span style="color: #888888"># this prints x stars in a row</span>
 
 <span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-    main()  
+    main()
 </pre></td></tr></table></div>
 
-        <br><br>
-
-        Try it <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20num%20%3D%205%0A%20%20%0A%20%20%23%20If%20I%20try%20to%20get%20a%20return%20value%20from%20no_return%0A%20%20ret_value%20%3D%20no_return%28num%29%0A%20%20%0A%20%20%23%20I%20get%20None%0A%20%20print%20%28ret_value%29%0A%0Adef%20no_return%20%28num%29%3A%0A%20%20print%28%22only%20displays%20num%3A%20%22,%20num%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29%20%20&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
-
-        <br><br>
-        <br><br><br><br>
-
-        <h3>in</h3>
-
-        The <b>Membership Operator</b>  <b><tt>in</tt></b> returns <b><tt>True</tt></b> if a sequence with the specified value is present in the object.
+<br><br>
+        Let's try it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20draw%281%29%0A%20%20draw%282%29%0A%20%20draw%283%29%0A%20%20draw%284%29%0A%20%20draw%285%29%0A%0Adef%20draw%28x%29%3A%0A%20%20print%28x%20*%20'*'%29%20%23%20this%20prints%20x%20stars%20in%20a%20row%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
+<br><br>
+        <b>Example 2</b>: Calculating if a small number is a prime
 
         <br><br>
 
-        Example:
-
-        <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
-2  
-3  </pre></td><td><pre style="margin: 0; line-height: 125%">word <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;abracadabra&quot;</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;ada&quot;</span> <span style="color: #000000; font-weight: bold">in</span> word) <span style="color: #888888"># prints True</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;aaa&quot;</span> <span style="color: #000000; font-weight: bold">in</span> word) <span style="color: #888888"># prints False</span>
-</pre></td></tr></table></div>
-
-        <br><br>
-
-        One can also ask the opposite!
-
-        <br><br>
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
-2  
-3  </pre></td><td><pre style="margin: 0; line-height: 125%">sentence <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;the password is &#39;Cat&#39;&quot;</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Yak&quot;</span> <span style="color: #000000; font-weight: bold">not</span> <span style="color: #000000; font-weight: bold">in</span> sentence) <span style="color: #888888"># prints True</span>
-<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Cat&quot;</span> <span style="color: #000000; font-weight: bold">not</span> <span style="color: #000000; font-weight: bold">in</span> sentence) <span style="color: #888888"># prints False</span>
-</pre></td></tr></table></div>
-
-
-        <br><br>
-
-        <h3>is</h3>
-
-        <b><tt>is</tt></b> and <b><tt>is not</tt></b> are the identity operators in Python. 
-        <br><br>
-        They are used to check if two values (or variables) are located on the same part of the memory. 
-        <br><br>
-
-        Two variables that are equal does not imply that they are identical.
-
-        <br><br>
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
  2  
  3  
@@ -242,43 +189,151 @@
 12  
 13  
 14  
-15  </pre></td><td><pre style="margin: 0; line-height: 125%">x1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>
-y1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>
-x2 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Hello&#39;</span>
-y2 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Hello&#39;</span>
-x3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">2</span>,<span style="color: #0000DD; font-weight: bold">3</span>]
-y3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">2</span>,<span style="color: #0000DD; font-weight: bold">3</span>]
+15  
+16  
+17  
+18  
+19  
+20  
+21  
+22  
+23  
+24  
+25  
+26  
+27  
+28  
+29  
+30  
+31  
+32  
+33  
+34  
+35  
+36  
+37  
+38  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #888888"># what if num is 50? and 1147?</span>
+  num <span style="color: #333333">=</span>  <span style="color: #0000DD; font-weight: bold">25</span>
 
-<span style="color: #888888"># Output: False</span>
-<span style="color: #007020">print</span>(x1 <span style="color: #000000; font-weight: bold">is</span> <span style="color: #000000; font-weight: bold">not</span> y1)
+  <span style="color: #888888"># let&#39;s find out if x is prime</span>
+  result <span style="color: #333333">=</span> is_prime(num)
+  <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Is {:d} a prime?: Result: {}&quot;</span><span style="color: #333333">.</span>format(num, result))
 
-<span style="color: #888888"># Output: True</span>
-<span style="color: #007020">print</span>(x2 <span style="color: #000000; font-weight: bold">is</span> y2)
+<span style="color: #888888"># checks if the first 3 primes are factors of x</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">is_prime</span>(x):
+  result <span style="color: #333333">=</span> is_divisor(x,<span style="color: #0000DD; font-weight: bold">2</span>)
+  <span style="color: #008800; font-weight: bold">if</span> result:
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;{:d} divides {:d}!&quot;</span><span style="color: #333333">.</span>format(<span style="color: #0000DD; font-weight: bold">2</span>, x))
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #000000; font-weight: bold">not</span> result
+  result <span style="color: #333333">=</span> is_divisor(x,<span style="color: #0000DD; font-weight: bold">3</span>)
+  <span style="color: #008800; font-weight: bold">if</span> result:
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;{:d} divides {:d}!&quot;</span><span style="color: #333333">.</span>format(<span style="color: #0000DD; font-weight: bold">3</span>, x))  
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #000000; font-weight: bold">not</span> result
+  result <span style="color: #333333">=</span> is_divisor(x,<span style="color: #0000DD; font-weight: bold">4</span>)
+  <span style="color: #008800; font-weight: bold">if</span> result:
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;{:d} divides {:d}!&quot;</span><span style="color: #333333">.</span>format(<span style="color: #0000DD; font-weight: bold">4</span>, x))  
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #000000; font-weight: bold">not</span> result  
+  result <span style="color: #333333">=</span> is_divisor(x,<span style="color: #0000DD; font-weight: bold">5</span>)
+  <span style="color: #008800; font-weight: bold">if</span> result:
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;{:d} divides {:d}!&quot;</span><span style="color: #333333">.</span>format(<span style="color: #0000DD; font-weight: bold">5</span>, x))  
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #000000; font-weight: bold">not</span> result  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>  
 
-<span style="color: #888888"># Output: False</span>
-<span style="color: #007020">print</span>(x3 <span style="color: #000000; font-weight: bold">is</span> y3)
+<span style="color: #888888"># finds out if d is an exact divisor of x</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">is_divisor</span>(x, d):
+  r <span style="color: #333333">=</span> x<span style="color: #333333">%</span>d
+  <span style="color: #008800; font-weight: bold">if</span> r <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>
+  <span style="color: #008800; font-weight: bold">else</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>  
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
 </pre></td></tr></table></div>
 
-        <br><br>
-
-        Let's visualize te example <a href="https://pythontutor.com/visualize.html#code=x1%20%3D%205%0Ay1%20%3D%205%0Ax2%20%3D%20'Hello'%0Ay2%20%3D%20'Hello'%0Ax3%20%3D%20%5B1,2,3%5D%0Ay3%20%3D%20%5B1,2,3%5D%0A%0A%23%20Output%3A%20False%0Aprint%28x1%20is%20not%20y1%29%0A%0A%23%20Output%3A%20True%0Aprint%28x2%20is%20y2%29%0A%0A%23%20Output%3A%20False%0Aprint%28x3%20is%20y3%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
 
         <br><br>
-        Check out the nice summary on <a href="https://www.programiz.com/python-programming/operators">Operators</a>.
+        Let's try it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20%23%20what%20if%20num%20is%2050%3F%20and%201147%3F%0A%20%20num%20%3D%20%2025%0A%0A%20%20%23%20let's%20find%20out%20if%20x%20is%20prime%0A%20%20result%20%3D%20is_prime%28num%29%0A%20%20print%20%28%22Is%20%7B%3Ad%7D%20a%20prime%3F%3A%20Result%3A%20%7B%7D%22.format%28num,%20result%29%29%0A%0A%23%20checks%20if%20the%20first%203%20primes%20are%20factors%20of%20x%0Adef%20is_prime%28x%29%3A%0A%20%20result%20%3D%20is_divisor%28x,2%29%0A%20%20if%20result%3A%0A%20%20%20%20print%20%28%22%7B%3Ad%7D%20divides%20%7B%3Ad%7D!%22.format%282,%20x%29%29%0A%20%20%20%20return%20not%20result%0A%20%20result%20%3D%20is_divisor%28x,3%29%0A%20%20if%20result%3A%0A%20%20%20%20print%20%28%22%7B%3Ad%7D%20divides%20%7B%3Ad%7D!%22.format%283,%20x%29%29%20%20%0A%20%20%20%20return%20not%20result%0A%20%20result%20%3D%20is_divisor%28x,4%29%0A%20%20if%20result%3A%0A%20%20%20%20print%20%28%22%7B%3Ad%7D%20divides%20%7B%3Ad%7D!%22.format%284,%20x%29%29%20%20%0A%20%20%20%20return%20not%20result%20%20%0A%20%20result%20%3D%20is_divisor%28x,5%29%0A%20%20if%20result%3A%0A%20%20%20%20print%20%28%22%7B%3Ad%7D%20divides%20%7B%3Ad%7D!%22.format%285,%20x%29%29%20%20%0A%20%20%20%20return%20not%20result%20%20%0A%20%20return%20True%20%20%0A%0A%23%20finds%20out%20if%20d%20is%20an%20exact%20divisor%20of%20x%0Adef%20is_divisor%28x,%20d%29%3A%0A%20%20r%20%3D%20x%25d%0A%20%20if%20r%20%3D%3D%200%3A%0A%20%20%20%20return%20True%0A%20%20else%3A%0A%20%20%20%20return%20False%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
 
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Answer the following questions:
+          <br><br>
+          <ol>              
+            <li>
+              Why are we checking only up to 5 when checking if num (25) is prime?
+            </li>
+            <li>
+              Is there some unnecessary work done?
+            </li>  
+          </ol>
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>
+              <ol>
+                <li>
+                  Because in every pair of factors (exept an exact root), there is one large and one small one;
+                  <br>
+                  we just need to check all the small ones up to and including the root.
+                </li>
+                <li>
+                  Yes, we technically don't need to check 4.
+                </li>             
+              </ol>
+            <br><br>
+          </details>
+        </div>
+        
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Can we do better?</h2>
+
+      <p>
+        The first thing to notice is that <b>there are blocks of code that look very similar to one another</b>.
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture09/similarBlocks1.png" alt="very close!" style="width:100%">
+        <br><br>
+        OR
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture09/similarBlocks2.png" alt="very close!" style="width:100%">
+        <br><br>
+        There are <b>only small differences</b> in the values used (directly or the ones inside variables).
+        <br><br>        
+        we can take advantage of this if only there was some structure that would "perform the same block of code over and over again, until we're done with it".
+        <br><br><br><br>
+
+        Well, guess what?
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>The Loop</h2>
+
+      <p>
+
+        Before introducing the syntax, I'll show a diagram of what these structures (there are more than 1) do:
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture09/repeatedCode.png" alt="repeated" style="width:40%">
+        <br><br>
+
+        We can use a structure that "repeats the code" while also "updating some variable" in order to make each loop do the same work that the repeated code (previous image) was doing.
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture09/LOOPStruct.png" alt="LOOP!!" style="width:100%">
+        <br><br> 
 
 
       </p>
 
       <p><br></p><hr><p><br></p>
 
-      <h2>While Vs For: Our two Running examples</h2>
+      <h2>The While Loop Syntax</h2>
 
       <p>
-
-        <h3>The While Loop</h3>
-        <br><br>
-
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">while</span> expression:  <span style="color: #888888"># Loop expression</span>
     <span style="color: #888888"># Loop body: Sub-statements to execute</span>
     <span style="color: #888888"># if the loop expression evaluates to True</span>
@@ -315,7 +370,7 @@ y3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weig
 
         Let's try it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20draw%285%29%0A%0Adef%20draw%28lim%29%3A%0A%20%20%20%20i%20%3D%201%0A%20%20%20%20while%20i%20%3C%3D%20lim%20%3A%0A%20%20%20%20%20%20%20%20print%28i%20*%20'*'%29%20%23%20this%20prints%20x%20stars%20in%20a%20row%0A%20%20%20%20%20%20%20%20i%2B%3D1%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
 
-<br><br>
+<br><br><br><br>
 
       <b>Example 2</b>:
       <br><br>
@@ -389,28 +444,54 @@ y3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weig
 
         Let's try it out <a href="https://pythontutor.com/visualize.html#code=%23%20Calc%20if%20a%20number%20is%20a%20prime%0Adef%20main%28%29%3A%0A%20%20%23%20what%20if%20num%20is%2050%3F%20and%201147%3F%0A%20%20num%20%3D%20%2025%0A%0A%20%20%23%20let's%20find%20out%20if%20x%20is%20prime%0A%20%20result%20%3D%20is_prime%28num%29%0A%20%20print%20%28%22Is%20%7B%3Ad%7D%20a%20prime%3F%3A%20Result%3A%20%7B%7D%22.format%28num,%20result%29%29%0A%0A%23%20checks%20if%20there%20is%20a%20divisor%20in%20%5B2,x/2%5D%0A%23%20not%20the%20most%20efficient,%20but%20ok%0Adef%20is_prime%28x%29%3A%0A%20%20divisor%20%3D%202%0A%20%20lim%20%3D%20x//2%0A%20%20while%20divisor%20%3C%3D%20lim%3A%0A%20%20%20%20result%20%3D%20is_divisor%28x,divisor%29%0A%20%20%20%20if%20result%3A%0A%20%20%20%20%20%20print%20%28%22%7B%3Ad%7D%20divides%20%7B%3Ad%7D!%22.format%28divisor,%20x%29%29%0A%20%20%20%20%20%20return%20not%20result%0A%20%20%20%20divisor%2B%3D1%20%20%20%20%0A%20%20return%20True%20%20%0A%0A%23%20finds%20out%20if%20d%20is%20an%20exact%20divisor%20of%20x%0Adef%20is_divisor%28x,%20d%29%3A%0A%20%20r%20%3D%20x%25d%0A%20%20if%20r%20%3D%3D%200%3A%0A%20%20%20%20return%20True%0A%20%20else%3A%0A%20%20%20%20return%20False%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
 
-        <br><br>
+      </p>
 
-        <br><br><br><br>
+      <p><br></p><hr><p><br></p>
 
-      <h3>What could go wrong?</h3>
+      <h2>What could go wrong?</h2>
 
+      <p>
 
-        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
-          Make a change in the "draw" example to show two possible issues with the while          
+          What could go wrong with these structures?          
         </div>
 
-        <br><br>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>The For Loop Syntax</h2>
+
+      <p>
 
         Before we see the syntax for the <b><tt>for</tt></b> loop, we'll see one useful function: <b><tt>range</tt></b>.
 
-        <br><br>
-        <br><br><br><br>
-
         <h3>The range function</h3>
 
-        <a href="https://docs.python.org/3/library/stdtypes.html#range">range</a> is a built-in function that accepts integer arguments (<b><tt>start , stop , step</tt></b>) and returns an immutable sequence of numbers.      
+        <a href="https://docs.python.org/3/library/stdtypes.html#range">range</a> is a built-in function that accepts integer arguments (<b><tt>start , stop , step</tt></b>) and returns an immutable sequence of numbers.
+        <br><br>
+
+        Example: 
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># r is the object range(0,10), 10 not included</span>
+r <span style="color: #333333">=</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">10</span>) 
+<span style="color: #007020">print</span>(r)
+num_list <span style="color: #333333">=</span> <span style="color: #007020">list</span>(r)
+<span style="color: #007020">print</span>(num_list)
+<span style="color: #007020">print</span> (<span style="color: #0000DD; font-weight: bold">3</span> <span style="color: #000000; font-weight: bold">in</span> r)
+<span style="color: #007020">print</span>(<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #000000; font-weight: bold">in</span> r)
+<span style="color: #007020">print</span> (<span style="color: #0000DD; font-weight: bold">10</span> <span style="color: #000000; font-weight: bold">in</span> r)
+<span style="color: #888888"># r2 is the object range(3,7), 7 not included</span>
+r2 <span style="color: #333333">=</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">3</span>, <span style="color: #0000DD; font-weight: bold">7</span>) 
+num_list2 <span style="color: #333333">=</span> <span style="color: #007020">list</span>(r2)
+<span style="color: #007020">print</span>(num_list2)
+<span style="color: #888888"># r3 is the object range(2,10), skipping to every 3rd; 10 not included</span>
+r3 <span style="color: #333333">=</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">2</span>, <span style="color: #0000DD; font-weight: bold">10</span>,<span style="color: #0000DD; font-weight: bold">3</span>) 
+num_list3 <span style="color: #333333">=</span> <span style="color: #007020">list</span>(r3)
+<span style="color: #007020">print</span>(num_list3)
+</pre></div>
+
 
         <br><br>
         the range is not like a string or a list, where the individual elements are stored independently.
@@ -420,10 +501,7 @@ y3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weig
         It can be converted to a list (if so desired) but for our purposes, it is enough to use it directly as the <tt>container</tt> in the <b><tt>for</tt></b> loop parameters.
         <br><br>
 
-
-        <br><br><br><br>
-
-        <h3>The For Loop</h3>
+        <h3>The For Loop Syntax</h3>
 
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">for</span> variable <span style="color: #000000; font-weight: bold">in</span> container:
     <span style="color: #888888"># Loop body: Sub-statements to execute</span>
@@ -457,10 +535,14 @@ y3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weig
 
         Let's try it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20draw%285%29%0A%0Adef%20draw%28lim%29%3A%0A%20%20%20%20for%20i%20in%20range%281,5%29%20%3A%0A%20%20%20%20%20%20%20%20print%28i%20*%20'*'%29%20%23%20this%20prints%20x%20stars%20in%20a%20row%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here</a>
 
-        <br><br>
+                <br><br>
 
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Why do we use <tt>range(1,5)</tt> and not simply <tt>range(5)</tt>?       
+        </div>
 
-        <br><br>
+        <br><br><br><br>
 
         <b>Example 2</b>:
         <br><br>
@@ -536,114 +618,13 @@ y3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weig
       
       <p><br></p><hr><p><br></p>
 
-      <h2>Loop Vs While</h2>
-
-      <p>
-        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          First, analyze the following code and explain what it does (and how!)
-          <br><br>
-          Then, open up your scratch pad (Replit) and transform the following While Loop into a For Loop
-          <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
- 2  
- 3  
- 4  
- 5  
- 6  
- 7  
- 8  
- 9  
-10  
-11  
-12  
-13  
-14  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
-  num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>
-  fac <span style="color: #333333">=</span> factorial(num)
-  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The factorial of {:d} is {:d}&quot;</span><span style="color: #333333">.</span>format(num, fac))
-
-<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">factorial</span>(x):
-  mult <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
-  <span style="color: #008800; font-weight: bold">while</span> x <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">1</span>:
-    mult <span style="color: #333333">*=</span> x
-    x<span style="color: #333333">-=</span><span style="color: #0000DD; font-weight: bold">1</span>
-  <span style="color: #008800; font-weight: bold">return</span> mult  
-
-<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-    main()
-</pre></td></tr></table></div>
-
-        </div>
+      <h4>Homework</h4>
+      <b>[Due for everyone]</b>  <br>
+      Remember: Homework 03 (Replit); due on 02/18 before 5 PM
 
       <br><br>
 
-      <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          First, analyze the following code and explain what it does (and how!)
-          <br><br>
-          Then, open up your scratch pad (Replit) and transform the following For Loop into a While Loop
-          <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
- 2  
- 3  
- 4  
- 5  
- 6  
- 7  
- 8  
- 9  
-10  
-11  
-12  
-13  
-14  
-15  
-16  
-17  
-18  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
-  word <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;evolutionarily&quot;</span>
-  li_counts <span style="color: #333333">=</span> vowel_counts(word)
-  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The vowel counts in {:s} are {}&quot;</span><span style="color: #333333">.</span>format(word, li_counts))
-
-<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">vowel_counts</span>(word):
-  wrd_low <span style="color: #333333">=</span> word<span style="color: #333333">.</span>lower()
-  vowels <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;aeiou&quot;</span>
-  counts <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #888888"># vowel counts</span>
-  <span style="color: #888888"># note the cool way to iterate chars over a string!</span>
-  <span style="color: #008800; font-weight: bold">for</span> char <span style="color: #000000; font-weight: bold">in</span> wrd_low:
-    <span style="color: #008800; font-weight: bold">if</span> char <span style="color: #000000; font-weight: bold">in</span> vowels:
-      idx <span style="color: #333333">=</span> vowels<span style="color: #333333">.</span>find(char)
-      counts[idx] <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
-  <span style="color: #008800; font-weight: bold">return</span> counts  
-
-<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-    main() 
-</pre></td></tr></table></div>
-
-
-        </div>
-
-
-
-      </p>
-
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h4>Before next class (Friday 10/15)</h4>
-      <b>[Due for everyone]</b>  
-      <br>
-      ZyBooks Sections 4.8 - 4.10 
-      <br>
-      Assignment 03 is out (Due 10/20) but another assignment will be released on Friday and will be due 10/25 so work on this one early!!
-
-      <br><br>
-
-      <b>[Optional]</b>
-      <br>
-      ZyBooks Sections 4.11 - 4.12 
+      <b>[Optional]</b> <b><big>ZyBooks Sections 4.2, 4.4, 4.5, and 4.6</big></b><br>
 
 
 
@@ -662,10 +643,10 @@ y3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weig
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes13.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
               </li>
             </ul>
           </div>
