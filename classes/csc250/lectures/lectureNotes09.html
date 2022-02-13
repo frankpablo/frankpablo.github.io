@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,7 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 07: <br>
+      <h1>Lecture Notes 09: <br>
       Non-Regular Languages and the Pumping Lemma</h1>
       <p>
         <br>
@@ -263,7 +263,7 @@
               <summary>(Wait; then Click)<br><br></summary>
               <p>
                 <br><br>
-                <img class="img-fluid" src="../figures/lecture07/RE-to-FA-to-RE.gif" alt="RE to FA and back" style="width:100%">
+                <img class="img-fluid" src="../figures/lecture09/RE-to-FA-to-RE.gif" alt="RE to FA and back" style="width:100%">
                 <br><br> 
               </p>
             </details>
@@ -275,7 +275,7 @@
         <h3>Relation between REs and FAs</h3>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/Langs-past-RE-FA.png" alt="RE to FA and beyond?" style="width:50%">
+        <img class="img-fluid" src="../figures/lecture09/Langs-past-RE-FA.png" alt="RE to FA and beyond?" style="width:50%">
         <br><br>
 
 
@@ -298,14 +298,34 @@
         The answer is <b>YES</b>.
         <br><br>
 
-        An example:
+        <b>Can you suggest a couple examples?</b>
+        <details>
+            <summary>(Wait; then Click)<br><br></summary>
+            An example:
 
-        \[ \text{Language B }= \{ 0^n1^n  \mid n\geq 0\}  \]
+            \[ \text{Language B }= \{ 0^n1^n  \mid n\geq 0\}  \]
+            <br><br>
+            <li>Notice that we would need states that capture the fact that there were no 0z and no 1s ; one 0 and one 1; two 0s and teo 1s; etc... up to \( n \rightarrow \inf\)</li>
+            <br><br>
+        </details>
+
+        
 
         <br><br><br><br>
 
         How do we find out if a language is regular or not? 
-        <br>
+        <br><br>
+
+        <li>First thing first: <b>It MUST BE INFINITE</b>... why?</li>
+        <br><br><br><br>
+
+
+        <li>But, is an infinite language non-regular? ... NO, because (1*) is a RE that generatea an infinit RL!</li>
+        <br><br><br><br>
+
+        <li>Would we need infinite states to express the result???</li>
+        <br><br>
+
         Intuition is not enough (some Langs that appear to need infinite states don't actually).
 
         <br><br>
@@ -339,14 +359,14 @@
       <p>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/runningExample.png" alt="example" style="width:50%">
+        <img class="img-fluid" src="../figures/lecture09/runningExample.png" alt="example" style="width:50%">
         <br><br>
 
         <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
           What do you see in the following sequences of states (for accepted and rejected strings?)
           <br><br>
-          <img class="img-fluid" src="../figures/lecture07/patterns.png" alt="example" style="width:50%">
+          <img class="img-fluid" src="../figures/lecture09/patterns.png" alt="example" style="width:50%">
           <br><br>
           <div class="mx-lg-5">
             <details>
@@ -370,7 +390,7 @@
               It is saying: "Then it follows that..."
               <br><br>
 
-
+<!-- 
               <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
               <div class="mx-lg-5">
                 Can you build new strings that are accepted by just using the pattern?
@@ -385,25 +405,103 @@
 
                 Turns out that <b>there’s a precise way to articulate this property, which will be what we need to be able to prove a language is non-regular.</b>
               </p>
+ -->
+
             </details>
           </div>
         </div>  
 
- 
-        <br><br>
+
+        <br><br><br><br><br>
 
         <h3>
-        The Pumping Lemma
+        Intuition First : 
         </h3>
 
+        <p>
+          <ul>
+            <li>In an FA, we MUST have a FINITE number of states</li>
+            <li>However, we CAN get an infinite list of words!!!</li>
+            <li>How do we get infinite words from a finite set of states? </li>
+          </ul>
+
+          <br><br>
+
+          <b>Example:</b>
+          <br>
+          Imagine a language L that has the following words:
+          <br>
+          \( L = \{ a, \; ak,\;  afgh,\;  afghk,\;  afghfgh,\;  afghfghk,\;  afghfghfgh,\;   afghfghfghk,\;  \dots \} \)
+          <br><br>
+
+          <span style='color:#06a015'><b><big>Activity 4</big></b></span> [4 minutes]: <br>
+        <div class="mx-lg-5">
+          Can you come up with more words in this Language just from the observed pattern?
+          <br>
+          Can you think of the FA that recognizes this language?
+          <br>
+          Can you come up with the RE that spits generates this language?
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+                The pattern must have, as a <b>prefix</b>, the pattern <tt>a</tt>
+                <br>
+                followed by any number of repetitions of the sequences <tt>fgh</tt>, 
+                <br>
+                and optionally terminate with a <tt>k</tt> or \(\epsilon\)
+                <br><br>
+                Notice that this infinite language could be made like this:
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture09/afghz.png" alt="fgh*" style="width:80%">
+                <br><br>
+                <br>
+                An RE ( with \(\Sigma = \text{english alphabet} \)) that works is: \(a(fgh)^*(k+\epsilon)\)
+                <br><br><br><br>
+
+                <span style="font-size:18pt;color:#0000cc">The Important thing to note is that after a specific size (let's call it N), any new words that we generate MUST come from a repeated pattern! </span>
+
+                <br><br>
+
+
+              <p>
+                As words get longer, we have to traverse loops more and more often.
+                <br><br>
+                If we wanted another word in the language, we could take any one of our existing words in the language and change the number of times we went around one of those loops.
+                <br><br>
+
+                Turns out that <b>there’s a precise way to articulate this property, which will be what we need to be able to prove a language is non-regular.</b>
+              </p>
+
+            </details>
+          </div>
+        </div>  
+
+
+
+
+        </p>
+
+
+
+
+
+
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/PL.png" alt="example" style="width:80%">
+        <p><br></p><hr><p><br></p>
+
+        <h2>
+        The Pumping Lemma
+        </h2>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture09/PL.png" alt="example" style="width:80%">
         <br><br>
 
         Translation: if L is a regular language, then words that are sufficiently long must have some repeatable subsequence that we could use to generate arbitrarily many more words in L
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/Intuition.png" alt="example" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/Intuition.png" alt="example" style="width:80%">
         <br><br>
 
 
@@ -448,19 +546,19 @@
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/PL1.png" alt="example" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/PL1.png" alt="example" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/PL2.png" alt="example" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/PL2.png" alt="example" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/PL2b.png" alt="example" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/PL2b.png" alt="example" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/PL3.png" alt="example" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/PL3.png" alt="example" style="width:80%">
         <br><br>
 
         All parts of the \(xyz\) word are sequences of symbols, not necessarily a single symbol.
@@ -470,11 +568,11 @@
         </ol>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/PL4.png" alt="example" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/PL4.png" alt="example" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/PL5.png" alt="example" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/PL5.png" alt="example" style="width:80%">
         <br><br>
         
         <big><b> Why are we doing this? </b></big>
@@ -505,7 +603,7 @@
         <li>Remember: it’s a lot easier to show something does exist than to prove that it doesn’t or can’t.
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/NonRegExample1.png" alt="example 1!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/NonRegExample1.png" alt="example 1!" style="width:80%">
         <br><br>
 
         Steps:
@@ -521,7 +619,7 @@
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/NonRegExample2.png" alt="example 2!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/NonRegExample2.png" alt="example 2!" style="width:80%">
         <br><br>
 
         <b>Proof sketch</b>
@@ -546,7 +644,7 @@
 <!--         <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
           <br><br>
-          <img class="img-fluid" src="../figures/lecture07/NonRegExample3.png" alt="example 3!" style="width:80%">
+          <img class="img-fluid" src="../figures/lecture09/NonRegExample3.png" alt="example 3!" style="width:80%">
           <br><br>
           <details>
             <summary>(Wait; then Click)<br><br></summary>
@@ -594,7 +692,7 @@
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/Questions.png" alt="example 2!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/Questions.png" alt="example 2!" style="width:80%">
         <br><br>
 
 
@@ -613,7 +711,7 @@
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Wednesday )</h4>
+      <h4>Homework</h4>
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
@@ -645,10 +743,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
               </li>
             </ul>
           </div>
