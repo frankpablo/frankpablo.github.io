@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 11: Intro to Lists</h1>
+      <p>
+        <br>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>List Intro</h2>
+
+      <p>
+        A <b>list</b> is a type of <b>container</b> in Python. These group objects together and have different properties.
+        <br>
+        Other containers are: tuples, dictionaries, and sets.
+        <br><br>
+
+        In a <b>list</b>, elements have a specific position (index) and allows access trhough the usual indexing operations (see slicing).
+        <br><br>
+
+        Another useful property, is that the elements can have different types: integers, strings, floats <b>and even other lists!!</b>
+        <br><br>
+
+        <h3>A list structure</h3>
+
+        A list can be defined explicitly like this:
+        <br>
+        <span style="color: #aa0000">[</span>  &lt; list item at index 0 &gt; , &lt; list item at index 1 &gt; , &lt; ... &gt; , &lt; list item at index n-2 &gt; , &lt; list item at index n-1 &gt;  <span style="color: #aa0000">]</span>
+        <br><br>
+
+        Let's make and use a list in an example:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_list <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&quot;d&quot;</span>, <span style="background-color: #fff0f0">&quot;a&quot;</span>, <span style="background-color: #fff0f0">&quot;l&quot;</span>, <span style="background-color: #fff0f0">&quot;l&quot;</span>, <span style="background-color: #fff0f0">&quot;i&quot;</span>, <span style="background-color: #fff0f0">&quot;a&quot;</span>, <span style="background-color: #fff0f0">&quot;n&quot;</span>, <span style="background-color: #fff0f0">&quot;c&quot;</span>, <span style="background-color: #fff0f0">&quot;e&quot;</span>]
+<span style="color: #007020">print</span>(my_list)
+<span style="color: #007020">print</span>(my_list[<span style="color: #0000DD; font-weight: bold">7</span>])
+<span style="color: #007020">print</span>(my_list[<span style="color: #0000DD; font-weight: bold">3</span>:<span style="color: #0000DD; font-weight: bold">7</span>])
+<span style="color: #007020">print</span>(my_list[<span style="color: #0000DD; font-weight: bold">1</span>:])
+<span style="color: #007020">print</span>(my_list[<span style="color: #0000DD; font-weight: bold">1</span>::<span style="color: #0000DD; font-weight: bold">2</span>])
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;&quot;</span><span style="color: #333333">.</span>join(my_list))
+</pre></div>
+
+        <br><br>
+        Try it <a href="https://pythontutor.com/visualize.html#code=my_list%20%3D%20%5B%22d%22,%20%22a%22,%20%22l%22,%20%22l%22,%20%22i%22,%20%22a%22,%20%22n%22,%20%22c%22,%20%22e%22%5D%0Aprint%28my_list%29%0Aprint%28my_list%5B7%5D%29%0Aprint%28my_list%5B3%3A7%5D%29%0Aprint%28my_list%5B1%3A%5D%29%0Aprint%28my_list%5B1%3A%3A2%5D%29%0Aprint%20%28%22%22.join%28my_list%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+        <br><br>
+
+        <h3>Lists are <b>Mutable!</b></h3>
+        Lists, unlike strings, are mutable, which means that once created, the structure and or the values inside them can be change.
+        <br><br>
+
+        For example:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_list <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&quot;s&quot;</span>, <span style="background-color: #fff0f0">&quot;c&quot;</span>, <span style="background-color: #fff0f0">&quot;r&quot;</span>, <span style="background-color: #fff0f0">&quot;e&quot;</span>, <span style="background-color: #fff0f0">&quot;w&quot;</span>]
+<span style="color: #007020">print</span> (my_list)
+my_list[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;h&quot;</span> <span style="color: #888888"># change an item</span>
+<span style="color: #007020">print</span>(my_list)
+length1 <span style="color: #333333">=</span> <span style="color: #007020">len</span>(my_list) 
+<span style="color: #888888"># my_list[:length1]] all items after the last one</span>
+my_list[length1:] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;d&quot;</span> <span style="color: #888888"># append an item</span>
+<span style="color: #007020">print</span>(my_list)
+length2 <span style="color: #333333">=</span> <span style="color: #007020">len</span>(my_list)
+<span style="color: #008800; font-weight: bold">del</span> my_list[length2<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">2</span>]
+<span style="color: #007020">print</span>(my_list)
+my_list[<span style="color: #0000DD; font-weight: bold">2</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;o&quot;</span> <span style="color: #888888"># change an item</span>
+<span style="color: #888888"># my_list[:0]] all items up to but not including the first one</span>
+my_list[:<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;snow&quot;</span>
+<span style="color: #007020">print</span>(my_list)
+</pre></div>
+
+        <br><br>
+        Try it <a href="https://pythontutor.com/visualize.html#code=my_list%20%3D%20%5B%22s%22,%20%22c%22,%20%22r%22,%20%22e%22,%20%22w%22%5D%0Aprint%20%28my_list%29%0Amy_list%5B1%5D%20%3D%20%22h%22%20%23%20change%20an%20item%0Aprint%28my_list%29%0Alength1%20%3D%20len%28my_list%29%20%0A%23%20my_list%5B%3Alength1%5D%5D%20all%20items%20after%20the%20last%20one%0Amy_list%5Blength1%3A%5D%20%3D%20%22d%22%20%23%20append%20an%20item%0Aprint%28my_list%29%0Alength2%20%3D%20len%28my_list%29%0Adel%20my_list%5Blength2-2%5D%0Aprint%28my_list%29%0Amy_list%5B2%5D%20%3D%20%22o%22%20%23%20change%20an%20item%0A%23%20my_list%5B%3A0%5D%5D%20all%20items%20up%20to%20but%20not%20including%20the%20first%20one%0Amy_list%5B%3A0%5D%20%3D%20%22snow%22%0Aprint%28my_list%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+        <br><br>
+
+        Note that to append, the built-in function <b><tt>append(x)</tt></b> might be easier to use.
+
+        <br><br>
+        <h3>Side effects</h3>
+
+        Objects are complex structures saved in memory and handled through their named variables.
+        <br><br>
+
+        When we name an object, that name is like a <b>handle</b> that can be used to get into and use that object.
+        <br><br>
+
+        One thing that can happen, and that Python does often to optimize memory ussage, is to use different handles (variables) to point to the same value.
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/sameVal.png"  style="width:50%">
+        <br><br>
+
+        One big possible issue with this is that if we have two variables pointing at the same object, and the object is mutable, modifying the object trhough one variable, makes the change visible to the other.
+        <br><br>
+
+        Example (from ZyBooks):
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_teams <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;Raptors&#39;</span>, <span style="background-color: #fff0f0">&#39;Heat&#39;</span>, <span style="background-color: #fff0f0">&#39;Nets&#39;</span>]
+your_teams <span style="color: #333333">=</span> my_teams  <span style="color: #888888"># both point to the same object now!</span>
+my_teams[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Lakers&#39;</span>  <span style="color: #888888"># Modify list element</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;My teams are:&#39;</span>, my_teams)  <span style="color: #888888"># List element has changed</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;Your teams are:&#39;</span>, your_teams)  <span style="color: #888888"># List element has changed too!</span>
+</pre></div>
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=my_teams%20%3D%20%5B'Raptors',%20'Heat',%20'Nets'%5D%0Ayour_teams%20%3D%20my_teams%20%20%23%20both%20point%20to%20the%20same%20object%20now!%0Amy_teams%5B1%5D%20%3D%20'Lakers'%20%20%23%20Modify%20list%20element%0Aprint%28'My%20teams%20are%3A',%20my_teams%29%20%20%23%20List%20element%20has%20changed%0Aprint%28'Your%20teams%20are%3A',%20your_teams%29%20%20%23%20List%20element%20has%20changed%20too!&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>      
+        <br><br>
+
+        Copying lists (or other mutable objects) can help here:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_teams <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;Raptors&#39;</span>, <span style="background-color: #fff0f0">&#39;Heat&#39;</span>, <span style="background-color: #fff0f0">&#39;Nets&#39;</span>]
+your_teams <span style="color: #333333">=</span> my_teams[:]  <span style="color: #888888"># Assign your_teams with a COPY of my_teams</span>
+my_teams[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Lakers&#39;</span>  <span style="color: #888888"># Modify list element</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;My teams are:&#39;</span>, my_teams)  <span style="color: #888888"># List element has changed</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;Your teams are:&#39;</span>, your_teams)  <span style="color: #888888"># List element has not changed</span>
+</pre></div>
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=my_teams%20%3D%20%5B'Raptors',%20'Heat',%20'Nets'%5D%0Ayour_teams%20%3D%20my_teams%5B%3A%5D%20%20%23%20Assign%20your_teams%20with%20a%20COPY%20of%20my_teams%0Amy_teams%5B1%5D%20%3D%20'Lakers'%20%20%23%20Modify%20list%20element%0Aprint%28'My%20teams%20are%3A',%20my_teams%29%20%20%23%20List%20element%20has%20changed%0Aprint%28'Your%20teams%20are%3A',%20your_teams%29%20%20%23%20List%20element%20has%20not%20changed&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+        <br><br>
+
+        <br><br>
+        
+        <h4>When are there no side effects?</h4>
+        Assigning a variable with an element of an existing list, and then reassigning that variable with a different value does not change the list.
+        <br><br>
+
+        Example:
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">stooges <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;Larry&#39;</span>, <span style="background-color: #fff0f0">&#39;Shemp&#39;</span>, <span style="background-color: #fff0f0">&#39;Moe&#39;</span>]
+stooges[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Curly&#39;</span>  <span style="color: #888888"># Change list element</span>
+<span style="color: #007020">print</span>(stooges)
+
+fav_stooge <span style="color: #333333">=</span> stooges[<span style="color: #0000DD; font-weight: bold">0</span>]  <span style="color: #888888"># Bind to &#39;Larry&#39;</span>
+fav_stooge <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Iggy Pop&#39;</span>  <span style="color: #888888"># List not altered</span>
+<span style="color: #007020">print</span>(stooges)
+</pre></div>
+
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=stooges%20%3D%20%5B'Larry',%20'Shemp',%20'Moe'%5D%0Astooges%5B1%5D%20%3D%20'Curly'%20%20%23%20Change%20list%20element%0Aprint%28stooges%29%0A%0Afav_stooge%20%3D%20stooges%5B0%5D%20%20%23%20Bind%20to%20'Larry'%0Afav_stooge%20%3D%20'Iggy%20Pop'%20%20%23%20List%20not%20altered%0Aprint%28stooges%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+
+
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>List Methods</h2>
+
+      <p>
+
+        Lists, like Strings are objects. They have the internal values (references to other objects) as well as methods.
+        <br><br>
+
+        Here are some of the most useful ones:
+        <br><br>
+
+        <h3>Adding Elements</h3>
+
+        The following are different element addition variants:
+        <ul>
+          <li>list.append(x)  Add an item to the end of list.</li>
+          <li>list.extend([x])  Add all items in <b><tt>[x]</tt></b> to list.</li>
+          <li>list.insert(i, x) Insert x into list before position i.</li>
+        </ul>
+
+        <h3>Removing Elements</h3>
+
+        The following are different element removal variants:
+        <ul>
+          <li>list.remove(x)  Remove first item from list with value x</li>
+          <li>list.pop()  Remove and return last item in list.</li>
+          <li>list.pop(i) Remove and return item at position i in list.</li>
+        </ul>
+
+        <h3>Modifying Elements</h3>
+
+        The following are different "modifications":
+        <ul>
+          <li>list.sort() Sort the items of list in-place.</li>
+          <li>list.reverse() Reverse the elements of list in-place.</li>
+        </ul>
+
+        <h3>Other Actions</h3>
+
+        The following are different element addition variants:
+        <ul>
+          <li>list.index(x) Return index of first item in list with value x.</li>
+          <li>list.count(x) Count the number of times value x is in list.</li>
+        </ul>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Open the Scratch pad and create a program that:
+          <ol>
+            <li>create a list <b><tt>li</tt></b> with the contents: <b><tt>[1,3,5]</tt></b>
+            <li>print the list</li>
+            <li>add the following list literal to the end of <b><tt>li</tt></b>: <b><tt>[2,4,6]</tt></b></li>
+            <li>print the list</li>
+            <li>extract and save two elements so that you leave a list that is already sorted</li>
+            <li>print the list</li>
+            <li>Add the extracted elements in the correct location (index) in order to keep the list sorted</li>
+            <li>print the list</li>
+            <li>Add the following element to the list at index 3: <b><tt>-6</tt></b></li>
+            <li>print the list</li>
+            <li>Figure out how to remove the element you just added. However, you are not allowed to use the commands <b><tt>list.remove(-6)</tt></b> nor <b><tt>list.pop(3)</tt></b></li>
+            <li>print the list</li>  
+          </ol>
+          <br><br>
+          The result should look like this:
+          <br><br>
+            <img class="img-fluid" src="../figures/lecture11/listPrints.png"  style="width:50%">
+          <br><br>
+
+        </div>
+
+
+
+
+        
+      </p>
+
+
+
+      
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (TBD)</h4>
+      <b>[Due for everyone]</b>  ZyBooks Sections TBD<br>
+
+      <br><br>
+
+      <b>[Optional]</b> <b><big>TODO</big></b><br>
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
