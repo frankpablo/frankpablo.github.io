@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,8 +198,8 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 09: <br>
-      More on Context-Free Grammars</h1>
+      <h1>Lecture Notes 11: <br>
+      Intro to Context-Free Grammars</h1>
       <p>
         <br>
       </p>
@@ -207,46 +207,103 @@
 
       This class we'll discuss:
       <ul>
-        <li>Recap: CFGs</li>
+        <li>Context-Free Grammars</li>
+        <li>CFG examples</li>
         <li>CFG example: PAL?</li>
         <li>What lies beyond?</li>
         <li>Push Down Automata</li>
       </ul>
 
-      <p><br></p><hr><p><br></p>
+
+
+        <p><br></p><hr><p><br></p>
 
       <h2>
-        Recap: Context-Free Grammars
+        Intro: Context-Free Grammar 
       </h2>
 
       <p>
 
-        Last lecture, we saw that a Context-Free grammar is defined as a series of substitution rules that produce a language:
-
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF11.png" alt="CFGs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture10/CF01.png" alt="CFGs!!!" style="width:80%">
         <br><br>
 
-        Expressions are combinations of variables and terminals: \( u, v, w\) and at each step, we <i>can</i> follow existing rules for replacing a variable for other variables, terminals, or combinations of both.
+                EQ, HALF, PAL
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF12.png" alt="CFGs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture10/CF02.png" alt="CFGs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-
-        <b>Example 1: What does this produce?</b>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF13.png" alt="CFGs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture10/CF03.png" alt="CFGs!!!" style="width:80%">
         <br><br>
 
-
-        <b>Example 2: Can we produce PAL?</b>
+        Finite automata and regular expressions are limited
+        <br><br>
+        They both only match patterns that can be described by reaching L to R
+        <br><br>
+        Some patterns are more interesting…
 
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF16.png" alt="CFGs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture10/CF04.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF05.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+
+        Seems like PAL lives really close to Regular: there’s a structure to the words that’s ALMOST regular… but the pattern is in the middle.
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF06.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        S ->g N_phrase V_phrase
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF07.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        N -> article noun
+        <br><br>
+        V -> conjugated verb
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF08.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF09.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF10.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF11.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF12.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF13.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF14.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF15.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF16.png" alt="CFGs!!!" style="width:80%">
         <br><br>
 
 <!-- 
@@ -257,7 +314,13 @@
 𝑆→_𝐺 𝜀 }
 
 Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
+
  -->
+
+
+      </p>
+      
+
 
       <br><br><br><br>
 
@@ -284,7 +347,7 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
       </ul>
 
       <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF17.png" alt="CFGs!!!" style="width:80%">
+      <img class="img-fluid" src="../figures/lecture10/CF17.png" alt="CFGs!!!" style="width:80%">
       <br><br> 
 
 
@@ -296,7 +359,7 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
 
 
       <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF18.png" alt="CFGs!!!" style="width:80%">
+      <img class="img-fluid" src="../figures/lecture10/CF18.png" alt="CFGs!!!" style="width:80%">
       <br><br> 
 
 
@@ -340,14 +403,14 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
 
 
       <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF19.png" alt="CFGs!!!" style="width:80%">
+      <img class="img-fluid" src="../figures/lecture10/CF19.png" alt="CFGs!!!" style="width:80%">
       <br><br> 
 
       <br><br><br><br>
 
 
       <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF20.png" alt="CFGs!!!" style="width:80%">
+      <img class="img-fluid" src="../figures/lecture10/CF20.png" alt="CFGs!!!" style="width:80%">
       <br><br> 
 
 
@@ -365,7 +428,7 @@ S   →_𝐺   ∅|𝜀|𝑎
         <br><br><br><br>
 
       <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF21.png" alt="CFGs!!!" style="width:80%">
+      <img class="img-fluid" src="../figures/lecture10/CF21.png" alt="CFGs!!!" style="width:80%">
       <br><br> 
 
       <h3>How do we prove there are languages that are NOT (beyond) CFLs?</h3>
@@ -376,7 +439,7 @@ S   →_𝐺   ∅|𝜀|𝑎
       <br><br><br><br>
 
       <br><br>
-      <img class="img-fluid" src="../figures/lecture08/CF22.png" alt="CFGs!!!" style="width:80%">
+      <img class="img-fluid" src="../figures/lecture10/CF22.png" alt="CFGs!!!" style="width:80%">
       <br><br> 
 
       <ul>
@@ -405,7 +468,7 @@ S   →_𝐺   ∅|𝜀|𝑎
       <p>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF23.png" alt="CFGs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture10/CF23.png" alt="CFGs!!!" style="width:80%">
         <br><br> 
 
         <br><br><br><br>
@@ -415,7 +478,7 @@ S   →_𝐺   ∅|𝜀|𝑎
         <br><br><br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF24.png" alt="CFGs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture10/CF24.png" alt="CFGs!!!" style="width:80%">
         <br><br>
 
         <br><br>
@@ -486,7 +549,7 @@ Now what happens when we pump |yv|?  𝑛=p+1 will do. Now the length will be: p
       <p>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF25.png" alt="CFGs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture10/CF25.png" alt="CFGs!!!" style="width:80%">
         <br><br>
         
       </p>
@@ -499,84 +562,84 @@ Now what happens when we pump |yv|?  𝑛=p+1 will do. Now the length will be: p
       <p>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA01.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA01.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA02.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA02.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA03.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA03.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA04.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA04.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA05.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA05.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA06.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA06.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA07.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA07.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA08.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA08.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA09.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA09.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA09a.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA09a.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA09b.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA09b.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA09c.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA09c.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <h3>So now, let's draw the PDA for HALF</h3>
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA09d.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA09d.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA10.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA10.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA11.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA11.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA12.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA12.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA13.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA13.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA14.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA14.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA15.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA15.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture09/PDA16.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture11/PDA16.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         
@@ -623,10 +686,10 @@ Now what happens when we pump |yv|?  𝑛=p+1 will do. Now the length will be: p
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
               </li>
             </ul>
           </div>

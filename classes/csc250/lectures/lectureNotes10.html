@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes11.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,7 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 08: <br>
+      <h1>Lecture Notes 10: <br>
       PL Recap and Context-Free Grammars</h1>
       <p>
         <br>
@@ -209,8 +209,6 @@
       <ul>
         <li>Recap: The Pumping Lemma</li>
         <li>Properties of Regular Languages</li>
-        <li>Context-Free Grammars</li>
-        <li>CFG examples</li>
       </ul>
 
       <p><br></p><hr><p><br></p>
@@ -236,30 +234,41 @@
 
         <h3>Intuition for the Pumping Lemma</h3>
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/PL-Intuition01.png" alt="intuition!" style="width:40%">
+        <img class="img-fluid" src="../figures/lecture10/PL-Intuition01.png" alt="intuition!" style="width:40%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/PL-Intuition02.png" alt="intuition!" style="width:40%">
+        <img class="img-fluid" src="../figures/lecture10/PL-Intuition02.png" alt="intuition!" style="width:40%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/PL-Intuition03.png" alt="intuition!" style="width:40%">
+        <img class="img-fluid" src="../figures/lecture10/PL-Intuition03.png" alt="intuition!" style="width:40%">
         <br><br>
 
         We could imagine the regular expression that generates this as:
 
+        \[
+        \Large{
+          00+11+01(00)^*11
+        }
+        \]
+<!-- 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture08/PL-Intuition04.png" alt="intuition!" style="width:40%">
+        <img class="img-fluid" src="../figures/lecture10/PL-Intuition04.png" alt="intuition!" style="width:40%">
         <br><br>
-
+ -->
         We could have an FA (int this case an NFA) that accepts this as:
 
+        
         <br><br><br><br>
-        <img class="img-fluid" src="../figures/lecture08/PL-Intuition05.png" alt="intuition!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture10/PL-Intuition04.png" alt="intuition!" style="width:80%">
+        <br><br>
+        Another possible "optimized" construction is:
+        <br><br><br><br>
+        <img class="img-fluid" src="../figures/lecture10/PL-Intuition05.png" alt="intuition!" style="width:80%">
         <br><br>
 
-        To generate new words in the language, we could just take the path \(x\) ( \(A \vdash B \) ); take the looped pattern \(y\) ( \(C \vdash D \vdash E\) ) over and over again; and then finish up by taking the path \(z\) ( \(F \vdash G \) ) to an accepted state.
+        To generate new words in the language, we could just take the path \(x : A^\prime \vdash B \vdash C \); take the looped pattern \(y : C \vdash D \vdash E\) over and over again; and then finish up by taking the path to \(z : E \vdash F \vdash G \), an accepted state.
 
         <br><br><br><br>
 
@@ -269,9 +278,9 @@
 
         A good Regular Language \( L \) is such that after some word length \(N\), all the words can be written as: \(xyz\), where 
         <ol>
-          <li>New words constructed as: \(xy^iz\), are also in \(L\) (reusing an internal loop <b>pumps out</b> more accepted words)</li>
-          <li>The firat part of the word, \(\mid xy \mid \leq N\) (The section of the word pre-loop repetition is the part that is \(\leq N\) ) </li>
-          <li>\( xy^iz \in L \)</li>
+          <li>The looped part \(y\) exists ... in other words: \( \vert y \vert >0\) </li>
+          <li>The first part of the word, \(\mid xy \mid \leq N\) (The section of the word up-to the loop repetition is the part that is \(\leq N\) ) </li>
+          <li>\( xy^iz \in L \) New words constructed as: \(xy^iz\), are also in \(L\) (reusing an internal loop <b>pumps out</b> more accepted words, including setting \(i=0\) and remove the looped pattern altogether)</li>
         </ol>
 
         <br><br>
@@ -293,7 +302,7 @@
 
         <br>
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/intuition.png" alt="intuition!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/intuition.png" alt="intuition!" style="width:80%">
         <br><br>
 
 
@@ -304,7 +313,7 @@
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/NonRegExample1.png" alt="example 1!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/NonRegExample1.png" alt="example 1!" style="width:80%">
         <br><br>
         <b>Proof sketch</b>
         <br>
@@ -316,10 +325,13 @@
         <br>
         Therefore, the repeated pattern \(y\) could very well be "something" that when repeated, would maintain the structure that makes  \(HALF\).
         <br><br>
-        Now, think of an example that forces the issue!
-        <br><br>
 
-        <details>
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Now, think of an example that forces the issue and attempt the proof!
+          <br><br>
+
+          <details>
             <summary>(Wait; then Click)<br><br></summary>
 
               Steps:
@@ -334,12 +346,12 @@
 
             <br><br>
           </details>
-        
+        </div>
 
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/NonRegExample2.png" alt="example 2!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/NonRegExample2.png" alt="example 2!" style="width:80%">
         <br><br>
         <b>Proof sketch</b>
         <br>
@@ -348,7 +360,12 @@
         The technical part is: simply choose a way to get to \(HALF\) from \(EQ\) without having to prove that one is a subset of the other (which would be required).
         <br><br>
 
-        <details>
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Use the previous example and closure properties!
+          <br><br>
+
+          <details>
             <summary>(Wait; then Click)<br><br></summary>
               Steps:
               <ol>
@@ -363,15 +380,16 @@
 
             <br><br>
           </details>
+        </div>
 
         
 
         <br><br>
 
-        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
           <br><br>
-          <img class="img-fluid" src="../figures/lecture07/NonRegExample3.png" alt="example 3!" style="width:80%">
+          <img class="img-fluid" src="../figures/lecture09/NonRegExample3.png" alt="example 3!" style="width:80%">
           <br><br>
           Hint: A palindrome is VERY close to the concept of having "the same number of elements in one part as in another" (like for the example with Language \(HALF\))
           <br><br>
@@ -420,7 +438,7 @@
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture07/Questions.png" alt="example 2!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture09/Questions.png" alt="example 2!" style="width:80%">
         <br><br>
 
         <h3>Why are these questions important?</h3>
@@ -499,111 +517,6 @@
         </ol>
 
 
-        <p><br></p><hr><p><br></p>
-
-      <h2>
-        Intro: Context-Free Grammar 
-      </h2>
-
-      <p>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF01.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-                EQ, HALF, PAL
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF02.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF03.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        Finite automata and regular expressions are limited
-        <br><br>
-        They both only match patterns that can be described by reaching L to R
-        <br><br>
-        Some patterns are more interesting…
-
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF04.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF05.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-
-        Seems like PAL lives really close to Regular: there’s a structure to the words that’s ALMOST regular… but the pattern is in the middle.
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF06.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        S ->g N_phrase V_phrase
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF07.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        N -> article noun
-        <br><br>
-        V -> conjugated verb
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF08.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF09.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF10.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF11.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF12.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF13.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF14.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF15.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture08/CF16.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-<!-- 
-𝑉={𝑆}  
-Σ ={0,1}  
-𝑅 ={ 𝑆→_𝐺 0𝑆0,
-𝑆→_𝐺 1𝑆1,
-𝑆→_𝐺 𝜀 }
-
-Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
-
- -->
-
-
-      </p>
-      
-
 
 
 
@@ -611,16 +524,16 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
 
       <p><br></p><hr><p><br></p>
 
-      <h3>Next class: CFGs Vs RLs And ... Beyond!</h3>
+      <h3>Next class: Intro to CFGs</h3>
 
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Wednesday ???)</h4>
+      <h4>Homework</h4>
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
-         TODO
+         Problem Set 03 (in Moodle) is due next Friday 02/25 at 5PM
       </div> 
       <br>
       <b>[Optional]</b> 
@@ -648,10 +561,10 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes07.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes09.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes11.html">Next Module</a>
               </li>
             </ul>
           </div>
