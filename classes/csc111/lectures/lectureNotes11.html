@@ -287,6 +287,43 @@
       <p><br></p><hr><p><br></p>
 
       
+      <h2>Break and Continue!</h2>       
+
+      <p>
+
+        <b>One can exit a loop or skip to the start of the next iteration</b>
+        <br><br>
+
+        This is sometimes helpful for "breaking out of a loop" or "avoiding unnecessary work".
+
+        <br><br>
+
+        You can used two reserved words in a loop:
+        <ul>
+          <li><b><tt>continue</tt></b>: If you want a loop to skip a section of the body and to continue in the next loop iteration</li>
+          <li><b><tt>break</tt></b>: If you want a loop to stop and never go into the next loop iteration.</li>
+        </ul>
+
+        <br><br>
+
+        Examples: 
+        <br>
+        
+
+        Check it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20print_odds%28%29%0A%0Adef%20print_odds%28%29%3A%0A%20%20%20%20for%20num%20in%20range%2810%29%3A%0A%20%20%20%20%20%20%20%20if%20num%252%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20continue%0A%20%20%20%20%20%20%20%20print%28num,%20end%3D%22%20%22%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Weird printing of odd numbers</a> 
+
+        <br>
+
+        Check it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20escape_infinite%28%29%0A%0Adef%20escape_infinite%28%29%3A%0A%20%20%20%20pwd%20%3D%20%22Yak%22%0A%20%20%20%20guess%20%3D%20%22default%22%0A%20%20%20%20while%20not%20%28pwd%20%3D%3D%20guess%29%3A%0A%20%20%20%20%20%20%20%20guess%20%3D%20input%28%22what%20is%20the%20best%20word%20ever%3F%22%29%0A%20%20%20%20print%28%22You're%20absolutely%20correct!%22%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%22guru%22,%22bak%22,%22Yak%22%5D&textReferences=false" target="_blank">Escaping an infinite loop</a> 
+
+ 
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      
       <h2>More on nested loops (with debugging)</h2>       
 
       <p>
