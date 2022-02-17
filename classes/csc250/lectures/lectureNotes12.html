@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes11.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes13.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,8 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 11: Perspectives on REs and FAs; 
-      and Properties of Regular Languages </h1>
+      <h1>Lecture Notes 12: Context-Free Grammars </h1>
       <p>
         <br>
       </p>
@@ -211,7 +210,7 @@
         <li>Properties of Regular Languages</li>
         <li>Looking ahead: Context-Free Grammars</li>
         <li>CFG examples</li>
-
+        
 <!--         <li>CFG example: PAL?</li>
         <li>What lies beyond?</li>
         <li>Push Down Automata</li> -->
@@ -221,152 +220,6 @@
 
       <p><br></p><hr><p><br></p>
 
-
-
-      <h2>
-        Some Perspective 
-      </h2>
-
-      <p>
-        Why are we asking you all of these questions about regularity of languages, etc.?
-        <br><br>
-
-        REs and FAs are really simple computational machines. 
-        <br><br>
-
-        What does this have to do with getting your Java code to compile, or using dynamic programming, or ...
-        <br><br>
-
-        Turns out that there are some surprisingly algorithmic things we can do when we start asking questions about these simple machines. 
-        <br><br>
-
-        Let’s take a look at some questions we might ask.
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/Questions.png" alt="Properties and Questions!" style="width:80%">
-        <br><br>
-
-        <h3>Why are these questions important?</h3>
-        <details>
-          <summary>(Wait; then Click)<br><br></summary>
-          It's not about simply building a machine that might do something, 
-          <br>
-          It's about knowing, before expending unnecessary effort if:
-            <ol>
-              <li>we are reinventing the wheel.</li> 
-              <li>we are building something that never terminates</li>
-              <li>we are building something that works but is extremely inefficient</li>
-              <li>etc</li>
-            </ol>
-
-          <br><br>
-        </details>
-        <br><br>
-
-        <h3>In Real Life</h3>
-
-        <ol>
-          <li>Do we have a way of answering these questions about our own programs?</li>
-          <li>In a way, all programs do symbol processing</li>
-          <li>In a way all of them are like little Machines</li>
-          <li>If we can represent processes as FAs or REs, we can answer the questions shown above</li>
-        </ol>
-
-        <br><br>
-
-
-        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [5 minutes]: <br>
-        <div class="mx-lg-5">
-          <br><br>
-          How would you check, for an RE or an FA, to see if your input satisfies one of the following properties?
-          <br><br>
-
-          <ol>
-            <li>
-              <b>Acceptance</b>:
-              <details>
-                <summary>(Wait; then Click)<br><br></summary>
-                If we go through the transition table (using a lookup table), do we get to an accepting state?
-                <br><br>
-              </details>
-            </li>
-            <li>
-              <b>NonExistance</b>
-              <details>
-                <summary>(Wait; then Click)<br><br></summary>
-                If count the number of states \(N_Q\) in the "Machine", we need only check all words with length \(\mid w \mid \leq N_Q\)
-                <br><br>
-              </details>
-            </li>
-            <li>
-              <b>Totality</b>
-              <details>
-                <summary>(Wait; then Click)<br><br></summary>
-                Check there is no path from \(q_0\) to any non-accepting state.
-                <br><br>
-              </details>
-            </li>
-            <li>
-              <b>Nonempty Intersection</b>
-              <br>
-              (How would you do this?)
-
-<!-- Algorithm:
-– Build a DFA M3 (algorithmically) that recognizes L(M1)∩L(M2).
-– Ask if L(M3) is nonempty and give the same answer. 
--->
-
-            </li>
-            <li>
-              <b>Subset</b>
-              <br>
-              (How would you do this?)
-<!--              
-Note that L(M1)⊆ L(M2) if and only if L(M1)∩ (L(M2))c =∅.
-– Build a DFA M3 (algorithmically) that recognizes (L(M2))c.
-– Build another DFA M4 (algorithmically) that recognizes L(M1)∩(L(M2))c.
-– Ask if L(M4) is empty and give the same answer.
--->
-
-            </li>
-            <li>
-              <b>Equivalence</b>
-              <br>
-              (How would you do this?)
-<!-- 
-Note that L(M1) = L(M2) if and only if both L(M1)⊆L(M2) and L(M2)⊆ L(M1).
-• Algorithm:
-– Test whether L(M1)⊆ L(M2).
-– Test whether L(M2)⊆ L(M1).
-– Say yes iff both say yes.
--->          
-            </li>
-            <li>
-              <b>Optimality</b>
-              <br>
-              (How would you do this?)
-
-<!-- 
-• Algorithm 1:
-– Enumerate all DFAs (up to isomorphism) with fewer states than M and test all for equivalence with M.
-– How to enumerate:
-   • Use canonical state names q0, q1, q2,…
-   • For each fixed number n of states, where n<number of states of M, list all machines with states q0,…,qn-1.
-   • List these by considering all possible collections of arrows, all choices of accept states.
-   • Details later.
-
-• Algorithm 2:
-– Apply a state minimization algorithm for DFAs to M (see Sipser,Exercise 7.40).
-– Merges states of M, as far as possible, while maintaining equivalence.
-– Can prove that such an approach in fact yields the minimum number of states.
--->         
-            </li>
-          </ol>
-
-        </div>
-
-      </p>
 
         <p><br></p><hr><p><br></p>
 
@@ -474,10 +327,243 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
       
 
 
+      <br><br><br><br>
+
+      <h3>How about EQ?</h3>
+
+      <br><br><br><br>
+
+      In the following map...
+      <ul>
+        <li>Where are CFGs?</li>
+        <li>How would we represent a finite language with a CFG?
+          <!-- S -> each word -->
+        </li>
+        <li>How would we represent a regular language with a CFG?
+          <!-- A rule for each RE rule? A new PL for CFGs? -->
+        </li>
+        <li>Is there something outside a CFG?
+          <!-- YES -->
+        </li>
+        <li>Where is EQ?
+          <!-- outside -->
+        </li>
+
+      </ul>
+
+      <br><br>
+      <img class="img-fluid" src="../figures/lecture10/CF17.png" alt="CFGs!!!" style="width:80%">
+      <br><br> 
+
+
+      <h3>Ideas to prove all RL's are "inside" CFGs</h3>
+
+      <br><br>
+
+      (You suggest some:)
+
+
+      <br><br>
+      <img class="img-fluid" src="../figures/lecture10/CF18.png" alt="CFGs!!!" style="width:80%">
+      <br><br> 
+
+
+
+      <br><br><br><br>
+
+      <h3>Tip for designing Context-Free-Languages</h3>
+      <br><br>
+      Many CFLs are the union of simpler CFLs. If you must construct a CFG for a CFL that you can break into simpler pieces, do so and then construct individual grammars for each piece.
+
+      <br><br>
+
+      Example:
+      <br><br>
+
+      If the objective is to design a grammar for \( \{0^n1^n \mid n>0 \} \cup  \{1^n0^1 \mid n>0 \}\), start with two sub-languages using  sub-"starting symbols" and then join them to get the target language starting at \(S\)
+      <br><br>
+      You can build:
+      <br>
+      \(S_1 = 0S1 \mid \epsilon \) 
+      <br>
+      and
+      <br>
+      \(S_2 = 1S0 \mid \epsilon\), :
+      <br><br>
+      And then join them to obtain:
+      <br><br>
+
+      \[
+      \begin{alignat}{2}
+      S   &= S_1 \mid S_2 \\
+      S_1 &= 0S1 \mid \epsilon \\
+      S_2 &= 1S0 \mid \epsilon
+      \end{alignat}
+      \]
+
+
+      <br><br>
+
+      <h3>So now, how would we "Build" a Regular Language using a CFG?</h3>
+
+
+      <br><br>
+      <img class="img-fluid" src="../figures/lecture10/CF19.png" alt="CFGs!!!" style="width:80%">
+      <br><br> 
+
+      <br><br><br><br>
+
+
+      <br><br>
+      <img class="img-fluid" src="../figures/lecture10/CF20.png" alt="CFGs!!!" style="width:80%">
+      <br><br> 
+
+
+
+
+<!-- 
+S   →_𝐺   ∅|𝜀|𝑎
+𝑆_1 →_𝐺   𝐴
+𝑆_2 →_𝐺   𝐵
+𝑆   →_𝐺   S_1 |𝑆_2  (𝐴+𝐵)
+𝑆   →_𝐺   S_1 𝑆_2   (𝐴𝐵)
+𝑆   →_𝐺   𝑆_1 𝑆_1   (𝐴^∗ )  "needs a little more induction, but proof left to the reader"
+ -->      
+
+        <br><br><br><br>
+
+      <br><br>
+      <img class="img-fluid" src="../figures/lecture10/CF21.png" alt="CFGs!!!" style="width:80%">
+      <br><br> 
+
+      <h3>How do we prove there are languages that are NOT (beyond) CFLs?</h3>
+
+      <br><br>
+
+      How did we do this back when we did it for RLs?
+      <br><br><br><br>
+
+      <br><br>
+      <img class="img-fluid" src="../figures/lecture10/CF22.png" alt="CFGs!!!" style="width:80%">
+      <br><br> 
+
+      <ul>
+        <li>the middle part is not too big</li>
+        <li>v and y (the repeating parts) are not both simultaneously empty</li>
+        <li>repeating v and or y we will keep us in the language</li>
+      </ul>   
+
+      <br><br>
+
+      Note that RLs are a special case of Context-Free-Languages (without the \(uv^i\)) part.
+
+
+      <br><br><br><br>
+
+      So, if we have a pumping lemma for CFGs, is there a "Machine" equivalent to the Finite Automatons as well?
+      <br><br><br><br> We'll see those next class.
+
+      </p>
+      
 
       <p><br></p><hr><p><br></p>
 
-      <h3>Next class: Context-Free Grammars</h3>
+      <h2>Proving a language is NOT context-free</h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF23.png" alt="CFGs!!!" style="width:80%">
+        <br><br> 
+
+        <br><br><br><br>
+
+        <b>What does your untuition say?</b> Is it a CFL?
+
+        <br><br><br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF24.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+
+        Remember:
+        <ul>
+          <li>Given a structure of \(w = uvxyz\), and \( \mid vy \mid \geq 1\)</li>
+          <li>We want to find an \(i\) for which a word \(uv^ixy^iz\) <br>
+          does not have a prime length ( \( \mid uv^ixy^iz \mid  \) is not prime ) after being "pumped" some number of times.
+          </li>
+          <li>Here, we can start with a word \(w\) with length \(p\geq N \) (\(N\) provided by the pumping Lemma)</li>
+          <li>Now, the trick is to pump the pattern some number of times so that we can prove that the final length is NOT prime!</li>
+          <li>Ideas?</li>
+        </ul>
+
+        <details>
+            <summary>(Wait; then Click)<br><br></summary>
+
+              Steps:
+              <ol>
+                <li>The length of a word \(\mid uv^ixy^iz \mid \) <br>
+                is the length of \( \mid w \mid \) plus any added repetitions of \(v\) and \(y\)</li>
+                <li>So,  \( \mid uv^ixy^iz \mid  \) is  \( \mid w\mid  + (i-1)\mid vy \mid \) </li>
+                <li>Since we said \(w\) is in PRIMEAL, then \( \mid w\mid \) is some prime number \(p\geq N \).</li>
+                <li>Then, \( \mid uv^ixy^iz \mid  = \mid w\mid  + (i-1)\mid vy \mid = p + (i-1)\mid vy \mid\)</li>
+                <li>Now, <b>What possible choice of \(i\) could we choose to cause the overall length to be provably NOT prime</b>?</li>
+              </ol>
+
+              <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              If we choose \(i\) so that the \(i-1\) is equal to \(p\) in the following expression:<br>
+              \[ \mid uv^ixy^iz \mid  = \mid w\mid  + (i-1)\mid vy \mid = p + (i-1)\mid vy \mid \]
+              <br>
+              Then substituting \(i-1\) for \(p\) ( by making \(i = p-1\)), we would get:
+
+              \[ 
+              \mid uv^ixy^iz \mid  = \mid w \mid  + (i-1)\mid vy \mid = p + p\mid vy \mid \\
+              = p (1+\mid vy \mid)
+              \]
+              which means that, after pumping, the word is <b>divisible by \(p\)</b>! and therefore, <b>not of prime length</b>.
+              <br><br>
+
+              <br><br>
+              </details>
+
+            <br><br>
+          </details>
+
+
+        
+      </p>
+
+
+<!-- For this particular language for s any 1^p (with p≥N and p is a prime number) will do the trick. Then the pumping lemma gives you 𝑢𝑣𝑥𝑦𝑧 with |𝑣𝑦|≥1. 
+
+To disprove the context-freeness, you need to find 𝑛 such that |𝑢𝑣^𝑛𝑥𝑦^𝑛𝑧| is not a prime number.
+
+Remember that this word is all 1s, so |𝑢𝑣^𝑛𝑥𝑦^𝑛𝑧|=|original s|+(𝑛−1)|𝑣𝑦| = p+(𝑛−1)|𝑣𝑦|
+
+Now what happens when we pump |yv|?  𝑛=p+1 will do. Now the length will be: p+p|𝑣𝑦|=p(1+|𝑣𝑦|), which is not prime (we just factored it), so 𝑢𝑣^𝑛𝑥𝑦^𝑛𝑧 ∉ 𝐿. The pumping lemma can't be applied so 𝐿 is not context free. -->
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Why are CFGs important?</h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF25.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+        
+      </p>
+
+      <p><br></p><hr><p><br></p>
+      
+
+
+      <h3>Next class: Push-Down Automata</h3>
 
 
       <p><br></p><hr><p><br></p>
@@ -486,7 +572,7 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
-         Problem Set 03: Due 10/18 at 5 PM
+         TBD.
       </div> 
       <br>
       <b>[Optional]</b> 
@@ -514,10 +600,10 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes11.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes13.html">Next Module</a>
               </li>
             </ul>
           </div>

@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes14.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,8 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 11: Perspectives on REs and FAs; 
-      and Properties of Regular Languages </h1>
+      <h1>Lecture Notes 13: Push-Down Automata </h1>
       <p>
         <br>
       </p>
@@ -207,14 +206,7 @@
 
       This class we'll discuss:
       <ul>
-        <li>Perspectives on simple machines</li>
-        <li>Properties of Regular Languages</li>
-        <li>Looking ahead: Context-Free Grammars</li>
-        <li>CFG examples</li>
-
-<!--         <li>CFG example: PAL?</li>
-        <li>What lies beyond?</li>
-        <li>Push Down Automata</li> -->
+        <li>Intro to Push-Down Automata</li>
       </ul>
 
 
@@ -223,261 +215,104 @@
 
 
 
-      <h2>
-        Some Perspective 
-      </h2>
-
-      <p>
-        Why are we asking you all of these questions about regularity of languages, etc.?
-        <br><br>
-
-        REs and FAs are really simple computational machines. 
-        <br><br>
-
-        What does this have to do with getting your Java code to compile, or using dynamic programming, or ...
-        <br><br>
-
-        Turns out that there are some surprisingly algorithmic things we can do when we start asking questions about these simple machines. 
-        <br><br>
-
-        Let’s take a look at some questions we might ask.
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/Questions.png" alt="Properties and Questions!" style="width:80%">
-        <br><br>
-
-        <h3>Why are these questions important?</h3>
-        <details>
-          <summary>(Wait; then Click)<br><br></summary>
-          It's not about simply building a machine that might do something, 
-          <br>
-          It's about knowing, before expending unnecessary effort if:
-            <ol>
-              <li>we are reinventing the wheel.</li> 
-              <li>we are building something that never terminates</li>
-              <li>we are building something that works but is extremely inefficient</li>
-              <li>etc</li>
-            </ol>
-
-          <br><br>
-        </details>
-        <br><br>
-
-        <h3>In Real Life</h3>
-
-        <ol>
-          <li>Do we have a way of answering these questions about our own programs?</li>
-          <li>In a way, all programs do symbol processing</li>
-          <li>In a way all of them are like little Machines</li>
-          <li>If we can represent processes as FAs or REs, we can answer the questions shown above</li>
-        </ol>
-
-        <br><br>
-
-
-        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [5 minutes]: <br>
-        <div class="mx-lg-5">
-          <br><br>
-          How would you check, for an RE or an FA, to see if your input satisfies one of the following properties?
-          <br><br>
-
-          <ol>
-            <li>
-              <b>Acceptance</b>:
-              <details>
-                <summary>(Wait; then Click)<br><br></summary>
-                If we go through the transition table (using a lookup table), do we get to an accepting state?
-                <br><br>
-              </details>
-            </li>
-            <li>
-              <b>NonExistance</b>
-              <details>
-                <summary>(Wait; then Click)<br><br></summary>
-                If count the number of states \(N_Q\) in the "Machine", we need only check all words with length \(\mid w \mid \leq N_Q\)
-                <br><br>
-              </details>
-            </li>
-            <li>
-              <b>Totality</b>
-              <details>
-                <summary>(Wait; then Click)<br><br></summary>
-                Check there is no path from \(q_0\) to any non-accepting state.
-                <br><br>
-              </details>
-            </li>
-            <li>
-              <b>Nonempty Intersection</b>
-              <br>
-              (How would you do this?)
-
-<!-- Algorithm:
-– Build a DFA M3 (algorithmically) that recognizes L(M1)∩L(M2).
-– Ask if L(M3) is nonempty and give the same answer. 
--->
-
-            </li>
-            <li>
-              <b>Subset</b>
-              <br>
-              (How would you do this?)
-<!--              
-Note that L(M1)⊆ L(M2) if and only if L(M1)∩ (L(M2))c =∅.
-– Build a DFA M3 (algorithmically) that recognizes (L(M2))c.
-– Build another DFA M4 (algorithmically) that recognizes L(M1)∩(L(M2))c.
-– Ask if L(M4) is empty and give the same answer.
--->
-
-            </li>
-            <li>
-              <b>Equivalence</b>
-              <br>
-              (How would you do this?)
-<!-- 
-Note that L(M1) = L(M2) if and only if both L(M1)⊆L(M2) and L(M2)⊆ L(M1).
-• Algorithm:
-– Test whether L(M1)⊆ L(M2).
-– Test whether L(M2)⊆ L(M1).
-– Say yes iff both say yes.
--->          
-            </li>
-            <li>
-              <b>Optimality</b>
-              <br>
-              (How would you do this?)
-
-<!-- 
-• Algorithm 1:
-– Enumerate all DFAs (up to isomorphism) with fewer states than M and test all for equivalence with M.
-– How to enumerate:
-   • Use canonical state names q0, q1, q2,…
-   • For each fixed number n of states, where n<number of states of M, list all machines with states q0,…,qn-1.
-   • List these by considering all possible collections of arrows, all choices of accept states.
-   • Details later.
-
-• Algorithm 2:
-– Apply a state minimization algorithm for DFAs to M (see Sipser,Exercise 7.40).
-– Merges states of M, as far as possible, while maintaining equivalence.
-– Can prove that such an approach in fact yields the minimum number of states.
--->         
-            </li>
-          </ol>
-
-        </div>
-
-      </p>
-
-        <p><br></p><hr><p><br></p>
-
-      <h2>
-        Intro: Context-Free Grammar 
-      </h2>
-
-      <p>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF01.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-                EQ, HALF, PAL
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF02.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF03.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        Finite automata and regular expressions are limited
-        <br><br>
-        They both only match patterns that can be described by reaching L to R
-        <br><br>
-        Some patterns are more interesting…
-
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF04.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF05.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-
-        Seems like PAL lives really close to Regular: there’s a structure to the words that’s ALMOST regular… but the pattern is in the middle.
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF06.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        S ->g N_phrase V_phrase
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF07.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        N -> article noun
-        <br><br>
-        V -> conjugated verb
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF08.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF09.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF10.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF11.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF12.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF13.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF14.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF15.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture10/CF16.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-<!-- 
-𝑉={𝑆}  
-Σ ={0,1}  
-𝑅 ={ 𝑆→_𝐺 0𝑆0,
-𝑆→_𝐺 1𝑆1,
-𝑆→_𝐺 𝜀 }
-
-Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
-
- -->
-
-
-      </p>
+      <p><br></p><hr><p><br></p>
       
 
+      <h2>Push-Down Automata</h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA01.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA02.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA03.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA04.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA05.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA06.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA07.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA08.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA09.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA09a.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA09b.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA09c.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <h3>So now, let's draw the PDA for HALF</h3>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA09d.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA10.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA11.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA12.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA13.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA14.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA15.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture11/PDA16.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        
+      </p>
+
+
+      <h2>mini (video) lecture: Push-Down Automata</h2>
 
 
       <p><br></p><hr><p><br></p>
 
-      <h3>Next class: Context-Free Grammars</h3>
+      <h3>Next class: Practice with CFGs and PDAs</h3>
 
 
       <p><br></p><hr><p><br></p>
@@ -514,10 +349,10 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes14.html">Next Module</a>
               </li>
             </ul>
           </div>
