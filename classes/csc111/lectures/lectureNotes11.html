@@ -133,12 +133,425 @@
 
       <p>
 
+        A <b>Bug</b> is a logical error in your code.
+        <br><br>
+
+        For example, the following code attempts to determine if a number is inside, outside, or at a limit of an interval:
+
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">num <span style="color: #333333">=</span> <span style="color: #007020">eval</span> (<span style="color: #007020">input</span> (<span style="background-color: #fff0f0">&quot;give me a number: &quot;</span>))
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #333333">&lt;</span> num <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">1</span> :   
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;inside&quot;</span>)
+<span style="color: #008800; font-weight: bold">elif</span> num <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #000000; font-weight: bold">and</span> num <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;outside&quot;</span>)
+<span style="color: #008800; font-weight: bold">else</span>:
+   <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;limit&quot;</span>)
+</pre></div>
+
+
+        <br><br>
+
+        Try it out <a href="https://pythontutor.com/visualize.html#code=num%20%3D%20eval%20%28input%20%28%22give%20me%20a%20number%3A%20%22%29%29%0Aif%200%20%3C%20num%20%3C%201%20%3A%20%20%20%0A%20%20%20%20print%20%28%22inside%22%29%0Aelif%20num%20%3E%201%20and%20num%20%3C%200%3A%0A%20%20%20%20print%20%28%22outside%22%29%0Aelse%3A%0A%20%20%20print%20%28%22limit%22%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%22-3%22%5D&textReferences=false">here</a>
+
+        <br><br>        
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Can you see anything wrong with this?
+        </div>
+
+        <br><br><br><br>
+
+        Another example: the following code attempts to obtain the factorial of a number (this time using a for loop):
+
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>
+  fac <span style="color: #333333">=</span> factorial(num)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The result for {:d} is {:d}&quot;</span><span style="color: #333333">.</span>format(num, fac))
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">factorial</span>(x):
+  mult <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+  <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>,x<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
+    mult <span style="color: #333333">*=</span> x
+  <span style="color: #008800; font-weight: bold">return</span> mult  
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></div>
+
+
+
+        <br><br>
+
+        Try it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20num%20%3D%205%0A%20%20fac%20%3D%20factorial%28num%29%0A%20%20print%28%22The%20result%20for%20%7B%3Ad%7D%20is%20%7B%3Ad%7D%22.format%28num,%20fac%29%29%0A%0Adef%20factorial%28x%29%3A%0A%20%20mult%20%3D%201%0A%20%20for%20i%20in%20range%281,x%2B1%29%3A%0A%20%20%20%20mult%20*%3D%20x%0A%20%20return%20mult%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Can you see anything wrong with this?
+        </div>
+
+
+        <br><br><br><br>
+
+
+
+        <h3>Debugging</h3>
+        <br><br>
+        To <b>de-bug</b> is to remove these logical errors from your code.
+        <br><br>
+
+        <b>Failure cases</b>
+        The first important step is to <b>identify</b> a case (or many cases) for which your code fails. 
+        <br>
+        That usually gives you enough information, but if you still can't see the problem, you proceed with debugging.
+        <br><br>
+
+        There are two main approaches:
+        <br><br>
+        <ul>
+          <li>Using debugging print statements to track your progress inside the code</li>
+          <li>Executing the code in <i>debug mode</i>, where it runs the lines one by one and let's you examine the contents of the variables
+
+            <ul>
+              <li>(similar to debugging is using a visualizer like the python tutor... which is good for small programs)</li>
+            </ul>
+
+          </li>
+          
+        </ul>
+
+
+
+        <br><br><br><br>
+
+        <h4>Debugging Example 1</h4>
+        <br>
+        First step: failure cases.
+        <br>
+        <ol>
+          <li>if we input a positive number.... it works</li>
+          <li>if we input a limit number.... it works</li>
+          <li>if we input a negative number.... it says "limit"...<b>Which is a failure case</b></li>
+        </ol>
+
+        <br><br>
+
+        Now decide which approach might be smarter.
+        <br><br>
+
+        <b>Print statements?</b> We would need to add prints to check which conditions fail (which is a  lot of extra code) 
+        <br>
+        See an example <a href="https://pythontutor.com/visualize.html#code=num%20%3D%20eval%20%28input%20%28%22give%20me%20a%20number%3A%20%22%29%29%0Aprint%28%22input%20num%3A%20%22,%20num%29%0Aprint%28%22is%20num%20%3E%200%3F%3A%20%22,%200%20%3C%20num%29%0Aprint%28%22is%20num%20%3C%201%3F%3A%20%22,%20num%20%3C%201%29%0Aprint%28%22is%20num%20%3C%200%3F%3A%20%22,%20num%20%3C%200%29%0Aprint%28%22is%20num%20%3E%201%3F%3A%20%22,%201%20%3C%20num%29%0Aprint%28%22is%20num%20%3D%3D%200%3F%3A%20%22,%20num%20%3D%3D%200%29%0Aprint%28%22is%20num%20%3D%3D%201%3F%3A%20%22,%201%20%3D%3D%20num%29%0A%0Aif%200%20%3C%20num%20%3C%201%20%3A%20%20%20%0A%20%20%20%20print%20%28%22inside%22%29%0Aelif%20num%20%3E%201%20and%20num%20%3C%200%3A%0A%20%20%20%20print%20%28%22outside%22%29%0Aelse%3A%0A%20%20%20print%20%28%22limit%22%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%22-3%22%5D&textReferences=false"> here</a>
+
+        <br><br>
+
+        <b>You will notice that even with all these prints, the problem is NOT in the individual comparisons...</b> we would have needed the correct print!
+        <br><br>  
+
+        Try the alternative prints <a href="https://pythontutor.com/visualize.html#code=num%20%3D%20eval%20%28input%20%28%22give%20me%20a%20number%3A%20%22%29%29%0Aprint%28%22input%20num%3A%20%22,%20num%29%0Aprint%28%22is%200%20%3C%20num%20%3C%201%3F%3A%20%22,%200%20%3C%20num%20%3C%201%29%0Aprint%28%22is%20num%20%3E%201%20and%20num%20%3C%200%3F%3A%20%22,%20num%20%3E%201%20and%20num%20%3C%200%29%0A%0Aif%200%20%3C%20num%20%3C%201%20%3A%20%20%20%0A%20%20%20%20print%20%28%22inside%22%29%0Aelif%20num%20%3E%201%20and%20num%20%3C%200%3A%0A%20%20%20%20print%20%28%22outside%22%29%0Aelse%3A%0A%20%20%20print%20%28%22limit%22%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%22-3%22%5D&textReferences=false">here</a>
+
+
+        <br><br>
+
+        <b>Now, let's try using the Debugger</b>: Go to Debugging Intro in Replit and copy-paste the "intervals.py" code into main.py.
+        <br><br>
+
+        We'll use the debugger and try to identify the error.
+
+        <br><br>
+
+
+        <h4>Debugging Example 2</h4>
+
+        <br>
+        First step: failure cases.
+        <br>
+        <ol>
+          <li>if we use num = 1 .... it works</li>
+          <li>if we use num > 1 .... it returns a number that is too large!...<b>Which is a failure case</b></li>
+        </ol>
+
+        <br><br>
+
+        <b>let's try using the Debugger</b>: Go to Debugging Intro in Replit and copy-paste the "factorial.py" code into main.py.
+        <br><br>
+
+        We'll use the debugger and try to identify the error.
+
       </p>
 
+
       <p><br></p><hr><p><br></p>
+
+      
+      <h2>More on nested loops (with debugging)</h2>       
+
+      <p>
+
+        Let's see some examples:
+        <br><br>
+
+        <h3>Example 1: a number pyramid</h3>
+
+        <br><br>
+
+        We wish to generate the following structure:
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/numPyramid.png" alt="" style="width:40%">
+        <br><br>
+
+        <br><br>
+
+
+        <h4>First attempt (no nesting)</h4>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  
+13  
+14  
+15  
+16  
+17  
+18  
+19  
+20  
+21  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  pyramid() <span style="color: #888888"># prints 5 levels of numbers</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">pyramid</span>():
+    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>):
+        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+    <span style="color: #007020">print</span>()        
+    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">2</span>):
+        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+    <span style="color: #007020">print</span>()    
+    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">3</span>):
+        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+    <span style="color: #007020">print</span>()    
+    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">4</span>):
+        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+    <span style="color: #007020">print</span>()    
+    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">5</span>):
+        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+
+
+        <br><br>
+
+        Look at the code <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20pyramid%28%29%20%23%20prints%205%20levels%20of%20numbers%0A%0Adef%20pyramid%28%29%3A%0A%20%20%20%20for%20j%20in%20range%281%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%282%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%283%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%284%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%285%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank"> Here</a>
+
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          In the same way we asked before, do you notice any code that is repeated?
+        </div>
+
+        <br><br><br><br>
+
+
+        <h4>Attempt 2: Nesting!</h4>
+
+
+        Let's use out old friend: <b>a loop</b> to take advantage of "automated repetition!"
+
+        <br><br>
+
+        Steps:
+        <ul>
+          <li>First, what is every repetition dependent on (what changes in each repetition)?  </li>
+          <li>Is this something we can use a variable for?</li>
+          <li>If so, can we write a loop that viaries this variable?</li>
+        </ul>
+
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture10/naiveCodeMarked.png" alt="" style="width:60%">
+        <br><br>
+
+        <br><br>
+
+        Let's try it:
+
+        <br><br>
+
+        Steps:
+        <ul>
+          <li>First, surround a single block of code ( the one that was "repeated") in a <b>for</b> loop (you can try a <b>while</b> later) </li>
+          <li>Replace the changing parameter for the loop variable (let's use <tt>i</tt>)</li>
+          <li>Set the varying range according to the initial range of desired values (1, 2, 3, 4, 5)</li>
+        </ul>
+
+        <br><br>
+
+        You should end up with something like this:
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  pyramid() <span style="color: #888888"># prints 5 levels of numbers</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">pyramid</span>():
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">5</span>):
+        <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(i):
+            <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+        <span style="color: #007020">print</span>()        
+   
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+
+
+        You can see it in action <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20pyramid%28%29%20%23%20prints%205%20levels%20of%20numbers%0A%0Adef%20pyramid%28%29%3A%0A%20%20%20%20for%20i%20in%20range%281,5%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20%20%20%20%20print%28%29%20%20%20%20%20%20%20%20%0A%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank"> Here!</a>
+
+
+        <br><br>
+
+        <h4>Attempt 3: Nesting using input parameters</h4>
+
+        For greater versatility, we can change the number of times we repeat the outer loop based on some input parameter!
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+ 2  
+ 3  
+ 4  
+ 5  
+ 6  
+ 7  
+ 8  
+ 9  
+10  
+11  
+12  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  pyramid(<span style="color: #0000DD; font-weight: bold">7</span>) <span style="color: #888888"># prints &lt;argument&gt; levels of numbers</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">pyramid</span>(lim):
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>,lim<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
+        <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(i):
+            <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
+        <span style="color: #007020">print</span>()        
+   
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+        
+        <br><br>
+
+        Check it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20pyramid%287%29%20%23%20prints%20%3Cargument%3E%20levels%20of%20numbers%0A%0Adef%20pyramid%28lim%29%3A%0A%20%20%20%20for%20i%20in%20range%281,lim%2B1%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20%20%20%20%20print%28%29%20%20%20%20%20%20%20%20%0A%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here!</a>        
+
+
+
+
+      </p>
+
+
+
+      <p><br></p><hr><p><br></p>
+
+
       <h2>Building grids of prints with nested loops</h2>       
 
       <p>
+
+        The follwing are two ways to print a grid composed of the word "Yak":
+        <br><br>
+
+        <b>Method 1: the power of print</b> 
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">3</span>):
+    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Yak&quot;</span> <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">4</span>)
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></div>
+
+        <br><br>
+        Try out the code <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20for%20i%20in%20range%283%29%3A%0A%20%20%20%20print%28%22Yak%22%20*%204%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          How would you modify this code so that the output loks like this:
+          <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">Yak Yak Yak 
+Yak Yak Yak 
+Yak Yak Yak 
+Yak Yak Yak
+</pre></div>
+
+        </div>
+
+        <br><br><br><br>
+
+
+        <b>Method 2: Using a loop and simple prints</b>
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">4</span>):
+        <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span> (<span style="color: #0000DD; font-weight: bold">3</span>):
+            <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Yak&quot;</span>, end<span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span>)
+        <span style="color: #007020">print</span>()    
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></div>
+
+        <br><br>
+
+        Try out the code <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20%20%20for%20i%20in%20range%284%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%20%283%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22Yak%22,%20end%3D%20%22%22%29%0A%20%20%20%20%20%20%20%20print%28%29%20%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          How would you modify this code so that the output loks like this:
+          <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">Yak Yak Yak Yak Yak 
+Yak Yak Yak Yak Yak 
+Yak Yak Yak Yak Yak 
+Yak Yak Yak Yak Yak 
+</pre></div>
+
+        </div>
+
 
       </p>
 
