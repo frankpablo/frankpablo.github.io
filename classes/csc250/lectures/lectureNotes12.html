@@ -265,15 +265,15 @@
         <img class="img-fluid" src="../figures/lecture10/CF06.png" alt="CFGs!!!" style="width:80%">
         <br><br>
 
-        S ->g N_phrase V_phrase
+        <!-- S ->g N_phrase V_phrase -->
 
         <br><br>
         <img class="img-fluid" src="../figures/lecture10/CF07.png" alt="CFGs!!!" style="width:80%">
         <br><br>
 
-        N -> article noun
+        <!-- N -> article noun -->
         <br><br>
-        V -> conjugated verb
+        <!-- V -> conjugated verb -->
 
         <br><br>
         <img class="img-fluid" src="../figures/lecture10/CF08.png" alt="CFGs!!!" style="width:80%">
@@ -331,6 +331,25 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
 
       <h3>How about EQ?</h3>
 
+
+<!-- 
+𝑉={𝑆}  
+Σ ={0,1}  
+𝑅 ={ 
+𝑆 →_𝐺 0𝑆1,
+𝑆 →_𝐺 1𝑆0,
+𝑆→_𝐺 𝑆01,
+𝑆→_𝐺 𝑆10,
+𝑆→_𝐺 01𝑆,
+𝑆→_𝐺 10𝑆,
+𝑆→_𝐺 𝜀 }
+
+Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
+
+𝑆 →_𝐺 0𝑆1 | 𝑆 →_𝐺 1𝑆0 | 𝑆→_𝐺 𝑆01 | 𝑆→_𝐺 𝑆10 | 𝑆→_𝐺 01𝑆 | 𝑆→_𝐺 10𝑆 | 𝑆→_𝐺 | 𝜀 
+
+ -->      
+
       <br><br><br><br>
 
       In the following map...
@@ -363,7 +382,8 @@ Shorthand: 𝑆→_𝐺 0𝑆0 | 1𝑆1 | 𝜀
       (You suggest some:)
 
 
-      <br><br>
+      <br><br><br><br><br><br>
+
       <img class="img-fluid" src="../figures/lecture12/CF18.png" alt="CFGs!!!" style="width:80%">
       <br><br> 
 
@@ -431,6 +451,56 @@ S   →_𝐺   ∅|𝜀|𝑎
  -->      
 
         <br><br><br><br>
+
+
+      <h3>Approach 2: RL's are a special case of CFLs</h3>        
+
+      <div class="mx-5">
+        <p>
+          You can convert any DFA into an equivalent CFG as follows. 
+          <ol>
+            <li>Make a variable \(S_i\) for each state \(q_i\) of the DFA.</li>
+            <li>Add the rule \(S_i\) → \(aS_j\) to the CFG if \(\delta (q_i,a) = q_j\) is a transition in the DFA.</li>
+            <li>Add the rule \(S_i\) → ε if qi is an accept state of the DFA.</li>
+            <li>Make \(S_0\) the start variable of the grammar, where \(q_0\) is the start state of the machine.</li>
+          </ol>
+          <br><br>
+              Verify on your own that the resulting CFG generates the same language that the DFA recognizes.
+              <br><br><br><br>
+
+              <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+              <div class="mx-lg-5">
+                Try to build your own CFG. One that "Accepts" the language: 
+                \[ L = \{ w \in \Sigma^* \vert w \ has \ an \ odd \ number \ of \ 1s \}\]
+
+                <div class="mx-lg-5">
+                  <details>
+                    <summary>(Wait; then Click)<br><br></summary>
+
+                    <br><br>
+                    <img class="img-fluid" src="../figures/lecture12/oddOnes.png" alt="OddOnes-to-CFG" style="width:60%">
+                    <br><br> 
+
+
+      <br><br>
+      if A is \(S_0\)  and B is \(S_1\):
+
+            \[
+            \begin{alignat}{2}
+            S   &\rightarrow_g S_0 \\
+            S_0 &\rightarrow_g  0S_0 \\
+            S_0 &\rightarrow_g 1S_1 \\
+            S_1 &\rightarrow_g  \epsilon \\
+            S_1 &\rightarrow_g  0S_1 \\
+            S_1 &\rightarrow_g 1S_0 \\
+            \end{alignat}
+            \]               
+                    </p>
+                  </details>
+                </div>
+              </div>  
+        </p>
+      </div>
 
       <br><br>
       <img class="img-fluid" src="../figures/lecture12/CF21.png" alt="CFGs!!!" style="width:80%">
@@ -556,6 +626,8 @@ Now what happens when we pump |yv|?  𝑛=p+1 will do. Now the length will be: p
         <br><br>
         <img class="img-fluid" src="../figures/lecture12/CF25.png" alt="CFGs!!!" style="width:80%">
         <br><br>
+
+        check the article out: <a href="https://www.nature.com/articles/nature04675">https://www.nature.com/articles/nature04675</a>
         
       </p>
 
@@ -572,7 +644,7 @@ Now what happens when we pump |yv|?  𝑛=p+1 will do. Now the length will be: p
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
-         TBD.
+         problem Set 3 due Friday 02/25 at 5PM.
       </div> 
       <br>
       <b>[Optional]</b> 
