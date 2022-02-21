@@ -198,7 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 13: Push-Down Automata </h1>
+      <h1>Lecture Notes 13: More CFGs and Intro to Push-Down Automata </h1>
       <p>
         <br>
       </p>
@@ -206,108 +206,427 @@
 
       This class we'll discuss:
       <ul>
+        <li>More on CFGs</li>
         <li>Intro to Push-Down Automata</li>
       </ul>
 
 
-
       <p><br></p><hr><p><br></p>
 
+      <h2>
+        Recap: CFGs
+      </h2>
+
+      <p>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture10/CF11.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
 
 
-      <p><br></p><hr><p><br></p>
+        <h2>
+        All REs can be created with CFGs
+        </h2>
+
+        <h3>Approach 1: Recursive creation of CFG from definition of REs</h3> 
+
+        For any RE \(R_1\) We can produce a CFG \(G_1\) by applying the following steps:
+        <br><br>
+<!-- 
+S   →_𝐺   ∅|𝜀|𝑎
+𝑆_1 →_𝐺   𝐴
+𝑆_2 →_𝐺   𝐵
+𝑆   →_𝐺   S_1 |𝑆_2  (𝐴+𝐵)
+𝑆   →_𝐺   S_1 𝑆_2   (𝐴𝐵)
+𝑆   →_𝐺   𝑆_1 𝑆_1   (𝐴^∗ )  "needs a little more induction, but proof left to the reader"
+ -->      
+        <ul>
+          <li>Any base cases can be writen as generation of 
+            <br>
+            \(S \rightarrow_g \emptyset \vert \epsilon \vert a\) for all \(a \in \Sigma \quad from \ R_1's \ \Sigma\)</li>
+          <li>Defining the more complex rules requires combining two rules. The recursive expression based on these two base rules can start with:
+            <br>
+            \(S \rightarrow_g A \) (some expression)
+            <br>
+            \(S \rightarrow_g B \) (another expression)
+            <br>
+            and combined to generate more complex expressions:
+            <ul>
+              <li>Alternation:
+                <br>
+                \(S \rightarrow_g S_1 \vert S_2 \) (equivalent to A + B for some A, B)
+              </li>
+              <br>
+              <li>Concatenation:
+                <br>
+                \(S \rightarrow_g S_1 S_2 \)  (equivalent to A B for some A, B)
+              </li>
+              <br>
+              <li>Kleene:
+                <br>
+                \(S \rightarrow_g S_1 S \)  (equivalent to \( A^* \) for some A) 
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </p>
+
+      <br><br><br><br>
+
       
+      <h3>Approach 2: RL's are a special case of CFLs</h3>        
+
+      <div class="mx-5">
+        <p>
+          You can convert any DFA into an equivalent CFG as follows. 
+          <ol>
+            <li>Make a variable \(S_i\) for each state \(q_i\) of the DFA.</li>
+            <li>Add the rule \(S_i\) → \(aS_j\) to the CFG if \(\delta (q_i,a) = q_j\) is a transition in the DFA.</li>
+            <li>Add the rule \(S_i\) → ε if qi is an accept state of the DFA.</li>
+            <li>Make \(S_0\) the start variable of the grammar, where \(q_0\) is the start state of the machine.</li>
+          </ol>
+          <br><br>
+              Verify on your own that the resulting CFG generates the same language that the DFA recognizes.
+              <br><br><br><br>
+
+              <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+              <div class="mx-lg-5">
+                Try to build your own CFG. One that "Accepts" the language: 
+                \[ L = \{ w \in \Sigma^* \vert w \ has \ an \ odd \ number \ of \ 1s \}\]
+
+                <div class="mx-lg-5">
+                  <details>
+                    <summary>(Wait; then Click)<br><br></summary>
+
+                    <br><br>
+                    <img class="img-fluid" src="../figures/lecture12/oddOnes.png" alt="OddOnes-to-CFG" style="width:60%">
+                    <br><br> 
+
+
+      <br><br>
+      if A is \(S_0\)  and B is \(S_1\):
+
+            \[
+            \begin{alignat}{2}
+            S   &\rightarrow_g S_0 \\
+            S_0 &\rightarrow_g  0S_0 \\
+            S_0 &\rightarrow_g 1S_1 \\
+            S_1 &\rightarrow_g  \epsilon \\
+            S_1 &\rightarrow_g  0S_1 \\
+            S_1 &\rightarrow_g 1S_0 \\
+            \end{alignat}
+            \]               
+                    </p>
+                  </details>
+                </div>
+              </div>  
+        </p>
+      </div>
+
+      <br><br>
+      <img class="img-fluid" src="../figures/lecture12/CF21.png" alt="CFGs!!!" style="width:80%">
+      <br><br> 
+
+      <h3>How do we prove there are languages that are NOT (beyond) CFLs?</h3>
+
+      <br><br>
+
+      How did we do this back when we did it for RLs?
+      <br><br><br><br>
+
+      <br><br>
+      <img class="img-fluid" src="../figures/lecture12/CF22.png" alt="CFGs!!!" style="width:80%">
+      <br><br> 
+
+      <ul>
+        <li>the middle part is not too big</li>
+        <li>v and y (the repeating parts) are not both simultaneously empty</li>
+        <li>repeating v and or y we will keep us in the language</li>
+      </ul>   
+
+      <br><br>
+
+      Note that RLs are a special case of Context-Free-Languages (without the \(uv^i\)) part.
+
+
+      <br><br><br><br>
+
+      So, if we have a pumping lemma for CFGs, is there a "Machine" equivalent to the Finite Automatons as well?
+      <br><br><br><br> We'll see those next class.
+
+      </p>
+      
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Proving a language is NOT context-free</h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture12/CF23.png" alt="CFGs!!!" style="width:80%">
+        <br><br> 
+
+        <br><br><br><br>
+
+        <b>What does your untuition say?</b> Is it a CFL?
+
+        <br><br><br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture12/CF24.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+
+        Remember:
+        <ul>
+          <li>Given a structure of \(w = uvxyz\), and \( \mid vy \mid \geq 1\)</li>
+          <li>We want to find an \(i\) for which a word \(uv^ixy^iz\) <br>
+          does not have a prime length ( \( \mid uv^ixy^iz \mid  \) is not prime ) after being "pumped" some number of times.
+          </li>
+          <li>Here, we can start with a word \(w\) with length \(p\geq N \) (\(N\) provided by the pumping Lemma)</li>
+          <li>Now, the trick is to pump the pattern some number of times so that we can prove that the final length is NOT prime!</li>
+          <li>Ideas?</li>
+        </ul>
+
+        <details>
+            <summary>(Wait; then Click)<br><br></summary>
+
+              Steps:
+              <ol>
+                <li>The length of a word \(\mid uv^ixy^iz \mid \) <br>
+                is the length of \( \mid w \mid \) plus any added repetitions of \(v\) and \(y\)</li>
+                <li>So,  \( \mid uv^ixy^iz \mid  \) is  \( \mid w\mid  + (i-1)\mid vy \mid \) </li>
+                <li>Since we said \(w\) is in PRIMEAL, then \( \mid w\mid \) is some prime number \(p\geq N \).</li>
+                <li>Then, \( \mid uv^ixy^iz \mid  = \mid w\mid  + (i-1)\mid vy \mid = p + (i-1)\mid vy \mid\)</li>
+                <li>Now, <b>What possible choice of \(i\) could we choose to cause the overall length to be provably NOT prime</b>?</li>
+              </ol>
+
+              <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              If we choose \(i\) so that the \(i-1\) is equal to \(p\) in the following expression:<br>
+              \[ \mid uv^ixy^iz \mid  = \mid w\mid  + (i-1)\mid vy \mid = p + (i-1)\mid vy \mid \]
+              <br>
+              Then substituting \(i-1\) for \(p\) ( by making \(i = p-1\)), we would get:
+
+              \[ 
+              \mid uv^ixy^iz \mid  = \mid w \mid  + (i-1)\mid vy \mid = p + p\mid vy \mid \\
+              = p (1+\mid vy \mid)
+              \]
+              which means that, after pumping, the word is <b>divisible by \(p\)</b>! and therefore, <b>not of prime length</b>.
+              <br><br>
+
+              <br><br>
+              </details>
+
+            <br><br>
+          </details>
+
+
+        
+      </p>
+
+
+<!-- For this particular language for s any 1^p (with p≥N and p is a prime number) will do the trick. Then the pumping lemma gives you 𝑢𝑣𝑥𝑦𝑧 with |𝑣𝑦|≥1. 
+
+To disprove the context-freeness, you need to find 𝑛 such that |𝑢𝑣^𝑛𝑥𝑦^𝑛𝑧| is not a prime number.
+
+Remember that this word is all 1s, so |𝑢𝑣^𝑛𝑥𝑦^𝑛𝑧|=|original s|+(𝑛−1)|𝑣𝑦| = p+(𝑛−1)|𝑣𝑦|
+
+Now what happens when we pump |yv|?  𝑛=p+1 will do. Now the length will be: p+p|𝑣𝑦|=p(1+|𝑣𝑦|), which is not prime (we just factored it), so 𝑢𝑣^𝑛𝑥𝑦^𝑛𝑧 ∉ 𝐿. The pumping lemma can't be applied so 𝐿 is not context free. -->
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Why are CFGs important?</h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture12/CF25.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        check the article out: <a href="https://www.nature.com/articles/nature04675">https://www.nature.com/articles/nature04675</a>
+        
+
+
+
+
+<!-- 
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA01.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA02.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA03.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+ -->
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/CF26.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/CF27.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/CF28.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
 
       <h2>Push-Down Automata</h2>
 
       <p>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA01.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture13/PDA01.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA02.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture13/PDA04.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA03.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture13/PDA05.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA04.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture13/PDA02.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA05.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+         What is the language that these rules are describing?
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+
+              <ul>
+                <li>are these a valid words? \(\{ \epsilon, 01, 0011, \dots \} \)</li>
+                <li>We know this language!! What is it called?</li>
+              </ul>
+              <br>
+              <b>Now, let's try to buid an automaton that can keep track of all of this</b>
+            </details>
+          </div>
+        </div>  
+
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA06.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture13/PDA03.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA07.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
+
+
+        <b>Notes</b> 
+        <ul>
+          <li>we need a notation for READ, POP and PUSH... we'll use: \( READ, POP \rightarrow PUSH\)</li>
+          <li>we need a symbol for "The stack is currently empty!"... we'll use \(z_0\)</li>
+          <li>we need to be able to read a symbol without pushing ... we'll use \(\epsilon\) in place of PUSH</li>
+          <li>we need to be able to read a symbol without popping ... we'll use \(\epsilon\) in place of POP</li>
+          <li>we need to be able to push without reading a symbol ... we'll use \(\epsilon\) in place of READ</li>
+          <li>we need to be able to pop without reading a symbol ... we'll use \(\epsilon\) in place of READ</li>
+        </ul> 
+
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA08.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture13/PDA06.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA09.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA09a.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA09b.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA09c.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
+        <br><br><br><br><br><br>
 
         <h3>So now, let's draw the PDA for HALF</h3>
+
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA09d.png" alt="PDAs!!!" style="width:80%">
+
+        <h4>An example for HALF:</h4>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA03a.png" alt="PDAs!!!" style="width:50%">
+        <br><br>
+
+        And in a "compressed notation":
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA03b.png" alt="PDAs!!!" style="width:50%">
+        <br><br>
+<!-- 
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA07.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+ -->
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA08.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <span style="color:#00cc33;font-size: 18pt">Note that we defined an Augmented <b>NON-Deterministic</b> Automaton</span>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA09.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA10.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture13/PDA10.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA11.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture13/PDA11.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA12.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture13/PDA12.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <b>Tips:</b>
+        <ul>
+          <li>Think of phases: 
+            <ol>
+              <li>memorizing</li>
+              <li>middle (even or odd)</li>
+              <li>replicating in reverse</li>
+            </ol></li>
+            <li>write the PDA... and remember it is NON-Deterministic</li>
+        </ul>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Build the PDA for PAL
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>
+              <img class="img-fluid" src="../figures/lecture13/PDA12a.png" alt="PDAs!!!" style="width:100%">
+              <br><br>
+              
+            </details>
+          </div>
+        </div>  
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA13.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA13.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA14.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA15.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture11/PDA16.png" alt="PDAs!!!" style="width:80%">
+        <img class="img-fluid" src="../figures/lecture13/PDA14.png" alt="PDAs!!!" style="width:80%">
         <br><br>
 
         
       </p>
 
-
-      <h2>mini (video) lecture: Push-Down Automata</h2>
 
 
       <p><br></p><hr><p><br></p>
