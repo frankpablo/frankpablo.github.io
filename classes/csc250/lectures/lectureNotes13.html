@@ -265,7 +265,7 @@ S   →_𝐺   ∅|𝜀|𝑎
               <br>
               <li>Kleene:
                 <br>
-                \(S \rightarrow_g S_1 S \)  (equivalent to \( A^* \) for some A) 
+                \(S \rightarrow_g S_1 S \vert \epsilon \)  (equivalent to \( A^* \) for some A) 
               </li>
             </ul>
           </li>
@@ -309,12 +309,12 @@ S   →_𝐺   ∅|𝜀|𝑎
 
             \[
             \begin{alignat}{2}
-            S   &\rightarrow_g S_0 \\
-            S_0 &\rightarrow_g  0S_0 \\
-            S_0 &\rightarrow_g 1S_1 \\
-            S_1 &\rightarrow_g  \epsilon \\
-            S_1 &\rightarrow_g  0S_1 \\
-            S_1 &\rightarrow_g 1S_0 \\
+            S   &\rightarrow_g S_A \\
+            S_A &\rightarrow_g  0S_A \\
+            S_A &\rightarrow_g 1S_B \\
+            S_B &\rightarrow_g  \epsilon \\
+            S_B &\rightarrow_g  0S_B \\
+            S_B &\rightarrow_g 1S_A \\
             \end{alignat}
             \]               
                     </p>
