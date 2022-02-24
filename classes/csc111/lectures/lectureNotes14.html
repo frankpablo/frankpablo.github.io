@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes13.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 14: Math module and Random, <br>
+      plus Odds and Ends</h1>
+      <p>
+        <br>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Recap: Chaining</h2>
+
+      <p>
+        Remember this problem?:
+        <br><br>
+
+        <ol>
+          <li>Set variable my-Str = <tt>"⎵⎵he-lloWo-rl⎵d-!"</tt></li>
+          <li>Count the number of "tokens" in <tt>my-str</tt> where a "token" is any Substring Surrounded with either <tt>"⎵"</tt>or <tt>"-"</tt></li>
+          <li>return the uppercase first letter of the third token          </li>
+        </ol>
+      </p>
+
+      <br><br>
+
+      <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Show and Tell
+        </div>
+
+        <br><br>
+
+        Solution below:
+
+
+        <div id="passw">
+          <div>
+              <!-- (THE PASSWORD IS Yak's Birthday) -->
+              Enter the password to proceed:
+          </div>
+          <div>
+            <input type="password" id="password" onkeydown="if (event.keyCode == 13) document.getElementById('button').click()" /> 
+            <!-- IMPORTANT! this part is so if you click enter, it works. -->
+          </div>
+                    
+          <div>
+            <br/>
+            <input id="button" type="button" value="Reveal" onclick="if (document.getElementById('password').value == '2-29-2020') { 
+            document.getElementById('HIDDENDIV').classList.toggle('show');   document.getElementById('passw').style.display='none'; } 
+            else {  alert('Invalid Password!'); password.setSelectionRange(0, password.value.length);   } " />
+          </div>
+            <!-- it will autoselect wrong input if wrong -->
+            <br /><br /><br />
+        </div>
+        <br><br>
+
+        <div id="HIDDENDIV">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">find_occurrence</span>(phrase: <span style="color: #007020">str</span>, sub: <span style="color: #007020">str</span>, k: <span style="color: #007020">int</span>) <span style="color: #333333">-&gt;</span> <span style="color: #007020">int</span>:
+  <span style="color: #DD4422">&#39;&#39;&#39;Finds the k-th occurrence of sub inside phrase&#39;&#39;&#39;</span>
+  n_spaces <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>count(sub)
+  idx <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+  <span style="color: #008800; font-weight: bold">for</span> oc <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>, n_spaces):
+    idx <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>find(sub, idx<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #888888">#note the phrase is &#39;stripped&#39;</span>
+    <span style="color: #008800; font-weight: bold">if</span> oc <span style="color: #333333">==</span> k:
+      <span style="color: #008800; font-weight: bold">return</span> idx
+  
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #DD4422">&#39;&#39;&#39;Prints the uppercase first letter of the THIRD token (⎵,-)&#39;&#39;&#39;</span>
+  <span style="color: #888888">#phrase = &quot;  he-lloWo-rl d-!&quot;</span>
+  <span style="color: #888888">#phrase = &quot;  this is-another-example . &quot;</span>
+  phrase <span style="color: #333333">=</span> <span style="color: #007020">input</span>(<span style="background-color: #fff0f0">&quot;Gimme a phrase with &#39; &#39; or &#39;-&#39; separators: &quot;</span>)
+  phrase <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>strip()<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&#39;-&#39;</span>,<span style="background-color: #fff0f0">&quot; &quot;</span>)
+  <span style="color: #007020">print</span>(phrase)
+  <span style="color: #888888">#let = phrase.find(&quot; &quot;,???) # can&#39;t say &quot;second occurrence&quot;</span>
+
+  ind_second_space <span style="color: #333333">=</span> find_occurrence(phrase, <span style="background-color: #fff0f0">&quot; &quot;</span>, <span style="color: #0000DD; font-weight: bold">2</span>)
+  letter <span style="color: #333333">=</span> phrase[ind_second_space<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>]<span style="color: #333333">.</span>upper()
+  
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;This uppercase first letter of the THIRD token is {letter}&quot;</span>)    
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+          <br><br>
+          
+          <a href="https://pythontutor.com/visualize.html#code=def%20find_occurrence%28phrase%3A%20str,%20sub%3A%20str,%20k%3A%20int%29%20-%3E%20int%3A%0A%20%20'''Finds%20the%20k-th%20occurrence%20of%20sub%20inside%20phrase'''%0A%20%20n_spaces%20%3D%20phrase.count%28sub%29%0A%20%20idx%20%3D%200%0A%20%20for%20oc%20in%20range%281,%20n_spaces%29%3A%0A%20%20%20%20idx%20%3D%20phrase.find%28sub,%20idx%2B1%29%20%23note%20the%20phrase%20is%20'stripped'%0A%20%20%20%20if%20oc%20%3D%3D%20k%3A%0A%20%20%20%20%20%20return%20idx%0A%20%20%0Adef%20main%28%29%3A%0A%20%20'''Prints%20the%20uppercase%20first%20letter%20of%20the%20THIRD%20token%20%28%E2%8E%B5,-%29'''%0A%20%20%23phrase%20%3D%20%22%20%20he-lloWo-rl%20d-!%22%0A%20%20%23phrase%20%3D%20%22%20%20this%20is-another-example%20.%20%22%0A%20%20phrase%20%3D%20input%28%22Gimme%20a%20phrase%20with%20'%20'%20or%20'-'%20separators%3A%20%22%29%0A%20%20phrase%20%3D%20phrase.strip%28%29.replace%28'-',%22%20%22%29%0A%20%20print%28phrase%29%0A%20%20%23let%20%3D%20phrase.find%28%22%20%22,%3F%3F%3F%29%20%23%20can't%20say%20%22second%20occurrence%22%0A%0A%20%20ind_second_space%20%3D%20find_occurrence%28phrase,%20%22%20%22,%202%29%0A%20%20letter%20%3D%20phrase%5Bind_second_space%2B1%5D.upper%28%29%0A%20%20%0A%20%20print%28f%22This%20uppercase%20first%20letter%20of%20the%20THIRD%20token%20is%20%7Bletter%7D%22%29%20%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%22%20th-is-is%20a%20te-st%20!%22%5D&textReferences=false">Try the solution Here</a>
+        </div>           
+ 
+      <p><br></p><hr><p><br></p>
+
+      <h2>Splitting and Joining Strings</h2>
+
+      <p>
+        Another typical task is to separate a string into a <b><tt>list</tt></b> of component substrings, or <b><tt>tokens</tt></b>.
+        <br><br>
+
+        <h3>split</h3>
+
+        The <b><tt>split</tt></b> method can achieve this by specifying the character(s) that are to be considered the <b><tt>separators</tt></b> between the tokens.
+        <br><br>
+
+        We will learn how to work with lists in a future lecture.
+
+        <br><br>
+
+        <h3>join</h3>
+
+        Another useful task is to join tokens into a longer string.
+        <br><br>
+        The format is:
+        <br><br>
+        <b><tt>&lt; separator &gt; . join ( &lt; list of tokens &gt; )</tt></b>
+        <br><br>
+
+        We'll see these after we introduce lists.
+
+        <br><br>
+<!-- 
+        For now, we'll just print the results directly (which <b><tt>print</tt></b> ca handle). 
+        <br><br>
+
+        Let's do some splits:
+        <br><br>
+
+        Example:
+        <br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">phrase <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;time consumes everything but it is also the best&quot;</span>
+tokens <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>split()
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the phrase &#39;{:s}&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(phrase, tokens))
+</pre></div>
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=phrase%20%3D%20%22time%20consumes%20everything%20but%20it%20is%20also%20the%20best%22%0Atokens%20%3D%20phrase.split%28%29%0Aprint%28%22the%20phrase%20'%7B%3As%7D'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28phrase,%20tokens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+        <br><br>
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          What happens if you change the input to <b><tt>split</tt></b> to the space: <b><tt>" "</tt></b>?
+        </div>
+
+        <br><br>
+
+        You can use different tokens (I actually wrote "Tolkiens" there!):
+        <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">url <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;https://frankpablo.github.io/classes/csc111/lectures/lectureNotes10.html&quot;</span>
+tolkiens <span style="color: #333333">=</span> url<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot;/&quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the url &#39;{:s}&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(url, tolkiens))
+</pre></div>
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=url%20%3D%20%22https%3A//frankpablo.github.io/classes/csc111/lectures/lectureNotes10.html%22%0Atolkiens%20%3D%20url.split%28%22/%22%29%0Aprint%28%22the%20url%20'%7B%3As%7D'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28url,%20tolkiens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+  
+<br><br>
+        You can also separate into tokens composed of strings (longer than 1 character).
+        <br>
+        Example:
+        <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">quote <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Baseball is ninety percent mental and the other half is physical.&quot;</span>
+tokens <span style="color: #333333">=</span> quote<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot;al&quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the quote &#39;{:s}&#39;, separated by &#39;al&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(quote, tokens))
+</pre></div>
+        <br><br>
+        Try it <a href="https://pythontutor.com/visualize.html#code=quote%20%3D%20%22Baseball%20is%20ninety%20percent%20mental%20and%20the%20other%20half%20is%20physical.%22%0Atokens%20%3D%20quote.split%28%22al%22%29%0Aprint%28%22the%20quote%20'%7B%3As%7D',%20separated%20by%20'al'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28quote,%20tokens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+        <br><br>
+
+
+        <h3>join</h3>
+
+        Another useful task is to join tokens into a longer string.
+        <br><br>
+        The format is:
+        <br><br>
+        <b><tt>&lt; separator &gt; . join ( &lt; list of tokens &gt; )</tt></b>
+        <br><br>
+
+        Example:
+        <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">num_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;1 2 3 4 5 6 7 8 9&quot;</span>
+<span style="color: #888888">#making the tokens</span>
+tokens <span style="color: #333333">=</span> num_str<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot; &quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the num_str &#39;{:s}&#39;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">is composed of the tokens:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">{}&quot;</span><span style="color: #333333">.</span>format(num_str, tokens))
+<span style="color: #007020">print</span>()
+<span style="color: #888888"># joining with &#39;+&#39;</span>
+num_expr <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;+&quot;</span><span style="color: #333333">.</span>join(tokens)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;expression:&quot;</span>,num_expr)
+<span style="color: #888888"># you can use this for something!</span>
+<span style="color: #007020">print</span>( <span style="color: #007020">eval</span>(num_expr) )
+</pre></div>
+        <br><br>
+        Try it <a href="https://pythontutor.com/visualize.html#code=num_str%20%3D%20%221%202%203%204%205%206%207%208%209%22%0A%23making%20the%20tokens%0Atokens%20%3D%20num_str.split%28%22%20%22%29%0Aprint%28%22the%20num_str%20'%7B%3As%7D'%5Cnis%20composed%20of%20the%20tokens%3A%5Cn%7B%7D%22.format%28num_str,%20tokens%29%29%0Aprint%28%29%0A%23%20joining%20with%20'%2B'%0Anum_expr%20%3D%20%22%2B%22.join%28tokens%29%0Aprint%28%22expression%3A%22,num_expr%29%0A%23%20you%20can%20use%20this%20for%20something!%0Aprint%28%20eval%28num_expr%29%20%29%0A&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+ -->
+      </p>
+
+      
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Modules</h2>
+
+      <p>
+        As we've seen, we can make functions that can be used again and again.
+        <br><br>
+        This lets us write more efficient code!
+
+        <br><br><br><br>
+
+        Another approach is to use <b>modules</b>.
+        <br><br>
+
+        Modules are python files that contain functions that we can <b>import</b> and use in our programs.
+
+        <br><br>
+
+        There are two important steps in using modules:
+
+        <ol>
+          <li>importing the module (from a known location)</li>
+          <li>calling the correct function from the correct module</li>
+        </ol>
+
+        <br><br>
+
+         <h3>namespaces</h3>
+
+            A namespace is actually just a normal Python dictionary (more on this later) whose keys are the names and whose values are the objects.
+
+            <br><br>
+
+            <b>Think of it as a list of known objects</b>
+
+            <br><br>
+
+            A module object is simply a namespace that contains definitions from the module. If the module has already been loaded, then the existing module object is used.
+
+            <br><br>
+
+            Definitions in the module's code, e.g., variable assignments and function definitions, are placed in the module's namespace. The module is then added to the importing script or module's namespace, so that the importer can access the definitions.
+
+            <br><br>
+
+            In short, <b>loading a module using <tt>import</tt> adds the module's namespace definitions to the current one</b>
+
+
+
+        <br><br><br><br>
+
+        <h3>Importing</h3>
+
+        <br><br>
+        If a module is placed in a location known to python (like the set of python modules or the <b>current working directory</b>), we can simply import it in our code.
+        <br><br>
+        <h4>Step 1</h4>
+        For us, step 1 is to make sure we're either:
+        <br>
+        <ol>
+          <li>using a common python module (like <b><tt>math</tt></b> or <b><tt>random</tt></b> (which are located in a known directory)</li>
+          <br>
+          or
+          <br>
+          <li>copying the desired module into our <b>current working directory</b></li>
+        </ol>
+        <br><br>
+
+        <h4>Step 2</h4>
+        You can import a module by using the <b><tt>import</tt></b> reserved word and the name of the module (usually at the top of the file).
+        <br><br>
+
+        The syntax is:
+        <br><br>
+
+        <tt>import &lt; module name &gt; </tt>
+
+
+        <br><br>
+
+        <h4>Step 3</h4>
+        Finally, you can use a module function by using the name of the module and the <b>dot</b> operator.
+        <br><br>
+
+        The syntax is:
+        <br><br>
+
+        <tt>&lt; module name &gt;<span style="color:#cc0000"> . </span> &lt; function name and arguments &gt;</tt>
+        <br><br><br><br>
+
+        In the following wections we'll see the <tt>math</tt> and <tt>random</tt> modules and how to use them.
+
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>The Math Module</h2>
+
+      <p>
+        See the functions in the <a href="https://docs.python.org/3/library/math.html">math module</a>
+        <br><br>
+        You can also read about it in <a href="https://realpython.com/python-math-module/">https://realpython.com/python-math-module/</a>
+        <br><br>
+        In the following program, we use three math functions:
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">math</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #DD4422">&#39;&#39;&#39;Using math-module functions&#39;&#39;&#39;</span>
+  num1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">24</span>
+  n_sq1 <span style="color: #333333">=</span> math<span style="color: #333333">.</span>sqrt(num1)
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the Square root of {num1} is {n_sq1:.2f}&quot;</span>)
+  <span style="color: #007020">print</span>()
+  
+  num2 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">54</span>
+  gcd <span style="color: #333333">=</span> math<span style="color: #333333">.</span>gcd(num1, num2)
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the Greatest Common Divisor of {num1} and {num2} is {gcd:.2f}&quot;</span>)
+  <span style="color: #007020">print</span>()
+  
+  num3 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
+  n_pow1 <span style="color: #333333">=</span> math<span style="color: #333333">.</span>pow(n_sq1,<span style="color: #0000DD; font-weight: bold">2</span>)
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the Square of {n_sq1} is {n_pow1:.2f}&quot;</span>)
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the Square of {n_sq1} is {n_pow1}&quot;</span>)
+  <span style="color: #007020">print</span>()
+  
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Some important &#39;constants&#39; are: &quot;</span>)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot; PI: &quot;</span>, math<span style="color: #333333">.</span>pi)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot; e: &quot;</span>, math<span style="color: #333333">.</span>e)
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+        
+        <br><br>
+
+        You can see the example <a href="https://pythontutor.com/visualize.html#code=import%20math%0A%0Adef%20main%28%29%3A%0A%20%20'''Using%20math-module%20functions'''%0A%20%20num1%20%3D%2024%0A%20%20n_sq1%20%3D%20math.sqrt%28num1%29%0A%20%20print%28f%22the%20Square%20root%20of%20%7Bnum1%7D%20is%20%7Bn_sq1%3A.2f%7D%22%29%0A%20%20print%28%29%0A%20%20%0A%20%20num2%20%3D%2054%0A%20%20gcd%20%3D%20math.gcd%28num1,%20num2%29%0A%20%20print%28f%22the%20Greatest%20Common%20Divisor%20of%20%7Bnum1%7D%20and%20%7Bnum2%7D%20is%20%7Bgcd%3A.2f%7D%22%29%0A%20%20print%28%29%0A%20%20%0A%20%20num3%20%3D%202%0A%20%20n_pow1%20%3D%20math.pow%28n_sq1,2%29%0A%20%20print%28f%22the%20Square%20of%20%7Bn_sq1%7D%20is%20%7Bn_pow1%3A.2f%7D%22%29%0A%20%20print%28f%22the%20Square%20of%20%7Bn_sq1%7D%20is%20%7Bn_pow1%7D%22%29%0A%20%20print%28%29%0A%20%20%0A%20%20print%28%22Some%20important%20'constants'%20are%3A%20%22%29%0A%20%20print%28%22%20PI%3A%20%22,%20math.pi%29%0A%20%20print%28%22%20e%3A%20%22,%20math.e%29%0A%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> here</a>
+
+
+
+
+        <br><br>
+
+        <h3>The <b><tt>from</tt></b> syntax</h3>
+
+        Another way to do it is by using the <b><tt>from</tt></b> syntax:
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">math</span> <span style="color: #008800; font-weight: bold">import</span> <span style="color: #333333">*</span>
+</pre></div>
+
+            <br><br>
+
+            using <b><tt>from</tt></b> adds only the specified names to the global namespace.
+            <br><br>
+
+            <h4>Modifying the previous example</h4>
+            <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">math</span> <span style="color: #008800; font-weight: bold">import</span> <span style="color: #333333">*</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #DD4422">&#39;&#39;&#39;Using math-module functions&#39;&#39;&#39;</span>
+  num1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">24</span>
+  n_sq1 <span style="color: #333333">=</span> sqrt(num1)
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the Square root of {num1} is {n_sq1:.2f}&quot;</span>)
+  <span style="color: #007020">print</span>()
+  
+  num2 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">54</span>
+  n_gcd <span style="color: #333333">=</span> gcd(num1, num2)
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the Greatest Common Divisor of {num1} and {num2} is {n_gcd:.2f}&quot;</span>)
+  <span style="color: #007020">print</span>()
+  
+  num3 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
+  n_pow1 <span style="color: #333333">=</span> <span style="color: #007020">pow</span>(n_sq1,<span style="color: #0000DD; font-weight: bold">2</span>)
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the Square of {n_sq1} is {n_pow1:.2f}&quot;</span>)
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the Square of {n_sq1} is {n_pow1}&quot;</span>)
+  <span style="color: #007020">print</span>()
+  
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Some important &#39;constants&#39; are: &quot;</span>)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot; PI: &quot;</span>, pi)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot; e: &quot;</span>, e)
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+            <br><br>
+
+
+            you can play with this example <a href="https://pythontutor.com/visualize.html#code=from%20math%20import%20*%0A%0Adef%20main%28%29%3A%0A%20%20'''Using%20math-module%20functions'''%0A%20%20num1%20%3D%2024%0A%20%20n_sq1%20%3D%20sqrt%28num1%29%0A%20%20print%28f%22the%20Square%20root%20of%20%7Bnum1%7D%20is%20%7Bn_sq1%3A.2f%7D%22%29%0A%20%20print%28%29%0A%20%20%0A%20%20num2%20%3D%2054%0A%20%20n_gcd%20%3D%20gcd%28num1,%20num2%29%0A%20%20print%28f%22the%20Greatest%20Common%20Divisor%20of%20%7Bnum1%7D%20and%20%7Bnum2%7D%20is%20%7Bn_gcd%3A.2f%7D%22%29%0A%20%20print%28%29%0A%20%20%0A%20%20num3%20%3D%202%0A%20%20n_pow1%20%3D%20pow%28n_sq1,2%29%0A%20%20print%28f%22the%20Square%20of%20%7Bn_sq1%7D%20is%20%7Bn_pow1%3A.2f%7D%22%29%0A%20%20print%28f%22the%20Square%20of%20%7Bn_sq1%7D%20is%20%7Bn_pow1%7D%22%29%0A%20%20print%28%29%0A%20%20%0A%20%20print%28%22Some%20important%20'constants'%20are%3A%20%22%29%0A%20%20print%28%22%20PI%3A%20%22,%20pi%29%0A%20%20print%28%22%20e%3A%20%22,%20e%29%0A%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+
+          <li>Note that in main, we're using functions defined in the math module but we don't need to use the <b><tt>math.</tt></b> notation </li>      
+          <li>Also, in the python tutor example, you can see that all function definitions were loaded directly into the importing script's namespace</li>
+
+          <br><br>
+
+          <b>Now try importing ONLY the sqrt function: <tt>from math import sqrt</tt></b>
+
+          <br><br>
+
+          <span style="color:0000cc;font-size:18pt"> In this class, for now, we'll use the notation: <tt>import math</tt></span>
+          <br>
+          and not <tt>from math import *</tt>
+          <br><br>
+          This is because if we import multiple modules, we might have name clashes! 
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Brief intro to Random variables</h2>
+
+      <p>
+
+        A random variable is one whose outcome (the result of sampling the random variable) is <b>unpredictable</b> but whose outcome might follow some known <b>distribution</b>.
+
+        <br><br>
+
+        Example distributions: 
+        <br><br>
+
+        <ol>
+          <li><b>Uniform distribution</b>: all possible outcomes are equally likely
+            <br>
+            Examples: fair coin tosses, fair dice rolls.
+            <br>
+            See an example <a href="https://www.mathematik.tu-clausthal.de/en/mathematics-interactive/simulation/dice-roll-simulator/">here</a>
+          </li>
+          <br>
+          <li><b>Normal distribution</b>: outcome likelyhoods follow a Bell curve
+            <br>
+            Examples: random sampling of <a href="https://ourworldindata.org/human-height#height-is-normally-distributed">human heights</a> , the summ of <i>many</i> fair dice rolls.
+            <br>
+            See an example <a href="https://mathigon.org/step/probability/dice-simulation">here</a>
+          </li>
+        </ol>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>The Random Module</h2>
+
+      <p>
+        You can import the random module by using:
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+</pre></div>
+        <br><br>
+
+        And now an example:
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #DD4422">&#39;&#39;&#39;Using random-module functions&#39;&#39;&#39;</span>
+  <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">10</span>):
+      num <span style="color: #333333">=</span> random<span style="color: #333333">.</span>random()
+      <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;random number {i:2d} : {num:.3f} &quot;</span>)
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+        You can run it <a href="https://pythontutor.com/visualize.html#code=import%20random%0A%0Adef%20main%28%29%3A%0A%20%20'''Using%20random-module%20functions'''%0A%20%20for%20i%20in%20range%2810%29%3A%0A%20%20%20%20%20%20num%20%3D%20random.random%28%29%0A%20%20%20%20%20%20print%28f%22random%20number%20%7Bi%3A2d%7D%20%3A%20%7Bnum%3A.3f%7D%20%22%29%0A%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br>
+        the function <tt>random.random()</tt> generates a random number (float) in the range <tt>[0, 1)</tt>
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Try the code in python tutor and write the code and run it in Replit.
+          <br>
+          Run it a few times? ... What do you notice?
+        </div>
+
+        <br><br>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Write a program that simulates a coin toss...
+          <br>
+          it should allow you to run it and:
+          <ul>
+            <li>half the time it should print the word "Heads"</li>
+            <li>half the time it should print the word "Tails"</li>
+            <li>the outcome should be random!!</li>
+          </ul>
+        </div>
+
+        <br><br>
+
+        Now, modify your code to do the following:
+
+
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Write a program that simulates a coin toss and: 
+          <br>
+          it should:
+          <ul>
+            <li>run 10 times</li>
+            <li>it adds up the number of "Heads"</li>
+            <li>it adds up the number of "Tails"</li>
+            <li>prints the count of heads as in <tt>Heads : 4</tt></li>
+            <li>prints the count of tails as in <tt>Tails : 6</tt></li>
+          </ul>
+
+          <br><br>
+
+          Now modify it to run <tt>1,000,000</tt> times!
+        </div>
+
+        <br><br><br><br>
+
+        <h3>Using function <tt>randint</tt></h3>
+
+        You can also indicate a specific range of integer values as a range for your output:
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #DD4422">&#39;&#39;&#39;Using random-module functions&#39;&#39;&#39;</span>
+  <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">30</span>):
+      num <span style="color: #333333">=</span> random<span style="color: #333333">.</span>randint(<span style="color: #0000DD; font-weight: bold">4</span>,<span style="color: #0000DD; font-weight: bold">13</span>)
+      <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;random number {i:2d} : {num:2d} &quot;</span>)
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+
+        <br><br>
+
+        You can run it <a href="https://pythontutor.com/visualize.html#code=import%20random%0A%0Adef%20main%28%29%3A%0A%20%20'''Using%20random-module%20functions'''%0A%20%20for%20i%20in%20range%2830%29%3A%0A%20%20%20%20%20%20num%20%3D%20random.randint%284,13%29%0A%20%20%20%20%20%20print%28f%22random%20number%20%7Bi%3A2d%7D%20%3A%20%7Bnum%3A2d%7D%20%22%29%0A%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br>
+
+
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Do you notice something strange?
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>                              
+              the top number is INCLUDED!!! 
+              <br>
+              (damn you, python)
+            </details>
+          </div>
+        </div>
+
+        <br><br>
+
+        Note that now, we can have a two-number outcome (that might help with the heads/or/tails program)
+
+        <br><br><br><br>
+
+
+
+
+        <h3>Predictably Random???</h3>
+
+        <br><br>
+
+        As you know, we like to test a program to verify that the decisions we are making are correct. 
+        <br><br>
+
+        However, if the error / bug that we detected is only ocurring for some <i>random</i> program states, we might not encounter those issues again until it is too late!
+
+        <br><br>
+
+        That's why there is a way to specify a <b>starting point for random</b> that will create a repeatable pattern of random events.
+        <br><br>
+        We call this the <b>seed</b>.
+
+        <br><br>
+
+        <h4>Specifying the random seed</h4>
+        <br>
+        In Python, you can specify a seed and see repeated random events like this:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #DD4422">&#39;&#39;&#39;Using random-module functions&#39;&#39;&#39;</span>
+  random<span style="color: #333333">.</span>seed(<span style="color: #0000DD; font-weight: bold">123</span>)
+  <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">30</span>):
+      num <span style="color: #333333">=</span> random<span style="color: #333333">.</span>randint(<span style="color: #0000DD; font-weight: bold">4</span>,<span style="color: #0000DD; font-weight: bold">13</span>) 
+      <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;random number {i:2d} : {num:2d} &quot;</span>)
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+
+        <br><br>
+        You can try it out <a href="https://pythontutor.com/visualize.html#code=import%20random%0A%0Adef%20main%28%29%3A%0A%20%20'''Using%20random-module%20functions'''%0A%20%20random.seed%28123%29%0A%20%20for%20i%20in%20range%2830%29%3A%0A%20%20%20%20%20%20num%20%3D%20random.randint%284,13%29%20%2311,%2012,%205,%209%0A%20%20%20%20%20%20print%28f%22random%20number%20%7Bi%3A2d%7D%20%3A%20%7Bnum%3A2d%7D%20%22%29%0A%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br>
+
+        Note you can pick any integer seed you like.
+        <br>
+        Read the details <a href="https://docs.python.org/3/library/random.html#random.seed">here</a>
+
+        <br><br>
+
+        What do we get? We still generate random numbers every time we call any of these functions, but, crucially, once we restart the program, <b>they are the same sequence of random numbers!</b>
+
+
+
+
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+
+      <h2>Odds and Ends</h2>
+
+      <p>
+        <ol>
+          <li>Function annotations</li>
+          <li>Syntax errors</li>
+          <li>Exceptions</li>
+          <li>Logical (semantic) errors</li>
+        </ol>
+
+        <h3>Function annotations</h3>
+
+        There is a way in python to indicate (annotate) the desired type for input arguments and the desired return type for functions.
+        <br><br>
+
+        The following is a function with the following characteristics:
+        <br><br>
+        <ol>
+          <li>The function is called foo</li>
+          <li>its first argument, called <tt>st</tt> should be a string</li>
+          <li>its second argument, called <tt>num</tt> should be an integer</li>
+          <li>it should return a string</li>
+          <li>it should return a string that has the concatenation of the string <tt>st</tt>, <tt>num</tt> times, with no whitespaces (" ", "\n", and "\t").</li>
+        </ol>
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">foo</span>(st:<span style="color: #007020">str</span>, num:<span style="color: #007020">int</span>) <span style="color: #333333">-&gt;</span> <span style="color: #007020">str</span>:
+    <span style="color: #DD4422">&#39;&#39;&#39;returns a string concatenated num times with no whitespaces&#39;&#39;&#39;</span>
+    st <span style="color: #333333">=</span> st<span style="color: #333333">.</span>strip()<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&quot; &quot;</span>, <span style="background-color: #fff0f0">&quot;&quot;</span>)<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0">&quot;</span>, <span style="background-color: #fff0f0">&quot;&quot;</span>)<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>, <span style="background-color: #fff0f0">&quot;&quot;</span>)
+    <span style="color: #008800; font-weight: bold">return</span> st<span style="color: #333333">*</span>num
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #DD4422">&#39;&#39;&#39;Using a function with annotations&#39;&#39;&#39;</span>
+  my_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;  Abra </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0"> ca </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> dabra   &quot;</span>
+  out <span style="color: #333333">=</span> foo(my_str,<span style="color: #0000DD; font-weight: bold">3</span>)
+  <span style="color: #007020">print</span>(out)
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+      <br><br>
+
+      You can try it <a href="https://pythontutor.com/visualize.html#code=def%20foo%28st%3Astr,%20num%3Aint%29%20-%3E%20str%3A%0A%20%20%20%20'''returns%20a%20string%20concatenated%20num%20times%20with%20no%20whitespaces'''%0A%20%20%20%20st%20%3D%20st.strip%28%29.replace%28%22%20%22,%20%22%22%29.replace%28%22%5Ct%22,%20%22%22%29.replace%28%22%5Cn%22,%20%22%22%29%0A%20%20%20%20return%20st*num%0A%0Adef%20main%28%29%3A%0A%20%20'''Using%20a%20function%20with%20annotations'''%0A%20%20my_str%20%3D%20%22%20%20Abra%20%5Cn%20ca%20%5Ct%20dabra%20%20%20%22%0A%20%20out%20%3D%20foo%28my_str,3%29%0A%20%20print%28out%29%0A%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+
+      <br><br>
+
+      <h3>Syntax errors, vs Exceptions, vs Logical errors</h3>
+
+      <br><br>
+
+      We've encounteres several errors so far. 
+      You should notice that when running python programs and encountering an error, we get messages that indicate either an syntax error or a series of exceptions.
+      <br><br>
+
+
+
+      <h4>Syntax Error</h4>  
+      <br><br>
+
+      These arise when the program is not written using valid syntax. The usual problems are issing symbols or misspelled words.
+
+      <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #DD4422">&#39;&#39;&#39;Using random-module functions&#39;&#39;&#39;</span>
+  <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">30</span>):
+      num <span style="color: #333333">=</span> random<span style="color: #333333">.</span>randint(<span style="color: #0000DD; font-weight: bold">4</span>,<span style="color: #0000DD; font-weight: bold">13</span>) 
+      <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;random number {i:2d} : {num:2d} )</span>
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+        <br><br>
+
+        The output is:
+
+        <br><br>
+
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=one-dark&wt=bw&l=python&width=680&ds=false&dsyoff=33px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2520%2520File%2520%2522main.py%2522%252C%2520line%25207%250A%2520%2520%2520%2520print%28f%2522random%2520number%2520%257Bi%253A2d%257D%2520%253A%2520%257Bnum%253A2d%257D%2520%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%255E%250ASyntaxError%253A%2520EOL%2520while%2520scanning%2520string%2520literal"
+  style="width: 430px; height: 174px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>    
+
+
+
+        <h4>Exceptions</h4>
+        <br>
+        Errors detected during code execution are called exceptions.
+
+        <br><br>
+
+        example 1: Divide by zero
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">7</span> <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">4</span> <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">0</span>
+  <span style="color: #007020">print</span> (num)
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+
+        <br><br>
+
+        The output is:
+
+        <br><br>
+
+
+        <iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=one-dark&wt=bw&l=python&width=680&ds=false&dsyoff=33px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=Traceback%2520%28most%2520recent%2520call%2520last%29%253A%250A%2520%2520File%2520%2522main.py%2522%252C%2520line%25205%252C%2520in%2520%253Cmodule%253E%250A%2520%2520%2520%2520main%28%29%250A%2520%2520File%2520%2522main.py%2522%252C%2520line%25202%252C%2520in%2520main%250A%2520%2520%2520%2520print%2520%287%2520*%25204%2520%252F%25200%29%250AZeroDivisionError%253A%2520division%2520by%2520zero%250ASyntaxError%253A%2520EOL%2520while%2520scanning%2520string%2520literal"
+  style="width: 430px; height: 209px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+        <br><br> <br><br>
+
+        example 2: missing variable (unknown term)
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #007020">print</span> ( my_str <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">8</span>)
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+
+
+        <br><br>
+
+        The output is:
+
+        <br><br>
+
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=one-dark&wt=bw&l=python&width=680&ds=false&dsyoff=33px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=Traceback%2520%28most%2520recent%2520call%2520last%29%253A%250A%2520%2520File%2520%2522main.py%2522%252C%2520line%25205%252C%2520in%2520%253Cmodule%253E%250A%2520%2520%2520%2520main%28%29%250A%2520%2520File%2520%2522main.py%2522%252C%2520line%25202%252C%2520in%2520main%250A%2520%2520%2520%2520print%2520%28%2520my_str%2520*%25208%29%250ANameError%253A%2520name%2520%27my_str%27%2520is%2520not%2520defined"
+  style="width: 371px; height: 190px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+        <br><br> <br><br>
+
+        example 3: exception on operation
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #007020">print</span> ( <span style="background-color: #fff0f0">&#39;2&#39;</span> <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">2</span>)
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+
+
+
+        <br><br>
+
+        The output is:
+
+        <br><br>
+
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=one-dark&wt=bw&l=python&width=680&ds=false&dsyoff=33px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=Traceback%2520%28most%2520recent%2520call%2520last%29%253A%250A%2520%2520File%2520%2522main.py%2522%252C%2520line%25205%252C%2520in%2520%253Cmodule%253E%250A%2520%2520%2520%2520main%28%29%250A%2520%2520File%2520%2522main.py%2522%252C%2520line%25202%252C%2520in%2520main%250A%2520%2520%2520%2520print%2520%28%2520%272%27%2520%252B%25202%29%250ATypeError%253A%2520can%2520only%2520concatenate%2520str%2520%28not%2520%2522int%2522%29%2520to%2520str"
+  style="width: 498px; height: 190px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+      <br><br>
+
+      Here is a <a href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions">List of Exceptions</a>
+
+      <br><br>
+
+      The basic rule is: if it is properly written and you still get an error, it is probably an exception.
+
+      <br><br><br><br>
+
+      <h4>Logical Errors (semantic errors)</h4>
+      <br>
+      Therse arise from a mismatch between expected results and actual results.
+      <br><br>
+      This usually means that the programmed logic is NOT the logic we wanted the program to complete.
+      <br><br>
+
+      The following program was written in hopes of getting the following console printout for an input of <b><tt>5</tt></b>:
+      <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000DD; font-weight: bold">0</span> 
+<span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #0000DD; font-weight: bold">1</span> 
+<span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #0000DD; font-weight: bold">2</span> 
+<span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #0000DD; font-weight: bold">3</span> 
+<span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #0000DD; font-weight: bold">3</span> <span style="color: #0000DD; font-weight: bold">4</span> 
+</pre></div>
+
+
+      <br><br><br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  num <span style="color: #333333">=</span> <span style="color: #007020">int</span>(<span style="color: #007020">input</span>(<span style="background-color: #fff0f0">&quot;give me an integer: &quot;</span>))
+  <span style="color: #008800; font-weight: bold">if</span> num <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;negative&quot;</span>)
+  <span style="color: #008800; font-weight: bold">if</span> num <span style="color: #333333">&gt;=</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;positive&quot;</span>)
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span> (num):
+      <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span> (i):
+        <span style="color: #007020">print</span> (j, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot; &quot;</span>)
+        <span style="color: #007020">print</span>()
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+        <br><br>
+
+        You can try it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20num%20%3D%20int%28input%28%22give%20me%20an%20integer%3A%20%22%29%29%0A%20%20if%20num%20%3C%3D%200%3A%0A%20%20%20%20print%20%28%22negative%22%29%0A%20%20if%20num%20%3E%3D%200%3A%0A%20%20%20%20print%20%28%22positive%22%29%0A%20%20%20%20for%20i%20in%20range%20%28num%29%3A%0A%20%20%20%20%20%20for%20j%20in%20range%20%28i%29%3A%0A%20%20%20%20%20%20%20%20print%20%28j,%20end%20%3D%20%22%20%22%29%0A%20%20%20%20%20%20%20%20print%28%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%224%22%5D&textReferences=false">here</a>
+
+        <br><br>
+
+        What are the bugs!?
+
+
+      </p>
+
+      
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework</h4>
+      <b>[Due for everyone]</b>  <br>
+      Homework 04 (Replit); due on 02/25 before 5 PM
+
+      <br><br>
+
+      <b>[Optional]</b> <b><big>TODO</big></b><br>
+
+
+      <!-- 
+      <h2>Next Wednesday: Midterm</h2>
+
+      <p>
+
+        How to prepare:
+        <ol>
+          <li>Study the notes and exercises</li>
+          <li>Bring questions for Friday!</li>
+          <li>Themes:
+            <ul>
+              <li>Distinguishing data types</li>
+              <li>Understanding assignment and variable naming</li>            
+              <li>Program tracing: given a program, and some possible input, you must be able to trace the program execution (using your miind, paper, and pencil only)</li>
+              <li>Built-in functions: what do they do (the ones we've used from <a href="https://docs.python.org/3/library/functions.html">these</a>) </li>              
+              <li>Writing Functions: given a function description, write it; given a function, describe its parts and how it works; Call functions with functions as arguments (finction composition).</li>
+              <li>Conditionals: how to write them to ask the right questions and to reach the right blocks; nested if statements and combining conditions.</li>
+              <li>Common errors (Exceptions) when coding (indentation, concatenating str and int, index out of range, variables not defined, etc)</li>
+              <li>Common logical errors (Bugs): <b><tt>=</tt></b> vs <b><tt>==</tt></b>, unreachable <b><tt>elif</tt></b> or <b><tt>else</tt></b>, not using integer division, etc.</li>
+              <li>Common string operations: concatenation, access, slicing, and joining</li>
+              <li>Using string methods</li>
+              <li>Common list operations: creating, editing, appending, slicing</li>
+              <li>Using list methods</li>
+            </ul>
+          </li>
+        </ol>
+      </p>  
+
+      <p><br></p><hr><p><br></p>
+ -->
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes13.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
