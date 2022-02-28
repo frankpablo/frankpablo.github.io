@@ -128,196 +128,6 @@
         <br>
       </p>
 
-      <p><br></p><hr><p><br></p>
-
-      <h2>Recap: Chaining</h2>
-
-      <p>
-        Remember this problem?:
-        <br><br>
-
-        <ol>
-          <li>Set variable my-Str = <tt>"⎵⎵he-lloWo-rl⎵d-!"</tt></li>
-          <li>Count the number of "tokens" in <tt>my-str</tt> where a "token" is any Substring Surrounded with either <tt>"⎵"</tt>or <tt>"-"</tt></li>
-          <li>return the uppercase first letter of the third token          </li>
-        </ol>
-      </p>
-
-      <br><br>
-
-      <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Show and Tell
-        </div>
-
-        <br><br>
-
-        Solution below:
-
-
-        <div id="passw">
-          <div>
-              <!-- (THE PASSWORD IS Yak's Birthday) -->
-              Enter the password to proceed:
-          </div>
-          <div>
-            <input type="password" id="password" onkeydown="if (event.keyCode == 13) document.getElementById('button').click()" /> 
-            <!-- IMPORTANT! this part is so if you click enter, it works. -->
-          </div>
-                    
-          <div>
-            <br/>
-            <input id="button" type="button" value="Reveal" onclick="if (document.getElementById('password').value == '2-29-2020') { 
-            document.getElementById('HIDDENDIV').classList.toggle('show');   document.getElementById('passw').style.display='none'; } 
-            else {  alert('Invalid Password!'); password.setSelectionRange(0, password.value.length);   } " />
-          </div>
-            <!-- it will autoselect wrong input if wrong -->
-            <br /><br /><br />
-        </div>
-        <br><br>
-
-        <div id="HIDDENDIV">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">find_occurrence</span>(phrase: <span style="color: #007020">str</span>, sub: <span style="color: #007020">str</span>, k: <span style="color: #007020">int</span>) <span style="color: #333333">-&gt;</span> <span style="color: #007020">int</span>:
-  <span style="color: #DD4422">&#39;&#39;&#39;Finds the k-th occurrence of sub inside phrase&#39;&#39;&#39;</span>
-  n_spaces <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>count(sub)
-  idx <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
-  <span style="color: #008800; font-weight: bold">for</span> oc <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>, n_spaces):
-    idx <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>find(sub, idx<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #888888">#note the phrase is &#39;stripped&#39;</span>
-    <span style="color: #008800; font-weight: bold">if</span> oc <span style="color: #333333">==</span> k:
-      <span style="color: #008800; font-weight: bold">return</span> idx
-  
-<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
-  <span style="color: #DD4422">&#39;&#39;&#39;Prints the uppercase first letter of the THIRD token (⎵,-)&#39;&#39;&#39;</span>
-  <span style="color: #888888">#phrase = &quot;  he-lloWo-rl d-!&quot;</span>
-  <span style="color: #888888">#phrase = &quot;  this is-another-example . &quot;</span>
-  phrase <span style="color: #333333">=</span> <span style="color: #007020">input</span>(<span style="background-color: #fff0f0">&quot;Gimme a phrase with &#39; &#39; or &#39;-&#39; separators: &quot;</span>)
-  phrase <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>strip()<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&#39;-&#39;</span>,<span style="background-color: #fff0f0">&quot; &quot;</span>)
-  <span style="color: #007020">print</span>(phrase)
-  <span style="color: #888888">#let = phrase.find(&quot; &quot;,???) # can&#39;t say &quot;second occurrence&quot;</span>
-
-  ind_second_space <span style="color: #333333">=</span> find_occurrence(phrase, <span style="background-color: #fff0f0">&quot; &quot;</span>, <span style="color: #0000DD; font-weight: bold">2</span>)
-  letter <span style="color: #333333">=</span> phrase[ind_second_space<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>]<span style="color: #333333">.</span>upper()
-  
-  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;This uppercase first letter of the THIRD token is {letter}&quot;</span>)    
-
-<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-  main()
-</pre></div>
-
-          <br><br>
-          
-          <a href="https://pythontutor.com/visualize.html#code=def%20find_occurrence%28phrase%3A%20str,%20sub%3A%20str,%20k%3A%20int%29%20-%3E%20int%3A%0A%20%20'''Finds%20the%20k-th%20occurrence%20of%20sub%20inside%20phrase'''%0A%20%20n_spaces%20%3D%20phrase.count%28sub%29%0A%20%20idx%20%3D%200%0A%20%20for%20oc%20in%20range%281,%20n_spaces%29%3A%0A%20%20%20%20idx%20%3D%20phrase.find%28sub,%20idx%2B1%29%20%23note%20the%20phrase%20is%20'stripped'%0A%20%20%20%20if%20oc%20%3D%3D%20k%3A%0A%20%20%20%20%20%20return%20idx%0A%20%20%0Adef%20main%28%29%3A%0A%20%20'''Prints%20the%20uppercase%20first%20letter%20of%20the%20THIRD%20token%20%28%E2%8E%B5,-%29'''%0A%20%20%23phrase%20%3D%20%22%20%20he-lloWo-rl%20d-!%22%0A%20%20%23phrase%20%3D%20%22%20%20this%20is-another-example%20.%20%22%0A%20%20phrase%20%3D%20input%28%22Gimme%20a%20phrase%20with%20'%20'%20or%20'-'%20separators%3A%20%22%29%0A%20%20phrase%20%3D%20phrase.strip%28%29.replace%28'-',%22%20%22%29%0A%20%20print%28phrase%29%0A%20%20%23let%20%3D%20phrase.find%28%22%20%22,%3F%3F%3F%29%20%23%20can't%20say%20%22second%20occurrence%22%0A%0A%20%20ind_second_space%20%3D%20find_occurrence%28phrase,%20%22%20%22,%202%29%0A%20%20letter%20%3D%20phrase%5Bind_second_space%2B1%5D.upper%28%29%0A%20%20%0A%20%20print%28f%22This%20uppercase%20first%20letter%20of%20the%20THIRD%20token%20is%20%7Bletter%7D%22%29%20%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%22%20th-is-is%20a%20te-st%20!%22%5D&textReferences=false">Try the solution Here</a>
-        </div>           
- 
-      <p><br></p><hr><p><br></p>
-
-      <h2>Splitting and Joining Strings</h2>
-
-      <p>
-        Another typical task is to separate a string into a <b><tt>list</tt></b> of component substrings, or <b><tt>tokens</tt></b>.
-        <br><br>
-
-        <h3>split</h3>
-
-        The <b><tt>split</tt></b> method can achieve this by specifying the character(s) that are to be considered the <b><tt>separators</tt></b> between the tokens.
-        <br><br>
-
-        We will learn how to work with lists in a future lecture.
-
-        <br><br>
-
-        <h3>join</h3>
-
-        Another useful task is to join tokens into a longer string.
-        <br><br>
-        The format is:
-        <br><br>
-        <b><tt>&lt; separator &gt; . join ( &lt; list of tokens &gt; )</tt></b>
-        <br><br>
-
-        We'll see these after we introduce lists.
-
-        <br><br>
-<!-- 
-        For now, we'll just print the results directly (which <b><tt>print</tt></b> ca handle). 
-        <br><br>
-
-        Let's do some splits:
-        <br><br>
-
-        Example:
-        <br>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">phrase <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;time consumes everything but it is also the best&quot;</span>
-tokens <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>split()
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the phrase &#39;{:s}&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(phrase, tokens))
-</pre></div>
-        <br><br>
-
-        Try it <a href="https://pythontutor.com/visualize.html#code=phrase%20%3D%20%22time%20consumes%20everything%20but%20it%20is%20also%20the%20best%22%0Atokens%20%3D%20phrase.split%28%29%0Aprint%28%22the%20phrase%20'%7B%3As%7D'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28phrase,%20tokens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
-
-        <br><br>
-        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          What happens if you change the input to <b><tt>split</tt></b> to the space: <b><tt>" "</tt></b>?
-        </div>
-
-        <br><br>
-
-        You can use different tokens (I actually wrote "Tolkiens" there!):
-        <br><br>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">url <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;https://frankpablo.github.io/classes/csc111/lectures/lectureNotes10.html&quot;</span>
-tolkiens <span style="color: #333333">=</span> url<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot;/&quot;</span>)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the url &#39;{:s}&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(url, tolkiens))
-</pre></div>
-        <br><br>
-
-        Try it <a href="https://pythontutor.com/visualize.html#code=url%20%3D%20%22https%3A//frankpablo.github.io/classes/csc111/lectures/lectureNotes10.html%22%0Atolkiens%20%3D%20url.split%28%22/%22%29%0Aprint%28%22the%20url%20'%7B%3As%7D'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28url,%20tolkiens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
-  
-<br><br>
-        You can also separate into tokens composed of strings (longer than 1 character).
-        <br>
-        Example:
-        <br><br>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">quote <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Baseball is ninety percent mental and the other half is physical.&quot;</span>
-tokens <span style="color: #333333">=</span> quote<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot;al&quot;</span>)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the quote &#39;{:s}&#39;, separated by &#39;al&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(quote, tokens))
-</pre></div>
-        <br><br>
-        Try it <a href="https://pythontutor.com/visualize.html#code=quote%20%3D%20%22Baseball%20is%20ninety%20percent%20mental%20and%20the%20other%20half%20is%20physical.%22%0Atokens%20%3D%20quote.split%28%22al%22%29%0Aprint%28%22the%20quote%20'%7B%3As%7D',%20separated%20by%20'al'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28quote,%20tokens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
-
-        <br><br>
-
-
-        <h3>join</h3>
-
-        Another useful task is to join tokens into a longer string.
-        <br><br>
-        The format is:
-        <br><br>
-        <b><tt>&lt; separator &gt; . join ( &lt; list of tokens &gt; )</tt></b>
-        <br><br>
-
-        Example:
-        <br><br>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">num_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;1 2 3 4 5 6 7 8 9&quot;</span>
-<span style="color: #888888">#making the tokens</span>
-tokens <span style="color: #333333">=</span> num_str<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot; &quot;</span>)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the num_str &#39;{:s}&#39;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">is composed of the tokens:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">{}&quot;</span><span style="color: #333333">.</span>format(num_str, tokens))
-<span style="color: #007020">print</span>()
-<span style="color: #888888"># joining with &#39;+&#39;</span>
-num_expr <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;+&quot;</span><span style="color: #333333">.</span>join(tokens)
-<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;expression:&quot;</span>,num_expr)
-<span style="color: #888888"># you can use this for something!</span>
-<span style="color: #007020">print</span>( <span style="color: #007020">eval</span>(num_expr) )
-</pre></div>
-        <br><br>
-        Try it <a href="https://pythontutor.com/visualize.html#code=num_str%20%3D%20%221%202%203%204%205%206%207%208%209%22%0A%23making%20the%20tokens%0Atokens%20%3D%20num_str.split%28%22%20%22%29%0Aprint%28%22the%20num_str%20'%7B%3As%7D'%5Cnis%20composed%20of%20the%20tokens%3A%5Cn%7B%7D%22.format%28num_str,%20tokens%29%29%0Aprint%28%29%0A%23%20joining%20with%20'%2B'%0Anum_expr%20%3D%20%22%2B%22.join%28tokens%29%0Aprint%28%22expression%3A%22,num_expr%29%0A%23%20you%20can%20use%20this%20for%20something!%0Aprint%28%20eval%28num_expr%29%20%29%0A&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
-
- -->
-      </p>
-
-      
-
 
       <p><br></p><hr><p><br></p>
 
@@ -346,6 +156,22 @@ num_expr <span style="color: #333333">=</span> <span style="background-color: #f
 
         <br><br>
 
+
+         <h3>namespaces</h3>
+
+            A namespace is like a list of known objects.
+
+            <br><br>
+
+            A module is simply a namespace that contains definitions from the module (like functions defined in it).
+
+            <br><br>
+
+            Definitions in the module's code, e.g., variable assignments and function definitions, are placed in the module's namespace. The module is then added to the importing script or module's namespace, so that the importer can access the definitions.
+
+            <br><br>
+
+<!-- 
          <h3>namespaces</h3>
 
             A namespace is actually just a normal Python dictionary (more on this later) whose keys are the names and whose values are the objects.
@@ -365,7 +191,7 @@ num_expr <span style="color: #333333">=</span> <span style="background-color: #f
             <br><br>
 
             In short, <b>loading a module using <tt>import</tt> adds the module's namespace definitions to the current one</b>
-
+ -->
 
 
         <br><br><br><br>
@@ -519,7 +345,9 @@ num_expr <span style="color: #333333">=</span> <span style="background-color: #f
 
           <br><br>
 
-          <b>Now try importing ONLY the sqrt function: <tt>from math import sqrt</tt></b>
+          <b>Now try importing ONLY the sqrt function</b>: 
+            <br>
+            <tt>from math import sqrt</tt>
 
           <br><br>
 
@@ -1000,6 +828,220 @@ num_expr <span style="color: #333333">=</span> <span style="background-color: #f
       <b>[Optional]</b> <b><big>TODO</big></b><br>
 
 
+
+      <p><br></p><hr><p><br></p>
+
+      EXTRA
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Recap: Chaining</h2>
+
+      <p>
+        Remember this problem?:
+        <br><br>
+
+        <ol>
+          <li>Set variable my-Str = <tt>"⎵⎵he-lloWo-rl⎵d-!"</tt></li>
+          <li>Count the number of "tokens" in <tt>my-str</tt> where a "token" is any Substring Surrounded with either <tt>"⎵"</tt>or <tt>"-"</tt></li>
+          <li>return the uppercase first letter of the third token          </li>
+        </ol>
+      </p>
+
+      <br><br>
+
+      <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Show and Tell
+        </div>
+
+        <br><br>
+
+        Solution below:
+
+
+        <div id="passw">
+          <div>
+              <!-- (THE PASSWORD IS Yak's Birthday) -->
+              Enter the password to proceed:
+          </div>
+          <div>
+            <input type="password" id="password" onkeydown="if (event.keyCode == 13) document.getElementById('button').click()" /> 
+            <!-- IMPORTANT! this part is so if you click enter, it works. -->
+          </div>
+                    
+          <div>
+            <br/>
+            <input id="button" type="button" value="Reveal" onclick="if (document.getElementById('password').value == '2-29-2020') { 
+            document.getElementById('HIDDENDIV').classList.toggle('show');   document.getElementById('passw').style.display='none'; } 
+            else {  alert('Invalid Password!'); password.setSelectionRange(0, password.value.length);   } " />
+          </div>
+            <!-- it will autoselect wrong input if wrong -->
+            <br /><br /><br />
+        </div>
+        <br><br>
+
+        <div id="HIDDENDIV">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">find_occurrence</span>(phrase: <span style="color: #007020">str</span>, sub: <span style="color: #007020">str</span>, k: <span style="color: #007020">int</span>) <span style="color: #333333">-&gt;</span> <span style="color: #007020">int</span>:
+  <span style="color: #DD4422">&#39;&#39;&#39;Finds the k-th occurrence of sub inside phrase&#39;&#39;&#39;</span>
+  n_spaces <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>count(sub)
+  idx <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+  <span style="color: #008800; font-weight: bold">for</span> oc <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>, n_spaces):
+    idx <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>find(sub, idx<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #888888">#note the phrase is &#39;stripped&#39;</span>
+    <span style="color: #008800; font-weight: bold">if</span> oc <span style="color: #333333">==</span> k:
+      <span style="color: #008800; font-weight: bold">return</span> idx
+  
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #DD4422">&#39;&#39;&#39;Prints the uppercase first letter of the THIRD token (⎵,-)&#39;&#39;&#39;</span>
+  <span style="color: #888888">#phrase = &quot;  he-lloWo-rl d-!&quot;</span>
+  <span style="color: #888888">#phrase = &quot;  this is-another-example . &quot;</span>
+  phrase <span style="color: #333333">=</span> <span style="color: #007020">input</span>(<span style="background-color: #fff0f0">&quot;Gimme a phrase with &#39; &#39; or &#39;-&#39; separators: &quot;</span>)
+  phrase <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>strip()<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&#39;-&#39;</span>,<span style="background-color: #fff0f0">&quot; &quot;</span>)
+  <span style="color: #007020">print</span>(phrase)
+  <span style="color: #888888">#let = phrase.find(&quot; &quot;,???) # can&#39;t say &quot;second occurrence&quot;</span>
+
+  ind_second_space <span style="color: #333333">=</span> find_occurrence(phrase, <span style="background-color: #fff0f0">&quot; &quot;</span>, <span style="color: #0000DD; font-weight: bold">2</span>)
+  letter <span style="color: #333333">=</span> phrase[ind_second_space<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>]<span style="color: #333333">.</span>upper()
+  
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;This uppercase first letter of the THIRD token is {letter}&quot;</span>)    
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+          <br><br>
+          
+          <a href="https://pythontutor.com/visualize.html#code=def%20find_occurrence%28phrase%3A%20str,%20sub%3A%20str,%20k%3A%20int%29%20-%3E%20int%3A%0A%20%20'''Finds%20the%20k-th%20occurrence%20of%20sub%20inside%20phrase'''%0A%20%20n_spaces%20%3D%20phrase.count%28sub%29%0A%20%20idx%20%3D%200%0A%20%20for%20oc%20in%20range%281,%20n_spaces%29%3A%0A%20%20%20%20idx%20%3D%20phrase.find%28sub,%20idx%2B1%29%20%23note%20the%20phrase%20is%20'stripped'%0A%20%20%20%20if%20oc%20%3D%3D%20k%3A%0A%20%20%20%20%20%20return%20idx%0A%20%20%0Adef%20main%28%29%3A%0A%20%20'''Prints%20the%20uppercase%20first%20letter%20of%20the%20THIRD%20token%20%28%E2%8E%B5,-%29'''%0A%20%20%23phrase%20%3D%20%22%20%20he-lloWo-rl%20d-!%22%0A%20%20%23phrase%20%3D%20%22%20%20this%20is-another-example%20.%20%22%0A%20%20phrase%20%3D%20input%28%22Gimme%20a%20phrase%20with%20'%20'%20or%20'-'%20separators%3A%20%22%29%0A%20%20phrase%20%3D%20phrase.strip%28%29.replace%28'-',%22%20%22%29%0A%20%20print%28phrase%29%0A%20%20%23let%20%3D%20phrase.find%28%22%20%22,%3F%3F%3F%29%20%23%20can't%20say%20%22second%20occurrence%22%0A%0A%20%20ind_second_space%20%3D%20find_occurrence%28phrase,%20%22%20%22,%202%29%0A%20%20letter%20%3D%20phrase%5Bind_second_space%2B1%5D.upper%28%29%0A%20%20%0A%20%20print%28f%22This%20uppercase%20first%20letter%20of%20the%20THIRD%20token%20is%20%7Bletter%7D%22%29%20%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%22%20th-is-is%20a%20te-st%20!%22%5D&textReferences=false">Try the solution Here</a>
+        </div>           
+
+
+ 
+      <p><br></p><hr><p><br></p>
+
+      <h2>Splitting and Joining Strings</h2>
+
+      <p>
+        Another typical task is to separate a string into a <b><tt>list</tt></b> of component substrings, or <b><tt>tokens</tt></b>.
+        <br><br>
+
+        <h3>Quick lookahead: lists</h3>
+        <br>
+        A list is a sequence of elements stored consecutively (like a train). The following is the assignment and printing of one:
+        <br>
+
+        <br><br>
+
+
+
+        <br><br>
+
+        You can try it <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20my_list%20%3D%20%5B'this',%20'is','a','list',%20'with',%207,%20'items'%5D%0A%20%20print%28%20my_list%20%29%0A%20%20for%20i%20in%20range%28%20len%28%20my_list%29%20%29%3A%0A%20%20%20%20print%28my_list%5Bi%5D,%20end%20%3D%20%22%20%22%29%0A%20%20print%28%29%0A%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br><br><br>
+
+        <h3>split</h3>
+
+        The <b><tt>split</tt></b> method can achieve this by specifying the character(s) that are to be considered the <b><tt>separators</tt></b> between the tokens.
+        <br><br>
+
+        We will learn how to work with lists in a future lecture.
+
+        <br><br>
+
+        <h3>join</h3>
+
+        Another useful task is to join tokens into a longer string.
+        <br><br>
+        The format is:
+        <br><br>
+        <b><tt>&lt; separator &gt; . join ( &lt; list of tokens &gt; )</tt></b>
+        <br><br>
+
+        We'll see these after we introduce lists.
+
+        <br><br>
+<!-- 
+        For now, we'll just print the results directly (which <b><tt>print</tt></b> ca handle). 
+        <br><br>
+
+        Let's do some splits:
+        <br><br>
+
+        Example:
+        <br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">phrase <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;time consumes everything but it is also the best&quot;</span>
+tokens <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>split()
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the phrase &#39;{:s}&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(phrase, tokens))
+</pre></div>
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=phrase%20%3D%20%22time%20consumes%20everything%20but%20it%20is%20also%20the%20best%22%0Atokens%20%3D%20phrase.split%28%29%0Aprint%28%22the%20phrase%20'%7B%3As%7D'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28phrase,%20tokens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+        <br><br>
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          What happens if you change the input to <b><tt>split</tt></b> to the space: <b><tt>" "</tt></b>?
+        </div>
+
+        <br><br>
+
+        You can use different tokens (I actually wrote "Tolkiens" there!):
+        <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">url <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;https://frankpablo.github.io/classes/csc111/lectures/lectureNotes10.html&quot;</span>
+tolkiens <span style="color: #333333">=</span> url<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot;/&quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the url &#39;{:s}&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(url, tolkiens))
+</pre></div>
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=url%20%3D%20%22https%3A//frankpablo.github.io/classes/csc111/lectures/lectureNotes10.html%22%0Atolkiens%20%3D%20url.split%28%22/%22%29%0Aprint%28%22the%20url%20'%7B%3As%7D'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28url,%20tolkiens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+  
+<br><br>
+        You can also separate into tokens composed of strings (longer than 1 character).
+        <br>
+        Example:
+        <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">quote <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Baseball is ninety percent mental and the other half is physical.&quot;</span>
+tokens <span style="color: #333333">=</span> quote<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot;al&quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the quote &#39;{:s}&#39;, separated by &#39;al&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(quote, tokens))
+</pre></div>
+        <br><br>
+        Try it <a href="https://pythontutor.com/visualize.html#code=quote%20%3D%20%22Baseball%20is%20ninety%20percent%20mental%20and%20the%20other%20half%20is%20physical.%22%0Atokens%20%3D%20quote.split%28%22al%22%29%0Aprint%28%22the%20quote%20'%7B%3As%7D',%20separated%20by%20'al'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28quote,%20tokens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+        <br><br>
+
+
+        <h3>join</h3>
+
+        Another useful task is to join tokens into a longer string.
+        <br><br>
+        The format is:
+        <br><br>
+        <b><tt>&lt; separator &gt; . join ( &lt; list of tokens &gt; )</tt></b>
+        <br><br>
+
+        Example:
+        <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">num_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;1 2 3 4 5 6 7 8 9&quot;</span>
+<span style="color: #888888">#making the tokens</span>
+tokens <span style="color: #333333">=</span> num_str<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot; &quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the num_str &#39;{:s}&#39;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">is composed of the tokens:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">{}&quot;</span><span style="color: #333333">.</span>format(num_str, tokens))
+<span style="color: #007020">print</span>()
+<span style="color: #888888"># joining with &#39;+&#39;</span>
+num_expr <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;+&quot;</span><span style="color: #333333">.</span>join(tokens)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;expression:&quot;</span>,num_expr)
+<span style="color: #888888"># you can use this for something!</span>
+<span style="color: #007020">print</span>( <span style="color: #007020">eval</span>(num_expr) )
+</pre></div>
+        <br><br>
+        Try it <a href="https://pythontutor.com/visualize.html#code=num_str%20%3D%20%221%202%203%204%205%206%207%208%209%22%0A%23making%20the%20tokens%0Atokens%20%3D%20num_str.split%28%22%20%22%29%0Aprint%28%22the%20num_str%20'%7B%3As%7D'%5Cnis%20composed%20of%20the%20tokens%3A%5Cn%7B%7D%22.format%28num_str,%20tokens%29%29%0Aprint%28%29%0A%23%20joining%20with%20'%2B'%0Anum_expr%20%3D%20%22%2B%22.join%28tokens%29%0Aprint%28%22expression%3A%22,num_expr%29%0A%23%20you%20can%20use%20this%20for%20something!%0Aprint%28%20eval%28num_expr%29%20%29%0A&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+ -->
+      </p>
+
+      
+
+
+
       <!-- 
       <h2>Next Wednesday: Midterm</h2>
 
@@ -1031,7 +1073,7 @@ num_expr <span style="color: #333333">=</span> <span style="background-color: #f
       <p><br></p><hr><p><br></p>
  -->
 
-
+      <p><br></p><hr><p><br></p>
 
   
       <div class="col-xs-0 col-md-2"></div>
