@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 16: Files and Debugging</h1>
+      <p>
+        <br>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>What are files?</h2>       
+
+      <p>
+        Files are collections of values saved under a known address. 
+        <br><br>
+
+        Internally, they are just 0s and 1s, but they can be <b>interpreted</b> as different things, like ASCII characters in a <b>text file</b> or just as 0s and 1s in a <b>binary file</b>. 
+        <br><br>
+
+        When we want to interact with a file, we create a <b>file object</b> by providing the file's path.      
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/openFile.png" alt="" style="width:60%">
+        <br><br>
+
+        A file object (more on objects later) has the file's information and allows the user to make use of a series of object methods to interact with that data.
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Working with files</h2>       
+
+      <p>
+
+        <h3>Opening and Closing</h3>
+
+        The first step is to open a file object by using the <b><tt>open</tt></b> function:
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_file <span style="color: #333333">=</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&#39;readme.txt&#39;</span>) 
+</pre></div>
+
+          <br><br>
+          There are many ways to open a file (parameters one can pass to the function), but we will only look at some basic ones:
+
+          <br><br>
+
+          The second parameter can be a series of "flags" to indicate how exactly we wish to open the file:
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture16/openFlags.png" alt="" style="width:90%">
+          <br><br>
+          <br><br>
+
+          The defaults are 'r' and 't', which corresponds to <i>opening the file for reading a text file</i>.
+          
+          <br><br>
+
+          Some things to keep in mind are: 
+          <ul>
+            <li>if you want to write to it, we'll need to use the 'w' flag or the '+' flag</li>
+            <li>if you don;t want to overwrite the file, and you just want to <i>append</i> (<i>add</i>), use the 'a' flag</li>
+            <li>the flag 'x' is useful when you want a single copy of a file within a directory</li>
+          </ul>
+
+          <br><br>
+
+          There are certain rules for what can be read/written, or created/overwritten, depending on what flags where selected:
+          <br>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">Mode</th>
+    <th class="tg-0lax">Description</th>
+    <th class="tg-0lax">Allow read?</th>
+    <th class="tg-0lax">Allow write?</th>
+    <th class="tg-0lax">Create missing file?</th>
+    <th class="tg-0lax">Overwrite file?</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">r</td>
+    <td class="tg-0lax">Open the file for reading.</td>
+    <td class="tg-0lax">Yes</td>
+    <td class="tg-0lax">No</td>
+    <td class="tg-0lax">No</td>
+    <td class="tg-0lax">No</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">w</td>
+    <td class="tg-0lax">Open the file for writing. If file does not exist then the file is created. Contents of an existing file are overwritten.</td>
+    <td class="tg-0lax">No</td>
+    <td class="tg-0lax">Yes</td>
+    <td class="tg-0lax">Yes</td>
+    <td class="tg-0lax">Yes</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">a</td>
+    <td class="tg-0lax">Open the file for appending. If file does not exist then the file is created. Writes are added to end of existing file contents.</td>
+    <td class="tg-0lax">No</td>
+    <td class="tg-0lax">Yes</td>
+    <td class="tg-0lax">Yes</td>
+    <td class="tg-0lax">No</td>
+  </tr>
+</tbody>
+</table>          
+
+
+          <br><br>
+
+          For a deeper look at the open function, read the <a href="https://docs.python.org/3/library/functions.html#open">open Documentation</a>
+
+
+          <br><br>
+
+          <h4>Reading</h4>
+          <br><br>
+
+          <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+          <div class="mx-lg-5">
+            Let's print the contents of a file.
+            <br><br>
+            <ol>
+              <li>First, open the scratchpad in replit</li>
+              <li>Then create a new text file called <b><tt>example.txt</tt></b></li>
+              <li>Copy-paste the following into example.txt:
+                <br>
+                <div class="mx-lg-5">
+                  <tt>
+                    There are only 10 kinds of people in this world: <br>
+                    those who know binary and those who don’t.
+                  </tt>
+                </div>
+              </li>
+              <li>move to <b><tt>main.py</tt></b> and write the following code:
+                <br>
+                <div class="mx-lg-5">
+                  <tt>
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">file_object_handle <span style="color: #333333">=</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&quot;example.txt&quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;Reading file example.txt.&#39;</span>)
+contents <span style="color: #333333">=</span> file_object_handle<span style="color: #333333">.</span>read()  <span style="color: #888888"># read file text into a string</span>
+
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;Closing file example.txt.&#39;</span>)
+file_object_handle<span style="color: #333333">.</span>close()  <span style="color: #888888"># close the file</span>
+
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">Contents of example.txt:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&#39;</span>, contents)
+</pre></div>
+
+
+                  </tt>
+                </div>
+
+              </li>
+            </ol>
+          </div>
+
+          <br><br>
+
+          That program reads <b>the whole file</b> into the string <tt>contents</tt>. Which might be useful.
+          <br><br>
+
+          However, one of te most common ways of dealing with structured data is to read a file line by line or between important markers (like commas).
+
+          <br><br>
+
+          To read line by line, one can use the <b><tt>readlines</tt></b> function, which returns a <b>list</b> of lines within the file.
+          <br><br>
+
+          <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+          <div class="mx-lg-5">
+            Comment out the last block of code and try this one out:
+            <br><br>
+
+            <b>Predict what is going to be printed before you run it!</b>
+            <br><br>
+
+          
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># Read file contents</span>
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&#39;Reading in data...&#39;</span>)
+f <span style="color: #333333">=</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&#39;example.txt&#39;</span>)
+lines <span style="color: #333333">=</span> f<span style="color: #333333">.</span>readlines()
+f<span style="color: #333333">.</span>close()
+
+<span style="color: #888888"># Iterate over each line</span>
+<span style="color: #008800; font-weight: bold">for</span> ln <span style="color: #000000; font-weight: bold">in</span> lines:
+    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;### {} ###&quot;</span><span style="color: #333333">.</span>format(ln))
+</pre></div>
+
+            <br><br>
+
+            <b>Did it do what you expected?</b>
+            <br><br>
+            <b>Why?</b>
+
+          </div>
+
+
+          <br><br>
+
+          Alternatively, you can read the full contents and simply <b>iterate</b> trhough it 
+
+          <br><br>
+
+          <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+          <div class="mx-lg-5">
+            Comment out the last block of code and try this one out:
+            <br><br>
+
+            <b>Predict what is going to be printed before you run it!</b>
+            <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">f <span style="color: #333333">=</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&#39;example.txt&#39;</span>)
+
+<span style="color: #008800; font-weight: bold">for</span> line <span style="color: #000000; font-weight: bold">in</span> f:
+    <span style="color: #007020">print</span>(line, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;&quot;</span>)
+
+f<span style="color: #333333">.</span>close()
+</pre></div>
+            <br><br>
+
+            <b>Did it do what you expected?</b>
+            <br><br>
+            <b>Why?</b>
+
+          </div>
+
+
+          <br><br>
+
+          <h4>Writing</h4>
+          <br><br>
+
+          <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+          <div class="mx-lg-5">
+            Let's modify our code to wee what hapens when we try to write to our example.txt file like this:
+            <br><br>
+            <b>Predict what is going to be printed before you run it!</b>
+            <br><br>
+
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">f <span style="color: #333333">=</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&quot;example.txt&quot;</span>, <span style="background-color: #fff0f0">&quot;w&quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;Opening file example.txt for writing&#39;</span>)
+f<span style="color: #333333">.</span>write(<span style="background-color: #fff0f0">&#39;Joke #2: </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">The generation of random numbers is too important to be left to chance.&#39;</span>)  <span style="color: #888888"># Write string</span>
+f<span style="color: #333333">.</span>close()  <span style="color: #888888"># Close the file</span>
+
+f <span style="color: #333333">=</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&#39;example.txt&#39;</span>)
+contents <span style="color: #333333">=</span> f<span style="color: #333333">.</span>read()
+<span style="color: #007020">print</span>(contents)
+f<span style="color: #333333">.</span>close()
+</pre></div>
+
+            <br><br>
+
+            <b>Did it do what you expected?</b>
+            <br><br>
+            <b>Why?</b>
+
+          </div>
+
+          <br><br>
+
+          <h4>Appending!</h4>
+
+          Let's try adding our first joke back in:
+          <br><br>
+
+          <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+          <div class="mx-lg-5">
+            We will use a different flag this time: <b><tt>a</tt></b>
+            <br><br>
+            <b>Predict what is going to be printed before you run it!</b>
+            <br><br>
+
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">f <span style="color: #333333">=</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&quot;example.txt&quot;</span>, <span style="background-color: #fff0f0">&quot;a&quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;Opening file example.txt for appending&#39;</span>)
+f<span style="color: #333333">.</span>write(<span style="background-color: #fff0f0">&#39;Joke #1: </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">There are only 10 kinds of people in this world:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">those who know binary and those who don’t.&#39;</span>)  <span style="color: #888888"># Write string</span>
+f<span style="color: #333333">.</span>close()  <span style="color: #888888"># Close the file</span>
+
+f <span style="color: #333333">=</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&#39;example.txt&#39;</span>)
+contents <span style="color: #333333">=</span> f<span style="color: #333333">.</span>read()
+<span style="color: #007020">print</span>(contents)
+f<span style="color: #333333">.</span>close()
+</pre></div>
+
+            <br><br>
+
+            <b>Did it do what you expected?</b>
+            <br><br>
+            <b>Why?</b>
+            <br><br>
+
+            <b>How can we fix these errors? (let's go one by one)</b>
+
+          </div>
+
+
+        <br><br>
+
+
+        <h3>The <b><tt>with</tt></b> operator</h3>
+
+        <br><br>
+
+        The <b><tt>with</tt></b> operator encloses a file operation and takes care of closing the file for you.
+
+        <br><br>
+
+        example:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># Open a file for reading and appending</span>
+<span style="color: #008800; font-weight: bold">with</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&#39;example.txt&#39;</span>, <span style="background-color: #fff0f0">&#39;r+&#39;</span>) <span style="color: #008800; font-weight: bold">as</span> f:
+  <span style="color: #888888"># Read in two integers</span>
+  lines <span style="color: #333333">=</span> f<span style="color: #333333">.</span>readlines()
+
+
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;lines:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>,lines)
+<span style="color: #007020">print</span>()
+
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;BEFORE:&quot;</span>)
+<span style="color: #008800; font-weight: bold">for</span> idx <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #007020">len</span>(lines)):
+  lines[idx] <span style="color: #333333">=</span> lines[idx]<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>, <span style="background-color: #fff0f0">&quot;&quot;</span>)
+  <span style="color: #007020">print</span>(lines[idx])
+  
+<span style="color: #007020">print</span>()
+
+<span style="color: #888888"># move line 2 to 0, 1, and 2</span>
+new_lines <span style="color: #333333">=</span> []
+new_lines<span style="color: #333333">.</span>append(lines[<span style="color: #0000DD; font-weight: bold">2</span>]<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>)
+new_lines<span style="color: #333333">.</span>append(lines[<span style="color: #0000DD; font-weight: bold">3</span>]<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>)
+new_lines<span style="color: #333333">.</span>append(lines[<span style="color: #0000DD; font-weight: bold">4</span>]<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>)
+new_lines<span style="color: #333333">.</span>append(lines[<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>)
+new_lines<span style="color: #333333">.</span>append(lines[<span style="color: #0000DD; font-weight: bold">1</span>]<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>)
+
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;new lines:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>,new_lines)
+<span style="color: #007020">print</span>()
+
+
+<span style="color: #888888"># and write everything back</span>
+<span style="color: #008800; font-weight: bold">with</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&#39;example.txt&#39;</span>, <span style="background-color: #fff0f0">&#39;w+&#39;</span>) <span style="color: #008800; font-weight: bold">as</span> f:
+  f<span style="color: #333333">.</span>writelines( new_lines )
+
+<span style="color: #888888"># Open a file for reading and appending</span>
+<span style="color: #008800; font-weight: bold">with</span> <span style="color: #007020">open</span>(<span style="background-color: #fff0f0">&#39;example.txt&#39;</span>, <span style="background-color: #fff0f0">&#39;r+&#39;</span>) <span style="color: #008800; font-weight: bold">as</span> f:
+  <span style="color: #888888"># Read in two integers</span>
+  lines <span style="color: #333333">=</span> f<span style="color: #333333">.</span>readlines()
+
+<span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;AFTER:&quot;</span>)
+<span style="color: #008800; font-weight: bold">for</span> li <span style="color: #000000; font-weight: bold">in</span> lines:
+  li <span style="color: #333333">=</span> li<span style="color: #333333">.</span>replace(<span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>, <span style="background-color: #fff0f0">&quot;&quot;</span>)
+  <span style="color: #007020">print</span>(li)
+  
+<span style="color: #007020">print</span>()
+
+<span style="color: #888888"># No need to call f.close() - f closed automatically </span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;Closed example.txt&#39;</span>)
+</pre></div>
+
+
+
+
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Debugging</h2>
+
+      <p>
+
+        We will look at the examples we wrote in class and see how t <b>debug</b> using print statements and with the Replit debugger.
+
+        <!-- <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Complete the following task in the scratchpad:
+          <ol>
+            <li>Create a text file called paragraph.txt</li>
+            <li>copy-paste the full contents of the file <a href="../figures/the_humans_are_dead.txt" download>mystery_file.txt</a></li>
+            <li>create an empty list called <b><tt>new_lines</tt></b></li>
+            <li>in main.py, open the file for reading</li>
+            <li>read the contents of the file into a list of lines</li>
+            
+            <li>write a loop that does the following:              
+              <ol>
+                <li> 
+                  <b><tt>for</tt></b> every line, use the following command to remove all alphanumeric characters and obtains an updated line:
+            <br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">updated_line <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;&#39;</span><span style="color: #333333">.</span>join(ch <span style="color: #008800; font-weight: bold">for</span> ch <span style="color: #000000; font-weight: bold">in</span> line <span style="color: #008800; font-weight: bold">if</span> ch<span style="color: #333333">.</span>isalnum())
+</pre></div>
+
+                </li>
+                <li>append the <b><tt>updated_line</tt></b> to the list of <b><tt>new_lines</tt></b></li>
+              </ol>
+            </li>
+            <li>create an empty list called <b><tt>word_counts</tt></b></li>
+            <li>Now write a nested loop that does the following:
+              <br>
+              For every word in every line of <b><tt>new_lines</tt></b>, it:
+              <ol>
+                <li>searches all of <b><tt>word_counts</tt></b> to see if that word is in </li>
+              </ol>
+            </li>
+             
+          </ol>
+          
+        </div> -->
+
+        
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Additional readings</h2>
+
+      <p>
+        Check out this article on <a href="https://realpython.com/working-with-files-in-python/">working with files</a>
+      </p>
+      
+
+        
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Before next class (Wednesday 10/20)</h4>
+      <b>[Due for everyone]</b>  
+      <br>
+      ZyBooks Sections 6.12, 6.13, 6.14
+      <br>
+      Assignment 03 is Due 10/20 before midnight
+      <br>
+      Assignment 04 is Due 10/25
+
+      <br><br>
+
+      <b>[Optional]</b>
+      <br>
+      
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
