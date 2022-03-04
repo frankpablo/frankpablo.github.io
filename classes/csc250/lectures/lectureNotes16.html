@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,7 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 11: Decidability</h1>
+      <h1>Lecture Notes 16: Decidability</h1>
       <p>
         <br>
       </p>
@@ -220,17 +220,34 @@
 
       <p>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/computation.gif" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/computation.gif" alt="" style="width:80%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec01.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec01.png" alt="" style="width:80%">
         <br><br>
+
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec02.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec02.png" alt="" style="width:80%">
         <br><br>
+
+
+        <div class="mx-lg-5">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            <ol>
+              <li>move both left and right</li>
+              <li>write new symbols to the tape</li>
+              <li>stop at any point and return an answer</li>
+            </ol>                            
+
+          </details>
+        </div>
+
+
+
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec03.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec03.png" alt="" style="width:80%">
         <br><br>
 
 
@@ -256,14 +273,42 @@
 
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec04.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec04.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec05.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec05.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec06.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec06.png" alt="" style="width:80%">
         <br><br>
+
+        <div class="mx-lg-5">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            <ol>
+              <li>Isn't just looking for a <tt>while (true)</tt>?</li>
+              <li>How about an example problem:
+                <br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">On <span style="color: #007020">input</span> w:
+<span style="color: #008800; font-weight: bold">while</span> <span style="color: #333333">|</span>w<span style="color: #333333">|</span> <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+    i<span style="color: #333333">.</span> note whether <span style="color: #0000DD; font-weight: bold">1</span>st letter <span style="color: #000000; font-weight: bold">is</span> a <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #000000; font-weight: bold">or</span> a <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #000000; font-weight: bold">and</span> erase it
+    ii<span style="color: #333333">.</span> go <span style="color: #007020">all</span> the way to the right until you hit the end of the string    
+    iii<span style="color: #333333">.</span> go one to the left
+    iv<span style="color: #333333">.</span> <span style="color: #008800; font-weight: bold">if</span> this letter doesn't match the one we remembered, REJECT; 
+        otherwise erase it <span style="color: #000000; font-weight: bold">and</span> go back to the start<span style="color: #333333">.</span>
+ACCEPT<span style="color: #333333">.</span>
+</pre></div>
+
+              </li>
+            </ol>                            
+
+          </details>
+        </div>
+
+        <br><br><br>
+
+        
+
 
         <big><span style="color:#003470;font-size:200%">Big Idea 1: Emulating</span></big>
 
@@ -296,87 +341,268 @@
         <big><span style="color:#003470;font-size:200%">Where we left off...</span></big>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec07.png" alt="" style="width:60%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec07.png" alt="" style="width:60%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec08.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec08.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec09.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec09.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec10.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec10.png" alt="" style="width:80%">
+        <br><br>
+
+        <div class="mx-lg-5">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            <ol>
+              <li>Isn't just looking for a <tt>while (true)</tt>?</li>
+              <li>How about an example problem:
+                <br>
+                \[
+                  \begin{align*}
+                  &n = 19 \\
+                  &while \ (n != 1): \\
+                  & \quad if \ n\%2 == 0: \\
+                  & \quad \quad n = n/2 \\
+                  & \quad else : \\
+                  & \quad \quad n = 3*n + 1 \\
+                  \end{align*}
+
+                \]
+                
+              </li>
+            </ol>                            
+
+          </details>
+        </div>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec11.png" alt="" style="width:80%">
+        <br><br>
+
+        <div class="mx-lg-5">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            <ol>
+              <li>How about an example problem:
+                <br><br>
+                Assume we have a turing machine H that decides (Accept AND Reject) <b>HALT</b> :
+                \[ 
+                  \begin{align*}
+                  &M_{HALT}: \\
+                  & \text{On INPUT $< M, w >$}  \\
+                  & \quad \text{ if M  HALTS  on  w,  ACCEPT } \\
+                  & \quad \text{ if M FLOOPS on  w,  REJECT }
+                  \end{align*}
+                \]
+                <br>
+                Since there are no restrictions on what w looks like, it’s possible that w could be the description of another machine.
+                <br>
+                (this is actually pretty familiar: that’s exactly what a compiler is, right? A program that takes another program as input)
+                <br><br>
+
+Let’s use this machine to define a new <b>helper</b> machine called <b>\(M_{TEST\_ON\_ITSELF}\)</b>: 
+
+
+
+                \[ 
+                  \begin{align*}
+                  &M_{TEST\_ON\_ITSELF}: \\
+                  & On \; INPUT \; < M >  \\
+                  & \quad \color{gray}{ \text{# run $M_{H} ( < M , < M > > )$ ADWID } } \\
+                  & \quad \text{run $M_{HALT} ( < M , < M > >)$}\\
+                  & \quad \text{if  $M_{HALT}( < M , < M > > )$ returns ACCEPT, ACCEPT } \\
+                  & \quad \text{if  $M_{HALT}( < M , < M > > )$ returns REJECT, REJECT } \\
+                  \end{align*} 
+                \]
+              <br>
+                <ol>
+                  <li>This machine just takes in the description of a machine \( < M > \) as input (no w) </li>
+                  <li>It then calls the decider for HALT to see what would happen if we ran that machine on its own description <b>ADWID</b> (And Do What It Does) </li> 
+                </ol>
+
+              <br><br>
+
+              Finally, we’ll define one last machine <b>\(M_{X}\)</b> that FLOOPS if \(M_{TEST\_ON\_ITSELF}\) says ACCEPT; 
+              <br>
+              otherwise ADWID.
+              <br>
+
+                \[ 
+                  \begin{align*}
+                  &M_{X}: \\
+                  & On \; INPUT \; < M >  \\
+                  & \quad \text{run $M_{TEST\_ON\_ITSELF} ( < M > )$}\\
+                  & \quad \text{if  $M_{TEST\_ON\_ITSELF}( < M > )$ returns ACCEPT (HALTS), FLOOP } \\
+                  & \quad \text{if  $M_{TEST\_ON\_ITSELF}( < M > )$ returns REJECT (FLOOPS), ADWID (if Rej->Rej; if FLoop -> Floop)) } \\
+                  \end{align*} 
+                \]
+
+                <br><br>
+
+                So, <span style="color:#cc0000;font-size:18pt"> <b>What happens if we run \( M_{X} ( < M_{X} > ) \)?</b></span>
+
+                <br><br>
+
+Inside \(M_{X}\), we call \(M_{TEST\_ON\_ITSELF}( < M_{X} > )\), which calls \(M_{HALT} ( < M_{X} , < M_{X}  >  >)\).
+<br> 
+If \(M_{X}\) halts when fed \(M_{X}\) as input then the call \(M_{X} ( < M_{X} >) \) loops forever. 
+<br>
+If \(M_{X}\) doesn't halt when fed \(M_{X}\)  as input, then the call \(M_{X} ( < M_{X} >) \) halts.
+<br>
+\(M_{X} ( < M_{X} >) \) can neither halt nor loop forever.
+<br>
+This is a contradiction! Since our only assumption was the existence of HALTS, procedure HALTS cannot exist.
+
+
+              </li>
+            </ol>                            
+
+          </details>
+        </div>
+
+        
+<!-- 
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec12.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec11.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec13.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec12.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec14.png" alt="" style="width:80%">
+        <br><br> 
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec14b.png" alt="" style="width:80%">
+        <br><br>
+-->
+
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec15.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec13.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec14.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec16.png" alt="" style="width:80%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec14b.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec17.png" alt="" style="width:80%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec15.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec16.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec18.png" alt="" style="width:80%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec17.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec19.png" alt="" style="width:80%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec18.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec20.png" alt="" style="width:80%">
+        <br><br>
+
+        <div class="mx-lg-5">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            <ul>
+             
+              <li>Run both machines in parallel. <br>
+                  Accept if either accepts.
+              </li>
+            </ul>                            
+
+          </details>
+        </div>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec21.png" alt="" style="width:80%">
+        <br><br>
+
+        <div class="mx-lg-5">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            <ul>
+             
+              <li>Run both machines in parallel. <br>
+                  Accept if both accept.
+              </li>
+            </ul>                            
+
+          </details>
+        </div>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec22.png" alt="" style="width:80%">
+        <br><br>
+
+        <div class="mx-lg-5">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            <ul>             
+              <li>Suppose that M decides L.</li>
+                  <li>Design a new machine \(M^\prime\) that behaves just like M, but: 
+                  <ul>
+                    <li>If M accepts, \(M^{\prime}\) rejects. </li>
+                    <li>If M rejects, \(M^{\prime}\) accepts. </li>
+                  </ul>
+                  </li>
+                  <li>Formally, can do this by interchanging \(q_{acc}\) and \( q_{rej} \). </li>
+                  <li>Then \(M^{\prime}\)  decides \(L^c\).</li>            
+            </ul>                            
+
+          </details>
+        </div>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec23.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec24.png" alt="" style="width:80%">
+        <br><br>
+
+        <div class="mx-lg-5">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+           Run both M1 and M2 on w. <br>
+            • One must accept. <br>
+            • If M1 accepts, then M accepts. <br>
+            • If M 2 accepts, then M rejects. <br><br>
+            How? In sequence? <b>What if M1 loops?</b> <br>
+            What can we do?                        
+
+          </details>
+        </div>
+
+
+
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec25.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec26.png" alt="" style="width:80%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec19.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec27.png" alt="" style="width:80%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec20.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec28.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec21.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec29.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec22.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec23.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec24.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec25.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec26.png" alt="" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec27.png" alt="" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec28.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec29.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture11/Dec30.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture16/Dec30.png" alt="" style="width:80%">
         <br><br>
 
 
@@ -424,10 +650,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Next Module</a>
               </li>
             </ul>
           </div>
