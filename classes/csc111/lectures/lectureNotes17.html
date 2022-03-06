@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes16.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,7 +122,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 11: Intro to Lists</h1>
+      <h1>Lecture Notes 17: Intro to Lists</h1>
       <p>
         <br>
       </p>
@@ -137,11 +137,81 @@
         Other containers are: tuples, dictionaries, and sets.
         <br><br>
 
-        In a <b>list</b>, elements have a specific position (index) and allows access trhough the usual indexing operations (see slicing).
+        In a <b>list</b>, elements have a specific position (index) and allows access trhough the usual indexing operations... See it in use for string splitting:
+        <br><br>
+        
+        <h3>Splitting and Joining Strings</h3>
+
+
+        Another typical task is to separate a string into a <b><tt>list</tt></b> of component substrings, or <b><tt>tokens</tt></b>.
+
+
+        <br><br>
+
+        You can try it <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20my_list%20%3D%20%5B'this',%20'is','a','list',%20'with',%207,%20'items'%5D%0A%20%20print%28%20my_list%20%29%0A%20%20for%20i%20in%20range%28%20len%28%20my_list%29%20%29%3A%0A%20%20%20%20print%28my_list%5Bi%5D,%20end%20%3D%20%22%20%22%29%0A%20%20print%28%29%0A%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">here</a>
+
+        <br><br><br><br>
+
+        <h3>split</h3>
+
+        The <b><tt>split</tt></b> method can achieve this by specifying the character(s) that are to be considered the <b><tt>separators</tt></b> between the tokens.
+        <br><br>
+
+Example:
+        <br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">phrase <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;time consumes everything but it is also the best&quot;</span>
+tokens <span style="color: #333333">=</span> phrase<span style="color: #333333">.</span>split()
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the phrase &#39;{:s}&#39; is composed of the tokens: {}&quot;</span><span style="color: #333333">.</span>format(phrase, tokens))
+</pre></div>
+        <br><br>
+
+        Try it <a href="https://pythontutor.com/visualize.html#code=phrase%20%3D%20%22time%20consumes%20everything%20but%20it%20is%20also%20the%20best%22%0Atokens%20%3D%20phrase.split%28%29%0Aprint%28%22the%20phrase%20'%7B%3As%7D'%20is%20composed%20of%20the%20tokens%3A%20%7B%7D%22.format%28phrase,%20tokens%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+
+
+        <br><br>
+
+        <h3>join</h3>
+
+        Another useful task is to join tokens into a longer string.
+        <br><br>
+        The format is:
+        <br><br>
+        <b><tt>&lt; separator &gt; . join ( &lt; list of tokens &gt; )</tt></b>
+        <br><br>
+
+       Example:
+        <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">num_str <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;1 2 3 4 5 6 7 8 9&quot;</span>
+<span style="color: #888888">#making the tokens</span>
+tokens <span style="color: #333333">=</span> num_str<span style="color: #333333">.</span>split(<span style="background-color: #fff0f0">&quot; &quot;</span>)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;the num_str &#39;{:s}&#39;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">is composed of the tokens:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">{}&quot;</span><span style="color: #333333">.</span>format(num_str, tokens))
+<span style="color: #007020">print</span>()
+<span style="color: #888888"># joining with &#39;+&#39;</span>
+num_expr <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;+&quot;</span><span style="color: #333333">.</span>join(tokens)
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;expression:&quot;</span>,num_expr)
+<span style="color: #888888"># you can use this for something!</span>
+<span style="color: #007020">print</span>( <span style="color: #007020">eval</span>(num_expr) )
+</pre></div>
+        <br><br>
+        Try it <a href="https://pythontutor.com/visualize.html#code=num_str%20%3D%20%221%202%203%204%205%206%207%208%209%22%0A%23making%20the%20tokens%0Atokens%20%3D%20num_str.split%28%22%20%22%29%0Aprint%28%22the%20num_str%20'%7B%3As%7D'%5Cnis%20composed%20of%20the%20tokens%3A%5Cn%7B%7D%22.format%28num_str,%20tokens%29%29%0Aprint%28%29%0A%23%20joining%20with%20'%2B'%0Anum_expr%20%3D%20%22%2B%22.join%28tokens%29%0Aprint%28%22expression%3A%22,num_expr%29%0A%23%20you%20can%20use%20this%20for%20something!%0Aprint%28%20eval%28num_expr%29%20%29%0A&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
+
+        <br><br><br><br>
+
+        <h3>Different types!</h3>
         <br><br>
 
         Another useful property, is that the elements can have different types: integers, strings, floats <b>and even other lists!!</b>
+
         <br><br>
+        We won't see this yet to avoid confusion, but the following is valid:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">mixed_list <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&quot;s&quot;</span>, <span style="color: #0000DD; font-weight: bold">42</span>, <span style="color: #008800; font-weight: bold">True</span>, <span style="background-color: #fff0f0">&quot;dog&quot;</span>, <span style="color: #6600EE; font-weight: bold">1.3</span>, [<span style="background-color: #fff0f0">&#39;a&#39;</span>, <span style="background-color: #fff0f0">&#39;b&#39;</span>, <span style="background-color: #fff0f0">&#39;c&#39;</span>]]
+
+<span style="color: #007020">print</span>(mixed_list)
+</pre></div>
+
+        <br><br><br><br>
 
         <h3>A list structure</h3>
 
@@ -164,7 +234,7 @@
         <br><br>
         Try it <a href="https://pythontutor.com/visualize.html#code=my_list%20%3D%20%5B%22d%22,%20%22a%22,%20%22l%22,%20%22l%22,%20%22i%22,%20%22a%22,%20%22n%22,%20%22c%22,%20%22e%22%5D%0Aprint%28my_list%29%0Aprint%28my_list%5B7%5D%29%0Aprint%28my_list%5B3%3A7%5D%29%0Aprint%28my_list%5B1%3A%5D%29%0Aprint%28my_list%5B1%3A%3A2%5D%29%0Aprint%20%28%22%22.join%28my_list%29%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
 
-        <br><br>
+        <br><br><br><br>
 
         <h3>Lists are <b>Mutable!</b></h3>
         Lists, unlike strings, are mutable, which means that once created, the structure and or the values inside them can be change.
@@ -189,6 +259,7 @@ my_list[:<span style="color: #0000DD; font-weight: bold">0</span>] <span style="
 <span style="color: #007020">print</span>(my_list)
 </pre></div>
 
+
         <br><br>
         Try it <a href="https://pythontutor.com/visualize.html#code=my_list%20%3D%20%5B%22s%22,%20%22c%22,%20%22r%22,%20%22e%22,%20%22w%22%5D%0Aprint%20%28my_list%29%0Amy_list%5B1%5D%20%3D%20%22h%22%20%23%20change%20an%20item%0Aprint%28my_list%29%0Alength1%20%3D%20len%28my_list%29%20%0A%23%20my_list%5B%3Alength1%5D%5D%20all%20items%20after%20the%20last%20one%0Amy_list%5Blength1%3A%5D%20%3D%20%22d%22%20%23%20append%20an%20item%0Aprint%28my_list%29%0Alength2%20%3D%20len%28my_list%29%0Adel%20my_list%5Blength2-2%5D%0Aprint%28my_list%29%0Amy_list%5B2%5D%20%3D%20%22o%22%20%23%20change%20an%20item%0A%23%20my_list%5B%3A0%5D%5D%20all%20items%20up%20to%20but%20not%20including%20the%20first%20one%0Amy_list%5B%3A0%5D%20%3D%20%22snow%22%0Aprint%28my_list%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">here</a>
         <br><br>
@@ -206,13 +277,13 @@ my_list[:<span style="color: #0000DD; font-weight: bold">0</span>] <span style="
 
         One thing that can happen, and that Python does often to optimize memory ussage, is to use different handles (variables) to point to the same value.
         <br><br>
-        <img class="img-fluid" src="../figures/lecture10/sameVal.png"  style="width:50%">
+        <img class="img-fluid" src="../figures/lecture17/sameVal.png"  style="width:50%">
         <br><br>
 
         One big possible issue with this is that if we have two variables pointing at the same object, and the object is mutable, modifying the object trhough one variable, makes the change visible to the other.
         <br><br>
 
-        Example (from ZyBooks):
+        Example:
         <br><br>
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_teams <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;Raptors&#39;</span>, <span style="background-color: #fff0f0">&#39;Heat&#39;</span>, <span style="background-color: #fff0f0">&#39;Nets&#39;</span>]
 your_teams <span style="color: #333333">=</span> my_teams  <span style="color: #888888"># both point to the same object now!</span>
@@ -329,7 +400,7 @@ fav_stooge <span style="color: #333333">=</span> <span style="background-color: 
           <br><br>
           The result should look like this:
           <br><br>
-            <img class="img-fluid" src="../figures/lecture11/listPrints.png"  style="width:50%">
+            <img class="img-fluid" src="../figures/lecture17/listPrints.png"  style="width:50%">
           <br><br>
 
         </div>
@@ -345,8 +416,8 @@ fav_stooge <span style="color: #333333">=</span> <span style="background-color: 
       
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (TBD)</h4>
-      <b>[Due for everyone]</b>  ZyBooks Sections TBD<br>
+      <h4>Homework (TBD)</h4>
+      <b>[Due for everyone]</b> <br>
 
       <br><br>
 
@@ -369,10 +440,10 @@ fav_stooge <span style="color: #333333">=</span> <span style="background-color: 
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes10.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes16.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Next Module</a>
               </li>
             </ul>
           </div>
