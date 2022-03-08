@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 250  Theory of Computation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+
+      @import url('https://fonts.googleapis.com/css?family=Inter|Dosis&display=swap');
+
+      /* Crucial */
+      .highlight {
+        background-color: #EEF43B;
+          padding-right: 0px;
+          padding-left: 0px;
+      }
+
+
+      /* Just for styling */
+      /*body {
+        font-family: 'Inter', sans-serif;
+      }*/
+
+      /*.container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 0 2%;
+      }*/
+
+      .search-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto 20px auto;
+        max-width: 450px;
+        padding: 0 2%;
+      }
+
+      label {
+        color: #535353;
+        font-family: 'Dosis', sans-serif;
+        font-size: 14px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      input {
+        background: #fff;
+        border: 1px solid #535353;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        height: 38px;
+        line-height: 38px;
+        outline: none;
+        padding: 0 10px;
+        transition: all 0.5s;
+        width: 100%;
+      }
+
+      input:focus {
+        border: 1px solid #3a5bd3;
+        box-shadow: 0 0 4px 0 #7d90de;
+      }
+
+      blockquote {
+        background-color: #f1f1f1;
+        border-radius: 0 4px 4px 0;
+        color: #515151;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 0;
+        padding: 20px 40px 20px 20px;
+        position: relative;
+      }
+
+      blockquote::before {
+        color: #ccc;
+        content: '”';
+        font-size: 80px;
+        position: absolute;
+        right: 30px;
+        top: -20px;
+      }
+
+      figcaption {
+        color: #aaa;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+    </style>
+
+
+
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 250</h1>
+      <p class="lead">Theory of Computation</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes19.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 18: Undecidability and Reductions</h1>
+      <p>
+        <br>
+      </p>
+      <h2>Outline </h2>
+
+      This class we'll discuss:
+      <ul>
+        <li>Intro to Undecidability</li>
+        <li>Intro to Reductions</li>
+      </ul>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Recap: Decidability</h2>
+
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-01.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-02.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-03.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-04.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-05.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-06.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-10.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-11.png" alt="" style="width:80%">
+        <br><br>
+
+              <br>
+
+
+<!-- 
+        <big><span style="color:#003470;font-size:200%">Questions about Machines</span></big>
+        <br><br><br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Discuss if you could build \(D_L\) for the following language:
+          <br>
+          \[ L = \{ < A > | \text{DFA $A$ accepts an infinite number of words (L(A) is infinite)} \} \]
+
+        </span></big>
+
+        <br><br> 
+-->
+        <big><span style="color:#003470;font-size:120%">
+        Note: this is in PS05 so watch the vdeo recording to hear about how to solve this. (you should be able to clearly explain both approaches)
+      </span></big>
+
+
+
+        <br><br><br><br><br>
+
+        <h2>Recap: How about ATM?</h2>
+
+        <br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-12.png" alt="" style="width:80%">
+        <br><br>
+
+
+<!-- 
+        <big><span style="color:#003470;font-size:200%">Questions about Machines</span></big>
+        <br><br><br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Discuss if you could build \(D_L\) for the following language:
+          <br>
+          \[ A_{TM} = \{ < M, w> | \text{TM $M$ accepts } w \} \]
+
+        </span></big>
+
+ -->
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-13.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+
+
+
+        <div class="mx-lg-5">
+          <big><span style="color:#003470;font-size:200%">Can we come up with a simple proof?</span></big>
+          
+          <big><span style="color:#003470;font-size:120%">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            <b>Proof by construction</b>:
+            <br>
+            \[
+            \begin{align*}
+              &R_{ATM}:\\
+              & \text{ On input $ < M,w > $ }:\\
+              & \text{ Simulate M on w.}\\
+              & \text{ If it accepts, accept. }\\
+            \end{align*}
+            \]
+     
+          </details>
+        </div>
+      </span></big>
+
+        <br><br><br>
+
+        <big><span style="color:#003470;font-size:200%">Is ATM <b>decidable</b>?</span></big>
+        <br><br><br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Discuss if you could build \(D_L\) for the following language:
+          <br>
+          \[ A_{TM} = \{ < M, w> | \text{TM $M$ accepts } w \} \]
+          <br><br>
+
+          Can a \(D_{ATM}\) be constructed such that:
+          <ol>
+            <li>It Accepts any \(w \) such that \(w \in A_{TM}\) </li>
+            <br>
+            AND
+            <br><br>
+            <li>It Rejects any \(w \) such that \(w \notin A_{TM}\) </li>
+          </ol>
+
+        </span></big>
+
+
+        <br><br><br>
+
+
+
+        <big><span style="color:#003470;font-size:120%">
+          <div class="mx-lg-5">
+            
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>  
+              <b>Intuition...Not decidable</b>: 
+              <br><br>
+              <li>we can’t tell the difference between looping and “just haven’t waited long enough”. </li>
+              <br><br>
+              <li>But we can't prove "we haven't waited long enough" for each input... (AND we have infinite inputs)</li>
+              <br><br>
+              <li>But we can use another technique to try to prove this... CONTRADICTION!</li>
+              <br><br>
+              If we can find a single example where we can't predict what \(D_{ATM}\) will say ... then we have it!
+  <!-- 
+              Additionally, we could use a solution to this to decide HALT! 
+              <br>
+              Define a machine M that runs HALT on w accepts if HALT accepts or rejects. Then ask the decider for ATM if M accepts on w.
+               -->
+            </details>
+          </div>
+        </span></big>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-14.png" alt="" style="width:80%">
+        <br><br>
+
+        <big><span style="color:#003470;font-size:200%">Step 1: Assume Is ATM is <b>Decidable</b></span></big>
+        <big><span style="color:#003470;font-size:120%">
+          Now try to use this "fact" to arrive at a contradiction 
+          <br><br><br>
+
+          Consider the Machine \(M_{OPPOSITE} ( < M> )\) 
+          <br><br>
+          \[
+            \begin{align*}
+              &M_{OPPOSITE}:\\
+              & \text{ On input $ < M > $ }:\\
+              & \text{ Simulate $D_{ATM} \; on \; < M > $}\\
+              & \text{ If $D_{ATM}$ accepts, REJECT. }\\
+              & \text{ If $D_{ATM}$ rejects, ACCEPT. }\\
+            \end{align*}
+            \]
+        </span></big>
+
+        <br><br><br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-15.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-16.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-17.png" alt="" style="width:80%">
+        <br><br>        
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-18.png" alt="" style="width:80%">
+        <br><br>
+
+        <big><span style="color:#003470;font-size:120%">
+          In other words, \( HALT\)  is AT LEAST as hard as  \( ATM \) <br>
+          (So if we can solve HALT, we can, for sure, solve ATM)
+        </span></big>
+        <br><br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-19.png" alt="" style="width:80%">
+        <br><br>
+
+
+        <big><span style="color:#003470;font-size:200%">Try it out yourselves first</span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Think of a way you can get to say: 
+          <br>
+           if we can solve HALT, we can, for sure, solve ATM
+          <br><br><br>
+          <div class="mx-lg-5">          
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>  
+              Assume HALT is decidable, and so there exists some \(D_{HALT}\) that decides, for any input \(< M,w>\), whether \(M\) halts on \(w\).
+              <br><br>
+              We'll design the Machine \(D_{ATM} \) as follows: 
+              <br><br>
+              \[
+                \begin{align*}
+                  &D_{ATM}:\\
+                  & \text{ On input $ < M, w > $ }:\\
+                  & \text{ Simulate $D_{HALT} \; on \;  < M, w > $}\\
+                  & \text{ If $D_{HALT}$ rejects, $M$ doesn't halt, so it did not accept: REJECT. }\\
+                  & \text{ If $D_{HALT}$ accepts, we know $M$ won't loop forever, so }\\
+                  & \quad \text{ Simulate $M$ on $w$ ADWID }\\              
+                \end{align*}
+                \]
+
+                <br><br>
+
+                This machine is a decider for ATM (why?) 
+                <br>
+                – it avoided the only problem we had with solving ATM, namely telling the difference between looping and lot waiting long enough.
+                <br><br>
+                However, we proved that ATM was undecidable by contradiction just a few minutes ago. <br>
+                Aaaand...the only condition we need to build \(D_{ATM}\) was that \(D_{HALT}\) existed, so ...
+                <br>
+                <b>\(D_{HALT} \; \) must not exist</b>.
+            </details>
+          </div>
+          </span></big>
+
+
+
+        <br><br><br><br><br><br>
+
+
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-20.png" alt="" style="width:80%">
+        <br><br>
+
+        <big><span style="color:#003470;font-size:200%">Example: </span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Above, we said: <br>
+          \( ATM \leq HALT \)
+          <br><br>
+
+          Therefore :
+          <ol>
+            <li>\(D_{HALT}\) can be used to build \(D_{ATM}\)</li>
+          </ol>
+        </span></big>
+        
+
+        <br><br><br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-21.png" alt="" style="width:80%">
+        <br><br>
+
+        <big><span style="color:#003470;font-size:200%">Example: </span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Above, we said: <br>
+          \( ATM \leq HALT \)
+          <br><br>
+
+          Therefore :
+          <ul>
+            <li>It is possible that \(D_{HALT}\) can be much harder to build than \(D_{ATM}\), so if you have  \(D_{ATM}\), you would still have much more to do.</li>
+            <br><br>
+            <li>If you want to show equivalence, you have to prove both directions. </li>
+          </ul>
+        </span></big>
+
+        <br><br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-22.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-23.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-24.png" alt="" style="width:80%">
+        <br><br>
+        
+
+        <big><span style="color:#003470;font-size:200%">Let's go together</span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Let's try to say ... "if we can solve ATM01, we can, for sure, solve ATM
+          <br><br><br>
+          <div class="mx-lg-5">          
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>  
+              Assume ATM01 is decidable, and so there exists some \(D_{ATM01}\) that decides, for any input \(< M >\), whether \(M\) accepts \(w = 01\).
+              <br><br>
+              We'll design the Machine \(D_{ATM} \) as follows: 
+              <br><br>
+              \[
+                \begin{align*}
+                  &D_{ATM}:\\
+                  & \text{ On input $ < M, w > $ }:\\
+                  & \text{ Simulate $D_{ATM01} \; on \;  < M > $}\\
+                  & \text{ If $D_{ATM01}$ accepts, we know $M$ accepts string 01 }\\
+                  & \text{ If $D_{ATM01}$ rejects, we know $M$ doesn't accept string 01 }\\
+                  & \quad \text{ ... }\\              
+                \end{align*}
+                \]
+
+                <br><br>
+
+                Then what? 
+                <br> 
+                \(D_{ATM01} \) only gives useful information about the string 01. 
+                <br>
+                It doesn't even look at the string \(w\) (which we need to build \(D_{ATM} \)). 
+                <br><br>
+                We’ll have the be a little more clever to get our machine to force it to check \(w\).
+
+            </details>
+          </div>
+          </span></big>
+
+
+          <br><br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-25.png" alt="" style="width:80%">
+        <br><br>
+
+        <big><span style="color:#003470;font-size:200%">Let's go together</span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Let's use, in addition to \(D_{ATM01} \), an extra HELPER machine to help us extend the usefulness of \(D_{ATM01} \).
+          <br><br><br>
+          <div class="mx-lg-5">          
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>  
+              Assume ATM01 is decidable, and so there exists some \(D_{ATM01}\) that decides, for any input \(< M >\), whether \(M\) accepts \(w = 01\).
+              <br><br>
+              We'll design the Machine \(D_{ATM} \) as follows: 
+              <br><br>
+              \[
+                \begin{align*}
+                  &D_{ATM}:\\
+                  & \text{ On input $ < M, w > $ }:\\
+                  & \text{ 1. \; build a HELPER machine $Helper_{M,w}$ that is shown below: }\\
+                  &\; \\
+                  & \qquad Helper_{M,w}:\\
+                  & \qquad \text{ On input $ x $ }: \quad \color{gray}{\text{# x: Anything! we don't care} }\\
+                  & \qquad \text{ Ignore $ x $ and run $M$ on $w$ ADWID} \quad \color{gray}{\text{# We hardcode what $Helper_{M,w}$ does} }\\
+                  &\; \\
+                  & \text{ 2. \; Simulate $D_{ATM01}$ on $Helper_{M,w}$ } ADWID\\
+                  & \quad \text{ ... }\\              
+                \end{align*}
+                \]
+
+                <br><br><br><br>
+
+                <b>Analysis of cases</b> 
+                <br><br>
+                What is going on?:
+                <ol>
+                  <li>Inside our \(D_{ATM} \) machine, we use \(D_{ATM01} \) to ask if its input TM accepts \(01\) ... 
+                    <br>
+                    But in order to do it ... <b>it is forced to simulate the input machine</b>
+                  </li>
+                  <br>
+                  <li>When \(D_{ATM01} \) runs \(Helper_{M,w}\) with input \(01\), we IGNORE the input and just run \(M\) on\(w\) </li>
+                  <br>
+                  <li>\(Helper_{M,w}\)  is a TM built solely to check if the \(M\) actually accepts the \(w\) from the input to \(D_{ATM} \) (\( < M, w > $ \) ).
+                  </li>
+                  <li>
+                    The output of \(D_{ATM01} \) is NOT actually answering if its input accepts \(01\)... it is secretly answering the question : "Does \(M\) accept \(w\)?"
+                  </li>
+
+                </ol>
+                <br><br>
+                If \(D_{ATM01} \) says that \(Helper_{M,w}\) accepts 01, <br>
+                we know that \(M\) must have accepted \(w\). 
+                <br><br>
+                For any \(M, w\) pair that gets passed into \(D_{ATM} \), we can construct a hardcoded helper machine and trick \(D_{ATM01} \) into telling us the answer, 
+                <br>
+                in other words...<b>deciding ATM</b>. 
+                <br><br>
+                However, This can't be true!!, 
+                <br>
+                <b>we know ATM is undecidable, so ATM01 must also be undecidable</b>.
+
+
+            </details>
+          </div>
+          </span></big>
+
+      </p>
+
+
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h3>Next class: More Reductions</h3>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework<h4>
+      <br>      
+      <b>[Due for everyone]</b>
+      <div class="mx-5">
+         PS05 Due Friday 03/11 (With automatic extension until the Monday AFTER spring Break)
+      </div> 
+      <br>
+      <b>[Optional]</b> 
+      <div class="mx-5">
+        TODO
+      </div>
+      <br><br>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes19.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+<!--     <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+
+
+  </body>
+</html>
