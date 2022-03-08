@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes14.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes16.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes19.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,7 +122,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 15: 2D Lists and Nested Loops</h1>
+      <h1>Lecture Notes 18: 2D Lists and Nested Loops</h1>
       <p>
         <br>
       </p>
@@ -271,13 +271,13 @@
 
         This is a <b>simplified</b> visualization of how the elements are stored in the list <tt>li</tt>:
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture15/2d-list.png" alt="" style="width:30%">
+        <img id="image" class="img-responsive" src="../figures/lecture18/2d-list.png" alt="" style="width:30%">
         <br><br>
 
         The following is the same list but with more of its parts explicitly highlighted:
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture15/2d-list-parts.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture18/2d-list-parts.png" alt="" style="width:80%">
         <br><br>
 
         However, when printed on the Python Tutor, the view is less pretty: <a href="https://pythontutor.com/visualize.html#code=li%20%3D%20%5B%5B1,%202,%203%5D,%20%5B4,%205,%206%5D,%20%5B7,%208,%209%5D%5D%0Aprint%20%28li%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Try it Here</a>
@@ -353,191 +353,6 @@ inner_li <span style="color: #333333">=</span> li[<span style="color: #0000DD; f
         There is nothing to add!
         <br><br>
         You already know how to write a loop, simply write a loop inside a loop!
-
-        <br><br>
-        Let's see some examples:
-        <br><br>
-
-        <h3>Example 1: a number pyramid</h3>
-
-        <br><br>
-
-        We wish to generate the following structure:
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture15/numPyramid.png" alt="" style="width:40%">
-        <br><br>
-
-        <br><br>
-
-
-        <h4>First attempt (no nesting)</h4>
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
- 2  
- 3  
- 4  
- 5  
- 6  
- 7  
- 8  
- 9  
-10  
-11  
-12  
-13  
-14  
-15  
-16  
-17  
-18  
-19  
-20  
-21  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
-  pyramid() <span style="color: #888888"># prints 5 levels of numbers</span>
-
-<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">pyramid</span>():
-    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>):
-        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
-    <span style="color: #007020">print</span>()        
-    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">2</span>):
-        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
-    <span style="color: #007020">print</span>()    
-    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">3</span>):
-        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
-    <span style="color: #007020">print</span>()    
-    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">4</span>):
-        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
-    <span style="color: #007020">print</span>()    
-    <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">5</span>):
-        <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
-
-<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-    main()
-</pre></td></tr></table></div>
-
-
-        <br><br>
-
-        Look at the code <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20pyramid%28%29%20%23%20prints%205%20levels%20of%20numbers%0A%0Adef%20pyramid%28%29%3A%0A%20%20%20%20for%20j%20in%20range%281%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%282%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%283%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%284%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20print%28%29%20%20%20%20%0A%20%20%20%20for%20j%20in%20range%285%29%3A%0A%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank"> Here</a>
-
-
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          In the same way we asked before, do you notice any code that is repeated?
-        </div>
-
-        <br><br><br><br>
-
-
-        <h4>Attempt 2: Nesting!</h4>
-
-
-        Let's use out old friend: <b>a loop</b> to take advantage of "automated repetition!"
-
-        <br><br>
-
-        Steps:
-        <ul>
-          <li>First, what is every repetition dependent on (what changes in each repetition)?  </li>
-          <li>Is this something we can use a variable for?</li>
-          <li>If so, can we write a loop that viaries this variable?</li>
-        </ul>
-
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture15/naiveCodeMarked.png" alt="" style="width:60%">
-        <br><br>
-
-        <br><br>
-
-        Let's try it:
-
-        <br><br>
-
-        Steps:
-        <ul>
-          <li>First, surround a single block of code ( the one that was "repeated") in a <b>for</b> loop (you can try a <b>while</b> later) </li>
-          <li>Replace the changing parameter for the loop variable (let's use <tt>i</tt>)</li>
-          <li>Set the varying range according to the initial range of desired values (1, 2, 3, 4, 5)</li>
-        </ul>
-
-        <br><br>
-
-        You should end up with something like this:
-        <br><br>
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
- 2  
- 3  
- 4  
- 5  
- 6  
- 7  
- 8  
- 9  
-10  
-11  
-12  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
-  pyramid() <span style="color: #888888"># prints 5 levels of numbers</span>
-
-<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">pyramid</span>():
-    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">5</span>):
-        <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(i):
-            <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
-        <span style="color: #007020">print</span>()        
-   
-
-<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-    main()
-</pre></td></tr></table></div>
-
-
-        You can see it in action <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20pyramid%28%29%20%23%20prints%205%20levels%20of%20numbers%0A%0Adef%20pyramid%28%29%3A%0A%20%20%20%20for%20i%20in%20range%281,5%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20%20%20%20%20print%28%29%20%20%20%20%20%20%20%20%0A%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank"> Here!</a>
-
-
-        <br><br>
-
-        <h4>Attempt 3: Nesting using input parameters</h4>
-
-        For greater versatility, we can change the number of times we repeat the outer loop based on some input parameter!
-
-        <br><br>
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
- 2  
- 3  
- 4  
- 5  
- 6  
- 7  
- 8  
- 9  
-10  
-11  
-12  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
-  pyramid(<span style="color: #0000DD; font-weight: bold">7</span>) <span style="color: #888888"># prints &lt;argument&gt; levels of numbers</span>
-
-<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">pyramid</span>(lim):
-    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>,lim<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
-        <span style="color: #008800; font-weight: bold">for</span> j <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(i):
-            <span style="color: #007020">print</span>(j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot; &quot;</span>)
-        <span style="color: #007020">print</span>()        
-   
-
-<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
-    main()
-</pre></td></tr></table></div>
-        
-        <br><br>
-
-        Check it out <a href="https://pythontutor.com/visualize.html#code=def%20main%28%29%3A%0A%20%20pyramid%287%29%20%23%20prints%20%3Cargument%3E%20levels%20of%20numbers%0A%0Adef%20pyramid%28lim%29%3A%0A%20%20%20%20for%20i%20in%20range%281,lim%2B1%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28j%2B1,%20end%3D%22%20%22%29%0A%20%20%20%20%20%20%20%20print%28%29%20%20%20%20%20%20%20%20%0A%20%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">Here!</a>        
-
-
-
-      </p>
 
 
       <p><br></p><hr><p><br></p>
@@ -628,14 +443,66 @@ inner_li <span style="color: #333333">=</span> li[<span style="color: #0000DD; f
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Friday 10/15)</h4>
+      <h2>Lab-like work</h2>
+
+      <p>
+        You are to build a program that initializes the following 2D-list of values:
+        <br><br>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky"><span style="font-style:normal">8</span></th>
+    <th class="tg-0pky"><span style="font-style:normal">9</span></th>
+    <th class="tg-0pky"><span style="font-style:normal">10</span></th>
+    <th class="tg-0pky"><span style="font-style:normal">7</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"><span style="font-style:normal">7</span></td>
+    <td class="tg-0pky"><span style="font-style:normal">9</span></td>
+    <td class="tg-0pky"><span style="font-style:normal">8</span></td>
+    <th class="tg-0pky"><span style="font-style:normal">7</span></th>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-style:normal">5</span></td>
+    <td class="tg-0pky"><span style="font-style:normal">7</span></td>
+    <td class="tg-0pky"><span style="font-style:normal">6</span></td>
+    <th class="tg-0pky"><span style="font-style:normal">5</span></th>
+  </tr>
+</tbody>
+</table>
+
+      <br><br>
+
+      This matrix of values represents the grades of 3 students: S1, S2, and S3 on four assignments: A1, A2, A3, and A4.
+      <br><br>
+
+      Use any means you think necessary to:
+      <br>
+      <ol>
+        <li>Obtain the average grade for each student, and print it out</li>
+        <li>Obtain the average grade for each assignment, and print it out</li>
+      </ol>
+
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework</h4>
       <b>[Due for everyone]</b>  
       <br>
-      ZyBooks Sections  
-      <br>
-      Assignment 03 is out (Due 10/20)
-      <br>
-      Assignment 04 will be out TOMORROW (Due 10/25)
+      Assignment 06 will be out Later Today (Due 10/25)
 
       <br><br>
 
@@ -660,10 +527,10 @@ inner_li <span style="color: #333333">=</span> li[<span style="color: #0000DD; f
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes14.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes16.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes19.html">Next Module</a>
               </li>
             </ul>
           </div>
