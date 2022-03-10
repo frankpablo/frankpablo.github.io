@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 250  Theory of Computation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+
+      @import url('https://fonts.googleapis.com/css?family=Inter|Dosis&display=swap');
+
+      /* Crucial */
+      .highlight {
+        background-color: #EEF43B;
+          padding-right: 0px;
+          padding-left: 0px;
+      }
+
+
+      /* Just for styling */
+      /*body {
+        font-family: 'Inter', sans-serif;
+      }*/
+
+      /*.container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 0 2%;
+      }*/
+
+      .search-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto 20px auto;
+        max-width: 450px;
+        padding: 0 2%;
+      }
+
+      label {
+        color: #535353;
+        font-family: 'Dosis', sans-serif;
+        font-size: 14px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      input {
+        background: #fff;
+        border: 1px solid #535353;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        height: 38px;
+        line-height: 38px;
+        outline: none;
+        padding: 0 10px;
+        transition: all 0.5s;
+        width: 100%;
+      }
+
+      input:focus {
+        border: 1px solid #3a5bd3;
+        box-shadow: 0 0 4px 0 #7d90de;
+      }
+
+      blockquote {
+        background-color: #f1f1f1;
+        border-radius: 0 4px 4px 0;
+        color: #515151;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 0;
+        padding: 20px 40px 20px 20px;
+        position: relative;
+      }
+
+      blockquote::before {
+        color: #ccc;
+        content: '”';
+        font-size: 80px;
+        position: absolute;
+        right: 30px;
+        top: -20px;
+      }
+
+      figcaption {
+        color: #aaa;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+    </style>
+
+
+
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 250</h1>
+      <p class="lead">Theory of Computation</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes20.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 19: More Reductions and Undecidable problems</h1>
+      <p>
+        <br>
+      </p>
+      <h2>Outline </h2>
+
+      This class we'll discuss:
+      <ul>
+        <li>Recap: Reductions</li>
+        <li>Recap: ATM &leq; ATM-01 </li>
+        <li>More Reductions and Undecidable Problems</li>
+      </ul>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Recap: Reductions</h2>
+
+      <p>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-18.png" alt="" style="width:80%">
+        <br><br>
+
+        <div class="mx-lg-5">          
+            <details>
+              
+              <summary><big><span style="color:#cc3470;font-size:120%">(Proof that ATM &leq; HALT)</span></big> <br><br></summary> 
+
+
+        <big><span style="color:#003470;font-size:120%">
+          In other words, \( HALT\)  is AT LEAST as hard as  \( ATM \) <br>
+          (So if we can solve HALT, we can, for sure, solve ATM)
+        </span></big>
+        <br><br><br><br>
+
+        <big><span style="color:#003470;font-size:200%">The Proof:</span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+         
+              Assume HALT is decidable, and so there exists some \(D_{HALT}\) that decides, for any input \(< M,w>\), whether \(M\) halts on \(w\).
+              <br><br>
+              We'll design the Machine \(D_{ATM} \) as follows: 
+              <br><br>
+              \[
+                \begin{align*}
+                  &D_{ATM}:\\
+                  & \text{ On input $ < M, w > $ }:\\
+                  & \text{ Simulate $D_{HALT} \; on \;  < M, w > $}\\
+                  & \text{ If $D_{HALT}$ rejects, $M$ doesn't halt, so it did not accept: REJECT. }\\
+                  & \text{ If $D_{HALT}$ accepts, we know $M$ won't loop forever, so }\\
+                  & \quad \text{ Simulate $M$ on $w$ ADWID }\\              
+                \end{align*}
+                \]
+
+                <br><br>
+
+                This machine is a decider for ATM (why?) 
+                <br>
+                – it avoided the only problem we had with solving ATM, namely telling the difference between looping and lot waiting long enough.
+                <br><br>
+                However, we proved that ATM was undecidable by contradiction just a few minutes ago. <br>
+                Aaaand...the only condition we need to build \(D_{ATM}\) was that \(D_{HALT}\) existed, so ...
+                <br>
+                <b>\(D_{HALT} \; \) must not exist</b>.
+
+          </span></big>
+
+            </details>
+          </div>
+
+        <br><br><br><br><br><br>
+
+
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-20.png" alt="" style="width:80%">
+        <br><br>
+
+
+
+        <big><span style="color:#003470;font-size:200%">Example: </span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Above, we said: <br>
+          \( ATM \leq HALT \)
+          <br><br>
+
+          Therefore :
+          <ol>
+            <li>\(D_{HALT}\) can be used to build \(D_{ATM}\)</li>
+          </ol>
+        </span></big>
+        
+
+        <br><br><br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-21.png" alt="" style="width:80%">
+        <br><br>
+
+        <big><span style="color:#003470;font-size:200%">Example: </span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Above, we said: <br>
+          \( ATM \leq HALT \)
+          <br><br>
+
+          Therefore :
+          <ul>
+            <li>It is possible that \(D_{HALT}\) can be much harder to build than \(D_{ATM}\), so if you have  \(D_{ATM}\), you would still have much more to do.</li>
+            <br><br>
+            <li>If you want to show equivalence, you have to prove both directions. </li>
+          </ul>
+        </span></big>
+
+        <br><br><br><br>
+
+        <div class="mx-lg-5">          
+            <details>
+              
+              <summary><big><span style="color:#cc3470;font-size:120%">(Proof that ATM &leq; ATM01)</span></big><br><br></summary>  
+              
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-22.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-25.png" alt="" style="width:80%">
+        <br><br>
+        
+
+        <big><span style="color:#003470;font-size:200%">The Proof:</span></big>
+        
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+         
+              Assume ATM01 is decidable, and so there exists some \(D_{ATM01}\) that decides, for any input \(< M >\), whether \(M\) accepts \(w = 01\).
+              <br><br>
+              We'll design the Machine \(D_{ATM} \) as follows: 
+              <br><br>
+              \[
+                \begin{align*}
+                  &D_{ATM}:\\
+                  & \text{ On input $ < M, w > $ }:\\
+                  & \text{ 1.  build a HELPER machine (but don't run it yet) $Helper_{M,w}$ that is shown below: }\\
+                  & \; \\
+                  & \qquad Helper_{M,w}:\\
+                  & \qquad \text{ On input $ x $ }: \quad \color{gray}{\text{# x: Anything! we don't care} }\\
+                  & \qquad \text{ Ignore $ x $ and run $M$ on $w$ ADWID} \quad \color{gray}{\text{# We hardcode what $Helper_{M,w}$ does} }\\
+                  & \; \\
+                  & \text{ 2.  Simulate $D_{ATM01}$ on $Helper_{M,w}$ } ADWID\\            
+                \end{align*}
+                \]
+
+                <br><br><br><br>
+
+                <b>Analysis of cases</b> 
+                <br><br>
+                What is going on?:
+                <ul>
+                  <li>Inside our \(D_{ATM} \) machine, we use \(D_{ATM01} \) to ask if its input TM \(M\) accepts \(01\) ... 
+                    <br>
+                    But in order to do it ... <b>it is forced to simulate the input machine \(M\)</b> ... instead of running \(D_{ATM01} \) on \(M\), we can have \(D_{ATM01} \) run on a <b>Trojan-Horse Machine</b> whose only job is to check if \(M\) accepts \(w\)!
+                  </li>
+                  <li>\(Helper_{M,w}\)  is a TM built solely to check if the \(M\) actually accepts the \(w\) from the input to \(D_{ATM} \) (\( < M, w > \) ).
+                  </li>
+                  <br>
+                  <li>When \(D_{ATM01} \) runs \(Helper_{M,w}\) with input \(01\), we IGNORE the input and just run \(M\) on \(w\) 
+                    <br>
+                    It will actually answer if \(M\) accepts \(w\) rather than if the input \(Helper_{M,w}\) accepts \(01\).
+                    <ol>
+                      <li>If \(Helper_{M,w}\) replies ACCEPT, then \(D_{ATM01}\) would return ACCEPT</li>
+                      <li>If \(Helper_{M,w}\) replies REJECT, then \(D_{ATM01}\) would return REJECT</li>
+                    </ol>
+                  </li>
+                  <br>                  
+                  <li>
+                    The output of \(D_{ATM01} \) is NOT actually answering if its input accepts \(01\)... it is secretly answering the question : "Does \(M\) accept \(w\)?"
+                  </li>
+
+                </ul>
+
+                <br><br>
+                If \(D_{ATM01} \) says that \(Helper_{M,w}\) accepts 01, <br>
+                we know that \(M\) must have accepted \(w\). 
+                <br><br>
+                For any \(M, w\) pair that gets passed into \(D_{ATM} \), we can construct a hardcoded helper machine and trick \(D_{ATM01} \) into telling us the answer, 
+                <br>
+                in other words...<b>deciding ATM</b>. 
+                <br><br>
+                However, This can't be true!!, 
+                <br>
+                <b>we know ATM is undecidable, so ATM01 must also be undecidable</b>.
+
+          </span></big>
+
+            </details>
+          </div>
+
+        <br><br><br>
+
+        <h3>The Python-Example</h3>
+
+        <div class="mx-lg-5">          
+            <details>
+              
+              <summary><big><span style="color:#cc3470;font-size:120%">(Read carefully by yourself later)</span></big><br><br></summary>  
+            
+
+              <br><br>
+              <big><span style="color:#003470;font-size:200%">A Practical Example:</span></big>
+              
+              <br><br>
+              <big><span style="color:#003470;font-size:120%">
+                The following is a contrived example to show how we can have a Trojan-Horse Helper TM inside another TM:
+
+              </span></big>  
+
+              <br><br>
+
+              You can run this program to check each expected outcome. 
+
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># ------------------------------------------------------</span>
+<span style="color: #888888"># Example of how a Turing Machine (program) can create an</span>
+<span style="color: #888888"># ad-hoc helper TM (program) to complete a reduction</span>
+<span style="color: #888888"># in this case ATM ≤ ATM_01</span>
+<span style="color: #888888">#</span>
+<span style="color: #888888"># By Pablo Frank Bolton</span>
+<span style="color: #888888"># 2022</span>
+<span style="color: #888888"># ------------------------------------------------------</span>
+
+
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">sys</span>
+<span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">io</span> <span style="color: #008800; font-weight: bold">import</span> StringIO
+
+<span style="color: #888888"># Later, change to True for manual input</span>
+manual_input <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">True</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  <span style="color: #DD4422">&#39;&#39;&#39;Tests how example &#39;Deciders&#39; </span>
+
+<span style="color: #DD4422">  This program has three main sections. </span>
+<span style="color: #DD4422">  In the first part, each individual function is tested directly with different strings.</span>
+<span style="color: #DD4422">  In the second part, the function D_ATM01 is used to test if an input function M accepts the string &#39;01&#39;. Three input functions M1, M2, and M3 are passed to D_ATM01 to demonstrate what it does. </span>
+<span style="color: #DD4422">  In the Third part, the &#39;Decider&#39; function D_ATM is constructed around D_ATM01 and tested for various input pairs &lt;M, w&gt;.</span>
+<span style="color: #DD4422">  &#39;&#39;&#39;</span>
+
+  
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;M1, M2, M3 Testing STARTED&#39;</span>)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;#############################&#39;</span>)
+  <span style="color: #888888"># Direct calls to M1, M2, and M3 with different words</span>
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M1 accept 01? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot; </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> {M1(&#39;01&#39;)}&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M1 accept 11? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot; </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> {M1(&#39;11&#39;)}&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M2 accept 01? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot; </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> {M2(&#39;01&#39;)}&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M2 accept 11? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot; </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> {M2(&#39;11&#39;)}&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M3 accept 01? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot; </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> {M3(&#39;01&#39;)}&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M3 accept 0? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot; </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> {M3(&#39;0&#39;)}&quot;</span> )
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;#############################&#39;</span>)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;M1, M2, M3 Testing Done&#39;</span>)
+  
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&#39;</span>)
+  
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;D_ATM_01 Testing STARTED&#39;</span>)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;#############################&#39;</span>)
+  <span style="color: #888888"># Call to D_ATM01 to see if function M1 accepts &#39;01&#39;</span>
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M1 accept 01? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot; </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> {D_ATM01(M1)}&quot;</span> )
+
+  <span style="color: #888888"># Call to D_ATM01 to see if function M2 accepts &#39;01&#39;</span>
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M2 accept 01? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot; </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> {D_ATM01(M2)}&quot;</span> )
+
+  <span style="color: #888888"># Call to D_ATM01 to see if function M3 accepts &#39;01&#39;</span>
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M3 accept 01? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot; </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> {D_ATM01(M3)}&quot;</span> )
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;#############################&#39;</span>)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;D_ATM01 Testing Done&#39;</span>)
+
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&#39;</span>)
+  
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;D_ATM Testing STARTED&#39;</span>)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;#############################&#39;</span>)
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M1 accept 010? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( D_ATM(M1, <span style="background-color: #fff0f0">&#39;010&#39;</span>) )
+  <span style="color: #007020">print</span>()
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M1 accept 000? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( D_ATM(M1, <span style="background-color: #fff0f0">&#39;000&#39;</span>) )
+  <span style="color: #007020">print</span>()
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M2 accept 11? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( D_ATM(M2, <span style="background-color: #fff0f0">&#39;11&#39;</span>) )
+  <span style="color: #007020">print</span>()
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M3 accept 111? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( D_ATM(M3, <span style="background-color: #fff0f0">&#39;111&#39;</span>) )
+  <span style="color: #007020">print</span>()
+  <span style="color: #007020">print</span> ( f<span style="background-color: #fff0f0">&quot;Does M3 accept 010? :&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  <span style="color: #007020">print</span> ( D_ATM(M3, <span style="background-color: #fff0f0">&#39;010&#39;</span>) )
+
+  <span style="color: #888888"># enable manual input to test on M2</span>
+  <span style="color: #008800; font-weight: bold">if</span> manual_input:
+    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&#39;</span>)
+    word <span style="color: #333333">=</span> <span style="color: #007020">input</span>(<span style="background-color: #fff0f0">&quot;Give a binary string or &#39;stop&#39;: &quot;</span>)
+    <span style="color: #008800; font-weight: bold">while</span> word <span style="color: #333333">!=</span> <span style="background-color: #fff0f0">&#39;stop&#39;</span> <span style="color: #000000; font-weight: bold">or</span> check_word(word):
+      <span style="color: #008800; font-weight: bold">if</span> word <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&#39;stop&#39;</span>:
+        <span style="color: #008800; font-weight: bold">break</span>
+      <span style="color: #008800; font-weight: bold">if</span> check_word(word):
+        tm <span style="color: #333333">=</span> <span style="color: #007020">input</span>(<span style="background-color: #fff0f0">&quot;choose a machine (1, 2, or default 3): &quot;</span>)
+        <span style="color: #008800; font-weight: bold">if</span> tm <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;1&quot;</span>:
+          <span style="color: #007020">print</span> ( D_ATM(M1, word) )
+        <span style="color: #008800; font-weight: bold">elif</span> tm <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;2&quot;</span>:
+          <span style="color: #007020">print</span> ( D_ATM(M2, word) ) 
+        <span style="color: #008800; font-weight: bold">else</span>:
+          <span style="color: #007020">print</span> ( D_ATM(M3, word) )
+      word <span style="color: #333333">=</span> <span style="color: #007020">input</span>(<span style="background-color: #fff0f0">&quot;Give a binary string or &#39;stop&#39;: &quot;</span>)  
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;#############################&#39;</span>)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&#39;D_ATM Testing Done&#39;</span>)
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">D_ATM01</span> ( M ):
+  <span style="color: #DD4422">&#39;&#39;&#39;Checks if an input function M accepts string 01</span>
+<span style="color: #DD4422">  &#39;&#39;&#39;</span>
+  ret <span style="color: #333333">=</span> M(<span style="background-color: #fff0f0">&#39;01&#39;</span>)
+  <span style="color: #008800; font-weight: bold">if</span> ret <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">True</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>
+  <span style="color: #008800; font-weight: bold">elif</span> ret <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">False</span>:  
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>
+  <span style="color: #008800; font-weight: bold">else</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&#39;?&#39;</span>
+
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">M1</span>(w:<span style="color: #007020">str</span>):
+  <span style="color: #DD4422">&#39;&#39;&#39;Accepts any string that starts with 01</span>
+<span style="color: #DD4422">  &#39;&#39;&#39;</span>
+  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">len</span>(w) <span style="color: #333333">&gt;=</span> <span style="color: #0000DD; font-weight: bold">2</span>:
+    <span style="color: #008800; font-weight: bold">if</span> w[<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&#39;0&#39;</span> <span style="color: #000000; font-weight: bold">and</span> w[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&#39;1&#39;</span>:
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>    
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">M2</span>(w:<span style="color: #007020">str</span>):
+  <span style="color: #DD4422">&#39;&#39;&#39;Accepts only string 11</span>
+<span style="color: #DD4422">  &#39;&#39;&#39;</span>
+  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">len</span>(w) <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">2</span>:
+    <span style="color: #008800; font-weight: bold">if</span> w[<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&#39;1&#39;</span> <span style="color: #000000; font-weight: bold">and</span> w[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&#39;1&#39;</span>:
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>  
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">M3</span>(w:<span style="color: #007020">str</span>):
+  <span style="color: #DD4422">&#39;&#39;&#39;Rejects any string shorter than 2 and Floops with any string of size 2 or greater</span>
+<span style="color: #DD4422">  &#39;&#39;&#39;</span>
+  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">len</span>(w) <span style="color: #333333">&gt;=</span> <span style="color: #0000DD; font-weight: bold">2</span>:
+    <span style="color: #008800; font-weight: bold">if</span> w[<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&#39;0&#39;</span> <span style="color: #000000; font-weight: bold">and</span> w[<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&#39;1&#39;</span>:
+      <span style="color: #888888"># Floop with artificial STOP</span>
+      <span style="color: #007020">max</span> <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
+      count <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+      <span style="color: #008800; font-weight: bold">while</span> <span style="color: #008800; font-weight: bold">True</span>:        
+        count<span style="color: #333333">+=</span><span style="color: #0000DD; font-weight: bold">1</span>
+        <span style="color: #008800; font-weight: bold">if</span> count <span style="color: #333333">&gt;</span> <span style="color: #007020">max</span>:
+          <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0"> ...I got impatient...&quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+          <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&#39;?&#39;</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>   
+
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">D_ATM</span> (M:<span style="color: #007020">str</span>, w:<span style="color: #007020">str</span> ): 
+  <span style="color: #DD4422">&#39;&#39;&#39;D_ATM is constructed using ONLY:</span>
+<span style="color: #DD4422">  A Helper is built specifically for the inputs M and w, </span>
+<span style="color: #DD4422">  which ignores any input given to it and simply runs M on w. D_ATM01 and </span>
+<span style="color: #DD4422">  &#39;&#39;&#39;</span>
+
+  <span style="color: #888888"># a &quot;string to run exec with&quot; to make the Helper</span>
+  helper_def <span style="color: #333333">=</span> f<span style="background-color: #fff0f0">&#39;&#39;&#39;</span>
+<span style="background-color: #fff0f0">def Helper_{M.__name__}_{w}(x):</span>
+<span style="background-color: #fff0f0">  # 0. ignore input x</span>
+<span style="background-color: #fff0f0">  # 1. Simulate {M.__name__} on {w}</span>
+<span style="background-color: #fff0f0">  # 2. ADWID</span>
+<span style="background-color: #fff0f0">  print( {M.__name__}(&quot;{w}&quot;), end = &quot;&quot; )</span>
+<span style="background-color: #fff0f0">&#39;&#39;&#39;</span>
+  <span style="color: #888888"># Creating the Helper for the specific M and w</span>
+  exec(helper_def)
+
+  <span style="color: #888888"># a &quot;string to run exec with&quot; to call D_ATM01(Helper)</span>
+  D_ATM01_call <span style="color: #333333">=</span> f<span style="background-color: #fff0f0">&quot;D_ATM01( Helper_{M.__name__}_{w} )&quot;</span>
+  
+  <span style="color: #888888"># create file-like string to capture output</span>
+  codeOut <span style="color: #333333">=</span> StringIO()
+  <span style="color: #888888"># capture output and errors</span>
+  sys<span style="color: #333333">.</span>stdout <span style="color: #333333">=</span> codeOut
+
+  <span style="color: #888888"># Calling D_ATM01 with Helper as input </span>
+  exec(D_ATM01_call)
+  
+  <span style="color: #888888"># restore stdout and stderr</span>
+  sys<span style="color: #333333">.</span>stdout <span style="color: #333333">=</span> sys<span style="color: #333333">.</span>__stdout__
+
+  <span style="color: #888888">#get the output from the called helper</span>
+  output <span style="color: #333333">=</span> codeOut<span style="color: #333333">.</span>getvalue()
+  
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;(Output from D_ATM01( Helper_{M.__name__}_{w} is {output}) &quot;</span>, end <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> )
+  
+  codeOut<span style="color: #333333">.</span>close()
+  
+  <span style="color: #008800; font-weight: bold">if</span> output <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&#39;True&#39;</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>
+  <span style="color: #008800; font-weight: bold">elif</span> output <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&#39;False&#39;</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>
+  <span style="color: #008800; font-weight: bold">else</span>:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&#39;?&#39;</span>
+
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">check_word</span>(word):
+  <span style="color: #DD4422">&#39;&#39;&#39;To check that strings are all 0s and 1s;</span>
+<span style="color: #DD4422">  for manual input&#39;&#39;&#39;</span>
+  char_list <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&quot;0&quot;</span>, <span style="background-color: #fff0f0">&quot;1&quot;</span>]
+  matched_list <span style="color: #333333">=</span> [chars <span style="color: #000000; font-weight: bold">in</span> char_list <span style="color: #008800; font-weight: bold">for</span> chars <span style="color: #000000; font-weight: bold">in</span> word]
+  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #008800; font-weight: bold">False</span> <span style="color: #000000; font-weight: bold">in</span> matched_list:
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>  
+      
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+
+              <br><br>
+
+              <big><span style="color:#003470;font-size:200%">Expected outcomes:</span></big>
+              
+              <br><br>
+              <big><span style="color:#003470;font-size:120%">
+                Example call: 
+
+              <ul>
+                <li>Calling \(\;\;D_{ATM} (< M1, 0110 >) \;\): <br>
+                  <ol>
+                    <li>First \(\;\;D_{ATM}\;\) creates (but doesn't run) a helper TM called \(\;HELPER_{M1\_0110}\;\)</li>
+                    <li>Second, \(\;D_{ATM}\;\) runs \(\;D_{ATM01}\;\) on input \(\;HELPER_{M1\_0110} \;\)
+                      <br>
+                      <ol>
+                        <li><span style="color:#009933">First \(\;D_{ATM01}\;\) runs \(\;HELPER_{M1\_0110} \;\)  on input \(\;01\;\)</span>
+                          <br>
+                          <ol>
+                            <li><span style="color:#cc5555">First \(\;HELPER_{M1\_0110}\;\) IGNORES input \(\;01\;\)</li></span>
+                            <li><span style="color:#cc5555">Second, \(\;HELPER_{M1\_0110}\;\) runs \(\;M1\;\) on \(\;0110\;\)</span>
+                              <br>
+                              <ol>
+                                <li><span style="color:#cc55cc">Since \(\;M1\;\) ACCEPTS input \(\;0110\;\), \(\;HELPER_{M1\_0110}\;\) returns ACCEPT</span>
+                                </li>
+                              </ol>
+                            </li>
+                          </ol>
+                        </li>
+                        <li><span style="color:#009933">Now, \(\;D_{ATM01}\;\) returns what \(\;HELPER_{M1\_0110}\;\) returns: ACCEPT</span></li>
+                      </ol>
+                    </li>
+                    <li>Now, \(\;D_{ATM}\;\) returns what \(\;D_{ATM01}\;\) returns: ACCEPT</li>
+                  </ol>
+                </li>
+                <br><br>
+                <li>Calling \(\;\;D_{ATM} (< M1, 111 >) \;\): <br>
+                  <ol>
+                    <li>First \(\;\;D_{ATM}\;\) creates (but doesn't run) a helper TM called \(\;HELPER_{M1\_111}\;\)</li>
+                    <li>Second, \(\;D_{ATM}\;\) runs \(\;D_{ATM01}\;\) on input \(\;HELPER_{M1\_111} \;\)
+                      <br>
+                      <ol>
+                        <li><span style="color:#009933">First \(\;D_{ATM01}\;\) runs \(\;HELPER_{M1\_111} \;\)  on input \(\;01\;\)</span>
+                          <br>
+                          <ol>
+                            <li><span style="color:#cc5555">First \(\;HELPER_{M1\_111}\;\) IGNORES input \(\;01\;\)</li></span>
+                            <li><span style="color:#cc5555">Second, \(\;HELPER_{M1\_111}\;\) runs \(\;M1\;\) on \(\;111\;\)</span>
+                              <br>
+                              <ol>
+                                <li><span style="color:#cc55cc">Since \(\;M1\;\) REJECTS input \(\;111\;\), \(\;HELPER_{M1\_111}\;\) returns REJECT</span>
+                                </li>
+                              </ol>
+                            </li>
+                          </ol>
+                        </li>
+                        <li><span style="color:#009933">Now, \(\;D_{ATM01}\;\) returns what \(\;HELPER_{M1\_111}\;\) returns: REJECT</span></li>
+                      </ol>
+                    </li>
+                    <li>Now, \(\;D_{ATM}\;\) returns what \(\;D_{ATM01}\;\) returns: REJECT</li>
+                  </ol>
+                </li>
+              </ul>
+            </details>
+          </div>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>More Reductions: The EMPTY Language</h2>
+
+      <p>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-26.png" alt="" style="width:80%">
+        <br><br>
+        
+
+<!-- 
+Assume that Empty_TM is decidable, and so there exists some D_EMPTY_TM that decides for any input <M> whether M’s language is empty.
+
+Now we’ll build a new machine D_ATM:
+
+“On input <M,w>:
+Build a helper machine M_M,w that does the following:
+On any input x: ignore the input, simulate M on w and do what it does. 
+Simulate Empty_TM on <M_M,w>.
+If it accepts, reject (if the language of M_M,w is empty, M doesn’t accept w)
+If it rejects, accept (the only way M_M,w accepts anything is if M accepted w)”
+
+M accepts w if and only if M′M,w accepts everything 
+if and only if M′M,w accepts something 
+if and only if L(M′M,w) ≠ ∅.
+
+D_ATM is a decider for ATM, but again, this is a contradiction. EmptyTM can’t be decidable.
+ -->
+
+        <big><span style="color:#003470;font-size:200%">Let's go together</span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+          Let's use, in addition to \(D_{EMPTY} \), an extra HELPER machine to help us extend the usefulness of \(D_{EMPTY} \).
+        </span></big>
+
+          <br><br><br>
+          <div class="mx-lg-5">          
+            <details>
+              <summary><big><span style="color:#003470;font-size:120%">(Wait; then Click)</span></big><br><br></summary>
+
+              <big><span style="color:#003470">
+              Assume that Empty_TM is decidable, and so there exists some \(D_{EMPTY}\) that decides for any input \(< M >\) whether \(M\)’s language is empty.
+
+              <br><br>
+              We'll design the Machine \( D_{ATM} \) as follows: 
+              <br><br>
+              \[
+                \begin{align*}
+                  & D_{ATM}:\\
+                  & \text{ On input $ < M, w > $ }:\\
+                  & \text{ 1.  build a HELPER machine (but don't run it yet) $Helper_{M,w}$ that is shown below: }\\
+                  & \; \\
+                  & \qquad Helper_{M,w}:\\
+                  & \qquad \text{ On input $ x $ }: \quad \color{gray}{\text{# x: Anything! we don't care} }\\
+                  & \qquad \text{ Ignore $ x $ and run $M$ on $w$ ADWID} \quad \color{gray}{\text{# We hardcode what $Helper_{M,w}$ does} }\\
+                  & \; \\
+                  & \text{ 2.  Simulate $D_{EMPTY}$ on $Helper_{M,w}$ }\\
+                  & \qquad \text{ If it accepts, REJECT (if the language of $Helper_{M,w}$ is empty, $M$ doesn’t accept $w$)}\\ 
+                  & \qquad \text{ If it rejects, ACCEPT (the only way $Helper_{M,w}$ accepts anything is if $M$ accepts $w$)}\\
+                \end{align*}
+              \]
+
+                <br><br><br><br>
+
+                <b>Analysis of cases</b> 
+                <br><br>
+                What is going on?:
+                <ul>
+                  <li>Inside our \(D_{ATM} \) machine, we use \(D_{EMPTY} \) to ask if its input TM \(M\)'s' language is empty ... 
+                    <br>
+                    But in order to do it ... <b>it is forced to simulate the input machine \(M\)</b> ... instead of running \(D_{EMPTY} \) on \(M\), we can have \(D_{EMPTY} \) run on a <b>Trojan-Horse Machine</b> whose only job is to check if \(M\) accepts \(w\)!
+                  </li>
+                  <br>
+                  <li>\(Helper_{M,w}\)  is a TM built solely to check if the \(M\) actually accepts the \(w\) from the input to \(D_{ATM} \) (\( < M, w >\) ).
+                  </li>
+                  <br>
+                  <li>When \(D_{EMPTY} \) runs on \(Helper_{M,w}\), it simlates \(Helper_{M,w}\) (on some unimportant input); \(Helper_{M,w}\) IGNORES the input and just runs \(M\) on \(w\) 
+                    <br>
+                    It will actually answer if \(M\) accepts \(w\) rather than if the input \(Helper_{M,w}\) has an empty language.
+                    <ol>
+                      <li>If \(D_{EMPTY}\) returns ACCEPT, then \(Helper_{M,w}\) rejects all words (because \(M\) rejects\(w\)), so return REJECT</li>
+                      <li>If If \(D_{EMPTY}\) returns REJECT it was because \(Helper_{M,w}\) accepted, which means  \(M\) accepted\(w\);so return ACCEPT</li>
+                    </ol>
+                  </li>
+                  <br>                  
+                  <li>
+                    The output of \(D_{EMPTY} \) is NOT actually answering if its input has an empty language... it is secretly answering the question : "Does \(M\) accept \(w\)?"
+                  </li>
+
+                </ul>
+
+                
+                <br><br>
+                For any \(M, w\) pair that gets passed into \(D_{ATM} \), we can construct a hardcoded helper machine and trick \(D_{EMPTY} \) into telling us the answer, 
+                <br>
+                in other words...<b>deciding ATM</b>. 
+                <br><br>
+                However, This can't be true!!, 
+                <br>
+                <b>we know ATM is undecidable, so EMPTY must also be undecidable</b>.
+              </span></big>
+
+            </details>
+          </div>
+          
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>More Reductions: The \(\overline{EMPTY}\) Language</h2>
+
+      <p>
+
+        <br><br><br>
+
+        <big><span style="color:#003470;font-size:200%">Is \(\overline{EMPTY}\) Decidable?</span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+          \(\overline{EMPTY}\) is the complement language of \(EMPTY\).
+          <br><br>
+
+          Its definition, should be: 
+          <br>
+          \[ \overline{EMPTY} = \{ < M > | \text{TM $M$ accepts at least one string} \} \]
+
+          <br><br>
+          There is a first simple step: We can say, for sure that \(\overline{EMPTY}\) must be undecidable... Why?
+        </span></big>
+
+        <br><br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-28.png" alt="" style="width:80%">
+        <br><br>
+
+
+        <div class="mx-lg-5">
+          <big><span style="color:#003470;font-size:200%">Can we come up with a simple Recognizer?</span></big>
+          
+          <big><span style="color:#003470;font-size:120%">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            <b>Recognizer by construction</b>:
+            <br>
+            \[
+            \begin{align*}
+              &R_{\overline{EMPTY}}:\\
+              & \text{ On input $ < M > $ }:\\
+              & \text{ Simulate M on all possible w's one at a time}\\
+              & \text{ If any accepts, accept. }\\
+            \end{align*}
+            \]
+            <br><br>
+
+            Is there a problem here?
+          </details>
+        </div>
+      </span></big>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-30.png" alt="" style="width:80%">
+        <br><br>
+
+        <big><span style="color:#003470;font-size:120%">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+              The computation is FINITE!
+          </details>
+        </div>
+        </span></big>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-31.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-31b.png" alt="" style="width:80%">
+        <br><br>
+
+        <div class="mx-lg-5">
+          <big><span style="color:#003470;font-size:200%">Attempt 2 at a Recognizer for \(\overline{EMPTY}\)</span></big>
+          
+          <big><span style="color:#003470;font-size:120%">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            <b>Recognizer by construction</b>:
+            <br>
+            \[
+            \begin{align*}
+              &R_{\overline{EMPTY}}:\\
+              & \text{ On input $ < M > $ }:\\
+              & \text{ Simulate M on all possible w's DOVETAILED}\\
+              & \text{ If any accepts, accept. }\\
+            \end{align*}
+            \]
+            <br><br>
+
+            Is there a problem here?
+          </details>
+        </div>
+      </span></big>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>More Reductions: The \(\overline{EQ}\) Language</h2>
+
+      <p>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture18/Reduc-33.png" alt="" style="width:80%">
+        <br><br>
+
+        <div class="mx-lg-5">
+          <big><span style="color:#003470;font-size:200%">A proof:</span></big>
+
+          <br>
+          <!-- 
+Reduce EmptyTM to EQTM. 
+– Assume D_EQTM is a TM that decides EQTM; design D_EMPTY_TM to decide EmptyTM. 
+– Define a TM M_∅ with L(M) = ∅ (M accepts nothing). 
+– D_EMPTY_TM: On input <M>: 
+  • Run D_EQTM on <M, M_∅ > and DWID. 
+– D_EQTM tells whether <M, M_∅ > ∈ EQTM, that is, whether L(M) = L(M_ ∅) = ∅.
+
+           -->
+          <big><span style="color:#003470;font-size:120%">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>  
+            Reducing EMPTY to EQ. 
+            <br>
+            \[
+            \begin{align*}
+              &D_{EMPTY}:\\
+              & \text{ On input $ < M > $ }:\\
+              & \text{ Build a helper $TM_{\emptyset}$ such that $L(TM_{\emptyset}) = \emptyset$ }:\\
+              & \text{ Run $D_{EQ}$ on input $ < M,  TM_{\emptyset} >$ ADWID}\\
+            \end{align*}
+            \]
+            <br><br>
+
+            Note that  \(D_{EQ}\) tells whether \(\; < M,  TM_{\emptyset} > \; \in \; EQ \;\) , that is, whether \(L(M) = L(TM_{\emptyset}) = \emptyset\)... Which is the question that \(D_{EMPTY}\) is supposed to answer.
+
+          </details>
+        </div>
+      </span></big>
+
+      </p>
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h3>Next class: Recap for Midterm</h3>
+
+      <p>
+        NOTES: The Midterm will include everything UP to Turing Machines but NOT INCLUDING Reductions.
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework<h4>
+      <br>      
+      <b>[Due for everyone]</b>
+      <div class="mx-5">
+         PS05 Due Friday 03/11 (With automatic extension until the Monday AFTER spring Break)
+      </div> 
+      <br>
+      <b>[Optional]</b> 
+      <div class="mx-5">
+        TODO
+      </div>
+      <br><br>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes20.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+<!--     <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+
+
+  </body>
+</html>

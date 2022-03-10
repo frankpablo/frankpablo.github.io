@@ -566,6 +566,7 @@
           <div class="mx-lg-5">          
             <details>
               <summary>(Wait; then Click)<br><br></summary>  
+              <br><br>
               Assume ATM01 is decidable, and so there exists some \(D_{ATM01}\) that decides, for any input \(< M >\), whether \(M\) accepts \(w = 01\).
               <br><br>
               We'll design the Machine \(D_{ATM} \) as follows: 
@@ -574,14 +575,13 @@
                 \begin{align*}
                   &D_{ATM}:\\
                   & \text{ On input $ < M, w > $ }:\\
-                  & \text{ 1. \; build a HELPER machine $Helper_{M,w}$ that is shown below: }\\
-                  &\; \\
+                  & \text{ 1.  build a HELPER machine (but don't run it yet) $Helper_{M,w}$ that is shown below: }\\
+                  & \; \\
                   & \qquad Helper_{M,w}:\\
                   & \qquad \text{ On input $ x $ }: \quad \color{gray}{\text{# x: Anything! we don't care} }\\
                   & \qquad \text{ Ignore $ x $ and run $M$ on $w$ ADWID} \quad \color{gray}{\text{# We hardcode what $Helper_{M,w}$ does} }\\
-                  &\; \\
-                  & \text{ 2. \; Simulate $D_{ATM01}$ on $Helper_{M,w}$ } ADWID\\
-                  & \quad \text{ ... }\\              
+                  & \; \\
+                  & \text{ 2.  Simulate $D_{ATM01}$ on $Helper_{M,w}$ } ADWID\\            
                 \end{align*}
                 \]
 
@@ -590,21 +590,29 @@
                 <b>Analysis of cases</b> 
                 <br><br>
                 What is going on?:
-                <ol>
-                  <li>Inside our \(D_{ATM} \) machine, we use \(D_{ATM01} \) to ask if its input TM accepts \(01\) ... 
+                <ul>
+                  <li>Inside our \(D_{ATM} \) machine, we use \(D_{ATM01} \) to ask if its input TM \(M\) accepts \(01\) ... 
                     <br>
-                    But in order to do it ... <b>it is forced to simulate the input machine</b>
+                    But in order to do it ... <b>it is forced to simulate the input machine \(M\)</b> ... instead of running \(D_{ATM01} \) on \(M\), we can have \(D_{ATM01} \) run on a <b>Trojan-Horse Machine</b> whose only job is to check if \(M\) accepts \(w\)!
+                  </li>
+                  <li>\(Helper_{M,w}\)  is a TM built solely to check if the \(M\) actually accepts the \(w\) from the input to \(D_{ATM} \) (\( < M, w > \) ).
                   </li>
                   <br>
-                  <li>When \(D_{ATM01} \) runs \(Helper_{M,w}\) with input \(01\), we IGNORE the input and just run \(M\) on\(w\) </li>
-                  <br>
-                  <li>\(Helper_{M,w}\)  is a TM built solely to check if the \(M\) actually accepts the \(w\) from the input to \(D_{ATM} \) (\( < M, w > $ \) ).
+                  <li>When \(D_{ATM01} \) runs \(Helper_{M,w}\) with input \(01\), we IGNORE the input and just run \(M\) on \(w\) 
+                    <br>
+                    It will actually answer if \(M\) accepts \(w\) rather than if the input \(Helper_{M,w}\) accepts \(01\).
+                    <ol>
+                      <li>If \(Helper_{M,w}\) replies ACCEPT, then \(D_{ATM01}\) would return ACCEPT</li>
+                      <li>If \(Helper_{M,w}\) replies REJECT, then \(D_{ATM01}\) would return REJECT</li>
+                    </ol>
                   </li>
+                  <br>                  
                   <li>
                     The output of \(D_{ATM01} \) is NOT actually answering if its input accepts \(01\)... it is secretly answering the question : "Does \(M\) accept \(w\)?"
                   </li>
 
-                </ol>
+                </ul>
+
                 <br><br>
                 If \(D_{ATM01} \) says that \(Helper_{M,w}\) accepts 01, <br>
                 we know that \(M\) must have accepted \(w\). 
@@ -616,7 +624,6 @@
                 However, This can't be true!!, 
                 <br>
                 <b>we know ATM is undecidable, so ATM01 must also be undecidable</b>.
-
 
             </details>
           </div>
