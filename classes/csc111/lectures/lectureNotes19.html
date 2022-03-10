@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes16.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes20.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,7 +122,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 17: Tuples, ennumerate, and Dictionaries</h1>
+      <h1>Lecture Notes 19: Ennumerate, Tuples, and Dictionaries</h1>
       <p>
         <br>
       </p>
@@ -229,16 +229,19 @@ idx <span style="color: #333333">=</span> <span style="color: #0000DD; font-weig
       <p>
 
         Dictionaries are like lists but instead of accessing elements by their <b>index</b>, we access them through a <b>key</b>.
+        <br>
+        You can read about them in the <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Python 2 API for Dictionaries</a>
+        <br><br>
 
         <h4>Meta Structure for a Dictionary</h4>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Dic01.png" alt="" style="width:60%">
+        <img id="image" class="img-responsive" src="../figures/lecture19/Dic01.png" alt="" style="width:60%">
         <br><br>
 
         <h4>Example Dictionary: MLB teams by state</h4>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Dic02.png" alt="" style="width:60%">
+        <img id="image" class="img-responsive" src="../figures/lecture19/Dic02.png" alt="" style="width:60%">
         <br><br>
        
 
@@ -296,7 +299,7 @@ MLB_team_2 <span style="color: #333333">=</span> <span style="color: #007020">di
         And yet a third option is to use the <b><tt>assigned pairs</tt></b> syntax.
         <br><br>
 
-        <h4>Example 2: MLB teams by state with <tt>dict</tt></h4>
+        <h4>Example 3 MLB teams by state with <tt>dict</tt></h4>
 
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># assigned pairs</span>
 MLB_team_3 <span style="color: #333333">=</span> <span style="color: #007020">dict</span> (
@@ -502,7 +505,7 @@ players[<span style="background-color: #fff0f0">&#39;Dan&#39;</span>] <span styl
       <p>
         The following table shows a sumary of common methods for dictionaries:
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Dic03.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture19/Dic03.png" alt="" style="width:100%">
         <br><br>
 
         In particular, look at the <b><tt>get</tt></b> method.
@@ -553,21 +556,29 @@ players[<span style="background-color: #fff0f0">&#39;Yak&#39;</span>] <span styl
 players[<span style="background-color: #fff0f0">&#39;Mar&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Rogue&#39;</span>
 players[<span style="background-color: #fff0f0">&#39;Dan&#39;</span>] <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Priest&#39;</span>
 
-<span style="color: #888888"># item view</span>
+<span style="color: #888888"># items view</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;### items view ###&quot;</span>)
 p_items <span style="color: #333333">=</span> players<span style="color: #333333">.</span>items()
 <span style="color: #008800; font-weight: bold">for</span> player, role <span style="color: #000000; font-weight: bold">in</span> p_items:
   <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;player {} is a {}&quot;</span><span style="color: #333333">.</span>format(player, role))
 
-<span style="color: #888888"># key view</span>
+<span style="color: #007020">print</span>()
+  
+<span style="color: #888888"># keys view</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;### keys view ###&quot;</span>)
 p_keys <span style="color: #333333">=</span> players<span style="color: #333333">.</span>keys()
 <span style="color: #008800; font-weight: bold">for</span> player <span style="color: #000000; font-weight: bold">in</span> p_keys:
   <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;one player is {}&quot;</span><span style="color: #333333">.</span>format(player))
 
-<span style="color: #888888"># value view</span>
+<span style="color: #007020">print</span>()
+
+<span style="color: #888888"># values view</span>
+<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;### values view ###&quot;</span>)
 p_values <span style="color: #333333">=</span> players<span style="color: #333333">.</span>values()
 <span style="color: #008800; font-weight: bold">for</span> role <span style="color: #000000; font-weight: bold">in</span> p_values:
   <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;one role is {}&quot;</span><span style="color: #333333">.</span>format(role))
 </pre></div>
+
 
         <br><br>
 
@@ -665,12 +676,14 @@ sorted_p_list <span style="color: #333333">=</span> <span style="color: #007020"
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Friday 10/22)</h4>
+      <h4>Homework</h4>
       <b>[Due for everyone]</b>  
       <br>
-      ZyBooks Sections ???
+      Today: submit your project proposals to the link indicated in Moodle.
       <br>
-      Assignment 04 is Due 10/25
+      Remember, you must submit today but we can still discuss the final project (these are only deas, not contracts)
+      <br>
+      Homework 06 is Due Today (with auto extension to 03/21)
 
       <br><br>
 
@@ -695,10 +708,10 @@ sorted_p_list <span style="color: #333333">=</span> <span style="color: #007020"
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes16.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes20.html">Next Module</a>
               </li>
             </ul>
           </div>
