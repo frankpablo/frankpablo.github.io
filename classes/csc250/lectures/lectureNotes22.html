@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 250  Theory of Computation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+
+      @import url('https://fonts.googleapis.com/css?family=Inter|Dosis&display=swap');
+
+      /* Crucial */
+      .highlight {
+        background-color: #EEF43B;
+          padding-right: 0px;
+          padding-left: 0px;
+      }
+
+
+      /* Just for styling */
+      /*body {
+        font-family: 'Inter', sans-serif;
+      }*/
+
+      /*.container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 0 2%;
+      }*/
+
+      .search-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto 20px auto;
+        max-width: 450px;
+        padding: 0 2%;
+      }
+
+      label {
+        color: #535353;
+        font-family: 'Dosis', sans-serif;
+        font-size: 14px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      input {
+        background: #fff;
+        border: 1px solid #535353;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        height: 38px;
+        line-height: 38px;
+        outline: none;
+        padding: 0 10px;
+        transition: all 0.5s;
+        width: 100%;
+      }
+
+      input:focus {
+        border: 1px solid #3a5bd3;
+        box-shadow: 0 0 4px 0 #7d90de;
+      }
+
+      blockquote {
+        background-color: #f1f1f1;
+        border-radius: 0 4px 4px 0;
+        color: #515151;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 0;
+        padding: 20px 40px 20px 20px;
+        position: relative;
+      }
+
+      blockquote::before {
+        color: #ccc;
+        content: '”';
+        font-size: 80px;
+        position: absolute;
+        right: 30px;
+        top: -20px;
+      }
+
+      figcaption {
+        color: #aaa;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+    </style>
+
+
+
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 250</h1>
+      <p class="lead">Theory of Computation</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes21.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 22: Midterm Review Q & A [OPTIONAL]</h1>
+      <p>
+        <br>
+      </p>
+      <h2>Outline </h2>
+
+      This class we'll discuss:
+      <ul>
+        <li>Topics covered in the midterm</li>
+        <li>Exam Info and General Recommendations</li>
+        <li>Overview of topics and problems</li>
+        <li>Q&A</li>
+      </ul>
+
+      <p><br></p><hr><p><br></p>
+
+      <big><span style="color:#003470;font-size:200%">Topics</span></big>
+      <br><br>
+      <big><span style="color:#003470;font-size:120%">
+        <ol>
+          <li><b>Logic and Reasoning</b>
+            <br>
+            <ul>
+              <li>Predicate logic and simple logic proofs</li>
+            </ul>
+          </li>
+
+          <br>
+
+          <li><b>Regular Languages</b>
+            <br>
+            <ul>
+              <li>Regular Expressions: from set description to RE</li>
+              <li>Regular Expressions: from RE to set description</li>
+              <li>Finite Automata: Interpreting an FA (parts, equivalent RE, and accepted Language)</li>
+              <li>Finite Automata: Building a FA given a language set description</li>
+            </ul>
+          </li>
+
+          <br>
+
+          <li><b>Regular vs Non-Regular Languages</b>
+            <br>
+            <ul>
+              <li>Short Proofs: using definitions</li>
+              <li>Short Proofs: using closure</li>
+              <li>Short Proofs: finding a simple RE or FA</li>
+            </ul>
+          </li>
+
+          <br>
+
+          <li><b>Non-Regular Languages (NRLs)</b>
+            <br>
+            <ul>
+              <li>Understand the difference/relation between regular and non-regular languages</li>
+              <li>Prove a given Language is NOT regular</li>
+            </ul>
+          </li>
+
+          <br>
+
+          <li><b>Context-Free Languages (CFLs)</b>
+            <br>
+            <ul>
+              <li>Understand the definition of CFGs and Push-Down Automata</li>
+              <li>Understand the difference/relation between regular and CFG-languages</li>
+              <li>Understand the relation between Push-Down Automata and CFG-languages</li>
+              <li>Prove a given Language IS context free</li>
+              <li>Understand how one WOULD Prove a given Language is NOT context free</li>
+            </ul>
+          </li>
+
+          <br>
+
+          <li><b>Turing-Decidable Languages (TDLs)</b>
+            <br>
+            <ul>
+              <li>Understand the definition of Turing Machines</li>
+              <li>Understand the difference/relation between regular, CFG-languages, and TDLs</li>
+              <li>Prove a given Language IS Decidable</li>
+            </ul>
+          </li>
+
+        </ol>
+      </span></big>
+
+      <p><br></p><hr><p><br></p>
+
+      <big><span style="color:#003470;font-size:200%">Exam Info</span></big>
+      <br><br>
+      <big><span style="color:#003470;font-size:120%">
+
+        <ul>
+          <li><b>Where/How to take the exam</b>: 
+            <br>
+            Please read the full instructions in <a href="https://www.science.smith.edu/self-scheduled-exam-printing/#students">self-scheduled-exams</a>
+          </li>
+
+          <br>
+
+          <li><b>Cheat-Sheet</b>
+            <br>
+
+            <ul>
+              <li>A single approved cheatsheet will be distributed. You can ONLY bring that single page</li>
+              AND
+              <li>you must submit it with your exam at the end!</li>
+            </ul>
+             <br>
+             Note that the exam is designed so that you must use your reasoning rather than memory or copied notes.            
+          </li>
+
+          <br>
+
+          <li><b>Exam Structure and Requirements</b>
+            <br>
+            <ul>
+              <li>The exam will have 9 questions covering the topics mentioned above</li>
+              <li>It is designed to be completed in 1 hour and 15 minutes but you'll have up to 4 hours to complete it</li>
+              <li>You may scribble notes and practice answers anywhere in the exam but MUST indicate your final reply clearly, otherwise the whole scribbling will be taken as your reply</li>
+              <li>You MUST use clear sentences and logic. Rambling answers do not grant partial credit so be concise and precise (think before you answer)</li>                   
+            </ul>
+       
+          </li>
+
+        </ul>
+
+      </span></big>
+
+      <p><br></p><hr><p><br></p>
+
+      <big><span style="color:#003470;font-size:200%">General tips</span></big>
+      <br><br>
+      <big><span style="color:#003470;font-size:120%">
+            
+      <ul>
+        <li>See the examples solved in class and those solved in the Problem Sets. Any questions that come in the exam will be VERY similar to those.</li>
+        <br>
+
+        <li>No Question will be as hard as the Problem-5 questions in the Problem sets.
+        </li>
+        <br>
+        <li>You will be asked to do proofs, but they will be rather straightforward. 
+          <br>Examples: 
+          <br>
+        - show an example of an RE that disprooves a statement that there can be none 
+        <br>
+        - use a Pumping Lemma proof on a question that is VERY similar to one seein in class (HALF) 
+        <br>
+        - show a CFG to generate a certain Language</li>
+      </ul>
+
+      <p><br></p><hr><p><br></p>
+
+      <big><span style="color:#003470;font-size:200%">Tips on Proofs</span></big>
+      <br><br>
+      <big><span style="color:#003470;font-size:100%">
+
+        If you want to prove a statement like “This &lt;something&gt; is NOT in the category &lt;category&gt” (Like this Language L is NOT a Regular Language), you can use the following approaches:
+        <br>
+
+        <ul>
+          <li>by contradiction (assume it IS and ﬁnd a contradiction. . . for example, using the Pumping Lemma)</li>
+          <li>by construction (show all elements follow some structure that precludes them from falling inside the &lt;category&gt)</li>
+        </ul>
+        <br><br>
+
+        If you want to disprove a statement like “There is NO &lt;something&gt that has the property &lt;some property&gt” (Like there is no Regular Expression that can describe language L = {w | w has alternating 1s and 0s}),
+
+        <ul><li>you only need to ﬁnd an example.</li></ul>
+
+        <br><br>
+
+        If you want to prove that a set of elements follows some property (like saying “these two languages are equivalent” or “This language L is Context-Free”), you might want to use one of the following approaches:
+        <ul>
+          <li>using closure properties</li>
+          <li>by construction (show how you can generate the rules that produce the set)</li>
+          <li>by induction</li>
+        </ul>
+
+      <p><br></p><hr><p><br></p>
+
+
+      <big><span style="color:#003470;font-size:200%">Full Review</span></big>
+
+
+      <p><br></p><hr><p><br></p>
+
+
+      <big><span style="color:#003470;font-size:200%">Q & A</span></big>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h3>Next class: Practice Midterm </h3>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework<h4>
+      <br>      
+      <b>[Due for everyone]</b>
+      <div class="mx-5">
+         Study!
+      </div> 
+      <br>
+      <b>[Optional]</b> 
+      <div class="mx-5">
+        TODO
+      </div>
+      <br><br>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes21.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+<!--     <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+
+
+  </body>
+</html>
