@@ -711,7 +711,29 @@ y3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weig
           <br><br>
           Then, open up your scratch pad (Replit) and transform the following For Loop into a While Loop
           <br><br>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  word <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;evolutionarily&quot;</span>
+  li_counts <span style="color: #333333">=</span> vowel_counts(word)
+  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;The vowel counts in {:s} are {}&quot;</span><span style="color: #333333">.</span>format(word, li_counts))
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">vowel_counts</span>(word):
+  wrd_low <span style="color: #333333">=</span> word<span style="color: #333333">.</span>lower()
+  vowels <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;aeiou&quot;</span>
+  v_count <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+  <span style="color: #888888"># note the cool way to iterate chars over a string!</span>
+  <span style="color: #008800; font-weight: bold">for</span> char <span style="color: #000000; font-weight: bold">in</span> wrd_low:
+    <span style="color: #008800; font-weight: bold">if</span> char <span style="color: #000000; font-weight: bold">in</span> vowels:
+      idx <span style="color: #333333">=</span> vowels<span style="color: #333333">.</span>find(char)
+      v_count <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+  <span style="color: #008800; font-weight: bold">return</span> v_count  
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main() 
+</pre></div>
+<!-- 
+
+<br><br>          
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
  2  
  3  
  4  
@@ -747,7 +769,7 @@ y3 <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weig
 <span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
     main() 
 </pre></td></tr></table></div>
-
+ -->
 
         </div>
 
