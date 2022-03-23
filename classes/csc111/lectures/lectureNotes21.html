@@ -365,7 +365,7 @@ f<span style="color: #333333">.</span>close()
 
           <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
           <div class="mx-lg-5">
-            Let's modify our code to wee what hapens when we try to write to our example.txt file like this:
+            Let's modify our code to see what hapens when we try to write to our example.txt file like this:
             <br><br>
             <b>Predict what is going to be printed before you run it!</b>
             <br><br>
@@ -498,11 +498,135 @@ new_lines<span style="color: #333333">.</span>append(lines[<span style="color: #
 
       <p><br></p><hr><p><br></p>
 
-      <h2>Practice with Files and Debugging</h2>
+      <h2>Parsing: Practice with Files and Debugging</h2>
 
       <p>
 
-        In the remaining time, let's work on debugging issues surrounding File I/O.
+        In the remaining time, let's work on combining File I/O and String Parsing.
+
+        <br><br>
+
+        First, open <a href="https://www.openstreetmap.org/export#map=16/42.3157/-72.6349" target="_blank" rel="noopener noreferrer">This Link</a>
+        <br><br>
+        Now, open <p>Check out <a href="../figures/lecture21/smith-map.osm" target="_blank" rel="noopener noreferrer">smith-map</a>.</p>
+
+
+        <br><br>
+
+        <h3>OSM map structure</h3>
+        <br><br>
+
+        An osm map is a collection of nodes (red) and a series of paths made up of sequences of these nodes.
+
+
+            <br><br>
+            <img id="image" class="img-responsive" src="../figures/lecture21/nodesAndWays.png" alt="" style="width:40%">
+            <br><br>
+
+
+        <br><br>
+        <ul>
+          <li>the osm file format is similr to that of html or xml: which follows a tree structure to describe things<br>
+            <br><br>
+            something like: 
+            <br><br>
+            top level: way <br>
+            &nbsp;&nbsp;&nbsp;|<br>
+            &nbsp;&nbsp;&nbsp;|<br>
+            &nbsp;&nbsp;&nbsp;| --- middle level: node <br>
+            &nbsp;&nbsp;&nbsp;|<br>
+            &nbsp;&nbsp;&nbsp;| --- middle level: node <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| --- low level: tag
+
+            <br><br>
+
+            would look like this:
+
+            <br><br>
+
+            < way>
+            <br>
+            &nbsp;&nbsp;< node\>
+            <br>
+
+            &nbsp;&nbsp;< node>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;< tag\>
+
+            <br>
+            &nbsp;&nbsp;<\node>
+
+            <br>
+            <\way>
+
+            <br><br>
+
+
+
+
+
+            <br><br>
+
+            <details>
+            <summary>(More details here)<br><br></summary>
+              <ul>
+                <li>
+                  <ul>
+                    <li>simple elements are surrounded by open tags: "&lt;" and close tags: "\&gt;"</li>
+                    <li>complex objects are initiated by an openin element, like : "&lt;node &gt;" <br>
+                    and closed by a closing element, like "&lt;\node&gt;"</li>
+                  </ul>
+                </li>
+                <li>every map has many points called nodes</li>
+                <li>a node can be simple or complex
+                  <br>
+                  <ul>
+                    <li>a simple node has all its attributes in a single line</li>
+                    <li>a complex node has tag elements</li>
+                  </ul>
+                </li>
+                <li>A way is a complex element composed of many nodes (a path is just a connection of points)</li>
+              </ul>            
+            </details>
+          </li>
+        </ul>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Come up with an <b>algorithm</b> to count the number of nodes that have a single tag inside them.
+          <br>
+          You must make use of file I/O and string processing
+          <br>
+          (Only design the high-level steps using Einglish)
+          <br>
+        </div>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 7</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Expand the <b>algorithm</b> to count the number of nodes that have a single tag inside them.
+          <br>
+          Transform your english-language steps into a flow diagram that uses file I/O and string processing
+          <br>
+        </div>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 8</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Write the <b>Code</b> to count the number of nodes that have a single tag inside them.
+          <br>
+          Transform your flow diagram into code that uses file I/O and string processing
+          <br>
+        </div>
+
+
+
+
 
         <!-- <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
