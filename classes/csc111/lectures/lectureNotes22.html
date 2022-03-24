@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes21.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,59 +122,352 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 07: More About Functions</h1>
+      <h1>Lecture Notes 22: More About Functions</h1>
       <p>
         <br>
       </p>
 
       <p><br></p><hr><p><br></p>
 
-      <h2>Recap: Simple Functions and the Execution Flow</h2>
+      <h2>Review of Execution Flow</h2>
+
 
         <p>
-
-          <b>First</b>: we will finish the activities from the previous lecture if we did not finish then.
-          <br><br>
-
-          <b>Then</b>: Recap of the execution flow with a simple function:
-  <br><br>
-  <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># function definition</span>
-  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">next</span>(num):
-    <span style="color: #008800; font-weight: bold">return</span> num <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>
-
-  <span style="color: #888888"># statement area</span>
-  nxt <span style="color: #333333">=</span> <span style="color: #007020">next</span>(<span style="color: #0000DD; font-weight: bold">2</span>)
-  <span style="color: #007020">print</span>(nxt)
-  <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;done!&quot;</span>)
-  </pre></div>
-
-           Use the <a href="https://pythontutor.com/visualize.html#code=%23%20function%20definition%0Adef%20append%28num%29%3A%0A%20%20print%28%22I%20got%20this%20input%3A%22,%20end%3D%22%20%22%29%0A%20%20print%28num%29%0A%0A%23%20statement%20area%0Aappend%282%29%0Aprint%28%22done!%22%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"target="_blank">Python Tutor</a>
-
-          <br><br>
-
-          Things to notice:
+          Possible lingering confusion about execution flow:
           <ol>
-            <li>the def block is saved but not executed</li>
-            <li>execution follows starts in a top-bottom sequence (<b>for now!</b>)</li>
-            <li>the execution <b>jumps</b> to the body of the def block when an invocation is made, changing the control flow</li>
-            <li>the "parameter" <b><tt>num</tt></b> "receives" a value, it is used, and then... what happens to it?</li>
-            <li>after the function is executed, we return where we left off (after the invocation</li>
-          </ol>
-
-          <br><br>
-
-          <h4>Why Functions?</h4>
-
-          As we said: 
-          <ol>
-            <li>Reuse: Avoid unnecessary repetition</li>
-            <li>Reduce: Modular structure, better organization</li>
-            <li>Recycle: Use functions that you created a while ago for something you need now!</li>
+            <li>where can the functions be defined?</li>
+            <li>order of execution when there is function composition</li>
+            <li>Where can variables be used?</li>
           </ol>
         </p>
 
+      <p><br></p><hr><p><br></p>
 
-        <p><br></p><hr><p><br></p>
+      <h2>Standalone or Module code</h2>
+
+
+        <p>
+          We've seen how to use functions defined inside our programs:
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">factorial</span> ( a ):
+    <span style="color: #888888"># iterative approach</span>
+    mult <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span> (<span style="color: #0000DD; font-weight: bold">1</span>,a<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
+        mult<span style="color: #333333">*=</span>i
+    <span style="color: #008800; font-weight: bold">return</span> mult
+    
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">summation</span> ( a ):
+    <span style="color: #888888"># iterative approach</span>
+    summat <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span> (a<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
+        summat<span style="color: #333333">+=</span>i
+    <span style="color: #008800; font-weight: bold">return</span> summat    
+    
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span> ():
+    num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">12</span>
+    fac <span style="color: #333333">=</span> factorial(num)
+    summ <span style="color: #333333">=</span> summation(num)
+    <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the factorial of {num} is {fac};</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span> \
+    f<span style="background-color: #fff0f0">&quot;the summation of {num} is {summ}&quot;</span> )
+    
+
+main()
+</pre></div>
+
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+          <div class="mx-lg-5">
+            <ol>
+              <li>Open a scratchpad project in Replit (if you don;t aready have one)</li>
+              <li>Create a new file called <b><tt>my_operations.py</tt></b></li>
+              <li>copy the code shown above inside <tt>my_operations.py</tt></li>
+              <li>Open the tab (on the right pane) called <b><tt>Shell</tt></b></li>
+              <li>Run your file using the instruction: <tt>python3 my_operations.py</tt></li>
+            </ol>
+
+            
+            <br><br>
+            you should get the following output:
+            <br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">the factiorial of <span style="color: #0000DD; font-weight: bold">12</span> <span style="color: #000000; font-weight: bold">is</span> <span style="color: #0000DD; font-weight: bold">479001600</span>;
+the summation of <span style="color: #0000DD; font-weight: bold">12</span> <span style="color: #000000; font-weight: bold">is</span> <span style="color: #0000DD; font-weight: bold">78</span>
+</pre></div>
+
+          </div>
+
+          <br><br>
+
+          As you can you imagine, these two operations might be useful in other contexts... and it would be wasteful to have to write them all over again, soooo....
+          <br><br>
+
+          <h3>What if we wanted to make use of this code from another program?</h3>
+          <br><br>
+
+          Imagine we want to <b><tt>import!</tt></b>
+          <br><br>
+
+          Say we do something like this:
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">my_operations</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span> ():
+  num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">7</span>
+  fac <span style="color: #333333">=</span> my_operations<span style="color: #333333">.</span>factorial(num)
+  summ <span style="color: #333333">=</span> my_operations<span style="color: #333333">.</span>summation(num)
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the factorial of {num} is {fac};</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span> \
+  f<span style="background-color: #fff0f0">&quot;the summation of {num} is {summ}&quot;</span> )
+  
+
+main()
+</pre></div>
+
+          <br><br>
+
+          <b>What could go wrong?</b>          
+          <br><br>
+
+          <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+          <div class="mx-lg-5">
+            <ol>
+              <li>In the scratchpad project</li>
+              <li>open the file called <b><tt>main.py</tt></b></li>
+              <li>copy the code shown below inside <tt>main.py</tt></li>
+              <li>Run your file using the green Run button (or in the shell with the instruction: <tt>python3 main.py</tt>)</li>
+            </ol>
+            <br><br>
+            What is ... <b>unexpected</b>?
+          </div>
+
+          <br><br><br>
+
+          We've discussed the concept of <b><tt>importing</tt></b> code so it can be used in other programs.<br>
+          However, we have not seen how python avoids executing the imported program's <b><tt>main</tt></b> function (which it might as well have)!
+
+          <br><br><br><br>
+
+          <h3>The <b><tt>__name__</tt></b> environment variable</h3>
+          <br>
+          When a program is executed, it is done so inside an execution context that, besides keeping track of the program's variables and code, has what are called <b>environment variables</b>.
+          <br><br>
+
+          One such invironment variable is called <b><tt>__name__</tt></b> variable.
+          <br><br>
+          When a program is rune, the <tt>__name__</tt> variable has one of two values: 
+          <ol>
+            <li>it contains string <b><tt>"__main__"</tt></b> if the progra executed as a standalone program</li>
+            <li>it contains <b>the name of the script</b> if the progra was imported</li>
+          </ol>
+
+
+          <br><br>
+
+          <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+          <div class="mx-lg-5">
+            <ol>
+              <li>In the scratchpad project</li>
+              <li>Modify the file called <b><tt>my_operations.py</tt></b> as shown below:
+                <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">factorial</span> ( a ):
+    <span style="color: #888888"># iterative approach</span>
+    mult <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span> (<span style="color: #0000DD; font-weight: bold">1</span>,a<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
+        mult<span style="color: #333333">*=</span>i
+    <span style="color: #008800; font-weight: bold">return</span> mult
+    
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">summation</span> ( a ):
+    <span style="color: #888888"># iterative approach</span>
+    summat <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span> (a<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
+        summat<span style="color: #333333">+=</span>i
+    <span style="color: #008800; font-weight: bold">return</span> summat    
+    
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span> ():
+    num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">12</span>
+    fac <span style="color: #333333">=</span> factorial(num)
+    summ <span style="color: #333333">=</span> summation(num)
+    <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the factorial of {num} is {fac};</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span> \
+    f<span style="background-color: #fff0f0">&quot;the summation of {num} is {summ}&quot;</span> )
+    
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+            <br>
+              </li>
+              <br>
+              <li>Open the tab (on the right pane) called <b><tt>Shell</tt></b></li>
+              <li>Run your file using the instruction: <tt>python3 my_operations.py</tt>
+                <br>
+              You should get the SAME result as before!</li>
+              <br>
+              <li>However.... Now run the code in main (Green Run button)</li>
+            </ol>
+            <br><br>
+            What ... <b>changed</b>?
+          </div>
+
+          <br><br><br><br>
+
+          What is happening is this:
+          <br>
+          <ul>
+            <li>when the program <tt>my_operations.py</tt> is run directly (standalone) the <tt>__name__</tt> for it is <tt>"__main__"</tt> so the <tt>if</tt> statement triggers and the main is initiated.</li>
+            <br>
+            <li>However, when it gets imported, the <tt>__name__</tt> for it is <tt>"my_operations.py"</tt> so the <tt>if</tt> statement is not triggered and its main is not executed</li>
+            <br>
+            <li>Now, the main inside the program called <tt>main.py</tt> can make use of the functions inside the module <tt>my_operations.py</tt> as usual.</li>
+          </ul>
+          <br><br>
+
+          For completeness sake, we should actually write the main inside <tt>main.py</tt> like this:
+          <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">my_operations</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span> ():
+  num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">7</span>
+  fac <span style="color: #333333">=</span> my_operations<span style="color: #333333">.</span>factorial(num)
+  summ <span style="color: #333333">=</span> my_operations<span style="color: #333333">.</span>summation(num)
+  <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the factorial of {num} is {fac};</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span> \
+  f<span style="background-color: #fff0f0">&quot;the summation of {num} is {summ}&quot;</span> )
+  
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+  main()
+</pre></div>
+        </p>      
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Multiple parameters and default values</h2>
+
+
+        <p>
+          Functions can be defined to take in multiple parameters:
+          <br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">emphasize</span>(word, my_char):
+     <span style="color: #007020">print</span>(my_char<span style="color: #333333">.</span>join(<span style="color: #007020">list</span>(word)))
+emphasize(<span style="background-color: #fff0f0">&quot;Monday&quot;</span>, <span style="background-color: #fff0f0">&quot;-&quot;</span>)
+</pre></div>
+
+        <br><br>
+
+        Here the output would be:
+        <br>
+        <tt>M-o-n-d-a-y</tt>
+
+        <br><br>
+
+        We can include a “default” value for some (or all) of them:
+        <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">emphasize</span>(word, my_char <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;*&quot;</span>):
+     <span style="color: #007020">print</span>(my_char<span style="color: #333333">.</span>join(<span style="color: #007020">list</span>(word)))
+emphasize(<span style="background-color: #fff0f0">&quot;Monday&quot;</span>)
+</pre></div>
+        
+        <br><br>
+
+         Here the output would be:
+        <br>
+        <tt>M*o*n*d*a*y</tt>
+
+        <br><br>
+
+        In this case we can call emphasize with only one parameter. 
+
+        <br><br><br>       
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+          <div class="mx-lg-5">
+            <ol>
+              <li>open the the scratchpad project</li>
+              <li>In the <tt>my_operations.py</tt> file, add the function (shown bellow) called <b><tt>partial_sum</tt></b> that
+                <br>
+                takes two input arguments, x, and y, and returns the partial sum from the smaller to the larger of the two.
+                <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">partial_sum</span> ( x , y):
+  small <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+  big <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+  <span style="color: #008800; font-weight: bold">if</span> x <span style="color: #333333">&lt;</span> y:
+    small <span style="color: #333333">=</span> x
+    big  <span style="color: #333333">=</span> y
+  <span style="color: #008800; font-weight: bold">else</span>:
+    small <span style="color: #333333">=</span> y
+    big  <span style="color: #333333">=</span> x
+    
+  summat <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>      
+  <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span> (small, big<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
+    summat<span style="color: #333333">+=</span>i
+  <span style="color: #008800; font-weight: bold">return</span> summat
+</pre></div>
+
+              </li>
+              <br>
+              <li>
+                <b>Now modify this program with default values so that the defaults are:</b>
+                <br>
+                <ul>
+                  <li>if only one value is sent, the result is the sum from 0 to the number</li>
+                  <li>if no values are sent, the result is 0</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+        </p>      
+
+      <p><br></p><hr><p><br></p>
+
+        <h2>Function Composition (Chaining)</h2>
+
+        <p>
+          Return values allow us to call functions inside other function calls:
+          <br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #333333">&gt;&gt;&gt;</span> n <span style="color: #333333">=</span> <span style="color: #007020">int</span>(<span style="color: #007020">input</span>(<span style="background-color: #fff0f0">&quot;Enter an integer: &quot;</span>))
+<span style="color: #333333">&gt;&gt;&gt;</span> n <span style="color: #333333">=</span> <span style="color: #007020">int</span>(<span style="background-color: #fff0f0">&quot;3&quot;</span>)
+</pre></div>
+          <br><br>
+          Similarly,
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">boom <span style="color: #333333">=</span> emphasize(<span style="color: #007020">input</span>(<span style="background-color: #fff0f0">&quot;Enter a word: &quot;</span>)
+</pre></div>
+
+          <br><br>
+        
+        </p>
+
+      <p><br></p><hr><p><br></p>
+
+        <h2>Readability and Comments</h2>
+
+        <p>
+
+          <ul>
+            <li>spacing</li>
+            <li>parentheses</li>
+            <li>Comments</li>
+          </ul>
+
+          <br><br>
+
+          Example:
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">fahrenheit <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">212</span>
+celsius <span style="color: #333333">=</span> (fahrenheit <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">32</span>) <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">5</span> <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">9</span>
+Fahrenheit to Celsius<span style="color: #333333">.</span>
+<span style="color: #888888"># calculate the area of a triangle</span>
+base <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">20</span>
+height <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">12</span>
+area <span style="color: #333333">=</span> base <span style="color: #333333">*</span> height <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span>
+</pre></div>
+
+        
+        </p>  
+
+
+
+
+      <p><br></p><hr><p><br></p>
 
         <h2>Scope</h2>
 
@@ -184,17 +477,54 @@
           It is the block of code in which it is "alive" and where it could be used.
           <br><br>
 
-          If you notice the code for our example, <b><tt>num</tt></b> exists for a brief period of time.
+          Look at a modified version of the final code used above:
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">factorial</span> ( a ):
+    <span style="color: #888888"># iterative approach</span>
+    mult <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span> (<span style="color: #0000DD; font-weight: bold">1</span>,a<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
+        mult<span style="color: #333333">*=</span>i
+    <span style="color: #008800; font-weight: bold">return</span> mult
+    
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">summation</span> ( b ):
+    <span style="color: #888888"># iterative approach</span>
+    summat <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span> (b<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>):
+        summat<span style="color: #333333">+=</span>i
+    <span style="color: #008800; font-weight: bold">return</span> summat    
+    
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span> ():
+    num <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">4</span>
+    fac <span style="color: #333333">=</span> factorial(num)
+    summ <span style="color: #333333">=</span> summation(num)
+    <span style="color: #007020">print</span>(f<span style="background-color: #fff0f0">&quot;the factorial of {num} is {fac};</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span> \
+    f<span style="background-color: #fff0f0">&quot;the summation of {num} is {summ}&quot;</span> )
+    
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></div>
+
+
+        <br><br>
+
+
+
+          If you notice the code for our example, <b><tt>a</tt></b> exists for a brief period of time (only while at factorial).
           <br><br>
 
-          It's "alive" from the moment the function <b><tt>next</tt></b> is invoked and the <i>argument</i> (\(2\)) is inserted into the function <i>parameter</i> <b><tt>num</tt></b>.
+          It's "alive" from the moment the function <b><tt>factorial</tt></b> is invoked and the <i>argument</i> (\(12\)) is inserted into the function <i>parameter</i> <b><tt>a</tt></b>.
           <br><br>
 
-          We say that the variable <tt>num</tt> is <b>bound</b> to 2.
+          We say that the variable <tt>a</tt> is <b>bound</b> to 12.
           <br><br>
 
-          Lastly, <tt>num</tt> is no longer saved after the function returns.
+          Lastly, <tt>a</tt> is no longer saved after the function returns.
           <br><br>  
+
+          Try it in the <a href="https://pythontutor.com/visualize.html#code=def%20factorial%20%28%20a%20%29%3A%0A%20%20%20%20%23%20iterative%20approach%0A%20%20%20%20mult%20%3D%201%0A%20%20%20%20for%20i%20in%20range%20%281,a%2B1%29%3A%0A%20%20%20%20%20%20%20%20mult*%3Di%0A%20%20%20%20return%20mult%0A%20%20%20%20%0Adef%20summation%20%28%20b%20%29%3A%0A%20%20%20%20%23%20iterative%20approach%0A%20%20%20%20summat%20%3D%200%0A%20%20%20%20for%20i%20in%20range%20%28b%2B1%29%3A%0A%20%20%20%20%20%20%20%20summat%2B%3Di%0A%20%20%20%20return%20summat%20%20%20%20%0A%20%20%20%20%0Adef%20main%20%28%29%3A%0A%20%20%20%20num%20%3D%204%0A%20%20%20%20fac%20%3D%20factorial%28num%29%0A%20%20%20%20summ%20%3D%20summation%28num%29%0A%20%20%20%20print%28f%22the%20factorial%20of%20%7Bnum%7D%20is%20%7Bfac%7D%3B%5Cn%22%20%5C%0A%20%20%20%20f%22the%20summation%20of%20%7Bnum%7D%20is%20%7Bsumm%7D%22%20%29%0A%20%20%20%20%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">Python Tutor</a>
+
+
+          <br><br><br>
 
 
           Let's see another example:
@@ -236,7 +566,7 @@ x <span style="color: #333333">=</span> addThree(x)
 
           Answer the following questions before you try it out in the Python Tutor:
           <br><br>
-          <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+          <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
           <div class="mx-lg-5">
             <ol>
               <li>What value of <b><tt>x</tt></b> will be printed at the end?</li>
@@ -330,7 +660,7 @@ x <span style="color: #333333">=</span> addThree(x)
 
         Which has a single <b>parameter</b> that will be received as input.
         <br><br>
-        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
           <div class="mx-lg-5">
             Answer the following questions:
             <ol>
@@ -350,7 +680,7 @@ x <span style="color: #333333">=</span> addThree(x)
           You can also declaree additional variables inside the function and use them while inside the function.
           <br><br>
 
-          <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+          <span style='color:#06a015'><b><big>Activity 7</big></b></span> [2 minutes]: <br>
           <div class="mx-lg-5">
             What is an example of a local variable inside <b><tt>addThree</tt></b>?
           </div>
@@ -375,7 +705,7 @@ x <span style="color: #333333">=</span> addThree(x)
   
           <br><br>
 
-          <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+          <span style='color:#06a015'><b><big>Activity 8</big></b></span> [2 minutes]: <br>
           <div class="mx-lg-5">
             What is the output?
           </div>
@@ -410,7 +740,7 @@ y <span style="color: #333333">=</span> minus1( times3(x) )
           Answer the following questions before trying it out:
           <br><br>
 
-          <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+          <span style='color:#06a015'><b><big>Activity 9</big></b></span> [2 minutes]: <br>
           <div class="mx-lg-5">
              <ol>
               <li>Which function is called first?</li>
@@ -426,7 +756,7 @@ y <span style="color: #333333">=</span> minus1( times3(x) )
 
 
       <p><br></p><hr><p><br></p>
-
+<!-- 
       <h2>More about the <big><b>main</b></big> Function</h2> 
 
       <p>
@@ -458,7 +788,7 @@ y <span style="color: #333333">=</span> minus1( times3(x) )
 
          The construction we'll use is this one: 
          <br><br>
-         <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
 2  
 3  
 4  
@@ -477,7 +807,7 @@ y <span style="color: #333333">=</span> minus1( times3(x) )
         Let's see another example, to get a better idea of how this works:
         <br><br>
 
-        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
 2  
 3  
 4  
@@ -516,7 +846,7 @@ y <span style="color: #333333">=</span> minus1( times3(x) )
 
           We will not explain this section yet:
           <br>
-          <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
     main()
 </pre></div>
 
@@ -539,7 +869,7 @@ y <span style="color: #333333">=</span> minus1( times3(x) )
         Check this example:
         <br><br>
 
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
  2  
  3  
  4  
@@ -679,11 +1009,12 @@ y <span style="color: #333333">=</span> minus1( times3(x) )
       </p>  
   
 
-
+ -->
     <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Wednesday)</h4>
-      <b>[Due for everyone]</b>  ZyBooks Sections 2.2, 2.3, 2.4, 2.8<br>
+      <h4>Homework</h4>
+      <b>[Due for everyone]</b>  <br>
+      TBD
 
       <br><br>
 
@@ -706,10 +1037,10 @@ y <span style="color: #333333">=</span> minus1( times3(x) )
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes06.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes21.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes08.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Next Module</a>
               </li>
             </ul>
           </div>
