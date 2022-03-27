@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 250  Theory of Computation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+
+      @import url('https://fonts.googleapis.com/css?family=Inter|Dosis&display=swap');
+
+      /* Crucial */
+      .highlight {
+        background-color: #EEF43B;
+          padding-right: 0px;
+          padding-left: 0px;
+      }
+
+
+      /* Just for styling */
+      /*body {
+        font-family: 'Inter', sans-serif;
+      }*/
+
+      /*.container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 0 2%;
+      }*/
+
+      .search-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto 20px auto;
+        max-width: 450px;
+        padding: 0 2%;
+      }
+
+      label {
+        color: #535353;
+        font-family: 'Dosis', sans-serif;
+        font-size: 14px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      input {
+        background: #fff;
+        border: 1px solid #535353;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        height: 38px;
+        line-height: 38px;
+        outline: none;
+        padding: 0 10px;
+        transition: all 0.5s;
+        width: 100%;
+      }
+
+      input:focus {
+        border: 1px solid #3a5bd3;
+        box-shadow: 0 0 4px 0 #7d90de;
+      }
+
+      blockquote {
+        background-color: #f1f1f1;
+        border-radius: 0 4px 4px 0;
+        color: #515151;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 0;
+        padding: 20px 40px 20px 20px;
+        position: relative;
+      }
+
+      blockquote::before {
+        color: #ccc;
+        content: '”';
+        font-size: 80px;
+        position: absolute;
+        right: 30px;
+        top: -20px;
+      }
+
+      figcaption {
+        color: #aaa;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+    </style>
+
+
+
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 250</h1>
+      <p class="lead">Theory of Computation</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes22.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes24.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 23: Revisiting Reductions</h1>
+      <p>
+        <br>
+      </p>
+      <h2>Outline </h2>
+
+      This class we'll discuss:
+      <ul>
+        <li>Recap: Terminology on Languages</li>
+        <li>Recap: Reductions</li>
+        <li>Reduction Exercises</li>
+      </ul>
+
+
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <big><span style="color:#003470;font-size:200%">Recap: Terminology</span></big>
+      <br><br>
+      <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-02.png" alt="" style="width:80%">
+      <br><br>      
+      <big><span style="color:#003470;font-size:120%">
+          <p>
+            The following are examples of <b>Languages</b>:
+            <br>
+    <!-- 
+            <br><br>
+            <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-01.png" alt="" style="width:80%">
+            <br><br>
+             -->
+
+            <br><br>
+            <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-03.png" alt="" style="width:80%">
+            <br><br>
+
+            <br><br>
+            <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-04.png" alt="" style="width:80%">
+            <br><br>
+            <br><br>
+            <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-05.png" alt="" style="width:80%">
+            <br><br>
+            <br><br>
+            <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-06.png" alt="" style="width:80%">
+            <br><br>
+
+            They have varying degrees of complexity in the patterns that make up the words.
+            <br>
+            But, in the end, these are simly all just sets of words.
+            <br><br>
+
+
+            
+          </p>
+        </span>
+      </big>
+
+<!-- 
+      <p><br></p><hr><p><br></p>
+
+      <h2>Recap: Reductions</h2>
+
+      <p>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-04.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-05.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-06.png" alt="" style="width:80%">
+        <br><br>
+
+        
+      </p>
+ -->
+      <p><br></p><hr><p><br></p>
+
+      <p>
+        
+        <big><span style="color:#003470;font-size:200%">Where we left off...</span></big>
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-07.png" alt="" style="width:60%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-08.png" alt="" style="width:80%">
+          <br><br>
+
+          Remember, We can define TMs using Pseudocode!
+          <br><br>
+
+          <div class="mx-lg-5">
+            <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]:
+            <br>
+            <big><span style="color:#003470;font-size:150%">
+              In teams, write a Machine that <b>generates</b> the language \(L_1\) shown above.
+              <details>
+                <summary>(Wait; then Click)<br><br></summary>  
+                <br><br>
+                <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-09.png" alt="" style="width:80%">
+                <br><br>
+                Is this a <b>Recognizer</b> or a <b>Decider</b>?
+              </details>
+            </span></big>
+          </div>
+
+
+
+          <br><br><br><br>
+          <div class="mx-lg-5">
+
+            <big><span style="color:#003470;font-size:150%">
+              Is that the only machine that <b>Decides</b> \(L_1\)?.
+              <details>
+                <summary>(Wait; then Click)<br><br></summary>  
+                <br><br>
+                <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-10.png" alt="" style="width:80%">
+                <br><br>
+              </details>
+            </span></big>
+          </div>
+          
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-11.png" alt="" style="width:80%">
+          <br><br>
+
+          <br><br>
+          <big><span style="color:#003470;font-size:150%">Machines with infinite languages</span></big>
+          <br><br>
+          <div class="mx-lg-5">
+            <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]:
+            <br>
+            <big><span style="color:#003470;font-size:150%">
+              In teams, write a Machine that <b>generates</b> the language \(L_2\) shown above.
+              <details>
+                <summary>(Wait; then Click)<br><br></summary>  
+                <br><br>
+                <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-12.png" alt="" style="width:80%">
+                <br><br>
+              </details>
+            </span></big>
+          </div>
+          <br><br>
+
+          <br><br>
+          <big><span style="color:#003470;font-size:150%">More Machines with infinite languages</span></big>
+          <br><br>
+          <div class="mx-lg-5">
+            <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]:
+            <br>
+            <big><span style="color:#003470;font-size:150%">
+              In teams, write a Machine that <b>generates</b> the language \(PAL\) shown above.
+              <details>
+                <summary>(Wait; then Click)<br><br></summary>  
+                <br><br>
+                <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-13.png" alt="" style="width:80%">
+                <br><br>
+              </details>
+            </span></big>
+          </div>
+          <br><br>
+
+
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-14.png" alt="" style="width:80%">
+          <br><br>
+
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-14b.png" alt="" style="width:80%">
+          <br><br>
+
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-15.png" alt="" style="width:100%">
+          <br><br>
+
+
+
+
+      <p><br></p><hr><p><br></p>
+
+
+        <big><span style="color:#003470;font-size:200%">Recap: Is ATM is <b>UNdecidable</b></span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+          We proved this by Contradiction.
+          <br>
+          We assumed ATM was decidable and built a helper machine to arrive at a contradiction:
+          <br><br><br>
+
+          Consider the Machine \(M_{OPPOSITE} ( < M> )\) 
+          <br><br>
+          \[
+            \begin{align*}
+              &M_{OPPOSITE}:\\
+              & \text{ On input $ < M > $ }:\\
+              & \text{ Simulate $D_{ATM} \; on \; < M , < M > > $}\\
+              & \text{ If $D_{ATM}$ accepts, REJECT. }\\
+              & \text{ If $D_{ATM}$ rejects, ACCEPT. }\\
+            \end{align*}
+          \]
+          <br><br>
+          Now, what happens when we run \(M_{OPPOSITE} ( < M_{OPPOSITE}> )\) ?
+          <br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-15b.png" alt="" style="width:80%">
+          <br><br>
+        </span></big>         
+
+<p><br></p><hr><p><br></p>
+
+
+        <big><span style="color:#003470;font-size:200%">Using <b>Reductions</b> to prove Undecidability</span></big>
+        <br><br>
+        <big><span style="color:#003470;font-size:120%">
+
+          <ul>
+            <li>A Reduction is a way to relate one problem A to another problem B so you can claim that: 
+              <br>
+              <ul>
+                <li>If you can solve B, then you can solve A"</li>            
+              </ul>
+            </li>
+
+            <li>In this case, we know that problem A is Undecidable and we want to prove the same for B</li>
+            <li>We write it like this: \(A \leq B \)</li>
+            <li>This means: problem B is at least as hard as problem A</li>
+            <li>If we prove this, then we can say: since B is at least as hard as than A, and A is Undecidable, then B must be Undecidable as well!</li>
+            <li>The difficulty lies in <b>relating</b> of A to B</li>
+          </ul>
+
+
+
+        </span></big>
+
+        <br><br>
+        <big><span style="color:#003470;font-size:200%">Example: Reducing ATM to HALT</span></big>
+
+
+        <br><br>
+
+          <div class="mx-lg-5">
+            <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]:
+            <br>
+            <big><span style="color:#003470;font-size:150%">
+              In teams, discuss how you would show that:<br>
+              "If you could solve HALT, you could use it to solve ATM"
+              
+            </span></big>
+          </div>
+
+          <br><br>        
+
+        <div class="mx-lg-5">          
+            <details>
+              
+              <summary><big><span style="color:#cc3470;font-size:120%">(Proof that ATM &leq; HALT)</span></big> <br><br></summary> 
+
+
+              <big><span style="color:#003470;font-size:120%">
+                In other words, \( HALT\)  is AT LEAST as hard as  \( ATM \) <br>
+                (So if we can solve HALT, we can, for sure, solve ATM)
+              </span></big>
+              <br><br><br><br>
+
+              <big><span style="color:#003470;font-size:200%">The Proof:</span></big>
+              <br><br>
+              <big><span style="color:#003470;font-size:120%">
+               
+                    Assume HALT is decidable, and so there exists some \(D_{HALT}\) that decides, for any input \(< M,w>\), whether \(M\) halts on \(w\).
+                    <br><br>
+                    We'll design the Machine \(D_{ATM} \) as follows: 
+                    <br><br>
+                    \[
+                      \begin{align*}
+                        &D_{ATM}:\\
+                        & \text{ On input $ < M, w > $ }:\\
+                        & \text{ Simulate $D_{HALT} \; on \;  < M, w > $}\\
+                        & \text{ If $D_{HALT}$ rejects, $M$ doesn't halt, so it did not accept: REJECT. }\\
+                        & \text{ If $D_{HALT}$ accepts, we know $M$ won't loop forever, so }\\
+                        & \quad \text{ Simulate $M$ on $w$ ADWID }\\              
+                      \end{align*}
+                      \]
+
+                      <br><br>
+
+                      This machine is a decider for ATM (why?) 
+                      <br>
+                      – it avoided the only problem we had with solving ATM, namely telling the difference between looping and lot waiting long enough.
+                      <br><br>
+                      However, we proved that ATM was undecidable by contradiction just a few minutes ago. <br>
+                      Aaaand...the only condition we need to build \(D_{ATM}\) was that \(D_{HALT}\) existed, so ...
+                      <br>
+                      <b>\(D_{HALT} \; \) must not exist</b>.
+
+                </span></big>
+
+            </details>
+          </div>
+
+          <br><br><br><br>
+
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-16.png" alt="" style="width:80%">
+          <br><br>
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-17.png" alt="" style="width: 800px; height: 350px; object-fit: cover;">
+          <br>
+          <big><span style="color:#003470;font-size:120%">
+          (ATM-01 is at least as hard to decide as ATM)
+          <br><br>
+
+          Note that:
+          <br>
+          <ol>
+            <li>IF a machine \(D_{ATM}\) existed, it would receive input \( < M, w > \)</li>
+            <li>IF a machine \(D_{ATM-01}\) existed, it would receive input \( < M > \)</li>
+            <li>The order of the proof is: <br>
+              <ol>
+                <li>Assume \(D_{ATM-01}\) already exists</li>
+                <li>We can use it to build another machine that should behave like \(D_{ATM}\)</li>
+                <li>This larger machine, should be able to handle input \( < M, w > \)</li>
+                <li>You must somehow get a machine with ONLY \( < M > \) as input to handle the input \( < M, w > \) </li>
+                <li>Note that, as part of the steps, you can build helper machines</li>
+              </ol>
+            </li>
+          </ol>
+        </span></big>
+
+          <br><br><br><br><br><br>
+
+          <div class="mx-lg-5">
+            <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]:
+            <br>
+            <big><span style="color:#003470;font-size:150%">
+              In teams, write a Machine that uses \(D_{ATM-01}\) to perform the work of \(D_{ATM}\)
+              <details>
+                <summary>(Wait; then Click)<br><br></summary>  
+                <br><br>
+                <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-18a.png" alt="" style="width:80%">
+                <br><br>
+                <br><br>
+                <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-18b.png" alt="" style="width:80%">
+                <br><br>
+                <br><br>
+                <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-18c.png" alt="" style="width:80%">
+                <br><br>
+
+              </details>
+            </span></big>
+          </div>          
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-19.png" alt="" style="width:80%">
+          <br><br>
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-20.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-21a.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-21b.png" alt="" style="width:80%">
+          <br><br>
+
+          <big><span style="color:#003470;font-size:120%">
+            This can be written like this:
+            <br><br>
+               
+                    Assume EMPTY-TM is decidable, and so there exists some \(D_{EMPTY-TM}\) that decides, for any input \(< M >\), whether \(L (M) \) is empty.
+                    <br><br>
+                    We'll design the Machine \(D_{ATM} \) as follows: 
+                    <br><br>
+                    \[
+                      \begin{align*}
+                        &D_{ATM}:\\
+                        & \text{ On input $ < M, w > $ }:\\
+                        & \text{ Create (but don't run) $HELPER_{M,w}$ such that}\\
+                        & \quad \text{ On input $ < X > $ }:\\
+                        & \quad \quad \text{ Ignore $ < X > $ }\\
+                        & \quad \quad \text{ Run $M$ on $w$ ADWID}\\
+                        & \text{ Now Run $D_{EMPTY-TM}$ on $HELPER_{M,w}$}\\
+                        & \text{ If $D_{EMPTY-TM}$ rejects, invert the result and our machine ACCEPTS}\\
+                        & \text{ If $D_{HALT}$ accepts, , invert the result and our machine REJECTS}\\
+                      \end{align*}
+                    \]
+
+                    <br><br>
+
+                    As we saw above, the ONLY way \(D_{EMPTY-TM}\) Rejects is if \(HELPER_{M,W}\) Accepts, which happens ONLY when \(M\) accepts \(w\).
+                    <br><br>
+                    This means we CAN make \(D_{ATM}\) as long as \(D_{EMPTY-TM}\) exists.
+                    <br><br>
+                    However, \(D_{ATM}\)  doesn't exist...which means \(D_{EMPTY-TM}\) CANNOT EXIST EITHER.
+
+          </span></big>
+
+          <br><br><br><br>
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-22.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-23.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-24.png" alt="" style="width:80%">
+          <br><br>
+          <!-- 
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-25.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-26.png" alt="" style="width:80%">
+          <br><br>
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-27.png" alt="" style="width:80%">
+          <br><br>
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-28.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-29.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-30.png" alt="" style="width:80%">
+          <br><br>
+
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-31.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-32.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-33.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-34.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-35.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-36.png" alt="" style="width:80%">
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-37.png" alt="" style="width:80%">
+          <br><br>
+ -->
+
+
+          <br><br>
+
+        <big><span style="color:#003470;font-size:120%">  
+
+          This will lead us to a new way of looking at Recognizers: Enumeration.
+
+        </span></big>
+
+
+        
+      </p>
+<!-- 
+      <p><br></p><hr><p><br></p>
+
+      <h2>Assignment 04</h2>
+
+      <p>
+        <ol>
+          <li>In groups of 2 or 3 (form up now and send a single email to me with your team composition)</li>
+          <li>If you don;t have a team, I will add you to one</li>
+          <li>You must meet up (live/zoom) and discuss each problem</li>
+          <li>provide a short and clear answer in a pdf (add all your names)</li>
+        </ol>
+      </p>
+ -->
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework<h4>
+      <br>      
+      <b>[Due for everyone]</b>
+      <div class="mx-5">
+         Get together to study Reductions!!<br>
+         You need to be able to master reducing the examples we've seen so far.
+      </div> 
+      <br>
+      <b>[Optional]</b> 
+      <div class="mx-5">
+        TODO
+      </div>
+      <br><br>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes12.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes14.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+<!--     <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+
+
+  </body>
+</html>
