@@ -286,7 +286,10 @@ my_str <span style="color: #333333">=</span> my_str<span style="color: #333333">
         <br><br>
 
         Same deal with <b>Lists</b>, <b>Dictionaries</b>, <b>Files</b>, and others.
+
       </p>
+
+
 
       <p><br></p><hr><p><br></p>
 
@@ -295,6 +298,49 @@ my_str <span style="color: #333333">=</span> my_str<span style="color: #333333">
       <p>
         If the specific data structure or behavior you need is not provided by Python, you can <b>design</b> and <b>create</b> it yourself!
         <br><br>
+
+
+        <br><br><br><br> 
+
+        <h3>The class syntax (encapsulation)</h3>
+
+        <br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1  
+2  
+3  
+4  
+5  
+6  
+7  
+8  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Student</span>:
+    name <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Andy&quot;</span>
+    grades <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">70</span>, <span style="color: #0000DD; font-weight: bold">80</span>, <span style="color: #0000DD; font-weight: bold">90</span>, <span style="color: #0000DD; font-weight: bold">100</span>]
+
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">fun</span>():
+        <span style="color: #007020">print</span>(Student<span style="color: #333333">.</span>name <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;&#39;s grades are: &quot;</span>, Student<span style="color: #333333">.</span>grades)
+        
+Student<span style="color: #333333">.</span>fun()
+</pre></td></tr></table></div>
+
+          <br><br>
+
+
+        <span style='color:#06a015'><b><big>Activity 0</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Run it in the <a href="https://pythontutor.com/visualize.html#code=class%20Student%3A%0A%20%20%20%20name%20%3D%20%22Andy%22%0A%20%20%20%20grades%20%3D%20%5B70,%2080,%2090,%20100%5D%0A%0A%20%20%20%20def%20fun%28%29%3A%0A%20%20%20%20%20%20%20%20print%28Student.name%20%2B%20%22's%20grades%20are%3A%20%22,%20Student.grades%29%0A%20%20%20%20%20%20%20%20%0AStudent.fun%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Python Tutor</a> and explain what is going on.
+          <br>
+          (We will explain the syntax soon... for now, simply try to guess what is going on)
+
+        </div>
+
+
+          <br><br>          
+
+          This is not much use other than for "Packaging different things together"
+
+         <br><br><br><br>      
+
 
         Since we might want to use more than a single instance of this user-defined object, we are going to design a <b>template</b> for stamping out these new type of <!-- <b><tt>student</tt></b> --> objects.
         <br><br>
@@ -323,9 +369,15 @@ my_str <span style="color: #333333">=</span> my_str<span style="color: #333333">
 
         <br><br><br><br>
 
-        <h3>The class syntax</h3>
-
         The following is an extremely simple class that allows you to group information about a student's grades in a user-defined object we'll call <tt>Student</tt>
+        <br><br>
+
+        <br><br><br><br>
+
+
+        <h3>The class syntax (template)</h3>
+
+        The following is the <b>template version</b> of the Student class that allows you to group information about <b>different</b> student names and grades object <b>stamped out of the new</b> <tt>Student</tt> template class:
         <br><br>
 
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
