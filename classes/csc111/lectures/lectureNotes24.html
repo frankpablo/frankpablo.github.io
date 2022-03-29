@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes20.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,7 +122,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 19: More about Classes and Objects</h1>
+      <h1>Lecture Notes 24: More about Classes and Objects</h1>
       <p>
         <br>
       </p>
@@ -133,7 +133,24 @@
 
       <p>
 
-        Classes let us make out own complex object types.
+        Sometimes we want to build a complex relationship between elements by saving data and functions that modify it.
+        <br><br>
+
+        For example, <b>Say we want to build a Fruit-Focused-Social-Network called Fruit-Buddy, or FB</b>
+        <br><br>
+
+        A simple sketch would look like this:
+        <br><br>
+        <img class="img-responsive" src="../figures/lecture24/basic_fb.png" alt="fb-sketch" style="width:80%">
+        <br><br>
+
+        <br><br>
+
+        Since we want to <b>Represent</b> people and their interests with data, there are a LOT of ways to construct these complex objects (using id's, names, ...)
+
+        <br><br>
+        <img class="img-responsive" src="../figures/lecture24/structures_fb.png" alt="fb-sketch" style="width:80%">
+        <br><br>
 
         <br><br>
 
@@ -254,7 +271,7 @@
 
         <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
-          Add the previous code to a clean Scratchpad and run it.
+          Run it in the <a href="https://pythontutor.com/visualize.html#code=%23%20constructing%20social%20network%20FB%3A%20Fruit%20Buddies%0Adef%20main%28%29%3A%0A%20%20%23%20tuple%20with%3A%20user%20id%3B%20name%3B%20favorite%20thing%0A%20%20u_data%20%3D%20%28101,%20%22Alice%22,%20%22Apples%22%29%0A%20%20u_contacts%20%3D%20%5B%5D%0A%20%20FB_user_01%20%3D%20%5Bu_data,%20u_contacts%5D%0A%0A%20%20u_data%20%3D%20%28102,%20%22Bob%22,%20%22Bananas%22%29%0A%20%20u_contacts%20%3D%20%5B%5D%0A%20%20FB_user_02%20%3D%20%5Bu_data,%20u_contacts%5D%0A%0A%20%20u_data%20%3D%20%28103,%20%22Cathy%22,%20%22Clementines%22%29%0A%20%20u_contacts%20%3D%20%5B%5D%0A%20%20FB_user_03%20%3D%20%5Bu_data,%20u_contacts%5D%0A%0A%20%20u_data%20%3D%20%28104,%20%22Dan%22,%20%22Dates%22%29%0A%20%20u_contacts%20%3D%20%5B%5D%0A%20%20FB_user_04%20%3D%20%5Bu_data,%20u_contacts%5D%0A%0A%20%20%23%20first%20way%20to%20add%20buddies%0A%20%20FB_user_01%5B1%5D.extend%28%5B101,%20102,%20103%5D%29%0A%0A%20%20FB_user_02%5B1%5D.extend%28%5B101,%20102,%20103%5D%29%0A%0A%20%20%23%20second%20way%20to%20add%20buddies%0A%20%20add_buddy%28FB_user_03,%20FB_user_02%29%0A%20%20add_buddy%28FB_user_03,%20FB_user_03%29%0A%0A%20%20add_buddy%28FB_user_04,%20FB_user_04%29%0A%0A%20%20FB_users%20%3D%20%5BFB_user_01,%20FB_user_02,%20FB_user_03,%20FB_user_04%5D%0A%0A%20%20print_buddies%28FB_users%29%0A%0A%23adding%20user2's%20id%20to%20user1's%20list%20of%20id-buddies%0Adef%20add_buddy%28user1,%20user2%29%3A%0A%20%20user1%5B1%5D.extend%28%5Buser2%5B0%5D%5B0%5D%5D%29%0A%0A%23%20prints%20all%20networked%20friends%0Adef%20print_buddies%28all_users%29%3A%0A%20%20for%20user%20in%20all_users%3A%0A%20%20%20%20print%28%22Buddies%20of%20%7B%7D%20%3A%22.format%28user%5B0%5D%5B1%5D%29,%20end%20%3D%20%22%20%22%29%0A%20%20%20%20%0A%20%20%20%20for%20id%20in%20user%5B1%5D%3A%0A%20%20%20%20%20%20print%28id,%20end%3D%22%20%22%29%0A%20%20%20%20if%20len%28user%5B1%5D%29%20%3D%3D%201%3A%0A%20%20%20%20%20%20if%20user%5B1%5D%5B0%5D%20%3D%3D%20user%5B0%5D%5B0%5D%3A%0A%20%20%20%20%20%20%20%20print%20%28%22**%20Sad%20Trombone%20**%22%29%0A%20%20%20%20print%28%29%20%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Python Tutor</a> and look at how it is organized in memory.
 
           <br><br>
 
@@ -442,6 +459,25 @@
         The <b><tt>__init__</tt></b> method is a constructor!
         <br><br>
         It makes the internal variables and assigns any parameters or default values to them 
+        <br><br>
+
+        Lines 30-33 make use of these to build our OBJECTS.
+        <br><br>
+
+        Note that lines 36-39 pass in lists of object references to each object and they take care of "adding their friends".
+        <br><br>
+
+        We can also make ad-hoc (custom) print methods for our objects (called in lines 41-44). 
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+
+        Check it out <b>step-by step</b> in the <a href="https://pythontutor.com/visualize.html#code=class%20Fruit_Buddy%3A%0A%0A%20%20def%20__init__%28self,%20id,%20name,%20fav_fruit,%20buddy_list%29%3A%0A%20%20%20%20self.id%20%3D%20id%0A%20%20%20%20self.name%20%3D%20name%0A%20%20%20%20self.fav_fruit%20%3D%20fav_fruit%0A%20%20%20%20self.buddies%20%3D%20buddy_list%0A%0A%20%20def%20add_buddy%28self,other%29%3A%0A%20%20%20%20%23%20adding%20the%20other's%20id%20%28this%20can%20be%20made%20better!%29%0A%20%20%20%20self.buddies.append%28other.id%29%20%0A%0A%20%20def%20add_buddy_list%28self,buddy_list%29%3A%0A%20%20%20%20for%20bud%20in%20buddy_list%3A%0A%20%20%20%20%20%20self.add_buddy%28bud%29%20%20%20%0A%0A%20%20def%20print_buddies%28self%29%3A%0A%20%20%20%20print%28%22Buddies%20of%20%7B%7D%20%3A%22.format%28self.name%29,%20end%20%3D%20%22%20%22%29%0A%20%20%20%20for%20bud%20in%20self.buddies%3A%0A%20%20%20%20%20%20print%28bud,%20end%3D%22%20%22%29%0A%20%20%20%20if%20len%28self.buddies%29%20%3D%3D%201%3A%0A%20%20%20%20%20%20if%20self.buddies%5B0%5D%20%3D%3D%20self.id%3A%0A%20%20%20%20%20%20%20%20print%20%28%22**%20Sad%20Trombone%20**%22%29%0A%20%20%20%20print%28%29%20%20%20%20%20%20%0A%0A%23%20constructing%20social%20network%20FB%3A%20Fruit%20Buddies%0Adef%20main%28%29%3A%0A%0A%20%20%23%20the%20constructor%20can%20be%20improved%20with%20default%20vals%0A%20%20FB_user_01%20%3D%20Fruit_Buddy%28101,%20%22Alice%22,%20%22Apples%22,%5B%5D%29%0A%20%20FB_user_02%20%3D%20Fruit_Buddy%28102,%20%22Bob%22,%20%22Bananas%22,%5B%5D%29%0A%20%20FB_user_03%20%3D%20Fruit_Buddy%28103,%20%22Cathy%22,%20%22Clementines%22,%5B%5D%29%0A%20%20FB_user_04%20%3D%20Fruit_Buddy%28104,%20%22Dan%22,%20%22Dates%22,%5B%5D%29%0A%0A%20%20%23%20first%20way%20to%20add%20buddies%0A%20%20FB_user_01.add_buddy_list%28%5BFB_user_01,%20FB_user_02,%20FB_user_03%5D%29%0A%20%20FB_user_02.add_buddy_list%28%5BFB_user_01,%20FB_user_02,%20FB_user_03%5D%29%0A%20%20FB_user_03.add_buddy_list%28%5BFB_user_02,%20FB_user_03%5D%29%0A%20%20FB_user_04.add_buddy_list%28%5BFB_user_04%5D%29%0A%0A%20%20FB_user_01.print_buddies%28%29%0A%20%20FB_user_02.print_buddies%28%29%0A%20%20FB_user_03.print_buddies%28%29%0A%20%20FB_user_04.print_buddies%28%29%20%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20main%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Python Tutor</a>
+
+      </div>
+
       </p>
 
 
@@ -454,21 +490,15 @@
         One may add default values to the class attributes by assigning them to the <b><tt>__init__</tt></b> method's attributes, 
         <br><br>
 
-        However, you must place the parmeters with default values AFTER those without
+        However, you must place the parmeters with default values AFTER those without (right to left)
         <br><br>
 
-        For example (<b>DONT ADD TO THE RUNNING CODE</b>):
+        For example (<b>DONT ADD TO THE RUNNING CODE YET</b>):
 
         <br><br>
 
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-2
-3
-4
-5
-6
-7
-8</pre></td><td><pre style="margin: 0; line-height: 125%">    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>, buddy_list<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">None</span>, <span style="color: #007020">id</span><span style="color: #333333">=-</span><span style="color: #0000DD; font-weight: bold">1</span>, name<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NA&quot;</span>, fav_fruit<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;meh&quot;</span>):
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">
+</pre></td><td><pre style="margin: 0; line-height: 125%">    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>, buddy_list<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">None</span>, <span style="color: #007020">id</span><span style="color: #333333">=-</span><span style="color: #0000DD; font-weight: bold">1</span>, name<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;NA&quot;</span>, fav_fruit<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;meh&quot;</span>):
       <span style="color: #007020">self</span><span style="color: #333333">.</span>id <span style="color: #333333">=</span> <span style="color: #007020">id</span>
       <span style="color: #007020">self</span><span style="color: #333333">.</span>name <span style="color: #333333">=</span> name
       <span style="color: #007020">self</span><span style="color: #333333">.</span>fav_fruit <span style="color: #333333">=</span> fav_fruit
@@ -480,6 +510,19 @@
         <br><br>
 
         <b>What else would we need to change if we add these default values?</b>
+
+        <div class="mx-lg-5">
+          <details>
+            <summary>(Wait; then Click)<br><br></summary>
+            <p>
+              The calls in lines 30-33 MUST have the order of arguments in the new order!!!
+
+              <br><br>
+
+              Let's NOT change that now, but consider using default values for your own constructors.
+            </p>
+          </details>
+        </div>
 
 
 <!--         
@@ -514,7 +557,9 @@
 
         <span style='color:#06a015'><b><big>Activity 3</big></b></span> [5 minutes]: <br>
         <div class="mx-lg-5">
-          Make the following changes:
+          Go into the <b>Fruit-Buddy Project</b> in Replit.
+          <br>
+          Then, make the following changes:
           <br><br>
 
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">add_buddy</span>(<span style="color: #007020">self</span>,other):
@@ -564,6 +609,9 @@
 </pre></div>
 
         
+        <br><br><br><br>
+
+        <b>After you're done making all these changes, run the code in the Scratchpad and show it to me!</b>
 
       </p>
 
@@ -574,7 +622,7 @@
 
       <p>
 
-        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
         <div class="mx-lg-5">
           We will add two mwthods to our Fruit_Buddy class:
           <br><br>
@@ -835,10 +883,9 @@
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Monday 10/25)</h4>
+      <h4>Homework</h4>
       <b>[Due for everyone]</b>  
       <br>
-      ZyBooks Chapters 9.1, 9.2, and 9.3
       <br>
       Check out this file : <a href="http://www.science.smith.edu/~jorourke/111/Graphics/graphics.py">graphics.py</a>
       <br>
@@ -846,7 +893,7 @@
       <br>
 
       <br>
-      Assignment 04 is Due 10/27
+      Assignment 07 is Due 04/01 ( with extension to 04/04 by 5PM)
 
       <br><br>
 
@@ -871,10 +918,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes20.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Next Module</a>
               </li>
             </ul>
           </div>
