@@ -387,13 +387,22 @@
             <div class="mx-lg-5">
               <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes] How would you prove this?:
               <br>
-              is ALSO Not Decidable?
+             \(\overline{EMPTY-TM}\) is ALSO Not Decidable?
               <details>
                 <summary>(Wait; then Click)<br><br></summary>  
-                Use Closure!
+                Use Contradiction and Closure!
 
                 <br><br><br><br><br><br>
-                <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-22b.png" alt="" style="width:80%">
+<!--                 <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-22b.png" alt="" style="width:80%">
+ -->
+                  <big><span style="color:#003470;font-size:100%">
+                  What would happen if we assume that \(\overline{EMPTY-TM}\) is Decidable?
+                  <br>
+                  It turns out that Turing-Decidable languages are closed under Complement...so...
+                  <br><br>
+                  \(EMPTY-TM\) would be decidable too... But we just proved it is NOT, so \(\overline{EMPTY-TM}\) cannot be decidable.
+                </span></big>
+
                 <br><br>
               </details>
             </div>
@@ -413,9 +422,16 @@
                   <br><br>
                   <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-23.png" alt="" style="width:80%">
                   <br><br>
-                  <br><br>
-                  <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-24.png" alt="" style="width:80%">
-                  <br><br>
+
+                  <big><span style="color:#003470;font-size:100%">
+                  Is there a way to deal with this?
+                  </span></big>
+                  <details>
+                  <summary>(Wait; then Click)<br><br></summary> 
+                    <br><br>
+                    <img id="image" class="img-responsive" src="../figures/lecture23/Reduc-24.png" alt="" style="width:80%">
+                    <br><br>
+                  </details>
               </details>
             </div>
 
@@ -462,12 +478,43 @@
           <br><br>
           <img id="image" class="img-responsive" src="../figures/lecture24/Enum-31.png" alt="" style="width:80%">
           <br><br>
-          <br><br>
+
+          <div class="mx-lg-5">
+              <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes] In groups, come up with an algorithm to enumerate \(\Sigma^*\)?:
+              <br>
+          </div>
+
+          <br><br><br><br><br><br>
           <img id="image" class="img-responsive" src="../figures/lecture24/Enum-32.png" alt="" style="width:80%">
           <br><br>
           <br><br>
           <img id="image" class="img-responsive" src="../figures/lecture24/Enum-33.png" alt="" style="width:80%">
           <br><br>
+
+          <div class="mx-lg-5">
+              <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes] In groups, 
+              <br>
+              How would you prove that, IF you can enumerate a Language, then that language is Recognizable.
+              <br>
+              <details>
+              <summary>(Wait; then Click)<br><br></summary> 
+                    <br><br>
+                    Assume L is enumerable, i.e. there exists some machine E_L that can print out all of Ls words.
+                    <br>
+                    Build a machine R_L that uses E_L to print them out one at a time, and compares each one with the input. 
+                    <br>
+                    As soon as they match, accept. 
+                    <br><br>
+                    This machine accepts only words that are in L, and if a word is in L we’re guaranteed to reach it at some point (though it might take awhile). 
+                    <br>
+                    Thus, it recognizes L. QED. 
+                    <br><br>
+              </details>
+          </div>          
+
+<!-- -->
+
+
           <br><br>
           <img id="image" class="img-responsive" src="../figures/lecture24/Enum-34.png" alt="" style="width:80%">
           <br><br>
@@ -477,11 +524,12 @@
           <br><br>
           <img id="image" class="img-responsive" src="../figures/lecture24/Enum-36.png" alt="" style="width:80%">
           <br><br>
+<!--           
           <br><br>
           <img id="image" class="img-responsive" src="../figures/lecture24/Enum-37.png" alt="" style="width:80%">
           <br><br>
 
-
+ -->
 
         
       </p>
