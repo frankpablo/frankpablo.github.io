@@ -315,7 +315,7 @@
                         & \quad \quad \text{ Run $M$ on $w$ ADWID}\\
                         & \text{ Now Run $D_{ATM-01}$ on $HELPER_{M,w}$}\\
                         & \text{ If $D_{ATM-01}$ accepts, it is only because M accepts w so our machine ACCEPTS}\\
-                        & \text{ If $D_{ATM-01}$ rejects, , it is only because M accepts w so our machine REJECTS}\\
+                        & \text{ If $D_{ATM-01}$ rejects, , it is only because M rejects w so our machine REJECTS}\\
                       \end{align*}
                     \]
 
@@ -360,7 +360,7 @@
                         & \quad \quad \text{ Run $M$ on $w$ ADWID}\\
                         & \text{ Now Run $D_{EMPTY-TM}$ on $HELPER_{M,w}$}\\
                         & \text{ If $D_{EMPTY-TM}$ rejects, invert the result and our machine ACCEPTS}\\
-                        & \text{ If $D_{HALT}$ accepts, , invert the result and our machine REJECTS}\\
+                        & \text{ If $D_{EMPTY-TM}$ accepts, invert the result and our machine REJECTS}\\
                       \end{align*}
                     \]
 
