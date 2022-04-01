@@ -245,15 +245,62 @@
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-07.png" alt="" style="width:60%">
         <br><br>
+
+        <div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes] How would you do this reduction?:
+          <details>
+                <summary>(Wait; then Click)<br><br></summary> 
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-08.png" alt="" style="width:80%">
         <br><br>
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-09.png" alt="" style="width:80%">
         <br><br>
+
+        <br><br>
+              </details>
+          </div>          
+
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-10.png" alt="" style="width:80%">
         <br><br>
+
+
+        <div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes] How would you do this reduction?:
+          <details>
+                <summary>(Wait; then Click)<br><br></summary>  
+
+            <br><br>
+            <big><span style="color:#003470;font-size:120%">
+             
+                  Assume EQTM is decidable, and so there exists some \(D_{EQTM}\) that decides, for any input \(< M_1, M_2>\), whether \(M_1\) Accepts the same language as \(M_2\).
+                  <br><br>
+                  We'll design the Machine \(D_{EmptyTM} \) as follows: 
+                  <br><br>
+                  \[
+                      \begin{align*}
+                        &D_{EmptyTM}:\\
+                        & \text{ On input $ < M > $ }:\\
+                        & \text{ Create (but don't run) $HELPER_{\emptyset}$ such that}\\
+                        & \quad \text{ On input $ < X > $ }:\\
+                        & \quad \quad \text{ Ignore $ < X > $ }\\
+                        & \quad \quad \text{ Reject}\\
+                        & \text{ Now Run $D_{EQTM}$ on input $ < M, HELPER_{\emptyset} $ ADWID}\\
+                        & \text{ If $D_{EQTM}$ accepts, it is only because M accepts no words so our machine ACCEPTS}\\
+                        & \text{ If $D_{EQTM}$ rejects, , it is only because M accepts some w so our machine REJECTS}\\
+                      \end{align*}
+                    \]
+
+                  </span></big>
+                <br><br>
+              </details>
+          </div>   
+
+
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-11.png" alt="" style="width:80%">
         <br><br>
@@ -263,6 +310,22 @@
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-13.png" alt="" style="width:80%">
         <br><br>
+
+        <div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes] How would you do this reduction?:
+          <details>
+                <summary>(Wait; then Click)<br><br></summary>  
+
+            <br><br>
+            <big><span style="color:#003470;font-size:120%">
+              <li>Reject if: \(D_{EMPTY}\) accepts \(M_{M,w}\)</li>
+              <li>Accept if: \(D_{EMPTY}\) rejects \(M_{M,w}\)</li>
+              </span>
+              </big>
+          </details>
+        </div>
+
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-14.png" alt="" style="width:80%">
         <br><br>
@@ -287,12 +350,56 @@
         <br><br>
 
         <br><br>
+            <big><span style="color:#003470;font-size:150%">The Emptiness Problem</span></big>
+
+            <br><br>
+
+            <big><span style="color:#003470;font-size:100%">
+            <li>Theorem: \(\overline{EMPTY-TM}\) is recognizable</li>
+            <li>Theorem: \(EMPTY-TM\) is undecidable</li>
+            <li>Corollary: \(EMPTY-TM\)is <b>unrecognizable</b></li>
+            <li>Proof: If \(\overline{EMPTY-TM}\) and \(EMPTY-TM\) recognizable,</li>
+            <li>that would imply \(EMPTY-TM\) is decidable </li>
+            
+            </span></big> 
+
+            <br><br><br><br>
+
+            <big><span style="color:#003470;font-size:100%">This means our Turing Reduction Can't catch if the fact that we're reducing outside the same class of languages
+              <br><br>
+
+            Issue with EMPTY ≤ ¬EMPTY is that the “Domain” of one is complement of the “Domain” of the other!
+            </span></big>
+
+            <br><br><br><br>
+
+            <big><span style="color:#003470;font-size:100%">However, we've actually seen a STRONGER type of reduction</span></big>
+
+            <br><br>
+
+        <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-19.png" alt="" style="width:80%">
         <br><br>
+
+        <big><span style="color:#003470;font-size:100%">
+        Here, The “Domain” of EMPTY corresponds to the “Domain” of EQ!
+        </span></big>
+
+        <br><br><br><br>
+
+
 
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-20.png" alt="" style="width:80%">
         <br><br>
+
+
+        <big><span style="color:#003470;font-size:100%">
+        We could rewrite this as a simple conversion from any word in EmptyTM to a word in EQ_TM 
+        (and similarly a word not in EmptyTM to a word not in EQ_TM). 
+        <br><br>
+        We call this a mapping reduction, and denote it  \( \leq_m\)
+        </span></big>
 
 
       </p>
@@ -322,6 +429,22 @@
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-26.png" alt="" style="width:80%">
         <br><br>
+
+        <big><span style="color:#003470;font-size:100%">
+They’re a way for us to relate problems to one another <br>
+If A reduces to B and B is easy => A is easy too <br>
+More common: if A reduces to be and A is hard => B is hard too <br><br>
+
+We started with ATM (which we proved was undecidable using a big ugly contradiction ) <br>
+Reduced ATM to HALT (ATM ≤ HALT): we showed that if we had a decider HALT, we could use that to decide ATM (so that means HALT must also be undecidable) <br><br>
+
+We did the same thing with ATM-01 <br>
+And EmptyTM <br>
+Later, we also showed that if we had a decider for HALT, we could use that to decide EmptyTM  <br>
+And that if we had a decider for EQ_TM, we could yet again decide EmptyTM (mapping)
+        </span></big>        
+
+        <br><br><br><br><br><br>
 
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-27.png" alt="" style="width:80%">
@@ -365,7 +488,7 @@
         
       </p>
 
-      <p><br></p><hr><p><br></p>
+<!--       <p><br></p><hr><p><br></p>
 
       <h2>Assignment 04</h2>
 
@@ -378,7 +501,7 @@
           <li>provide a short and clear answer in a pdf (add all your names)</li>
         </ol>
       </p>
-
+ -->
       <p><br></p><hr><p><br></p>
 
       <h4>Homework</h4>
@@ -388,7 +511,7 @@
       Review reductions and mapping reductions (video and recorded lectures)
       <br>
       <div class="mx-5">
-        TODO
+        PS07 will be out tonight Due Next Friday (with auto-extension until Monday 04/11)
       </div> 
       <br>
       <b>[Optional]</b> 
