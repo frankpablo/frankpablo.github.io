@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes27.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 26: Graphics in Python</h1>
+      <p>
+        <br>
+      </p>
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Importing the grahics Module</h2>
+
+      <p>
+
+        A <b>Module</b> is Python code that has already been written and that we simply want to use in the <i>current</i> program.
+        <br><br>
+        These modules can be written by you or downloaded from some (trusted) source. An example, is the <b><tt>graphycs.py</tt></b> Module.
+
+        <br><br>
+
+        You can freely obtain it <a href="https://mcsp.wartburg.edu/zelle/python/graphics.py">here</a>.
+        <br><br>
+        What we will do is work with it in a <b>graphics-example</b> Replit.
+
+        <br><br>
+
+        The way to let Python know that we "want to use module &lt; this module &gt;" is to do the following:
+        <br><br>
+        <ol>
+          <li>the module's code should be written in a file with a <b><tt>.py</tt></b></li> extension.
+          <li>in the <b>current file</b> you should use the following syntax (imagine we're importing the graphics.py module)
+            <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">graphics</span>
+</pre></div>
+        
+          </li>
+
+        </ol>
+            <br><br>
+
+            When using this approach, we can acces attributes and methods inside of the module by using ts name and the dot operator...like this:
+            <br><br>
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">graphics</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+    win <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>GraphWin()
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+
+            <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">     
+
+          Try to run the code shown above in an Exercise called <b>graphics-example</b> in Replit.
+          <br><br>
+          This creates a default dispay window (the default size is 200 x 200 and the initial coordinates are in the top-left side corner)
+        </div>
+
+
+            <br><br>
+
+
+            <h3>namespaces</h3>
+
+            A namespace is actually just a normal Python dictionary whose keys are the names and whose values are the objects.
+
+            <br><br>
+
+            A module object is simply a namespace that contains definitions from the module. If the module has already been loaded, then the existing module object is used.
+
+            <br><br>
+
+            Definitions in the module's code, e.g., variable assignments and function definitions, are placed in the module's namespace. The module is then added to the importing script or module's namespace, so that the importer can access the definitions.
+
+            <br><br>
+
+            In short, <b>loading a module using <tt>import</tt> adds the module's namespace definitions to the current one</b>
+
+            <br><br>
+
+        <h3>Location of modules</h3>
+
+        The easiest thing to do is to place the modules in the same directory than the file that uses it.
+        <br><br>
+        <br><br>
+
+
+            <h3>The <b><tt>from</tt></b> syntax</h3>
+
+            Another way to do it is by using the <b><tt>from</tt></b> syntax:
+
+            <br><br>
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">graphics</span> <span style="color: #008800; font-weight: bold">import</span> <span style="color: #333333">*</span>
+</pre></div>
+
+            <br><br>
+
+            using <b><tt>from</tt></b> adds only the specified names to the global namespace.
+            <br><br>
+
+            <h4>A practical example</h4>
+            <br><br>
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">graphics</span> <span style="color: #008800; font-weight: bold">import</span> <span style="color: #333333">*</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+  win <span style="color: #333333">=</span> GraphWin( )
+
+<span style="color: #008800; font-weight: bold">if</span> __name__ <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;__main__&quot;</span>:
+    main()
+</pre></td></tr></table></div>
+
+          <li>Note that in main, we're using a function defined in the graphics module, called <b><tt>GraphWin</tt></b>, but we don't need to use the <b><tt>graphics.</tt></b> notation </li>
+
+
+
+          <br><br><br><br>
+          This approach might lead to issues for the case when two modules have a function with the same name. 
+          <br><br>
+          <b>For this reason, in this course, we will NOT use the <br>
+            <tt>from &lt; module name &gt; import * </tt> notation in any projects/homework outside of class</b>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>The graphics.py Library</h2>
+
+      <p>
+
+        The <a href="../resources/graphics.py">graphics.py</a> library has several small classes, each with their own methods and inherited properties.
+        <br><br>
+
+        You can define points and lines, draw circles, rectangles, lines, Ovals, Text, and Polygons.
+        <br><br>
+
+        It also lets you do coordinate transformations (that help with displacements or rotations).
+        <br><br>
+
+        Additionally, it can react to mouse and keyboard events (<b>Can you think of somethig you could build with this?</b>)
+
+        <br><br><br><br>
+
+        It is recommended that you consider using it for your final project!
+        <br><br>
+        The documentation can be found in <a href="../resources/graphics.pdf">graphics.pdf</a>
+
+        <br><br><br><br>
+
+
+          <br><br><br><br>
+          Comment out or save the current code in another file.
+          <br><br>
+
+          
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+           Now, We're going to construct a little scene.
+            <!-- ( to simplify things, we'll be using the <b><tt>from</tt> syntax for this example</b>). -->
+
+          <br><br>
+          First, write the following lines in main:
+          <br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/graph01.png" alt="" style="width:80%">
+          <br><br>
+          This creates a window of default size (200 x 200 pixels), name (<tt>'Graphics Window'</tt>), and coordinates.
+          <br><br>
+          <b>Coordinate system:</b>
+          <br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/coordinates.png" alt="" style="width:60%">
+
+        </div>
+
+        <br><br>
+
+        <h3>Now, let's add a shape</h3>
+
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Modify the code to add a circle
+          <br><br>
+          Predict where it will appear and its approximate size.
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/graph02.png" alt="" style="width:80%">
+          <br><br>
+
+          <br><br>
+
+          You should see this:
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/graph03.png" alt="" style="width:40%">
+          <br><br>
+
+        </div>
+
+
+        <br><br>
+
+        Now, we'll modify the coordinate system
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Modify the code to change its coordinates (Change in line 6):
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/graph04.png" alt="" style="width:80%">
+          <br><br>
+
+          <br><br>
+           You should see this:
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/graph05.png" alt="" style="width:40%">
+          <br><br>
+
+
+          This will make the coordinate system look like this:
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/graph06.png" alt="" style="width:40%">
+          <br><br>
+
+        </div>
+
+      </p>
+
+
+<!-- 
+  DON"T ADD FROM HERE
+        <h3>Now, we will use different objects to draw something a bit more complex</h3>
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Change your code to draw a red circle in the window:
+          <br><br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture20/graph06.png" alt="" style="width:80%">
+          <br><br>
+        </div>
+
+  TO HERE      
+ -->
+
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Drawing more complex stuff</h2>
+
+      <p>
+
+        <br><br>
+
+        The following calls allow you to  draw lines:
+        <br>
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    p1 <span style="color: #333333">=</span> Point( <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">100</span> )
+    p2 <span style="color: #333333">=</span> Point( <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">100</span> )
+    line <span style="color: #333333">=</span> Line( p1, p2 )
+    line<span style="color: #333333">.</span>setFill( <span style="background-color: #fff0f0">&#39;yellow&#39;</span> )
+    line<span style="color: #333333">.</span>draw( win )
+</pre></div>
+
+        <br><br>
+
+        The method (inside the appropriate object) to make the line wider is:
+        <br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">setWidth( <span style="color: #0000DD; font-weight: bold">2</span> )
+</pre></div>
+
+        <br><br>
+
+        You can also set your own colors, like this:
+        <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">win<span style="color: #333333">.</span>setBackground( color_rgb(<span style="color: #0000DD; font-weight: bold">140</span>, <span style="color: #0000DD; font-weight: bold">200</span>, <span style="color: #0000DD; font-weight: bold">250</span>) )
+</pre></div>
+
+          <br><br>
+
+          If you search in google "rgb color picker", you'll get a handy color picker where you can choose the RGB color values.
+          <br>
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/color_picker.png" alt="" style="width:80%">
+          <br><br>          
+          
+
+          <br><br>
+
+          You can draw a rectangle with this code:
+          <br><br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%">    <span style="color: #888888"># Draw a rectangle</span>
+    pbl <span style="color: #333333">=</span> Point(<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>, <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>)
+    ptr <span style="color: #333333">=</span> Point(<span style="color: #0000DD; font-weight: bold">50</span>, <span style="color: #0000DD; font-weight: bold">50</span>)
+    rec <span style="color: #333333">=</span> Rectangle(pbl, ptr)
+    rec<span style="color: #333333">.</span>draw(win)
+</pre></td></tr></table></div>
+
+          <br><br>
+
+          <b>You can open up the graphics.py or the graphics.pdf files and check how to draw a polygon!</b>
+<!-- 
+          <br><br><br><br>
+        
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Can you find out what the coordinate system is like?
+          <br>
+          Where is the origin?
+          <br>
+          Which is the x axis?
+          <br>
+          Where is +ve x?
+          <br>
+          Where is the y axis?
+          <br>
+          Where is +ve y?
+
+        </div>
+ -->
+        <br><br><br><br>
+
+        <h3>And now, for a greater challenge:</h3>
+        <br><br>
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [10 minutes] : <br>
+        <div class="mx-lg-5">
+          Figure out how to draw this image (or one close to it)
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture25/graph07.png" alt="" style="width:80%">
+          <br><br>
+        </div>
+
+
+
+      </p>
+      
+<!--
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Designing and building a complex multi-class project</h2>
+
+      <p>
+
+        Today, we'll design, develop, and test, a slightly more complex graphics-based project.
+
+        <br><br>
+
+        <h3>Steps</h3>
+
+        <li>Before we start... sit with your final project teams</li>
+        <li>For each task, one should code while the others supervise / direct the steps</li>
+        <li>The person coding <b>should not</b> be the person making the "what to code next" decisions</li>
+        <br><br>
+
+        <h4>The Task:</h4>
+        <br>
+      <ol>
+        <li>We will choose a type of scene to draw that contains:
+          <ul>
+            <li>multiple identical complex objects</li>
+            <li>placed randomly in a scene</li>
+          </ul>
+        </li>
+        <li>We will design the classes that need to be created to complete this project</li>
+        <li>We will develop in modules:
+          <ul>
+            <li>We will develop base classes first --- <b>and TEST them (using ad-hoc testing functions)</b></li>
+            <li>We will develop any inherited classes next --- <b>and TEST them (using ad-hoc testing functions)</b></li>
+            <li>We will develop the implementation code that uses these classes in small steps --- <b>while TESTING them (using ad-hoc testing functions)</b></li>            
+          </ul>
+        </li>
+      </ol>
+
+      <br><br><br><br>
+
+      <h3>Example scenes:</h3>
+
+      <br><br>
+
+      <h4>Complex Objects - Simple Scene</h4>
+      These objects are too complex for this lecture... but you get the idea
+      <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/calaveritas.png" alt="" style="width:60%">
+      <br><br>
+      The actual task for something like this would be: Make the base class, make the derived classes, place randomly in the scene.
+
+      <br><br><br><br>
+
+      <h4>Complex Scene - Simpl(er) Objects</h4>
+      This scene is too complex for this lecture... but you get the idea
+      <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/pumpkin-patch.png" alt="" style="width:60%">
+      <br><br>
+      The actual task for something like this would be: Make the base class, make the derived classes, place randomly in the scene.
+
+      <br><br><br><br>
+
+      We will shoot for something like this:
+
+      <br><br>
+
+      <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/pumpkins.png" alt="" style="width:60%">
+      <br><br>
+
+
+     </p>
+
+
+     <p><br></p><hr><p><br></p>
+
+      <h2>Incremental Development</h2>
+
+      <p>
+
+        <h3>Step 1: Sketch your plan</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 2: Sketch your program structure</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 3: Fill out the base structure</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 4: TEST the base structure</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 5: Fill out the next module (part)</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 6: TEST the next module (part)</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 7: If you are done, go to 8, else, go to 5</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 8: Run full-level Sanity checks</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+      </p>
+
+     <p><br></p><hr><p><br></p>
+
+      <h2>Additional readings</h2>
+
+      <p>
+          <li>Check out ZyBooks 8.14, and 8.15 to understand about Multiple inheritance</li>
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Reminder: Final Project!</h2>
+
+      <p>
+
+        Final Project Speciffication
+        <ol>
+          <li><strike>Teams of 2 or 3</strike></li>
+          <li><strike>If you want to self select, tell me by next class</strike></li>
+          <li><strike>Any others will be assigned randomly</strike></li>
+          <li>YOU design the project (with notes from me)</li>
+          <li>Should inclde enough complexity (think Classes and Objects, Loops, User interaction, Graphics, etc)</li>
+          <li>Can be a Practical tool, a Game, an Artistic program, etc.</li>
+          <li>There will be 3 deadlines:
+            <ol>
+              <li><Big><b>Project Proposal: By Wednesday, November 3rd (TODAY).</b></Big></li>
+              <li>Project Skeleton: Show me the design (sketch + comments + basic class/function skeletons); Due Friday, November 12th</li>
+              <li>Project Prototype: Show me a <b>working</b> prototype with basic functionality. Due Monday, November 22nd.</li>
+              <li>Project Submission: Full project due on Wednesday, December 1st.</li>
+              <li>Project Presentation / Video (Show us your project in class): Wednesday, December 8th.</li>
+            </ol>
+          </li>
+        </ol>
+
+      </p>
+-->
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework</h4>
+      <b>[Due for everyone]</b>  
+      <br>
+      Remember you have the <b>Final Project - Prototype I</b> Due on April 7th.      
+      <br><br>
+      For Project Prototype I you will submit your <b>minimum viable product</b>. This should include the core functionality to demonstrate the purpose of your project.
+      <br><br>
+<!-- 
+      Example: Say that your app is a Relaxation game where you `clean your room`
+      <br>
+       -->
+      Your core functionality should include:
+      <br><br>
+
+      <h4>Project's Niche:</h4>
+      <ul>
+        <li>Why is this product usefuln/eeded?</li>
+        <li>What would be an ideal long-term goal ( what would it look like for this project to be a success)</li>
+        <li>What is your success criteria: what are the minimum things that it should achieve so you say "I did it!"</li>        
+      </ul>
+      <br><br>
+
+      <h4>User's Journey:</h4>
+      <ul>
+        <li>What should it look like/feel like to use your product</li>
+        <li>Are there multiple outcomes? What are they?</li>
+        <li>Here, a "user-experience" flow diagram would be VERY useful</li>
+        <li>Here, a series of mock-ups would be very useful (think of these as intermediate screens encountered by the user as they use your app)</li>
+      </ul>
+      <br><br>
+
+      <h4>Features and Modules:</h4>
+      <ul>
+        <li>What are the different features/parts/modules in your product</li>
+        <li>Which ones are crucial (mission critical) and which ones are perks (good to have but optional)</li>
+        <li>Roadmap of what needs to be built, in what order, and by whom</li>
+      </ul>
+
+      <!-- 
+
+      Then, complete the following actions:
+      <ol>
+        <li>Draw a "sketch" of the classes you will use in your final project. <br>
+          The following notation is recommended: <a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/">UML</a>
+          <br>
+          If you use UML, 
+          <ol>
+            <li>You ONLY need to specify the class attributes and methods as well as the inheritance relations for your classes.</li>
+            <li>No need to specify Association, Cardinality, Aggregation, Composition, Dependency, or Realization</li>
+          </ol>
+        </li>
+        <li>[Optionally] sign-up for and watch this video: <a href="https://realpython.com/lessons/uml-diagrams/">UML Diagrams</a></li>
+        <li>[Optionally] read: <a href="https://realpython.com/inheritance-composition-python/">Inheritance and COmposition</a> (don't go past "Abstract Base Classes in Python")</li>
+      </ol>
+      
+ -->
+      
+
+      <br><br>
+
+      <b>[Optional]</b>
+      <br>
+
+      </li>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes27.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
