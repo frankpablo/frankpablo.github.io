@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes27.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,7 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 16: Rice's Theorem</h1>
+      <h1>Lecture Notes 26: Rice's Theorem</h1>
       <p>
         <br>
       </p>
@@ -216,55 +216,129 @@
 
       <p><br></p><hr><p><br></p>
 
-      <h2>Recap: Mapping Reductions</h2>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Mapping Reductions</h2>
+
       <p>
+        
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-01.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-21.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-02.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-22.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-03.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-23.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-24.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-25.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-26.png" alt="" style="width:80%">
+        <br><br>
+
+        
+They’re a way for us to relate problems to one another <br>
+If A reduces to B and B is easy => A is easy too <br>
+More common: if A reduces to be and A is hard => B is hard too <br><br>
+
+We started with ATM (which we proved was undecidable using a big ugly contradiction ) <br>
+Reduced ATM to HALT (ATM ≤ HALT): we showed that if we had a decider HALT, we could use that to decide ATM (so that means HALT must also be undecidable) <br><br>
+
+We did the same thing with ATM-01 <br>
+And EmptyTM <br>
+Later, we also showed that if we had a decider for HALT, we could use that to decide EmptyTM  <br>
+And that if we had a decider for EQ_TM, we could yet again decide EmptyTM (mapping)
+        </span></big>        
+
+        <br><br><br><br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-27.png" alt="" style="width:80%">
+        <br><br>
+
+<!-- 
+HALT <=m SOMETIMES-HALTS
+We want to show that we can take any input and transform it such that:
+if the input was a word in HALT (<M,w>), the output is a word (<M>) in SOMETIMES-HALTS
+if the input was NOT a word in HALT, the output is NOT a word in SOMETIMES-HALTS
+This suggests that we want to build a helper machine that “amplifies” the behavior of M on w:
+Ignore the input x
+Run M on w ADWID
+The only way the helper halts is if M halts on w (if this is the case, it halts on EVERY input). Otherwise, it loops.
+In other words, if <M,w> was in HALT, then the helper will be in SOMETIMES-HALTS, and if <M,w> is NOT in HALT, then the helper won’t be in SOMETIMES-HALT.
+Thus, we’ve defined a mapping that from problems in HALT to problems in SOMETIMES-HALTS, proving that SOMETIMES-HALTS is at least as difficult as HAL, and so must be undecidable.
+         -->
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-28.png" alt="" style="width:80%">
+        <br><br>
+
+
+        <big><span style="color:#003470;font-size:100%">
+          Next: Rice's Theorem
+        </span></big>
+</p>      
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Recap: Mapping Reductions</h2>
+      <p>
+<!-- 
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-01.png" alt="" style="width:80%">
+        <br><br>
+-->
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-02.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-03.png" alt="" style="width:80%">
         <br><br>
         
 
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-04.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-04.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-05.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-05.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-06.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-06.png" alt="" style="width:80%">
         <br><br>
 
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-07.png" alt="" style="width:60%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-07.png" alt="" style="width:60%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-08.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-08.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-09.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-09.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-10.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-10.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-11.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-11.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-12.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-12.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-13.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-13.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-14.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-14.png" alt="" style="width:80%">
         <br><br>
 
       </p>
@@ -273,26 +347,82 @@
       <p>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-15.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-15.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-16.png" alt="" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-17.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-16.png" alt="" style="width:80%">
         <br><br>
 
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-18.png" alt="" style="width:80%">
-        <br><br>
+        <big><span style="color:#003470;font-size:100%">
+          Remember, we have to be able to deal with any input, but we don’t necessarily have to map them all to unique outputs. <br>This is why a mapping reduction is sometimes called a “many-one” reduction.
+        </span></big>
+
+<br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-19.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/mapping.png" alt="" style="width:60%">
         <br><br>
 
+
+
+
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-20.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-17.png" alt="" style="width:80%">
+        <br><br>
+
+
+        <big><span style="color:#003470;font-size:100%">
+Let’s start by assuming that ∅ ∉ P (that is, it doesn’t exhibit the non-trivial property we care about). <br>
+Because we’re trying to prove undecidability, I claim that we can assume this WLOG. 
+<br>
+Why? (otherwise, just work with the complement of P).
+<br><br>
+Let M1 be any TM such that L(M1) = ∅, so < M1 > ∉ MP.<br>
+
+Cool, so now we’ve got something we could map not-in-ATM words to.
+        </span></big>
+
+
+
+
+<br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-18.png" alt="" style="width:80%">
+        <br><br>
+
+        <big><span style="color:#003470;font-size:100%">
+        Next let M2 be any TM such that L(M2) ∈ P, so < M1 > ∈ MP. <br>
+How do we know M2 exists? <br>
+Because P is nontrivial.
+</span></big>
+
+<br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/mapping2.png" alt="" style="width:80%">
+        <br><br>
+
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-19.png" alt="" style="width:80%">
+        <br><br>
+
+<big><span style="color:#003470;font-size:100%">
+We have M1 not in P, M2 in P <br>
+<br>
+Goal:<br>
+on any input x:<br>
+if \(x = < M,w >\) ∈ ATM, map to something in MP <br>
+otherwise, map to something not in MP (like M1)<br>
+Easy part: If x isn’t of the form \(< M,w >\) return something ∉ MP, like \(< M1>\).
+</span></big>
+
+<br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-20.png" alt="" style="width:80%">
         <br><br>
 
 <!-- 
@@ -306,13 +436,13 @@
         
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-21.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-21.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-22.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-22.png" alt="" style="width:80%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture16/Rice-23.png" alt="" style="width:80%">
+        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-23.png" alt="" style="width:80%">
         <br><br>
         
         
@@ -369,10 +499,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes27.html">Next Module</a>
               </li>
             </ul>
           </div>

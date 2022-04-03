@@ -430,7 +430,7 @@
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-26.png" alt="" style="width:80%">
         <br><br>
 
-        <big><span style="color:#003470;font-size:100%">
+        
 They’re a way for us to relate problems to one another <br>
 If A reduces to B and B is easy => A is easy too <br>
 More common: if A reduces to be and A is hard => B is hard too <br><br>
@@ -450,14 +450,34 @@ And that if we had a decider for EQ_TM, we could yet again decide EmptyTM (mappi
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-27.png" alt="" style="width:80%">
         <br><br>
 
+<!-- 
+HALT <=m SOMETIMES-HALTS
+We want to show that we can take any input and transform it such that:
+if the input was a word in HALT (<M,w>), the output is a word (<M>) in SOMETIMES-HALTS
+if the input was NOT a word in HALT, the output is NOT a word in SOMETIMES-HALTS
+This suggests that we want to build a helper machine that “amplifies” the behavior of M on w:
+Ignore the input x
+Run M on w ADWID
+The only way the helper halts is if M halts on w (if this is the case, it halts on EVERY input). Otherwise, it loops.
+In other words, if <M,w> was in HALT, then the helper will be in SOMETIMES-HALTS, and if <M,w> is NOT in HALT, then the helper won’t be in SOMETIMES-HALT.
+Thus, we’ve defined a mapping that from problems in HALT to problems in SOMETIMES-HALTS, proving that SOMETIMES-HALTS is at least as difficult as HAL, and so must be undecidable.
+         -->
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-28.png" alt="" style="width:80%">
         <br><br>
+
+
+        <big><span style="color:#003470;font-size:100%">
+          Next: Rice's Theorem
+        </span></big>
+
+        <!--         
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-29.png" alt="" style="width:80%">
         <br><br>
 
-        <!-- 
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture25/MAP-30.png" alt="" style="width:80%">
         <br><br>
