@@ -398,12 +398,14 @@
         The following calls allow you to  draw lines:
         <br>
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    p1 <span style="color: #333333">=</span> Point( <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">100</span> )
-    p2 <span style="color: #333333">=</span> Point( <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">100</span> )
-    line <span style="color: #333333">=</span> Line( p1, p2 )
-    line<span style="color: #333333">.</span>setFill( <span style="background-color: #fff0f0">&#39;yellow&#39;</span> )
-    line<span style="color: #333333">.</span>draw( win )
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">p1 <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>Point( <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">100</span> )
+p2 <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>Point( <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">100</span> )
+line <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>Line( p1, p2 )
+line<span style="color: #333333">.</span>setFill( <span style="background-color: #fff0f0">&#39;yellow&#39;</span> )
+line<span style="color: #333333">.</span>draw( win )
 </pre></div>
+
+
 
         <br><br>
 
@@ -414,10 +416,29 @@
 
         <br><br>
 
+        <h3>Color</h3>
+
         You can also set your own colors, like this:
         <br><br>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">win<span style="color: #333333">.</span>setBackground( color_rgb(<span style="color: #0000DD; font-weight: bold">140</span>, <span style="color: #0000DD; font-weight: bold">200</span>, <span style="color: #0000DD; font-weight: bold">250</span>) )
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">my_color <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>color_rgb(<span style="color: #0000DD; font-weight: bold">140</span>, <span style="color: #0000DD; font-weight: bold">200</span>, <span style="color: #0000DD; font-weight: bold">250</span>)
 </pre></div>
+
+
+<br><br>
+
+Example:
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># create a rectangle with top-left corner at (5,5) and</span>
+<span style="color: #888888"># bottom-right at (50,50)</span>
+r3 <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>Rectangle(graphics<span style="color: #333333">.</span>Point(<span style="color: #0000DD; font-weight: bold">5</span>,<span style="color: #0000DD; font-weight: bold">5</span>), graphics<span style="color: #333333">.</span>Point(<span style="color: #0000DD; font-weight: bold">50</span>,<span style="color: #0000DD; font-weight: bold">50</span>))
+r3<span style="color: #333333">.</span>setFill(<span style="background-color: #fff0f0">&quot;red&quot;</span>)
+r3<span style="color: #333333">.</span>draw(win)
+my_color <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>color_rgb(<span style="color: #0000DD; font-weight: bold">200</span>,<span style="color: #0000DD; font-weight: bold">100</span>,<span style="color: #0000DD; font-weight: bold">150</span>)
+r3<span style="color: #333333">.</span>setFill(my_color)
+</pre></div>
+
+
+
 
           <br><br>
 
@@ -429,19 +450,28 @@
           
 
           <br><br>
+          <h3>Rectangles</h3>
 
           You can draw a rectangle with this code:
           <br><br>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-2
-3
-4
-5</pre></td><td><pre style="margin: 0; line-height: 125%">    <span style="color: #888888"># Draw a rectangle</span>
-    pbl <span style="color: #333333">=</span> Point(<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>, <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>)
-    ptr <span style="color: #333333">=</span> Point(<span style="color: #0000DD; font-weight: bold">50</span>, <span style="color: #0000DD; font-weight: bold">50</span>)
-    rec <span style="color: #333333">=</span> Rectangle(pbl, ptr)
-    rec<span style="color: #333333">.</span>draw(win)
-</pre></td></tr></table></div>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># Draw a rectangle</span>
+pbl <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>Point(<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>, <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>)
+ptr <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>Point(<span style="color: #0000DD; font-weight: bold">50</span>, <span style="color: #0000DD; font-weight: bold">50</span>)
+rec <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>Rectangle(pbl, ptr)
+rec<span style="color: #333333">.</span>draw(win)
+</pre></div>
+
+
+          <br><br>
+          <h3>Ovals</h3>
+          You can draw an oval with this code:
+          <br><br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># create a rectangle with top-left corner at (5,5) and</span>
+<span style="color: #888888"># bottom-right at (50,50)</span>
+r4 <span style="color: #333333">=</span> graphics<span style="color: #333333">.</span>Oval(graphics<span style="color: #333333">.</span>Point(<span style="color: #0000DD; font-weight: bold">5</span>,<span style="color: #0000DD; font-weight: bold">5</span>), graphics<span style="color: #333333">.</span>Point(<span style="color: #0000DD; font-weight: bold">50</span>,<span style="color: #0000DD; font-weight: bold">50</span>))
+r4<span style="color: #333333">.</span>draw(win)
+</pre></div>
+
 
           <br><br>
 
@@ -472,9 +502,16 @@
         <span style='color:#06a015'><b><big>Activity 5</big></b></span> [10 minutes] : <br>
         <div class="mx-lg-5">
           Figure out how to draw this image (or one close to it)
+
+<!-- 
           <br><br>
           <img id="image" class="img-responsive" src="../figures/lecture25/graph07.png" alt="" style="width:80%">
           <br><br>
+-->
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/fish.png" alt="" style="width:80%">
+          <br><br>
+
         </div>
 
 
