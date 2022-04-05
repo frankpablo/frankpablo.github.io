@@ -184,10 +184,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes26.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes27.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -203,7 +203,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 26: Mapping Reducibility and Intro to Rice's Theorem</h1>
+      <h1>Lecture Notes 27: Rice's Theorem and exercises</h1>
       <p>
         <br>
       </p>
@@ -211,243 +211,13 @@
 
       This class we'll discuss:
       <ul>
-        <li>Recap: A reduction issue</li>
-        <li>Mapping Reductions</li>
-        <li>Rice's Theorem</li>
+        <li>Rice's Theorem Intro</li>
+        <li>Rice's Theorem Proof</li>
+        <li>Rice's Theorem Exercises</li>
       </ul>
 
 
-
-
-
       <p><br></p><hr><p><br></p>
-
-      <h2>A Reduction Issuue</h2>
-
-      <p>
-
-        <br><br>
-            <big><span style="color:#003470;font-size:150%">The Emptiness Problem</span></big>
-
-            <li>Theorem: \(\overline{EMPTY-TM}\) is recognizable</li>
-            <li>Theorem: \(EMPTY-TM\) is undecidable</li>
-            <li>Corollary: \(EMPTY-TM\)is <b>unrecognizable</b></li>
-            <li>Proof: If \(\overline{EMPTY-TM}\) and \(EMPTY-TM\) recognizable,</li>
-            <li>that would imply \(EMPTY-TM\) is decidable </li>            
-
-
-            <br><br><br><br>
-
-            <big><span style="color:#003470;font-size:100%">This means our Turing Reduction Can't catch if the fact that we're reducing outside the same class of languages
-              <br><br>
-
-            Issue with EMPTY ≤ ¬EMPTY is that the “Domain” of one is complement of the “Domain” of the other!
-            </span></big>
-
-            <br><br><br><br>
-
-            <big><span style="color:#003470;font-size:100%">However, we've actually seen a STRONGER type of reduction</span></big>
-
-            <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-19.png" alt="" style="width:80%">
-        <br><br>
-
-        <big><span style="color:#003470;font-size:100%">
-        Here, The “Domain” of EMPTY corresponds to the “Domain” of EQ!
-        </span></big>
-
-        <br><br><br><br>
-
-
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-20.png" alt="" style="width:80%">
-        <br><br>
-
-
-        <big><span style="color:#003470;font-size:100%">
-        We could rewrite this as a simple conversion:
-        <br>
-        from any word in EmptyTM to a word in EQ_TM 
-        (and similarly a word not in EmptyTM to a word not in EQ_TM). 
-        <br><br>
-        We call this a <b>mapping reduction</b>, and denote it  \( \leq_m\)
-        </span></big>
-
-      </p>
-
-
-      <p><br></p><hr><p><br></p>
-
-
-      <h2>Mapping Reductions</h2>
-
-      <p>
-        
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-21.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-22.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-23.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-24.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-25.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-26.png" alt="" style="width:80%">
-        <br><br>
-
-        <big><span style="color:#003470;font-size:100%">
-                
-        They’re a way for us to relate problems to one another 
-        <br><br>
-
-        If A reduces to B and B is easy => A is easy too <br>
-        More common: if A reduces to be and A is hard => B is hard too <br><br>
-
-        We started with ATM (which we proved was undecidable using a big ugly contradiction ) 
-        <br>
-        Reduced ATM to HALT (ATM ≤ HALT): we showed that if we had a decider HALT, we could use that to decide ATM 
-        <br>
-        (so that means HALT must also be undecidable) 
-        <br><br>
-
-        We did the same thing with ATM-01 <br>
-        And EmptyTM 
-        <br><br>
-        Later, we also showed that if we had a decider for HALT, we could use that to decide EmptyTM  <br>
-        And that if we had a decider for EQ_TM, we could yet again decide EmptyTM (mapping)
-        </span></big>        
-
-        <br><br><br><br><br><br><br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-27.png" alt="" style="width:80%">
-        <br><br>
-
-
-        <div class="mx-lg-5">
-          <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes] How would you do this reduction?:
-          <details>
-            <summary>(Wait; then Click)<br><br></summary> 
-              HALT <=m SOMETIMES-HALTS
-              <br><br>
-              We want to show that we can take any input and transform it such that:
-              <br>
-              if the input was a word in HALT \((< M,w>)\), the output is a word \((< M>)\) in SOMETIMES-HALTS
-              <br><br>
-
-              if the input was NOT a word in HALT, the output is NOT a word in SOMETIMES-HALTS
-              <br><br>
-
-              This suggests that we want to build a helper machine that “amplifies” the behavior of M on w:
-              <br><br>
-                    \[
-                      \begin{align*}
-                        &D_{HALT}:\\
-                        & \text{ On input $ < M,w > $ }:\\
-                        & \text{ Create (but don't run) $HELPER_{M,w}$ such that}\\
-                        & \quad \text{ On input $ < X > $ }:\\
-                        & \quad \quad \text{ Ignore $ < X > $ }\\
-                        & \quad \quad \text{ Run M on w ADWID}\\
-                        & \text{ Now Run $D_{S-H}$ on input $ < HELPER_{M,w} > $ ADWID}\\
-                      \end{align*}
-                    \]              
-
-              <br><br>
-
-              The only way the helper halts is if M halts on w (if this is the case, it halts on EVERY input). Otherwise, it loops.
-              <br>
-              In other words, if \(< M,w>\) was in HALT, then the helper will be in SOMETIMES-HALTS, 
-              <br>
-              and if \(< M,w>\) is NOT in HALT, then the helper won’t be in SOMETIMES-HALT.
-              <br><br>
-              Thus, we’ve defined a mapping that from problems in HALT to problems in SOMETIMES-HALTS, proving that SOMETIMES-HALTS is at least as difficult as HAL, and so must be undecidable.            
-          <br><br>
-          </details>
-
-<!-- 
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture25/MAP-28.png" alt="" style="width:80%">
-        <br><br>
-
-
-        <big><span style="color:#003470;font-size:100%">
-          Next: Rice's Theorem
-        </span></big>
-         -->
-</p>      
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Recap: Mapping Reductions</h2>
-      <p>
-<!-- 
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-01.png" alt="" style="width:80%">
-        <br><br>
--->
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-02.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-03.png" alt="" style="width:80%">
-        <br><br>
-        
-
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-04.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-05.png" alt="" style="width:80%">
-        <br><br>
-
-        <big><span style="color:#003470;font-size:150%">
-          Our previous example:
-        </span></big>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-06.png" alt="" style="width:80%">
-        <br><br>
-
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-07.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-08.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-09.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-10.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-11.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-12.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-13.png" alt="" style="width:80%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/Rice-14.png" alt="" style="width:80%">
-        <br><br>
-
-      </p>
 
       <h2>Rice's Theorem</h2>
       <p>
@@ -581,10 +351,13 @@ Because P is nontrivial.
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture26/Rice-22.png" alt="" style="width:80%">
         <br><br>
+
+
+<!--         
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture26/Rice-23.png" alt="" style="width:80%">
         <br><br>
-        
+         -->
         
       </p>
 
@@ -604,15 +377,15 @@ Because P is nontrivial.
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Wednesday)</h4>
+      <h4>Homework</h4>
       <br>      
       <b>[Due for everyone]</b>
       <br>
       TODO
       <br>
-      <!-- <div class="mx-5">
-         Assigment 04 due next Wednesday, November  17th (IN GROUPS OF UP TO 3)!
-      </div> --> 
+      <div class="mx-5">
+         PS06 Due Monday 04/11 5PM
+      </div> 
       <br>
       <b>[Optional]</b> 
       <div class="mx-5">
@@ -639,10 +412,10 @@ Because P is nontrivial.
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes26.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes27.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Next Module</a>
               </li>
             </ul>
           </div>
