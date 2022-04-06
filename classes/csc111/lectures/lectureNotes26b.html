@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes26.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,130 +122,131 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 24: Planning a simple animation with graphics.py</h1>
+      <h1>Lecture Notes 27: Fancy graphics with user-objects (Lab)</h1>
       <p>
         <br>
       </p>
 
       <p><br></p><hr><p><br></p>
 
-      <h2>Example Objective:</h2>
+      <h2>Designing and building a complex multi-class project</h2>
 
       <p>
 
-
-        The following is what we wanna build:
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture24/aquarium.gif" alt="" style="width:60%">
-        <br><br>
-        (<i>Note: the awsesome wavering pixels in the background is an artifact of the gif-making</i>)
+        Today, we'll design, develop, and test, a slightly more complex graphics-based project.
 
         <br><br>
 
-        The next steps are:
+        <h3>Steps</h3>
 
-        <ol>
-          <li>Design the structure so we achieve the following objective
-            <ol>
-              <li>We may have several types of fish</li>
-              <li>They may flip direction (remember the moon)</li>
-              <li>They move on the screen</li>
-              <li>They move in a different direction if certain conditions are met (reach the wall)</li>
-            </ol>
-          </li>
-          <li>Write the Fish Class</li>
-          <li>Create and Draw several fish and move them in the screen</li>
-          <li>Add a background</li>          
-          <li>Add bouncing logic</li>
-        </ol>
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Task 1: Design the Structure </h2>
-
-      <p>
-
-        <br><br><br><br><br><br><br><br>
-
-        First discuss the components using drawings and geometry as well as the Coding Structure that we'll use.
-
-        <br><br><br><br>
-        Things to note:
-        <ul>
-          <li>initializing, constructing, and drawing the fish should be distinct things</li>
-          <li>We want to use inheritance (from a base fish) to make special fish</li>
-        </ul>
-
-        <br><br><br><br><br><br><br><br>
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Task 2: Create, draw and move fish from the main</h2>
-
-      <p>
-
-        <br><br><br><br><br><br><br><br>
-
-        We will need the "aquarium" logic to ru in the main while using the created objects.
+        <li>Before we start... sit with your final project teams</li>
+        <li>For each task, one should code while the others supervise / direct the steps</li>
+        <li>The person coding <b>should not</b> be the person making the "what to code next" decisions</li>
         <br><br>
-        We should use the graphics' library <b><tt>move</tt></b> method.
 
-        <br><br><br><br><br><br><br><br>
+        <h4>The Task:</h4>
+        <br>
+      <ol>
+        <li>We will choose a type of scene to draw that contains:
+          <ul>
+            <li>multiple identical complex objects</li>
+            <li>placed randomly in a scene</li>
+          </ul>
+        </li>
+        <li>We will design the classes that need to be created to complete this project</li>
+        <li>We will develop in modules:
+          <ul>
+            <li>We will develop base classes first --- <b>and TEST them (using ad-hoc testing functions)</b></li>
+            <li>We will develop any inherited classes next --- <b>and TEST them (using ad-hoc testing functions)</b></li>
+            <li>We will develop the implementation code that uses these classes in small steps --- <b>while TESTING them (using ad-hoc testing functions)</b></li>            
+          </ul>
+        </li>
+      </ol>
 
-      </p>
+      <br><br><br><br>
 
-      <p><br></p><hr><p><br></p>
+      <h3>Example scenes:</h3>
 
-      <h2>Task 3: Add the fish subclasses (child classes)</h2>
+      <br><br>
+
+      <h4>Complex Objects - Simple Scene</h4>
+      These objects are too complex for this lecture... but you get the idea
+      <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/calaveritas.png" alt="" style="width:60%">
+      <br><br>
+      The actual task for something like this would be: Make the base class, make the derived classes, place randomly in the scene.
+
+      <br><br><br><br>
+
+      <h4>Complex Scene - Simpl(er) Objects</h4>
+      This scene is too complex for this lecture... but you get the idea
+      <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/pumpkin-patch.png" alt="" style="width:60%">
+      <br><br>
+      The actual task for something like this would be: Make the base class, make the derived classes, place randomly in the scene.
+
+      <br><br><br><br>
+
+      We will shoot for something like this:
+
+      <br><br>
+
+      <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture26/pumpkins.png" alt="" style="width:60%">
+      <br><br>
+
+
+     </p>
+
+
+     <p><br></p><hr><p><br></p>
+
+      <h2>Incremental Development</h2>
 
       <p>
 
-        <br><br><br><br><br><br><br><br>
+        <h3>Step 1: Sketch your plan</h3>
 
-        For eahc subclass: 
-        <ol>
-          <li>Call the base fish's constructor first</li>
-          <li>change a selection of shape, size, color for the body, eye and tail of the fish</li>
-        </ol>
-        
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-        <br><br><br><br><br><br><br><br>
+        <h3>Step 2: Sketch your program structure</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 3: Fill out the base structure</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 4: TEST the base structure</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 5: Fill out the next module (part)</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 6: TEST the next module (part)</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 7: If you are done, go to 8, else, go to 5</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h3>Step 8: Run full-level Sanity checks</h3>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
       </p>
 
-      <p><br></p><hr><p><br></p>
+     <p><br></p><hr><p><br></p>
 
-      <h2>Task 4: Add the fish direction and a method to flip it</h2>
+      <h2>Additional readings</h2>
 
       <p>
-
-        <br><br><br><br><br><br><br><br>
-
-        Remember the Moon example? We can do the same with the fish: a parametrized construction (inside <b><tt>make_fish</tt></b>) based on a 2-option direction (1 or -1)
-
-        <br><br><br><br><br><br><br><br>
-
+          <li>Check out ZyBooks 8.14, and 8.15 to understand about Multiple inheritance</li>
       </p>
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>What to do next?</h2>
-
-      <p>
-        <ul>
-          <li>Make sure Pablo has your Final Project Team AND Project Proposal</li>
-          <li>Work on Assignment 06 (finish the pumpkin patch)</li>
-        </ul>
-      </p>
-      
-
 
 
       <p><br></p><hr><p><br></p>
@@ -264,8 +265,8 @@
           <li>Can be a Practical tool, a Game, an Artistic program, etc.</li>
           <li>There will be 3 deadlines:
             <ol>
-              <li><Big><b><strike>Project Proposal: By Wednesday, November 3rd (FIVE DAYS AGO!!!).</strike></b></Big></li>
-              <li>Project Skeleton: Show me the design (sketch + comments + basic class/function skeletons); Due Friday, November 12th (OK to submit on Monday, November 15)</li>
+              <li><Big><b>Project Proposal: By Wednesday, November 3rd (TODAY).</b></Big></li>
+              <li>Project Skeleton: Show me the design (sketch + comments + basic class/function skeletons); Due Friday, November 12th</li>
               <li>Project Prototype: Show me a <b>working</b> prototype with basic functionality. Due Monday, November 22nd.</li>
               <li>Project Submission: Full project due on Wednesday, December 1st.</li>
               <li>Project Presentation / Video (Show us your project in class): Wednesday, December 8th.</li>
@@ -278,22 +279,39 @@
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Wednesday 11/10)</h4>
+      <h4>Before next class (Friday 11/05)</h4>
       <b>[Due for everyone]</b>  
       <br>
-      <!-- ZyBook Chapters 7.1 to 7.4 (7.5 Optional) -->
-      Assignment 06: Finish the pumpkin patch (Due Wednesday, November 12th).
-      <br><br>
-      Assignment 07 (Replit); due Wed 11/17 before 11:59 PM
+      ZyBook Chapters [NONE]
       <br>
-      Review the class so we can finish the animation on Wednesday!
+      READING (With self-guided exercises on Replit's Scratchpad): <a href="https://realpython.com/python-super/">Super()</a>
+      <br>
+      Then, complete the following actions:
+      <ol>
+        <li>Draw a "sketch" of the classes you will use in your final project. <br>
+          The following notation is recommended: <a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/">UML</a>
+          <br>
+          If you use UML, 
+          <ol>
+            <li>You ONLY need to specify the class attributes and methods as well as the inheritance relations for your classes.</li>
+            <li>No need to specify Association, Cardinality, Aggregation, Composition, Dependency, or Realization</li>
+          </ol>
+        </li>
+        <li>[Optionally] sign-up for and watch this video: <a href="https://realpython.com/lessons/uml-diagrams/">UML Diagrams</a></li>
+        <li>[Optionally] read: <a href="https://realpython.com/inheritance-composition-python/">Inheritance and COmposition</a> (don't go past "Abstract Base Classes in Python")</li>
+      </ol>
+      
+
       
 
       <br><br>
 
       <b>[Optional]</b>
       <br>
-      
+
+      </li>
+
+
 
 
 
@@ -312,10 +330,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes26.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Next Module</a>
               </li>
             </ul>
           </div>

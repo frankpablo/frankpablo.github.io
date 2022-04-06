@@ -103,10 +103,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes26.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -122,196 +122,258 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 27: Fancy graphics with user-objects (Lab)</h1>
+      <h1>Lecture Notes 27: Planning a simple animation with graphics.py</h1>
       <p>
         <br>
       </p>
 
       <p><br></p><hr><p><br></p>
 
-      <h2>Designing and building a complex multi-class project</h2>
+      <h2>Example Objective:</h2>
 
       <p>
 
-        Today, we'll design, develop, and test, a slightly more complex graphics-based project.
+
+        The following is what we wanna build:
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture27/aquarium.gif" alt="" style="width:60%">
+        <br><br>
+        (<i>Note: the awesome wavering pixels in the background is an artifact of the gif-making</i>)
 
         <br><br>
 
-        <h3>Steps</h3>
+        The next steps are:
 
-        <li>Before we start... sit with your final project teams</li>
-        <li>For each task, one should code while the others supervise / direct the steps</li>
-        <li>The person coding <b>should not</b> be the person making the "what to code next" decisions</li>
-        <br><br>
-
-        <h4>The Task:</h4>
-        <br>
-      <ol>
-        <li>We will choose a type of scene to draw that contains:
-          <ul>
-            <li>multiple identical complex objects</li>
-            <li>placed randomly in a scene</li>
-          </ul>
-        </li>
-        <li>We will design the classes that need to be created to complete this project</li>
-        <li>We will develop in modules:
-          <ul>
-            <li>We will develop base classes first --- <b>and TEST them (using ad-hoc testing functions)</b></li>
-            <li>We will develop any inherited classes next --- <b>and TEST them (using ad-hoc testing functions)</b></li>
-            <li>We will develop the implementation code that uses these classes in small steps --- <b>while TESTING them (using ad-hoc testing functions)</b></li>            
-          </ul>
-        </li>
-      </ol>
-
-      <br><br><br><br>
-
-      <h3>Example scenes:</h3>
-
-      <br><br>
-
-      <h4>Complex Objects - Simple Scene</h4>
-      These objects are too complex for this lecture... but you get the idea
-      <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/calaveritas.png" alt="" style="width:60%">
-      <br><br>
-      The actual task for something like this would be: Make the base class, make the derived classes, place randomly in the scene.
-
-      <br><br><br><br>
-
-      <h4>Complex Scene - Simpl(er) Objects</h4>
-      This scene is too complex for this lecture... but you get the idea
-      <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/pumpkin-patch.png" alt="" style="width:60%">
-      <br><br>
-      The actual task for something like this would be: Make the base class, make the derived classes, place randomly in the scene.
-
-      <br><br><br><br>
-
-      We will shoot for something like this:
-
-      <br><br>
-
-      <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture26/pumpkins.png" alt="" style="width:60%">
-      <br><br>
-
-
-     </p>
-
-
-     <p><br></p><hr><p><br></p>
-
-      <h2>Incremental Development</h2>
-
-      <p>
-
-        <h3>Step 1: Sketch your plan</h3>
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-        <h3>Step 2: Sketch your program structure</h3>
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-        <h3>Step 3: Fill out the base structure</h3>
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-        <h3>Step 4: TEST the base structure</h3>
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-        <h3>Step 5: Fill out the next module (part)</h3>
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-        <h3>Step 6: TEST the next module (part)</h3>
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-        <h3>Step 7: If you are done, go to 8, else, go to 5</h3>
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-        <h3>Step 8: Run full-level Sanity checks</h3>
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-      </p>
-
-     <p><br></p><hr><p><br></p>
-
-      <h2>Additional readings</h2>
-
-      <p>
-          <li>Check out ZyBooks 8.14, and 8.15 to understand about Multiple inheritance</li>
-      </p>
-
-
-      <p><br></p><hr><p><br></p>
-
-      <h2>Reminder: Final Project!</h2>
-
-      <p>
-
-        Final Project Speciffication
         <ol>
-          <li><strike>Teams of 2 or 3</strike></li>
-          <li><strike>If you want to self select, tell me by next class</strike></li>
-          <li><strike>Any others will be assigned randomly</strike></li>
-          <li>YOU design the project (with notes from me)</li>
-          <li>Should inclde enough complexity (think Classes and Objects, Loops, User interaction, Graphics, etc)</li>
-          <li>Can be a Practical tool, a Game, an Artistic program, etc.</li>
-          <li>There will be 3 deadlines:
+          <li>Design the structure so we achieve the following objective
             <ol>
-              <li><Big><b>Project Proposal: By Wednesday, November 3rd (TODAY).</b></Big></li>
-              <li>Project Skeleton: Show me the design (sketch + comments + basic class/function skeletons); Due Friday, November 12th</li>
-              <li>Project Prototype: Show me a <b>working</b> prototype with basic functionality. Due Monday, November 22nd.</li>
-              <li>Project Submission: Full project due on Wednesday, December 1st.</li>
-              <li>Project Presentation / Video (Show us your project in class): Wednesday, December 8th.</li>
+              <li>We may have several types of fish</li>
+              <li>They may flip direction</li>
+              <li>They move on the screen</li>
+              <li>They move in a different direction if certain conditions are met (reach the wall)</li>
             </ol>
           </li>
+          <li>Write the Fish Class</li>
+          <li>Create and Draw several fish and move them in the screen</li>
+          <li>Add a background</li>          
+          <li>Add bouncing logic</li>
         </ol>
 
       </p>
 
+      <p><br></p><hr><p><br></p>
+
+      <h2>Task 1: Design the Structure </h2>
+
+      <p>
+
+        <br><br><br><br><br><br><br><br>
+
+        First discuss the components using drawings and geometry as well as the Coding Structure that we'll use.
+
+        <br><br>
+
+        Open the <b>Aquarium</b> Replit to develop the project it by bit. 
+
+        <br><br><br><br>
+        Things to note:
+        <ul>
+          <li>initializing, constructing, and drawing the fish should be distinct things</li>
+          <li>We want to use inheritance (from a base fish) to make special fish</li>
+        </ul>
+
+        <br><br>
+
+        <h3>Drawing the Background</h3>
+
+        <br><br>
+
+        Check the img folder and read the  graphics pdf documentation to search how to add the image "aquarium_bg.gif" as a background.
+
+          <h3>Showing our results in the main</h3>
+          add the necessary code in the appropriate section of the main to show the background (and debug your issues)
+
+
+        <br><br><br><br>
+
+        <h3>The base fish class</h3>
+        <br><br>
+        The following is the geometry and coordinate system of the base fish:
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/fish.png" alt="" style="width:80%">
+          <br><br>
+
+          <br><br>
+
+          We will build the fish class with the following idea:
+          <br><br>
+          We will construct it in two steps:
+          <br>
+          <ol>
+            <li>initialize the fish given an input Graphics window <tt>win</tt> and a 2D Point <tt>position</tt> </li>
+            <li>construct the fish using the 2D Point <tt>position</tt></li>
+          </ol>
+          <br><br>
+
+          This will be important when we move on to animation because having a fish object and constructing it are two different things, the former saves space in memory for the information while the latter defines the actual look of the fish, which will vary depending on the animation state (in particular.... is the fish facing left or right!)
+          <br><br>
+
+          <ol>
+            <li><b><tt>__init__</tt></b> will define the basic variables that must be present in a fish (like a body, a tail, an eye, the values for red, green and blue and a <b>direction</b> starting value) and some of the  values they must contain (like the red, green, and blue values of the fish's color)</li>
+            <br><br>
+            <li>Then, <tt>__init__</tt> calls the method <b><tt>construct</tt></b> which will take care of actually making the body parts and placing them in the fish's coordinate system </li>
+          </ol>
+
+
+          <br><br>
+
+          <h3>The __init__ method</h3>
+          Make sure to add variables for:
+          <ul>
+            <li>direction (either -1 or 1 ... start it at -1 for now)</li>
+            <li>red (a random integer in [0,255])</li>
+            <li>green (a random integer in [0,255])</li>
+            <li>blue (a random integer in [0,255])</li>
+            <li>eye (with value None, for now)</li>
+            <li>body (with value None, for now)</li>
+            <li>tail (with value None, for now)</li>
+          </ul>
+          Then, call the construct method passing the position input parameter as an argument.
+
+          <br><br>
+
+          <h3>The construct method</h3>
+
+          Make and place the following elements:
+          <ul>
+            <li>p1 of the body oval wrt the desired position</li>
+            <li>p2 of the body oval wrt the desired position</li>
+            <li>add an oval using p1, p2</li>
+            <li>set the oval body color using the red, green and blue member variables</li>
+            <li>repeat the previous steps for the tail (wrt the position)</li>
+            <li>repeat the previous steps for the eye (wrt the position</li>
+          </ul>
+
+          <br><br>
+
+          <h3>The draw method</h3>
+          This is simple, it draws the body, tail and eye for the current object in the window object <tt>win</tt> passed in as a parameter.
+
+          <br><br><br><br>
+
+          <h3>Showing our results in the main</h3>
+          Un-comment step 1 in main (only two lines) and debug your issues.
+
+          
+
+        <br><br><br><br><br><br><br><br>
+
+      </p>
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Friday 11/05)</h4>
+      <h2>Task 2: Add the fish subclasses (child classes)</h2>
+
+      <p>
+
+        <br><br><br><br><br><br><br><br>
+
+        For each subclass: 
+        <ol>
+          <li>Call the base fish's constructor first</li>
+          <li>change a selection of shape, size, color for the body, eye and tail of the fish</li>
+        </ol>
+        
+
+        <br><br><br><br><br><br><br><br>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+
+      <h2>Task 3: Create, draw and move fish from the main</h2>
+
+      <p>
+
+        <br><br><br><br><br><br><br><br>
+
+        We will need the "aquarium" logic to run in the main while using the created objects.
+        <br><br>
+        We should use the graphics' library <b><tt>move</tt></b> method.
+
+        <br><br><br><br><br><br><br><br>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Task 4: Add the fish direction and a method to flip it</h2>
+
+      <p>
+
+        <br><br><br><br><br><br><br><br>
+
+        Parametrized construction (inside <b><tt>make_fish</tt></b>) based on a 2-option direction (1 or -1)
+
+        <br><br><br><br><br><br><br><br>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework</h4>
       <b>[Due for everyone]</b>  
       <br>
-      ZyBook Chapters [NONE]
+      <!-- ZyBook Chapters 7.1 to 7.4 (7.5 Optional) -->
+      Aquarium: It is Due by Friday next week, but we'll work on it together during this week.
       <br>
-      READING (With self-guided exercises on Replit's Scratchpad): <a href="https://realpython.com/python-super/">Super()</a>
       <br>
-      Then, complete the following actions:
-      <ol>
-        <li>Draw a "sketch" of the classes you will use in your final project. <br>
-          The following notation is recommended: <a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/">UML</a>
-          <br>
-          If you use UML, 
-          <ol>
-            <li>You ONLY need to specify the class attributes and methods as well as the inheritance relations for your classes.</li>
-            <li>No need to specify Association, Cardinality, Aggregation, Composition, Dependency, or Realization</li>
-          </ol>
-        </li>
-        <li>[Optionally] sign-up for and watch this video: <a href="https://realpython.com/lessons/uml-diagrams/">UML Diagrams</a></li>
-        <li>[Optionally] read: <a href="https://realpython.com/inheritance-composition-python/">Inheritance and COmposition</a> (don't go past "Abstract Base Classes in Python")</li>
-      </ol>
+      Also, remember that the Prototype I is due tomorrow (extended to Monday 04/11)
       
+     <br><br>
+      For Project Prototype I you will submit your <b>minimum viable product</b>. This should include the core functionality to demonstrate the purpose of your project.
+      <br><br>
+<!-- 
+      Example: Say that your app is a Relaxation game where you `clean your room`
+      <br>
+       -->
+      Your core functionality should include:
+      <br><br>
 
-      
+      <h4>Project's Niche:</h4>
+      <ul>
+        <li>Why is this product useful/needed?</li>
+        <li>What would be an ideal long-term goal ( what would it look like for this project to be a success)</li>
+        <li>What is your success criteria: what are the minimum things that it should achieve so you say "I did it!"</li>        
+      </ul>
+      <br><br>
+
+      <h4>User's Journey:</h4>
+      <ul>
+        <li>What should it look like/feel like to use your product</li>
+        <li>Are there multiple outcomes? What are they?</li>
+        <li>Here, a "user-experience" flow diagram would be VERY useful</li>
+        <li>Here, a series of mock-ups would be very useful (think of these as intermediate screens encountered by the user as they use your app)</li>
+      </ul>
+      <br><br>
+
+      <h4>Features and Modules:</h4>
+      <ul>
+        <li>What are the different features/parts/modules in your product</li>
+        <li>Which ones are crucial (mission critical) and which ones are perks (good to have but optional)</li>
+        <li>Roadmap of what needs to be built, in what order, and by whom</li>
+      </ul>
 
       <br><br>
 
       <b>[Optional]</b>
       <br>
-
-      </li>
-
-
+      
 
 
 
@@ -330,10 +392,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes26.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes23.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes25.html">Next Module</a>
               </li>
             </ul>
           </div>
