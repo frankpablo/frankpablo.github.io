@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes16.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes18.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes30.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,7 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 17: Computational Complexity</h1>
+      <h1>Lecture Notes 29: Computational Complexity</h1>
       <p>
         <br>
       </p>
@@ -218,186 +218,336 @@
 
       <h2>Recap: Is this problem doable?</h2>
       <p>
+<!-- 
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-01.png" alt="" style="width:100%">
+        <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-01.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-02.png" alt="" style="width:100%">
         <br><br>
+      
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-02.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-03.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-03.png" alt="" style="width:100%">
         <br><br>
         
 
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-04.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-04.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-05.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-05.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-06.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-06.png" alt="" style="width:100%">
         <br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-07.png" alt="" style="width:60%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-08.png" alt="" style="width:100%">
+        <br><br>
+-->          
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-09.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-10.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-11.png" alt="" style="width:100%">
+        <br><br>
+
+<big><span style="color:#003470;font-size:100%">
+The problem: Is there some way to set these boolean values so the whole thing evaluates to TRUE?
+</span></big>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-12.png" alt="" style="width:100%">
+        <br><br>
+
+<big><span style="color:#003470;font-size:100%">
+The problem: Pattern matching
+</span></big>
+
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-13.png" alt="" style="width:100%">
+        <br><br>
+
+<big><span style="color:#003470;font-size:100%">
+The problem: More powerful pattern matching
+</span></big>
 
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-07.png" alt="" style="width:60%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-14.png" alt="" style="width:100%">
         <br><br>
+
+
+<big><span style="color:#003470;font-size:100%">
+Restricted notion of “computation”
+<ol>
+  <li>no memory</li>
+  <li>only get to read once</li>
+  <li>exactly the same class of languages as REs</li>  
+</ol>
+</span></big>
+
+
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-08.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-15.png" alt="" style="width:100%">
         <br><br>
+
+<big><span style="color:#003470;font-size:100%">
+Very general notion of computation
+<ol>
+  <li>unlimited storage</li>
+  <li>multiple passes over the input</li>
+  <li>can compute for as long as you like (doesn’t even have to be guaranteed to stop)</li>
+  <li>Large, sweeping language classes: turing decidable, turing recognizable = enumerable</li> 
+</ol>
+</span></big>
+
+
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-09.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-16.png" alt="" style="width:100%">
         <br><br>
+
+
+
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-10.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-11.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-12.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-13.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-14.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-17.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-15.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-16.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-18.png" alt="" style="width:100%">
         <br><br>
 
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-17.png" alt="" style="width:100%">
-        <br><br>
+<big><span style="color:#003470;font-size:100%">
+Here’s the thing: just knowing that it is POSSIBLE to compute a solution to a problem doesn’t give us any information about how difficult that problem is. The only information we have is… it is not impossible.      
+<br><br>
+That level of <b>resolution</b> is not great.
+</span></big>
 
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-18.png" alt="" style="width:100%">
-        <br><br>
+<br><br><br><br>  
 
+<big><span style="color:#003470;font-size:150%">    
+What else would be useful to know (in addition to the fact that a problem is solvable)?
+</span></big>    
         </p>
 
-      <h2>Complexity</h2>
+<br><br><br><hr><br><br><br><br>        
+
+<big><span style="color:#003470;font-size:250%">
+      Complexity
+</span></big>      
       <p>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-19.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-19.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-20.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-20.png" alt="" style="width:100%">
+        <br><br>
+
+<div class="mx-lg-5">
+  <details>
+    <summary>(Wait; then Click)<br><br></summary>
+    <big><span style="color:#003470;font-size:100%">
+        HALF
+    </span></big>               
+  </details>
+</div>            
+   
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-21.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-21.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-22.png" alt="" style="width:100%">
         <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-22.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-23.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-24.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-25.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-26.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-27.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-28.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-29.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-30.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-31.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-32.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-33.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-34.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-35.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-36.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-37.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-38.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-39.png" alt="" style="width:100%">
-        <br><br>        
 
-                <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-40.png" alt="" style="width:100%">
+
+<div class="mx-lg-5">
+  <details>
+    <summary>(Wait; then Click)<br><br></summary>
+    <big><span style="color:#003470;font-size:100%">
+        Depends on the particular input. 
+    </span></big>               
+  </details>
+</div>        
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-23.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-41.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-24.png" alt="" style="width:100%">
+        <br><br>
+
+<big><span style="color:#003470;font-size:100%">
+How long will it take for this input?
+<br><br>
+How about for "01", "0011", "00001111" ... ?
+</span></big>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-25.png" alt="" style="width:100%">
+        <br><br>
+
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-26.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-42.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-27.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-43.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-28.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-44.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-29.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-45.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-30.png" alt="" style="width:100%">
+        <br><br>
+
+<div class="mx-lg-5">
+  <details>
+    <summary>(Wait; then Click)<br><br></summary>
+    <big><span style="color:#003470;font-size:100%">
+        Initial check (steps 1 and 2) takes 2n steps (n to read, and n to get back) <br>
+We could have at most n/2 passes over step 3 (because we mark off two letters each time) <br>
+And to make things easier, let’s say we read the whole string each pass <br>
+ \(2n + (n/2)*2n = 2n + n^2 \) steps to accept
+
+    </span></big>               
+  </details>
+</div> 
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-31.png" alt="" style="width:100%">
+        <br><br>
+
+<div class="mx-lg-5">
+  <big><span style="color:#003470;font-size:100%">
+  Is there a better estimate?
+</span></big>
+  <details>
+    <summary>(Wait; then Click)<br><br></summary>
+    <big><span style="color:#003470;font-size:100%">
+      \(\mathcal{O}( n^2 ) \)
+
+    </span></big>               
+  </details>
+</div> 
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-32.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-46.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-33.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-47.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-34.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-48.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-35.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-49.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-36.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-37.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-38.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <big><span style="color:#003470;font-size:100%">
+          Try modifying the algorithm with a more <b>efficient</b> one
+        </span></big>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-39.png" alt="" style="width:100%">
+        <br><br>          
+
+</span></big>
+  <details>
+    <summary>(Wait; then Click)<br><br></summary>
+    <big><span style="color:#003470;font-size:100%">
+
+
+        3. Copy all the 0s to a second tape <br>
+        4. Move the two heads together, counting off a 1 and a 0 each step <br>
+        5. If you hit the end of both tapes at the same time ACCEPT, otherwise REJECT” <br>
+        <br><br>
+        2n steps for lines 1 and 2 <br>
+        n steps for line 3 <br>
+        n steps for line 4 <br>
+
+        \(= 4n = \mathcal{O}(n) \)
+
+
+    </span></big>               
+  </details>
+</div>         
+      
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-40.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-41.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-42.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-43.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-44.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-45.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-46.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-47.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-48.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-49.png" alt="" style="width:100%">
         <br><br>     
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-50.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-50.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-51.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-51.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-52.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-52.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-53.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-53.png" alt="" style="width:100%">
         <br><br>
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture17/Complex-54.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-54.png" alt="" style="width:100%">
         <br><br>
         
       </p>
@@ -418,11 +568,11 @@
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Before next class (Wednesday)</h4>
+      <h4>Homework</h4>
       <br>      
       <b>[Due for everyone]</b>
       <br>
-      TODO
+      Assigment 07 due this Friday, April 15th at 5PM (with auto-extension until Monday at 5 PM)!
       <br>
       <!-- <div class="mx-5">
          Assigment 04 due next Wednesday, November  17th (IN GROUPS OF UP TO 3)!
@@ -453,10 +603,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Previous Module</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-lg-2" href="./lectureNotes17.html">Next Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes30.html">Next Module</a>
               </li>
             </ul>
           </div>
