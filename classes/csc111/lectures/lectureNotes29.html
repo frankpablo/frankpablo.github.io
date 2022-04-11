@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 111 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    
+      .card {
+          /*width: 130px;*/
+          /*height: 195px;*/
+          position: relative;
+          display: inline-block;
+      }
+      .card .img-top {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 99;
+      }
+      .card:hover .img-top {
+          display: inline;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 111</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes30.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 29: Planning a simple animation with graphics.py</h1>
+      <p>
+        <br>
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Example Objective:</h2>
+
+      <p>
+
+
+        The following is what we wanna build:
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture27/aquarium.gif" alt="" style="width:60%">
+        <br><br>
+        (<i>Note: the awesome wavering pixels in the background is an artifact of the gif-making</i>)
+
+        <br><br>
+
+        The next steps are:
+
+        <ol>
+          <li>Design the structure so we achieve the following objective
+            <ol>
+              <li>We may have several types of fish</li>
+              <li>They may flip direction</li>
+              <li>They move on the screen</li>
+              <li>They move in a different direction if certain conditions are met (reach the wall)</li>
+            </ol>
+          </li>
+          <li>Write the Fish Class</li>
+          <li>Create and Draw several fish and move them in the screen</li>
+          <li>Add a background</li>          
+          <li>Add bouncing logic</li>
+        </ol>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Task 1: Design the Structure </h2>
+
+      <p>
+
+        <br><br><br><br><br><br><br><br>
+
+        First discuss the components using drawings and geometry as well as the Coding Structure that we'll use.
+
+        <br><br>
+
+        Open the <b>Aquarium</b> Replit to develop the project it by bit. 
+
+        <br><br><br><br>
+        Things to note:
+        <ul>
+          <li>initializing, constructing, and drawing the fish should be distinct things</li>
+          <li>We want to use inheritance (from a base fish) to make special fish</li>
+        </ul>
+
+        <br><br>
+
+        <h3>Drawing the Background</h3>
+
+        <br><br>
+
+        Check the img folder and read the  graphics pdf documentation to search how to add the image "aquarium_bg.gif" as a background.
+
+          <h3>Showing our results in the main</h3>
+          add the necessary code in the appropriate section of the main to show the background (and debug your issues)
+
+
+        <br><br><br><br>
+
+        <h3>The base fish class</h3>
+        <br><br>
+        The following is the geometry and coordinate system of the base fish:
+          <br><br>
+          <img id="image" class="img-responsive" src="../figures/lecture26/fish.png" alt="" style="width:80%">
+          <br><br>
+
+          <br><br>
+
+          We will build the fish class with the following idea:
+          <br><br>
+          We will construct it in two steps:
+          <br>
+          <ol>
+            <li>initialize the fish given an input Graphics window <tt>win</tt> and a 2D Point <tt>position</tt> </li>
+            <li>construct the fish using the 2D Point <tt>position</tt></li>
+          </ol>
+          <br><br>
+
+          This will be important when we move on to animation because having a fish object and constructing it are two different things, the former saves space in memory for the information while the latter defines the actual look of the fish, which will vary depending on the animation state (in particular.... is the fish facing left or right!)
+          <br><br>
+
+          <ol>
+            <li><b><tt>__init__</tt></b> will define the basic variables that must be present in a fish (like a body, a tail, an eye, the values for red, green and blue and a <b>direction</b> starting value) and some of the  values they must contain (like the red, green, and blue values of the fish's color)</li>
+            <br><br>
+            <li>Then, <tt>__init__</tt> calls the method <b><tt>construct</tt></b> which will take care of actually making the body parts and placing them in the fish's coordinate system </li>
+          </ol>
+
+
+          <br><br>
+
+          <h3>The __init__ method</h3>
+          Make sure to add variables for:
+          <ul>
+            <li>direction (either -1 or 1 ... start it at -1 for now)</li>
+            <li>red (a random integer in [0,255])</li>
+            <li>green (a random integer in [0,255])</li>
+            <li>blue (a random integer in [0,255])</li>
+            <li>eye (with value None, for now)</li>
+            <li>body (with value None, for now)</li>
+            <li>tail (with value None, for now)</li>
+          </ul>
+          Then, call the construct method passing the position input parameter as an argument.
+
+          <br><br>
+
+          <h3>The construct method</h3>
+
+          Make and place the following elements:
+          <ul>
+            <li>p1 of the body oval wrt the desired position</li>
+            <li>p2 of the body oval wrt the desired position</li>
+            <li>add an oval using p1, p2</li>
+            <li>set the oval body color using the red, green and blue member variables</li>
+            <li>repeat the previous steps for the tail (wrt the position)</li>
+            <li>repeat the previous steps for the eye (wrt the position</li>
+          </ul>
+
+          <br><br>
+
+          <h3>The draw method</h3>
+          This is simple, it draws the body, tail and eye for the current object in the window object <tt>win</tt> passed in as a parameter.
+
+          <br><br><br><br>
+
+          <h3>Showing our results in the main</h3>
+          Un-comment step 1 in main (only two lines) and debug your issues.
+
+          
+
+        <br><br><br><br><br><br><br><br>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Task 2: Add the fish subclasses (child classes)</h2>
+
+      <p>
+
+        <br><br><br><br><br><br><br><br>
+
+        For each subclass: 
+        <ol>
+          <li>Call the base fish's constructor first</li>
+          <li>change a selection of shape, size, color for the body, eye and tail of the fish</li>
+        </ol>
+        
+
+        <br><br><br><br><br><br><br><br>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+
+      <h2>Task 3: Create, draw and move fish from the main</h2>
+
+      <p>
+
+        <br><br><br><br><br><br><br><br>
+
+        We will need the "aquarium" logic to run in the main while using the created objects.
+        <br><br>
+        We should use the graphics' library <b><tt>move</tt></b> method.
+
+        <br><br><br><br><br><br><br><br>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Task 4: Add the fish direction and a method to flip it</h2>
+
+      <p>
+
+        <br><br><br><br><br><br><br><br>
+
+        Parametrized construction (inside <b><tt>make_fish</tt></b>) based on a 2-option direction (1 or -1)
+
+        <br><br><br><br><br><br><br><br>
+
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework</h4>
+      <b>[Due for everyone]</b>  
+      <br>
+      <!-- ZyBook Chapters 7.1 to 7.4 (7.5 Optional) -->
+      Aquarium: It is Due by Friday next week, but we'll work on it together during this week.
+      <br>
+      <br>
+      Also, remember that the Prototype I is due tomorrow (extended to Monday 04/11)
+      
+     <br><br>
+      For Project Prototype I you will submit your <b>minimum viable product</b>. This should include the core functionality to demonstrate the purpose of your project.
+      <br><br>
+<!-- 
+      Example: Say that your app is a Relaxation game where you `clean your room`
+      <br>
+       -->
+      Your core functionality should include:
+      <br><br>
+
+      <h4>Project's Niche:</h4>
+      <ul>
+        <li>Why is this product useful/needed?</li>
+        <li>What would be an ideal long-term goal ( what would it look like for this project to be a success)</li>
+        <li>What is your success criteria: what are the minimum things that it should achieve so you say "I did it!"</li>        
+      </ul>
+      <br><br>
+
+      <h4>User's Journey:</h4>
+      <ul>
+        <li>What should it look like/feel like to use your product</li>
+        <li>Are there multiple outcomes? What are they?</li>
+        <li>Here, a "user-experience" flow diagram would be VERY useful</li>
+        <li>Here, a series of mock-ups would be very useful (think of these as intermediate screens encountered by the user as they use your app)</li>
+      </ul>
+      <br><br>
+
+      <h4>Features and Modules:</h4>
+      <ul>
+        <li>What are the different features/parts/modules in your product</li>
+        <li>Which ones are crucial (mission critical) and which ones are perks (good to have but optional)</li>
+        <li>Roadmap of what needs to be built, in what order, and by whom</li>
+      </ul>
+
+      <br><br>
+
+      <b>[Optional]</b>
+      <br>
+      
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes28.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes30.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
