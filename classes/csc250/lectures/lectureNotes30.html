@@ -351,12 +351,29 @@
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-39.png" alt="" style="width:100%">
         <br><br>        
 
-                <br><br>
+        <div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes] How would you do this faster?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+              Also...What complexity is this?
+          </details>
+        </div>
+
+        <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-40.png" alt="" style="width:100%">
         <br><br>
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-41.png" alt="" style="width:100%">
         <br><br>
+
+        <div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes] Is PALINDROME in \( \mathcal{O} (n^2) \)?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+              Also...What complexity is this?
+          </details>
+        </div>
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-42.png" alt="" style="width:100%">
         <br><br>
@@ -372,6 +389,17 @@
         <img id="image" class="img-responsive" src="../figures/lecture30/Selection-Sort.gif" alt="" style="width:100%">
         <br><br>
 
+        <div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes] Is \(SEL\) in \( \mathcal{O} (n^2) \)?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+              First: Build an algorithm that solves this in \( \mathcal{O} (n^2) \)... (this would mean YES!)
+              <br>
+              THEN, you may ask if \(SEL\) might belong to a lower complexity class ... (don't try...yet)
+          </details>
+        </div>
+
+
         <br><br><br><br>
 
         <br><br>
@@ -382,9 +410,53 @@
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-43.png" alt="" style="width:100%">
         <br><br>
         
+        <big><span style="color:#003470;font-size:100%">
+        This is an example \( < G, s, t > \in PATH\)
+        </span></big>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture30/PATH-g.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes] How would you Prove this?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+              You must build a Decider that solves it in \( \mathcal{O} (n^k) \) (Polynomial time)
+              <br><br>
+
+              Use Breadth-First-Search!
+              <ol>
+                <li>On input \(< G, s, t>\)</li>
+                <li>Mark all nodes rechable from the current node (starting at s and moving to the next in a running queue)</li>
+                <li>Continue to expand until we reach \(t\) or \(\nexists\) another node</li>
+                <li>&nbsp; if we reach \(t\) : ACCEPT</li>
+                <li>REJECT</li>
+              </ol>
+              <br><br>
+
+              What is the complexity!!!???
+              <br><br>
+
+              <b>Complexity analysis: </b> <br>
+              Worst case: traversing every edge. <br>
+              How many edges? ...<br><br>
+
+              <b>Another approach:</b><br>
+              At most \(\mid V \mid\) phases are executed. <br>
+              Each phase takes polynomial time to explore marked nodes and their outgoing edges. <br>
+              (Imagine \(\mid V \mid\) nodes in a straight line VS \(\mid V \mid\) nodes all connected to each other)
+
+          </details>
+        </div>
+
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-44.png" alt="" style="width:100%">
         <br><br>
+
+
+
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-45.png" alt="" style="width:100%">
         <br><br>
@@ -397,6 +469,45 @@
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-48.png" alt="" style="width:100%">
         <br><br>
+
+
+        <div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes] How would you Prove this?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+
+AutoTM_t = { |M| is a TM that accepts <M> in ≤ t(|M|) steps }
+  <br><br>
+Claim 1: AutoTM_t is decidable <br><br>
+Proof of Claim 1: <br>
+On input <M> , simulate M on <M> for t(|M|) simulated steps ADWID.
+             
+<br><br><br><br>
+
+Claim 2: AutoTM_t can’t be decided by any basic TM in ≤ t(n) steps <br>  
+Proof of claim 2: (everyone’s favorite contradiction argument) <br>
+Assume AutoTM_t is decided in time ≤ t(n) by some TM \(M_A\) <br>
+This implies that the complement is also decided by some other TM \( M_\overline{A} \) (just swap the accepting and rejecting states of \(M_A\) )
+
+<br><br><br><br>
+
+Thus, for every Turing machine M: <br><br>
+
+\(< M>\) ∈ \(overline{AutoTM_t}\) iff \( M_\overline{A} \) accepts in time ≤ t(|M|) <br>
+And by taking the complement of the definition of AutoTM_t: <br><br>
+
+\(< M>\)  ∈ \(AutoTM_t\) iff \( M_\overline{A} \) does not accept \(< M>\) in time ≤ t(|M|). <br><br>
+
+What happens if we plug in \( M_\overline{A} \)  for M in both statements: 
+\( M_\overline{A} \)  ∈ \(overline{AutoTM_t}\) iff \( M_\overline{A} \) accepts in time ≤ t(|\( M_\overline{A} \)|) <br>
+\( M_\overline{A} \) ∈ AutoTM_tc iff \( M_\overline{A} \) does not accept in time ≤ t(|M|). 
+– Contradiction!
+
+
+          </details>
+        </div>
+
+<!-- 
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-49.png" alt="" style="width:100%">
         <br><br>     
@@ -404,6 +515,7 @@
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-50.png" alt="" style="width:100%">
         <br><br>
+         -->
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-51.png" alt="" style="width:100%">
         <br><br>
