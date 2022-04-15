@@ -179,10 +179,10 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./lectureNotes29.html">Previous Module</a>
+                <a class="nav-link mx-lg-2" href="./lectureNotes30.html">Previous Module</a>
               </li>
             <li class="nav-item ">
-              <a class="nav-link mx-lg-2" href="./lectureNotes31.html">Next Module</a>
+              <a class="nav-link mx-lg-2" href="./lectureNotes32.html">Next Module</a>
             </li>
           </ul>
         </div>
@@ -198,7 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 30: More About Computational Complexity</h1>
+      <h1>Lecture Notes 31: Even More Complexity and NP-Completeness</h1>
       <p>
         <br>
       </p>
@@ -206,204 +206,28 @@
 
       This class we'll discuss:
       <ul>
-        <li>Time Complexity Classes</li>
         <li>Working with complexity classes</li>
-        <li>Work on Assignment 05</li>
+        <li>NP-Completeness</li>
       </ul>
 
 
 
 
-<!--
       <p><br></p><hr><p><br></p>
 
-      <h2>Recap: Computational Complexity</h2>
+      <h2>Establishing Complexity</h2>
       <p>
 
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-01.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-02.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-03.png" alt="" style="width:100%">
-        <br><br>
-        
-
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-04.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-05.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-06.png" alt="" style="width:100%">
-        <br><br>
-
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-07.png" alt="" style="width:60%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-08.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-09.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-10.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-11.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-12.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-13.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-14.png" alt="" style="width:100%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-15.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-16.png" alt="" style="width:100%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-17.png" alt="" style="width:100%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-18.png" alt="" style="width:100%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-19.png" alt="" style="width:100%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-20.png" alt="" style="width:100%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-21.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-22.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-23.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-24.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-25.png" alt="" style="width:100%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-30.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-31.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-32.png" alt="" style="width:100%">
-        <br><br>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-35.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-36.png" alt="" style="width:100%">
-        <br><br>
-
-
-        </p>
-  -->
-        <h2>Time Complexity Classes</h2>
-        <p>
-
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-37.png" alt="" style="width:100%">
-        <br><br>
-
-        <big><span style="color:#003470;font-size:200%">Some Typical Classes</span></big>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture30/T-compare.png" alt="" style="width:100%">
-        <br><br>
-
-        Check out examples <a href="https://en.wikipedia.org/wiki/Time_complexity">Here</a>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-38.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-39.png" alt="" style="width:100%">
-        <br><br>        
-
-        <div class="mx-lg-5">
-          <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes] How would you do this faster?:
-          <details>
-            <summary>(Wait; then Click)<br><br></summary> 
-              Also...What complexity is this?
-          </details>
-        </div>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-40.png" alt="" style="width:100%">
-        <br><br>
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-41.png" alt="" style="width:100%">
-        <br><br>
-
-        <div class="mx-lg-5">
-          <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes] Is PALINDROME in \( \mathcal{O} (n^2) \)?:
-          <details>
-            <summary>(Wait; then Click)<br><br></summary> 
-              Also...What complexity is this?
-          </details>
-        </div>
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-42.png" alt="" style="width:100%">
-        <br><br>
-
-
-        <big><span style="color:#003470;font-size:200%">Example:</span></big>
-
-        <br><br>
-        <big><span style="color:#003470;font-size:150%">SEL = {&lt;M, A&gt; | M sorts integer array A using SELECTION-SORT }</span></big>
-
-
-        <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture30/Selection-Sort.gif" alt="" style="width:100%">
-        <br><br>
-
-        <div class="mx-lg-5">
-          <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes] Is \(SEL\) in \( \mathcal{O} (n^2) \)?:
-          <details>
-            <summary>(Wait; then Click)<br><br></summary> 
-              First: Build an algorithm that solves this in \( \mathcal{O} (n^2) \)... (this would mean YES!)
-              <br>
-              THEN, you may ask if \(SEL\) might belong to a lower complexity class ... (don't try...yet)
-          </details>
-        </div>
 
 
         <br><br><br><br>
 
         <br><br>
-        <img id="image" class="img-responsive" src="../figures/lecture30/Selection-Sort-Proof.png" alt="" style="width:100%">
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-41.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture29/Complex-42.png" alt="" style="width:100%">
         <br><br>
 
         <br><br>
@@ -472,37 +296,75 @@
 
 
         <div class="mx-lg-5">
-          <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes] How would you Prove this?:
+          <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes] How would you Prove this?:
           <details>
             <summary>(Wait; then Click)<br><br></summary> 
 
-AutoTM_t = { |M| is a TM that accepts <M> in ≤ t(|M|) steps }
+<big><span style="color:#003470;font-size:100%">
+\(AutoTM_t\) = { \(< M>\) | M is a TM that accepts \(< M>\) in ≤ \( t( \vert M \vert ) \) steps }
   <br><br>
-Claim 1: AutoTM_t is decidable <br><br>
+Claim 1: \(AutoTM_t\) is decidable <br><br>
 Proof of Claim 1: <br>
-On input <M> , simulate M on <M> for t(|M|) simulated steps ADWID.
-             
+On input \(< M>\) , simulate M on \(< M>\) for \( t( \vert M \vert ) \) simulated steps ADWID.
+<div class="mx-lg-5">
+
+  <details>
+    <summary>(What does this mean?)<br><br></summary>
+    The computation is BOUNDED... so it is DECIDABLE
+  </details>
+</div>
+
 <br><br><br><br>
 
-Claim 2: AutoTM_t can’t be decided by any basic TM in ≤ t(n) steps <br>  
-Proof of claim 2: (everyone’s favorite contradiction argument) <br>
-Assume AutoTM_t is decided in time ≤ t(n) by some TM \(M_A\) <br>
-This implies that the complement is also decided by some other TM \( M_\overline{A} \) (just swap the accepting and rejecting states of \(M_A\) )
+Claim 2: \(AutoTM_t\) can’t be decided by any basic TM in ≤ \( t( \vert M \vert ) \)  steps <br><br>
+Proof of claim 2: (everyone’s favorite contradiction argument) <br><br>
+
+Assume \(AutoTM_t\) is decided in time ≤ \( t( \vert M \vert ) \)  by some TM \(M_A\) <br>
+This implies that the complement is also decided by some other TM \( M_\overline{A} \) 
+<br>
+(just swap the accepting and rejecting states of \(M_A\) )
+
+<br><br><br><br>
+
+Now we have assumptions:
+<ul>
+  <li>\(M_A\): a TM that decides the language of words \(< M>\) such that they accept themselves in ≤  \( t( \vert M \vert ) \) steps </li>
+  <br>
+  <li>\(M_\overline{A}\): a TM that decides the language of words such that they are either not TMs or they are \(< M>\)'s that don't accept themselves in ≤  \( t( \vert M \vert ) \) steps </li>
+</ul>
 
 <br><br><br><br>
 
 Thus, for every Turing machine M: <br><br>
 
-\(< M>\) ∈ \(\overline{AutoTM_t}\) iff \( M_\overline{A} \) accepts in time ≤ t(|M|) <br>
-And by taking the complement of the definition of AutoTM_t: <br><br>
+<ol>
+<li>  \(< M>\) ∈ \(\overline{AutoTM_t}\) iff \( M_\overline{A} \) accepts in time ≤ \( t( \vert M \vert ) \) <br>
+And by taking the complement of the definition of \(AutoTM_t\): </li>
 
-\(< M>\)  ∈ \(AutoTM_t\) iff \( M_{\overline{A}} \) does not accept \(< M>\) in time ≤ t(|M|). <br><br>
+<br>
+
+<li>\(< M>\)  ∈ \(AutoTM_t\) iff \( M_{\overline{A} } \) does not accept \(< M>\) in time ≤ \( t( \vert M \vert ) \) . <br>
+(equivalent to:)
+<br>
+&nbsp; \(< M>\)  ∈ \(AutoTM_t\) iff \( M_A \) accepts \(< M>\) in time ≤ \( t( \vert M \vert ) \) . 
+</li>
+</ol>
+
+<br><br>
+<br><br>
 
 What happens if we plug in \( M_\overline{A} \)  for M in both statements: 
-\( M_\overline{A} \)  ∈ \(overline{AutoTM_t}\) iff \( M_\overline{A} \) accepts in time ≤ t(|\( M_\overline{A} \)|) <br>
-\( M_\overline{A} \) ∈ AutoTM_tc iff \( M_\overline{A} \) does not accept in time ≤ t(|M|). 
-– Contradiction!
+<br>
+<ol>
+<li>\( M_\overline{A} \)  ∈ \(\overline{AutoTM_t}\) iff \( M_\overline{A} \) accepts in time ≤ \( t( \vert M_\overline{A} \vert )\) 
+<br><br>
+&nbsp; (But that means \( M_\overline{A} \) belongs to the language that accepts its description under the bound!)</li>
+<br>
+<li>\( M_\overline{A} \) ∈ \(AutoTM_t\)  iff \( M_\overline{A} \) does not accept in time ≤ \( t( \vert M_\overline{A} \vert )\).  </li> 
+</ol>
 
+– Contradiction!
+</span></big>
 
           </details>
         </div>
@@ -525,11 +387,146 @@ What happens if we plug in \( M_\overline{A} \)  for M in both statements:
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-53.png" alt="" style="width:100%">
         <br><br>
+
+<!--         
         <br><br>
         <img id="image" class="img-responsive" src="../figures/lecture29/Complex-54.png" alt="" style="width:100%">
         <br><br>
-        
+         -->
       </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Recap: Computational Complexity</h2>
+      <p>
+
+<!-- 
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-01.png" alt="" style="width:100%">
+        <br><br>
+         -->
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-02.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-03.png" alt="" style="width:100%">
+        <br><br>
+        
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-04.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-05.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-06.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-07.png" alt="" style="width:60%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-08.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-09.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-10.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-11.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-12.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-13.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-14.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-15.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-16.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-17.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-18.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-19.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-20.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-21.png" alt="" style="width:100%">
+        <br><br>
+
+<div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes] How would you Prove this?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+
+<big><span style="color:#003470;font-size:100%">
+To show a language is in NP using a verifier:<br><br>
+• Specify a certificate that can be used with a verifier to decide the language. <br>
+• Give a verifier that uses that certificate to verify membership in the given language. <br>
+• Prove that the language recognized by the verifier is the given language and that the verifier runs in polynomial time.<br><br>
+
+Certificate: a graph and a set of k vertices we claim is a cliquebr 
+Verifier: loop over all pairs in the set and check to make sure there’s an edge between them, and if so: ACCEPT - O(k^2) (can’t be bigger than n^2)
+</span></big>
+</details>
+</div>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-22.png" alt="" style="width:100%">
+        <br><br>
+
+<div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes] How would you Prove this?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+
+<big><span style="color:#003470;font-size:100%">
+Nondeterminism: we can try multiple “branches” of computation at once <br><br>
+The trick: each branch can only take polynomial time <br><br>
+Nondeterministically test all subsets of vertices. On each subset: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;loop over all pairs in the (sub)set and check to make sure there’s an edge between them, and if so: ACCEPT - O(n^2) <br>
+if no branch accepts REJECT <br><br><br>
+Guaranteed to halt? YES (there’s nowhere to get stuck)<br><br>
+What would happen if we tried to serialize all the branches? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;- how many possible subsets do we have to check? \(2^n\) <-- not polynomial anymore <br>
+&nbsp;&nbsp;&nbsp;&nbsp;- note: this just means that this particular algorithm doesn’t run in polynomial time, but it turns out we haven’t been able to find any polynomial-time deciders for this language
+</span></big>
+</details>
+</div>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-23.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-24.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-25.png" alt="" style="width:100%">
+        <br><br>
+
+</p>
 
       <!-- <p><br></p><hr><p><br></p>
 
@@ -551,7 +548,7 @@ What happens if we plug in \( M_\overline{A} \)  for M in both statements:
       <br>      
       <b>[Due for everyone]</b>
       <br>
-      TODO
+      PS07 for next Friday
       <br>
       <br>
       <b>[Optional]</b> 
