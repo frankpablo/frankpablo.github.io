@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 250  Theory of Computation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+
+      @import url('https://fonts.googleapis.com/css?family=Inter|Dosis&display=swap');
+
+      /* Crucial */
+      .highlight {
+        background-color: #EEF43B;
+          padding-right: 0px;
+          padding-left: 0px;
+      }
+
+
+      /* Just for styling */
+      /*body {
+        font-family: 'Inter', sans-serif;
+      }*/
+
+      /*.container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 0 2%;
+      }*/
+
+      .search-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto 20px auto;
+        max-width: 450px;
+        padding: 0 2%;
+      }
+
+      label {
+        color: #535353;
+        font-family: 'Dosis', sans-serif;
+        font-size: 14px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      input {
+        background: #fff;
+        border: 1px solid #535353;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        height: 38px;
+        line-height: 38px;
+        outline: none;
+        padding: 0 10px;
+        transition: all 0.5s;
+        width: 100%;
+      }
+
+      input:focus {
+        border: 1px solid #3a5bd3;
+        box-shadow: 0 0 4px 0 #7d90de;
+      }
+
+      blockquote {
+        background-color: #f1f1f1;
+        border-radius: 0 4px 4px 0;
+        color: #515151;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 0;
+        padding: 20px 40px 20px 20px;
+        position: relative;
+      }
+
+      blockquote::before {
+        color: #ccc;
+        content: '”';
+        font-size: 80px;
+        position: absolute;
+        right: 30px;
+        top: -20px;
+      }
+
+      figcaption {
+        color: #aaa;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+    </style>
+
+
+
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 250</h1>
+      <p class="lead">Theory of Computation</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes31.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes33.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 32: NP-Completeness, P v NP, and Poly-Time-Reductions</h1>
+      <p>
+        <br>
+      </p>
+      <h2>Outline </h2>
+
+      This class we'll discuss:
+      <ul>
+        <li>NP-Completeness</li>
+        <li>P-vs-NP</li>
+        <li></li>
+      </ul>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>NP and P vs NP</h2>
+      <p>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-12.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-13.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-14.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-15.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-16.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-17.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-18.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-19.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-20.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-21.png" alt="" style="width:100%">
+        <br><br>
+
+<div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes] How would you Prove this?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+
+<big><span style="color:#003470;font-size:100%">
+To show a language is in NP using a verifier:<br><br>
+• Specify a certificate that can be used with a verifier to decide the language. <br>
+• Give a verifier that uses that certificate to verify membership in the given language. <br>
+• Prove that the language recognized by the verifier is the given language and that the verifier runs in polynomial time.<br><br>
+
+Certificate: a graph and a set of k vertices we claim is a clique <br> 
+Verifier: loop over all pairs in the set and check to make sure there’s an edge between them, and if so: ACCEPT - O(k^2) (can’t be bigger than n^2)
+</span></big>
+</details>
+</div>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-22.png" alt="" style="width:100%">
+        <br><br>
+
+<div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes] How would you Prove this?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+
+<big><span style="color:#003470;font-size:100%">
+Nondeterminism: we can try multiple “branches” of computation at once <br><br>
+The trick: each branch can only take polynomial time <br><br>
+Nondeterministically test all subsets of vertices. On each subset: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;loop over all pairs in the (sub)set and check to make sure there’s an edge between them, and if so: ACCEPT - O(n^2) <br>
+if no branch accepts REJECT <br><br><br>
+Guaranteed to halt? YES (there’s nowhere to get stuck)<br><br>
+What would happen if we tried to serialize all the branches? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;- how many possible subsets do we have to check? \(2^n\) <-- not polynomial anymore <br>
+&nbsp;&nbsp;&nbsp;&nbsp;- note: this just means that this particular algorithm doesn’t run in polynomial time, but it turns out we haven’t been able to find any polynomial-time deciders for this language
+</span></big>
+</details>
+</div>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-23.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-24.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-25.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-26.png" alt="" style="width:100%">
+        <br><br>
+
+<div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes] How would you Prove this?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+
+<big><span style="color:#003470;font-size:100%">
+Draw graph with a clique <br>
+Invert the graph <br>
+Point out that a clique in the graph is an independent set in the inverse <br><br>
+How long does it take to invert a graph?<br>
+<ul>
+  <li>how many edges could there possibly be? O(n^2)</li>
+</ul>
+</span></big>
+</details>
+</div>
+
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-27.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-28.png" alt="" style="width:100%">
+        <br><br>
+
+<big><span style="color:#003470;font-size:100%">
+So what can we say about the relative difficulty of these problems?
+<br><br><br>
+
+
+This means that they are essentially equivalent <br>
+Either both CLIQUE and INDEPENDENT−SET are in 𝒫 or neither is
+</span></big>
+<br><br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-29.png" alt="" style="width:100%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-30.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-31.png" alt="" style="width:100%">
+        <br><br>
+
+
+
+<div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes] How would you Prove this?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+
+<big><span style="color:#003470;font-size:100%">
+Suppose B is NP-complete and B ∈ P. <br><br>
+<ul>
+  <li>Let A be any language in NP;</li>
+  <li>We know \( A \leq_p B\) since B is NP-complete. </li>
+  <li>Then A ∈ P, since B ∈ P and “easiness propagates downward”. </li>
+  <li>Since every A in NP is also in P, this means NP ⊆ P. </li>
+  <li>Since we also know P ⊆ NP, it follows that P = NP.</li>  
+</ul>
+</span></big>
+</details>
+</div>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-32.png" alt="" style="width:100%">
+        <br><br>
+ 
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-33.png" alt="" style="width:100%">
+        <br><br>
+
+<div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes] How would you Prove this?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+
+<big><span style="color:#003470;font-size:100%">
+Our witness (certificate) would be a satisfying assignment x1, x2, ..., xn s.t xi ∈ T/F.  <br><br>
+A deterministic TM can easily verify that the assignment satisfies all clauses, in polynomial (even linear) time in n, m. 
+</span></big>
+</details>
+</div>
+<br><br><br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-34.png" alt="" style="width:100%">
+        <br><br>
+
+<div class="mx-lg-5">
+          <span style='color:#06a015'><b><big>Activity 6</big></b></span> [2 minutes] How would you Prove this?:
+          <details>
+            <summary>(Wait; then Click)<br><br></summary> 
+
+<big><span style="color:#003470;font-size:100%">
+  <ul>
+<li>
+  We must show that any language A in NP is efficiently reducible to SAT.<br>
+That is, if we could solve SAT, we could solve any problem A that’s in NP.
+</li>
+<br><br>
+<li>Since AND, OR and NOT form a universal system, i.e, a basis for Boolean logical operators, we know we can can construct a boolean formula that simulates the transitions of a Turing Machine.</li> 
+<br><br>
+<li>Since A is in NP, there must be some nondeterministic TM \(M_A\) that decides it. </li>
+<br><br>
+<li>The reduction function, given \(M_A\) (the NP-machine for A), receives a string w and produces a Boolean formula \(\Phi_{M_{A,w}}\) <!-- φMA,w --> 
+that simulates the run of \(M_A\) on the input w</li>
+<br><br>
+<li>An assignment to \(\Phi_{M_{A,w}}\) <!-- φMA,w  -->
+could represent a computational path of the NP machine,</li>
+<li>And if we’re clever, we can set it up so that \(\Phi_{M_{A,w}}\) <!-- φMA,w --> 
+will be satisfiable iff the machine \(M_A\) accepts w.</li>
+  </ul>
+</span></big>
+<br><br><br>
+<big><span style="color:#003470;font-size:200%">
+This is called the Cook-Levin Theorem
+</span></big>
+<br><br>
+<big><span style="color:#003470;font-size:100%">
+The full proof of this theorem is a little beyond the scope of this video, but if check out the original publication on Moodle if you want all the gory details. The important takeaway is that if we had some efficient decider for SAT, we’d be able to efficiently decide anything.
+</span></big>
+<br><br><br>
+
+</details>
+</div>
+<br><br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-35.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-36.png" alt="" style="width:100%">
+        <br><br>
+
+<big><span style="color:#003470;font-size:100%">
+3CNF = conjunctive normal form with no more than three variables per conjunct <br><br>
+3SAT is in NP for the same reason that regular SAT was: given a set of T/F values, it’s easy to check whether the formula evaluates to T <br>  <br>
+</span></big>
+<br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-37.png" alt="" style="width:100%">
+        <br><br>
+<big><span style="color:#003470;font-size:100%">
+Reduce it to SAT (SAT ≤p 3SAT) <br><br>
+It turns out that ANY propositional formula can be converted into an equivalent 3CNF version by splitting it into pieces and adding some dummy variables as necessary<br>  <br>
+</span></big>
+<br><br><br>
+
+<!-- 
+        <big><span style="color:#003470;font-size:200%">Some Typical Classes</span></big>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/T-compare.png" alt="" style="width:100%">
+        <br><br>
+
+        Check out examples <a href="https://en.wikipedia.org/wiki/Time_complexity">Here</a>
+ -->
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-38.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-39.png" alt="" style="width:100%">
+        <br><br>        
+
+                <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-40.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-41.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-42.png" alt="" style="width:100%">
+        <br><br>
+
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-43.png" alt="" style="width:100%">
+        <br><br>
+        
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-44.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-45.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-46.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-47.png" alt="" style="width:100%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-48.png" alt="" style="width:100%">
+        <br><br>
+<!-- 
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture31/NPC-49.png" alt="" style="width:100%">
+        <br><br>             
+ -->
+</p>
+
+      <!-- <p><br></p><hr><p><br></p>
+
+      <h2>Assignment 04</h2>
+
+      <p>
+        <ol>
+          <li>Due Wednesday 11/17</li>
+          <li>In groups of 2 or 3 (form up now and send a single email to me with your team composition)</li>
+          <li>If you don;t have a team, I will add you to one</li>
+          <li>You must meet up (live/zoom) and discuss each problem</li>
+          <li>provide a short and clear answer in a pdf (add all your names)</li>
+        </ol>
+      </p> -->
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework</h4>
+      <br>      
+      <b>[Due for everyone]</b>
+      <br>
+      PS07 for this Friday
+      <br>
+      <br>
+      <b>[Optional]</b> 
+      <div class="mx-5">
+        TODO
+      </div>
+      <br><br>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes31.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes33.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+<!--     <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+
+
+  </body>
+</html>
