@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 110 Introduction to Computer Science Through Programming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 110</h1>
+      <p class="lead">Introduction to Computer Science Through Programming</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>How Computers Store Data</h1>
+      <h2>And how to use it!</h2>
+      <p>
+        <br>
+      </p>
+
+
+      The following is a short description of how a program written in Python can get used by a computer.
+
+
+      <p><br></p><hr><p><br></p>
+
+
+
+      <h3>High Level View: Data</h3>
+      <p>
+        There are two different things that one must understand about the data that is found inside a computer:
+
+        <ul>
+          <li>One thing is how the data itself is stored and passed around, which we will call the <b>data structure</b>;
+            <br>
+            <img class="img-responsive" src="../figures/lecture02/bytes.png" alt="" style="width:40%">
+          </li>
+          <br>
+          <li>The other is how the data is interpreted or shown to the user, which we will call the <b>data interpretation</b>.
+            <br>
+            <img class="img-responsive" src="../figures/lecture02/rgb_pixel_array.png" alt="" style="width:40%">
+            <br>
+            <span><small>Image credit: https://www.kdnuggets.com/2020/01/convert-picture-numbers.html</small></span>
+            
+          </li>
+        </ul>
+        
+
+        <h4>Data Structure</h4>
+          
+        A standard modern computer is based on an electronic switching model; the standard analogy is "a system of pipes and valves running water".
+
+        <br><br>
+
+        The way a computer keeps data inside itself is by running a current or keeping an electromagnetic charge in a circuit component (you can think of it as running a water current trhough a pipeor as filling a small tank full of water). 
+
+        <br><br>
+        
+        Therefore, the smallest value one can save in a computer is if there is or there isn't a current or charge in a component
+
+        <br><br>
+
+        Another way to think about it is that, if there is a charge or current, then there IS data saved there, or in other words, the presence of a charge is "TRUE"; if there is no charge or current, then the presence of a charge is "FALSE";
+
+        <br><br>
+
+        So, in summary:
+
+        <ul>
+          <li>A running current or a charge: A value of <b>True</b>, also called a logical <b>1</b></li>
+          <br>
+          <li>A running current or a charge: A value of <b>False</b>, also called a logical <b>0</b></li>
+        </ul>
+
+
+        <style type="text/css">
+          .tg  {border-collapse:collapse;border-spacing:0;}
+          .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+            overflow:hidden;padding:10px 5px;word-break:normal;}
+          .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+            font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+          .tg .tg-baqh{text-align:center;vertical-align:top}
+          </style>
+          <table class="tg">
+          <thead>
+            <tr>
+              <th class="tg-baqh"></th>
+              <th class="tg-baqh">Logical</th>
+              <th class="tg-baqh">bit value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tg-baqh">Current</td>
+              <td class="tg-baqh">True</td>
+              <td class="tg-baqh">1</td>
+            </tr>
+            <tr>
+              <td class="tg-baqh">No Current</td>
+              <td class="tg-baqh">False</td>
+              <td class="tg-baqh">0</td>
+            </tr>
+          </tbody>
+          </table>
+
+        <br><br>  
+
+        <b>Note</b>: if you turn off the power in a computer, all the circuits stop having current/charge and all "memory" is wiped. However, we have extended these "current/charge" based storage systems with "hard disk drives" that can store information magnetically (which does not disappear after electricity is cut off).
+
+        If you want to read a bit (no pun intended) more about how a computer stores information, you can check out this very clear and short article: <a href="http://androidgrl.github.io/2019/01/01/binary/">"How Does a Computer Physically Store Binary Code?"</a>
+
+        <br><br>
+
+
+        <h4>A simplified analogy of storage: <b>Boxes</b></h4>
+          
+        Thinking about running water in pipes is ok for very simple circuits, but for thinking about data storage, it is not the best; also, once circuits get complicated enough, the analogy breaks. 
+
+        <br><br>
+
+        So, for our purposes, we're going to switch to another "model" of the storage: 
+        <br><br>
+
+        <ul>
+          <li><b>Box Analogy</b> : Imagine we have a large set of boxes that can store a 0 or a 1:
+            <br><br>
+            <div class="row">
+              <div class="col-lg-5 col-md-5 col-xs-5 thumb">               
+                      <img class="img-responsive" src="../figures/lecture02/bank-vault.png" alt="" style="width:95%">
+              </div>
+              <div class="col-lg-5 col-md-5 col-xs-5 thumb">
+                      <img class="img-responsive" src="../figures/lecture02/security-boxe-open.png" alt="" style="width:95%">
+              </div>
+            </div>  
+            <br>
+            They ara aranged in a consecutive order and each box has a known <b>location</b> or <b>address</b>.          
+            <br><br>
+
+            <b>Files</b> are (potentially large) groups of these boxes. Each file, in adition to the data it contains (0s and 1s) has a set of special boxes that indicate what type of file it is.
+            <br><br>
+            <b>Directories</b> are groups of these files.
+          </li>
+        </ul>
+        
+
+        <h4>Data Interpretation</h4>
+          
+        As we established above, a computer is a machine that can store 0s and 1s and may perform actions to change these values or move them around.
+
+        <br><br>
+
+        However, we, as humans, don't see 0s and 1s... we see this:
+        <br><br>
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-xs-4 thumb">               
+                  <img class="img-responsive" src="../figures/lecture02/textEditor.png" alt="" style="width:90%">
+                  <br>
+                  <small><a href="https://chrome.google.com/webstore/detail/docs/aohghmighlieiainnegkcijnfilokake">Image Credit</a></small>
+          </div>
+          <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+                  <img class="img-responsive" src="../figures/lecture02/stardewValley.png" alt="" style="width:100%">
+                  <br>
+                  <small><a href="https://imgur.com/COijbLj">Image Credit</a></small>
+          </div>
+          <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+                  <img class="img-responsive" src="../figures/lecture02/python-scripting-language-code.png" alt="" style="width:87%">
+                  <br>
+                  <small><a href="https://junilearning.com/blog/guide/what-is-python-101-for-students">Image Credit</a></small>                      
+          </div>
+        </div>        
+
+        <br><br>
+
+        So how do we get from 0s and 1s to letters, sounds, and images?
+
+        <br><br>
+
+        <b>Output Devices and interpreting signals</b>
+        <br>
+
+        <ul>
+          <li><b>Monitors and Video Card</b>: gets a series of input signals (voltage sequences) that it uses to know which pixels to light up in the screen.
+          <br>
+            <img class="img-responsive" src="../figures/lecture02/bytesToPixels.png" alt="" style="width:80%">
+          </li>
+          <br>
+          <li><b>Speakers and Audio Card</b>: gets a series of input signals (voltage sequences) that it uses to know which tones to generate with the speaker.
+          <br><br>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb">               
+                    <img class="img-responsive" src="../figures/lecture02/binarySequence.png" alt="" style="width:90%">
+            </div>
+            <div class="col-lg-2 col-md-2 col-xs-2 thumb">               
+                   &#x27F6;
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+                    <img class="img-responsive" src="../figures/lecture02/soundSpectrum.png" alt="" style="width:100%">
+            </div>
+          </div>   
+          <br><br>
+
+
+          You can test the result here:
+            
+          <br><br>
+
+          Note: set your speakers to low volume!
+          <br>
+            <audio src="../figures/lecture02/imperialMarchIntro.m4a" type="audio/x-m4a" controls autoplay>
+          </li>
+        </ul>
+
+        <br><br>
+
+        <h4>Input</h4>
+
+        Input can be given by hardware elements like Keyboards, mouse movement, joystick, video cameras, etc.
+        <br><br>
+
+        The thing to understand is that every input gets broken down into its smallest parts and each of these parts gets assigned a sequence of 0s and 1s so it can be stored. 
+        <br><br>
+        It is also important to save the "desired interpretation" of the sequence of 0s and 1s for future use. The interpretation itself is also just a sequence of 0s and 1s that means something different for every value. 
+        <br><br>
+        You can imagine something like: "0000 0000" means it is just a number; "0101 1100" means it is a video; etc. This is a bit of an oversimplification, but it will do for now.
+         
+
+         
+      </p>
+      <br><br>
+
+      <p><br></p><hr><p><br></p>
+
+
+
+      <h3>From Python Code to Execution</h3>
+      <p>
+
+        Now that you know about the way computers store information and also how it can be interpreted in order to show different images or cause different sounds, we can think of <b>the full path between a python program and a printout on the screen</b>.
+
+        <br><br>
+
+        <h4>Python Source code</h4>
+
+        Python is like English, French, or Portuguese... a collection of symbols and rules to use them.
+
+        <br><br>
+
+        A python program uses symbols from English and has:
+
+        <ul>
+          <li><b>Reserved words</b>: Key words that already mean special things</li>
+          <li><b>Identifier words</b>: Key words that the user can specify (like nicknames)</li>
+          <li><b>Operators and delimiters</b>: symbols that let us clarify intention or combine values (like punctation)</li>
+          <li><b>Expressions</b>: Sequences of key words, dentifiers, operators and delimiters that cause data to be stored, transformed, or shown</li>
+        </ul>
+
+        <br><br>
+
+        What does all this look like? See an example piece of code below:
+
+          <br><br>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb"> 
+            The code:              
+                    <img class="img-responsive" src="../figures/lecture02/wordDiagonalizer.png" alt="" style="width:90%">
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+            The Input
+                    <img class="img-responsive" src="../figures/lecture02/input.png" alt="" style="width:100%">
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+            The Output and Storage:
+                    <img class="img-responsive" src="../figures/lecture02/DiagonalizationOutput.png" alt="" style="width:100%">
+            </div>
+          </div>   
+          <br><br>
+
+          You can try it out <a href="https://pythontutor.com/visualize.html#code=word%20%3D%20input%28%22Give%20me%20a%20word%3A%20%22%29%0Afor%20i%20in%20range%28len%28word%29%29%3A%0A%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20print%28%22%20%22,%20end%3D%22%22%29%0A%20%20%20%20print%28word%5Bi%5D%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">Here</a>
+
+          <br><br>
+
+          <h4>So what is happening here?</h4>
+
+          <img class="img-responsive" src="../figures/lecture02/hll-to-machineCodeDiagonalizer.png" alt="" style="width:70%">
+          <br><br>
+          
+          <ol>
+            <li>First of all, the text file where you saved the Python Source code is actually just a series of 0s and 1s too! However, when shown in the screen, the computer knows to display these as letters and symbols (because of the type of the file). </li>
+            <br>
+            <li>When we "Execute the Program" the computer checks if "the spelling makes sense" and it then converts every instruction (basically every line) into sequences of 0s and 1s that the computer knows to interpret as "machine code instructions", composed of: <b>operations</b>, <b>values</b>, and <b>addresses</b>.</li>
+            <br>
+            <li>Each of these "machine code instructions" tells the computer where to look (boxes in memory) and what to do with the contents (update them, copy them somewhere else, or pass them to output devices)</li>
+            <br>
+            <li>If no "spelling errors are detected" (before executing) and if no ilegal operations are requested (like erasing protected memory locations), then the sequence of instructions runs until nothing else remains to be done.</li>
+            <br>
+            <li>For this particular program, the sequence of actions cause the computer to tell the monitor to print specific symbols at specific locations</li>
+          </ol>
+
+
+          <br><br>
+
+          <h4>Execution steps for Python</h4>
+
+          A great (and short) article on the details of how Python is executed can be found here:
+
+          <a href="https://python.plainenglish.io/how-python-program-works-inside-out-5ede48d627e0">What happens when Python code is executed?
+</a>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+
+      <h2>
+        Take the Quiz!
+      </h2>
+
+      Go to the Moodle page for the course and take the quiz: <b>How Computers Store Data</b>
+
+
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+    <!-- <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+  </body>
+</html>
