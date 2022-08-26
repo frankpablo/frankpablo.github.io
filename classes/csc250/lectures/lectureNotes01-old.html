@@ -192,12 +192,11 @@
       </p>
       <br><br>
 
+
+
       <h4>
         The Class
       </h4>
-
-<!--
-
 
       <br><br>
       <p>
@@ -330,10 +329,12 @@
         <p><b>One possible answer below</b></p>
         <div id="passw">
           <div>
+              <!-- (THE PASSWORD IS factors) -->
               Enter the password to proceed:
           </div>
           <div>
             <input type="password" id="password" onkeydown="if (event.keyCode == 13) document.getElementById('button').click()" /> 
+            <!-- IMPORTANT! this part is so if you click enter, it works. -->
           </div>
                     
           <div>
@@ -342,6 +343,7 @@
             document.getElementById('table').classList.toggle('show');   document.getElementById('passw').style.display='none'; } 
             else {  alert('Invalid Password!'); password.setSelectionRange(0, password.value.length);   } " />
           </div>
+            <!-- it will autoselect wrong input if wrong -->
             <br /><br /><br />
         </div>
         <br><br>
@@ -439,10 +441,9 @@
 
        </p>
 
--->
 
-    <h4>Class Objectives</h4>
-
+      <h4>Class Objectives</h4>
+      
       <p>
         This class has three main objectives:
         <ul>
@@ -472,8 +473,6 @@
           <li>Advanced topics</li>
           <li>Some fun examples from cryptography, ML, and more</li>
         </ul>
-
-
        
       </p>
 
