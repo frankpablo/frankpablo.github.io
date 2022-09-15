@@ -205,408 +205,319 @@
 
       This class we'll discuss:
       <ul>
-        <li>RE Recap</li>
-        <li>RE Minigolf</li>
-        <li>RE properties</li>
-        <li>A simple RE proof</li>
+        <li>RE power</li>
+        <li>Algorithms: Code, RegExes, and Diagrams</li>
+        <li>Intro to Finite Automatons</li>
       </ul>
 
 
-
-
-      <p><br></p><hr><p><br></p>
-
-
-      <h4>Definition of Regular Expressions (Recursively)</h4>
-      <p>
-        <b>Basic (axiomatic) definitions:</b>
-        <ul>
-          <li>Basis 1: \(\emptyset\) is a regular expression, and \( \mathrm{L} (\emptyset) = \emptyset\)</li>
-          <li>Basis 2: \(\epsilon\) is a regular expression, and \( \mathrm{L} (\epsilon) = \{\epsilon\} \)</li>
-          <li>Basis 3: \(a\) is a symbol, then \(a\) is a regular expression, and \( \mathrm{L} (a) = \{a\} \)</li>
-        </ul>
-        <br>
-        <b>Recursive extensions:</b>
-        <ul>
-          <li><b>Alternation</b>: 
-            <br>
-            One expression <b>or</b> another,
-            <div class="mx-3">
-              If \(\mathrm{R}_1\) and \(\mathrm{R}_2\) are regular expressions, 
-              <br>
-              then \(\mathrm{R}_1 + \mathrm{R}_2\) is a regular expression,<br>
-              and \( \mathrm{L} (\mathrm{R}_1 + \mathrm{R}_2) = \mathrm{L} (\mathrm{R}_1) \cup  \mathrm{L} (\mathrm{R}_2)\)
-              <br><br>
-              <b>Example:</b>
-              <br>
-              If \( R_1 = 0\) and \( R_2 = 1\), 
-              <br>              
-              what is \( R_3 = R_1 + R_2\) ?  
-              <br>
-              <div class="container mx-lg-3">
-              Think before revealing the answer:  
-                <details><summary>(Wait; then Click)</summary>
-                    \(R_3 = 0 + 1\)
-                </details>
-              </div>
-              <br>
-              what is \( \mathrm{L} (\mathrm{R}_1 + \mathrm{R}_2) \)?
-              <div class="container mx-lg-3">
-              Think before revealing the answer:  
-                <details><summary>(Wait; then Click)</summary>
-                    \( \mathrm{L} (\mathrm{R}_3 ) = \{ 0, 1\} \)
-                </details>
-              </div>
-            </div>          
-          </li>
-          <br><br>
-
-          <li><b>Concatenation</b>:
-            <div class="mx-3">
-              If \(\mathrm{R}_1\) and \(\mathrm{R}_2\) are regular expressions, 
-              <br>
-              then \(\mathrm{R}_1 \mathrm{R}_2\) is a regular expression,<br>
-            and \( \mathrm{L} (\mathrm{R}_1 \mathrm{R}_2) = \mathrm{L} (\mathrm{R}_1)  \mathrm{L} (\mathrm{R}_2)\)
-            <br><br>
-              <b>Example:</b>
-              <br>
-              If \( R_3 = (0 + 1)\) and \( R_4 = 1\), 
-              <br>              
-              what is \( R_5 = R_3  R_4\) ?  
-              <br>
-              <div class="container mx-lg-3">
-              Think before revealing the answer:  
-                <details><summary>(Wait; then Click)</summary>
-                    \(R_5 = (0 + 1)1\)
-                </details>
-              </div>
-              <br>
-              what is \( \mathrm{L} (\mathrm{R}_3 \mathrm{R}_4) \)?
-              <div class="container mx-lg-3">
-              Think before revealing the answer:  
-                <details><summary>(Wait; then Click)</summary>
-                    \( \mathrm{L} (\mathrm{R}_5 ) = \mathrm{L} ( \; (0 + 1)1 \; ) = \{ 01, 11\} \)
-                </details>
-              </div>
-            </div>
-          </li>
-
-          <br><br>
-          <li><b>Kleene star</b>: 
-            <div class="mx-3">
-              If \(\mathrm{R}_1\) is a regular expression, 
-              <br>
-              then \(\mathrm{R}^*_1\) is a regular expression,<br>
-            and \( \mathrm{L} (\mathrm{R}_1^*) = \big( \mathrm{L} (\mathrm{R}_1) \big)^* \)
-            <br><br>
-              <b>Example:</b>
-              <br>
-              If \( R_5 = (0 + 1)1 \), 
-              <br>              
-              what is \( R_5^*\) ?  
-              <br>
-              <div class="container mx-lg-3">
-              Think before revealing the answer:  
-                <details><summary>(Wait; then Click)</summary>
-                    \(R_5^* = ( \; (0 + 1)1 \; )^*\)
-                </details>
-              </div>
-              <br>
-              what is \( \mathrm{L} (\mathrm{R}_5^*) \)?
-              <div class="container mx-lg-3">
-              Think before revealing the answer:  
-                <details><summary>(Wait; then Click)</summary>
-                    \( \mathrm{L} (\mathrm{R}_5^* ) = \mathrm{L} ( \; ((0 + 1)1)^* \; ) = (\mathrm{L}  ( \; (0 + 1)1 \;))^*   = ( \; \{ 01, 11\} \; )^* \)
-                    <br>
-                    \( = \{ \epsilon, \quad 01, \quad 11, \quad 0101, \quad 0111, \quad 1101, \quad 1111, \quad 010101, \quad \dots \} \)
-                </details>
-              </div>
-            </div>
-          </li>
-        </ul>
-
-        <br><br>
-        <b>Precedence</b> rules are: do parenthesis first, then do star first, then concatenation, then union.
-
-
-      <p><br></p><hr><p><br></p>
-
-
-      <h2>The RegEx Minigolf!</h2>
-
-      <br>
-      <img class="img-fluid" src="../figures/lecture04/RegExMinigolf.png" alt="golf" style="width:80%">        
-      <br><br>
-
-      <p>
-        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [5-10 minutes!!]: 
-        <br>
-        Make teams of 2 or 3 and complete the following challenges.
-        <br>
-        Let me know when your team is done.
-      </p>
-
-      <div class="mx-5">
-        <p>
-          <span style='color:#06a015'><b><big>Hole 1</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ contains a single 1}\}\)</div>
-          <!-- ∑={1}; Lb : L(1) or L{∑}-->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 2</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ contains at least one 1}\}\)</div>
-          <!-- ∑={...,1}; Lb : L(∑*1∑*) -->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 3</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ contains 001 as a substring}\}\)</div>
-          <!-- ∑={...,0,1}; Lb : L(∑*001∑*) -->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 4</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid \text{ every 0 in w is followed by at least one 1}\}\)</div>
-          <!-- ∑={anything,0,1}; Lb : L( ((01)*1*)* )
-            or \b((?:01)*1*)*\b in regex-->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 5</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ w is a string of even length}\}\)</div>
-          <!-- ∑={...}; Lb : L ( (∑∑)* ) -->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 6</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ w is a string of odd length}\}\)</div>
-          <!-- ∑={...}; Lb : L ( ∑(∑∑)* ) -->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 7</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">\(\{w \mid w \text{ the length of w is a multiple of 3}\}\)</div>
-          <!-- ∑={...}; Lb : L ( (∑∑∑)* ) -->
-        </p>
-        <br><br>
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 8</big></b></span>: 
-          <br>
-          What is the expression that gives us:
-          <br>
-          <div class="mx-3">How do we search for this set exactly: \( \{ 01 \text{, } 10\} \)?</div>
-          <!-- ∑={...}; Lb : L ( 01+10 ) -->
-        </p>
-        <br><br>
-
-
-        <p>
-          <span style='color:#06a015'><b><big>Hole 9</big></b></span>: 
-          <br>
-          If \( \Sigma={0,1} \), how do we get the following expression?
-          <br>
-          <div class="mx-3"> \( \{w \mid w \text{ w starts and ends with the same symbol} \} \) </div>
-          <!-- ∑={0,1}; Lb : L ( 1∑*1 + 0∑*0 ) -->
-        </p>
-        <br><br>
-      </div>
 
 
       <p><br></p><hr><p><br></p>
 
       <h2>
-        Properties of Regular Languages 
-      </h2>  
-
+        Recap: RegExes, how powerful are they?
+      </h2>
 
       <p>
-        The following properties are true about regular languages:
+        For the the Machine Abstraction of Regular Expressions, we can ask: 
+        <br><br>
+        what problems can they solve?
+        <br><br>
+        In other words:  Which Language sets can they generate/accept?
+        <br><br>
+        Regular Languages are more powerful than Finite Languages (can encompass more)
+        <br>
+          <img class="img-fluid" src="../figures/lecture04/regLangs.png" alt="more descriptive power!" style="width:50%">
+        </p>
+        <br><br>
+        <center>Still confused about RExs? Go to Office Hours with Winnie!! (and with me)</center>
+        
+      </p>
       
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Algorithms: Code, RegExes, and Diagrams   
+      </h2>
+
+      <p>
+        As we saw above, an algorithm can be <i>encoded</i> as:
+        <ol>
+          <li>RegEx</li>
+          <li>(pseudo) Code </li>
+        </ol>
+        But we know that a piece of code can also be drawn using things like a "Flow Diagram"!
+        <br><br>
+        In this section, we'll use a special type of diagram called a <b>State Diagram</b>.
+
         <br><br>
 
-      <ul>
-        <li>Claim: Regular languages are closed under union</li>
-        <li>Claim: Regular languages are closed under concatenation</li>
-        <li>Claim: Regular languages are closed under intersection</li>
-        <li>Claim: Regular languages are closed under complement</li>
-        <li>Claim: Regular languages are closed under difference</li>
-        <li>Claim: Regular languages are closed under reversal</li>
-      </ul>
+        <h3>State Diagram</h3>
 
-      <br><br>
+        A State diagram looks like this:
 
-      First Question: What does "Closed Under" mean?
-      <br>
-      In other words: What are closure properties?
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/stateDiagram.png" alt="not a map" style="width:80%">
+        <br><br><br><br>
 
-      <br><br>
+        <h3>Finite Automaton AKA: Finite State Machine (FSM)</h3>
 
-      <b>We won't prove them (all) yet, but you may use them in Problem Set 2.</b>
+        
+        <ol>
+          <li>Finite number of states</li>
+          <li>Follows Rules that have been programmed beforehand</li>
+        </ol>
 
 
-      <br><br><br><br>
-
-      <h4>The meaning of the claims...</h4>
-      <br><br>
-
-      Now, what it is that the other claims are actually "claiming"? 
-      <br><br>
-      (How would you express this in the notation we've developped so far?)
-      <br><br>
-
-      <ol>
-        <li>
-          <b>Claim: Regular languages are closed under union</b>
-          <div class="container mx-lg-3">
-            Think before revealing the answer:  <br>
-            <details><summary>(Wait; then Click)</summary>
-                <b>For any regular languages \(L_1\) and \(L_2\), then \(L_1\cup L_2\) is regular</b>
-            </details>
-          </div>
-        </li>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/FSM.png" alt="phsm" style="width:80%">
         <br><br>
 
-        <li>
-          <b>Claim: Regular languages are closed under concatenation</b>
-          <div class="container mx-lg-3">
-            Think before revealing the answer:  <br>
-            <details><summary>(Wait; then Click)</summary>
-                <b>For any regular languages \(L_1\) and \(L_2\), then \(L_1L_2\) is regular</b>
-            </details>
-          </div>
-        </li>
+        <h3>Operation Examples</h3>
+
+        <h4>Example 01: Processing a String</h4>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/processingString01.png" alt="proc 1!" style="width:80%">
         <br><br>
 
-        <li>
-          <b>Claim: Regular languages are closed under intersection</b>
-          <div class="container mx-lg-3">
-            Think before revealing the answer:  <br>
-            <details><summary>(Wait; then Click)</summary>
-                <b>For any regular languages \(L_1\) and \(L_2\), then \(L_1 \cap L_2\) is regular</b>
-            </details>
-          </div>
-        </li>
+        <h4>Example 02: Processing a String</h4>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/processingString02.png" alt="proc 2!" style="width:80%">
         <br><br>
 
-        <li>
-          <b>Claim: Regular languages are closed under complement</b>
-          <div class="container mx-lg-3">
-            Think before revealing the answer:  <br>
-            <details><summary>(Wait; then Click)</summary>
-                <b>For regular language \(L_1\), \( (L_1)^c \) is regular</b>
-            </details>
-          </div>
-        </li>
+        <h4>Example 03: Processing a String</h4>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/processingString03.png" alt="proc 3!" style="width:80%">
         <br><br>
 
-        <li>
-          <b>Claim: Regular languages are closed under difference</b>
-          <div class="container mx-lg-3">
-            Think before revealing the answer:  <br>
-            <details><summary>(Wait; then Click)</summary>
-                <b>For any regular languages \(L_1\) and \(L_2\), then \(L_1 - L_2\) is regular</b>
-                <br>
-                <b>this can also be written as: \(L_1 \setminus L_2\)</b>
-            </details>
-          </div>
-        </li>
-        <br><br>
-
-        <li>          
-          <b>Claim: Regular languages are closed under reversal</b>
-          <br>
-          The reversal of a string \(a_1a_2 \dots a_n\) is the string written backwards \(a_na_{n−1} \dots a_1\).
-          <br>
-          We use \(w^R\) for the reversal of string \(w\).
-          <br>
-          Then, the reversal of a language \(L\), written \(L^R\), is the language consisting of the reversals of all its strings.
-          <div class="container mx-lg-3">
-            Think before revealing the answer:  <br>
-            <details><summary>(Wait; then Click)</summary>
-              If L is a regular languages, then so is \(L^R\).
-            </details>
-          </div>
-        </li>
-      </ol>
-
-
-      <h4>Practice Proof: </h4>
-      <ul>
-        <li>Claim: Regular languages are closed under union 
-          <br>
-
-          In other words: <b>For any regular languages \(L_1\) and \(L_2\), then \(L_1\cup L_2\) is regular</b>
-
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Try to build your own machine. One that "Accepts" this set:
+          <br><br>
+          <img class="img-fluid" src="../figures/lecture05/zeroFollowedBy1.png" alt="zero 1 zero 1!" style="width:80%">
           <br><br>
 
-          Proof: 
-          <div class="container mx-lg-3">
-            Think before revealing the answer:  <br>
-            (Hint: Look at the Regular Expression Deffinitions)
-            <br>
-            <details><summary>(Wait; then Click)</summary>
-                Since
-                <br>
-                \(L_1\) and \(L_2\) are regular, they have regular expressions, say:
-                <br>
-                Let \(L_1 = L(R_1) \) and \(L_2 = L(R_2) \).
-                <br>
-                Then \(L_1\cup L_2 = L(R_1 + R_2) \) by the definition of the + operator
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <p>
+                <br><br>
+                <img class="img-fluid" src="../figures/lecture05/zeroFollowedBy1FSM.png" alt="0 one 0 one!" style="width:80%">
+                <br><br>
+              </p>
             </details>
           </div>
-        </li>
-      </ul>
+        </div>  
 
-
-      <p><br></p><hr><p><br></p>
-
-
-      <h4>Next Class: More about Finite Automata</h4>
-
+      </p>
 
       <p><br></p><hr><p><br></p>
 
-      <h4>Homework</h4>
-      <br>      
-      <b>[Due for everyone]</b>
-      <div class="mx-5">
-       Start Problem Set 2 (Come to OHs if you want help!!)
-      </div> 
-      <br>
-      <b>[Optional]</b> 
-      <div class="mx-5">
-        TBD
-      </div>
-      <br><br>
+      <h2>
+        Alphabets and languages  
+      </h2>
+
+      <p>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/alphabetsAndLangs.png" alt="Alphabeast!" style="width:80%">
+        <br><br>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Formal Definition  
+      </h2>
+
+      <p>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/formalDef.png" alt="very formal" style="width:80%">
+        <br><br>
+
+        <h3>Our Last Example:</h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/defLastExample.png" alt="DEFINE!" style="width:80%">
+        <br><br>
+
+        <h3>Operators in FSMs: OR</h3>
+
+        How might we handle a language that contains an or?
+        <br><br>
+        Example:
+
+        <center>{w|w doesn’t contain either 00 or 11 as a substring}</center>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/orFSM.png" alt="ORRRRRR!" style="width:80%">
+        <br><br>
+
+        Let's try one basic example:
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/exampleString00.png" alt="Yak is a good dog!" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Explain the sequence of states for these words:
+          <ul>
+            <li>
+              101010
+            </li>
+            <li>
+              010110
+            </li>
+            <li>
+              110011
+            </li>
+          </ul>
+        </div>  
+
+        <br><br>
+
+
+        
+        <span style='color:#06a015'><b><big>Activity 3</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Answer the following questions:
+
+          <div class="mx-lg-5">
+            <li>What is the descriptive power of Finite Automata?</li>
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>
+                We need to compare it with regular expressions... we'll do that bit by bit.
+              <br><br>
+                <img class="img-fluid" src="../figures/lecture04/regLangs.png" alt="Reg Lang descriptive power!" style="width:50%">
+            </details>
+            <br><br>
+
+            <li>Are there languages that <b>Cannot</b> be described by a finite automaton?</li>
+            <br>
+            (try to come up with a counter example)
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>
+                YES! NON Regular Languages!
+              <br><br>
+                <img class="img-fluid" src="../figures/lecture05/nonRegularExample.png" alt="Can't do it!" style="width:100%">
+              <br><br>
+            </details>
+          </div>
+        </div>  
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>
+        Useful Properties  
+      </h2>
+
+      <p>
+        These are some properties that can help you deduce, generalize, or analyze FSMs with respect to their RegEx and Regular Languages.
+        <br><br>
+
+        <h3>Complement</h3>
+        IF a Language \(L_1\) is recognizable by an FA \( M_1\),
+        <br>
+        is language \( (L_1)^{c} \) also recognizable by some FA?
+        <br><br>
+        Or in other words, 
+        \[\exists M_2 \quad | \quad L(M_2) = L(M_1)^{c} \]
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/complement.png" alt="complement!" style="width:80%">
+        <br><br><br><br>
+
+        <h3>Intersection</h3>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/intersection.png" alt="interX!" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 4</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          How would you prove this (by construction)?
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>
+                <ol>
+                  <li>run both machines “in parallel”</li>
+                  <li>accept <b>if (and only if) both</b> reach an accepting state</li>
+                </ol>              
+            </details>
+            <br><br>
+          </div>
+        </div>  
+
+        Example:
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/intersectionExample.png" alt="interX Exmpl!" style="width:50%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/intersectionSolution.png" alt="inX Exmpl!" style="width:50%">
+        <br><br>
+
+
+        <br><br>
+
+        <h4>Intersection: General Rule</h4>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/intersectionRule.png" alt="inX rule!" style="width:100%">
+        <br><br>
+
+
+
+        <br><br><br><br>
+
+        <h3>Union</h3>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/union.png" alt="uni | on!" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 5</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          How would you prove this (by construction)?
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>
+                <ol>
+                  <li>run both machines “in parallel”</li>
+                  <li>accept if <b>either</b> reach an accepting state</li>
+                </ol>              
+            </details>
+            <br><br>
+          </div>
+        </div>  
+
+        Example:
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/unionExample.png" alt="union Exmpl!" style="width:50%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/unionSolution.png" alt="union Sol" style="width:50%">
+        <br><br>
+
+
+        <br><br>
+
+        <h4>Union: General Rule</h4>
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture05/unionRule.png" alt="union rule" style="width:100%">
+        <br><br>
 
 
 
