@@ -198,7 +198,7 @@
       <!-- CONTENT BELOW -->
 
 
-      <h1>Lecture Notes 14: Intro to Push-Down Automata </h1>
+      <h1>Lecture Notes 14: Intro to Turing Machines</h1>
       <p>
         <br>
       </p>
@@ -206,206 +206,289 @@
 
       This class we'll discuss:
       <ul>
-        <li>Intro to Push-Down Automata</li>
+        <li>Recap: REs and CFGs</li>
+        <li>The "tape-processing" view </li>
+        <li>More powers: TMs</li>
       </ul>
 
-
       <p><br></p><hr><p><br></p>
 
-      <h2>Why are CFGs important?</h2>
+      <h2>
+        Building up to the big one...
+      </h2>
 
-      <p>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture12/CF25.png" alt="CFGs!!!" style="width:80%">
-        <br><br>
-
-        check the article out: <a href="https://www.nature.com/articles/nature04675">https://www.nature.com/articles/nature04675</a>
-        
-
-
-
-
+      
 <!-- 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture13/PDA01.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
+        <details>
+            <summary>(Wait; then Click)<br><br></summary>
 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture13/PDA02.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
+              Steps:
+              <ol>
+                <li>The length of a word \(\mid uv^ixy^iz \mid \) <br>
+                is the length of \( \mid w \mid \) plus any added repetitions of \(v\) and \(y\)</li>
+                <li>So,  \( \mid uv^ixy^iz \mid  \) is  \( \mid w\mid  + (i-1)\mid vy \mid \) </li>
+                <li>Since we said \(w\) is in PRIMEAL, then \( \mid w\mid \) is some prime number \(p\geq N \).</li>
+                <li>Then, \( \mid uv^ixy^iz \mid  = \mid w\mid  + (i-1)\mid vy \mid = p + (i-1)\mid vy \mid\)</li>
+                <li>Now, <b>What possible choice of \(i\) could we choose to cause the overall length to be provably NOT prime</b>?</li>
+              </ol>
 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture13/PDA03.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
- -->
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture13/CF26.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture13/CF27.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture13/CF28.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-      </p>
-
-      <p><br></p><hr><p><br></p>
-
-
-      <h2>Push-Down Automata</h2>
-
-      <p>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA01.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA04.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA05.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA02.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-         What is the language that these rules are describing?
-
-          <div class="mx-lg-5">
-            <details>
+              <details>
               <summary>(Wait; then Click)<br><br></summary>
-
-              <ul>
-                <li>are these a valid words? \(\{ \epsilon, 01, 0011, \dots \} \)</li>
-                <li>We know this language!! What is it called?</li>
-              </ul>
+              If we choose \(i\) so that the \(i-1\) is equal to \(p\) in the following expression:<br>
+              \[ \mid uv^ixy^iz \mid  = \mid w\mid  + (i-1)\mid vy \mid = p + (i-1)\mid vy \mid \]
               <br>
-              <b>Now, let's try to buid an automaton that can keep track of all of this</b>
-            </details>
-          </div>
-        </div>  
+              Then substituting \(i-1\) for \(p\) ( by making \(i = p-1\)), we would get:
 
+              \[ 
+              \mid uv^ixy^iz \mid  = \mid w \mid  + (i-1)\mid vy \mid = p + p\mid vy \mid \\
+              = p (1+\mid vy \mid)
+              \]
+              which means that, after pumping, the word is <b>divisible by \(p\)</b>! and therefore, <b>not of prime length</b>.
+              <br><br>
 
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA03.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
+              <br><br>
+              </details>
 
-
-
-        <b>Notes</b> 
-        <ul>
-          <li>we need a notation for READ, POP and PUSH... we'll use: \( READ, POP \rightarrow PUSH\)</li>
-          <li>we need a symbol for "The stack is currently empty!"... we'll use \(z_0\)</li>
-          <li>we need to be able to read a symbol without pushing ... we'll use \(\epsilon\) in place of PUSH</li>
-          <li>we need to be able to read a symbol without popping ... we'll use \(\epsilon\) in place of POP</li>
-          <li>we need to be able to push without reading a symbol ... we'll use \(\epsilon\) in place of READ</li>
-          <li>we need to be able to pop without reading a symbol ... we'll use \(\epsilon\) in place of READ</li>
-        </ul> 
-
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA06.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br><br><br><br><br>
-
-        <h3>So now, let's draw the PDA for HALF</h3>
-
-        <br><br>
-
-        <h4>An example for HALF:</h4>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA03a.png" alt="PDAs!!!" style="width:50%">
-        <br><br>
-
-        And in a "compressed notation":
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA03b.png" alt="PDAs!!!" style="width:50%">
-        <br><br>
-<!-- 
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture13/PDA07.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
+            <br><br>
+          </details>
  -->
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA08.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <span style="color:#00cc33;font-size: 18pt">Note that we defined an Augmented <b>NON-Deterministic</b> Automaton</span>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA09.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA10.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA11.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA12.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <b>Tips:</b>
-        <ul>
-          <li>Think of phases: 
-            <ol>
-              <li>memorizing</li>
-              <li>middle (even or odd)</li>
-              <li>replicating in reverse</li>
-            </ol></li>
-            <li>write the PDA... and remember it is NON-Deterministic</li>
-        </ul>
-
-        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
-        <div class="mx-lg-5">
-          Build the PDA for PAL
-          <div class="mx-lg-5">
-            <details>
-              <summary>(Wait; then Click)<br><br></summary>
-              <br><br>
-              <img class="img-fluid" src="../figures/lecture14/PDA12a.png" alt="PDAs!!!" style="width:100%">
-              <br><br>
-              
-            </details>
-          </div>
-        </div>  
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA13.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
-
-        <br><br>
-        <img class="img-fluid" src="../figures/lecture14/PDA14.png" alt="PDAs!!!" style="width:80%">
-        <br><br>
 
         
       </p>
 
 
-      <p><br></p><hr><p><br></p>
-
-
 
       <p><br></p><hr><p><br></p>
 
-      <h3>Next class: Introduction to Turing Machines</h3>
+      <h2>Turing Machines</h2>
+
+      <p>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/out.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur01.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur02.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur03.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur04.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur05.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur06.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur07.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur08.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur09.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur10.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur11.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur12.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur13.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur14.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur15.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur16.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+        <div style="font-size: 18pt; color: #112277">
+
+            So, a transition would look like this:
+            <center>
+              \[ (r, w, m) \]
+            </center>
+            
+            where each of the elements means:
+            <ul>
+              <li><b><tt>r</tt></b>: what is Read from the "tape"</li>
+              <li><b><tt>w</tt></b>: what is Written into the "tape"</li>
+              <li><b><tt>m</tt></b>: the movement direction in the "tape"</li>
+            </ul>
+            Examples:
+            <br>
+            <ul>
+              <li><b><tt>(0, \(\square\), L)</tt></b>: IF we read a 0, we write a "blank" and move Left</li>
+              <li><b><tt>(1, 1, R)</tt></b>: IF we read a 1, we write a 1 and move Right</li>
+              <li><b><tt>(0, 0, L)</tt></b>: IF we read a 0, we write a 0 and move Left</li>
+            </ul>
+        </div>
+
+        <br><br><br><br>
+
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur17.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur18.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur19.png" alt="" style="width:80%">
+        <br><br>
+        <details>
+            <summary>(Wait; then Click)<br><br></summary>
+
+              Solution            
+              <br><br>
+              <br><br>
+              <img id="image" class="img-responsive" src="../figures/lecture15/Tur19sol.png" alt="" style="width:80%">
+              <br><br>
+              Where would the reject state be?
+
+              </details>
+
+            <br><br>
+          </details>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur20.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur21.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur22.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur23.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur24.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur25.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur26.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br><br><br>
+
+        <h3>The magic Halting predictor machine H</h3>
+
+        Can we create a machine/routine (let's call it machine <b>H</b>) that can predict if a program will halt?
+        <br><br>
+
+
+
+        Let's watch the following video to see what could go wrong with such a machine <b>H</b>:
+        <br>
+        <span style="font-size:18p"><a href="https://www.youtube.com/watch?v=92WHN-pAFCs">Halting Problem Video</a></span>
+
+        <br><br><br><br><br><br><br><br>
+
+
+        <h3>Proof Sketch</h3>
+        The following is a (sketch of a) proof by contradiction:        
+        <br><br><br><br>
+        <h4>1: Say there exists a function called <tt>halts</tt></h4>
+        <br>
+
+        <h4>halts(f) returns true if the subroutine f halts and returns false otherwise.</h4>
+
+        <br><br>
+
+        <h4>2: Now consider the following subroutine <tt>g</tt>:</h4>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur27.png" alt="" style="width:80%">
+        <br><br>
+
+        <br><br>
+
+        What is happening here?
+
+        <details>
+        <summary>(Wait; then Click)<br><br></summary>
+        <ol>
+          <li>halts(g) must either return true or false. </li>
+          <li>If halts(g) returns true, then g will call loop_forever and never halt, which is a contradiction. </li>
+          <li>Therefore, the initial assumption that halts is a total computable function must be false.</li>  
+        </ol>
+        </details>
+
+            <br><br>
+          </details>
+        <br><br>
+
+        <!-- 
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur28.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur29.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur30.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur31.png" alt="" style="width:80%">
+        <br><br>
+        <br><br>
+        <img id="image" class="img-responsive" src="../figures/lecture15/Tur32.png" alt="" style="width:80%">
+        <br><br> -->
+
+        
+      </p>
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h3>Next class: Decidability</h3>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h3>Information about the Midterm</h3>
+
+      <p>
+        We will hold Self-Scheduled exams AFTER the spring break (the following weekend).
+        <br><br>
+        The projected dates are March-25th to March-27th.
+        <br><br>
+        We will do a review upon your return to help get you in tip-top form.
+        <br><br>
+        It will cover:
+        <ul>
+          <li>Basic Propositional Logic</li>
+          <li>REs</li>
+          <li>FAs (DFAs and NFAs)</li>
+          <li>CFGs</li>
+          <li>PDAs</li>
+          <li>Turing Machines</li>
+          <li>Decidability</li>          
+        </ul>
+        You have to be able to:
+        <ul>
+          <li>indicate the desired "machine" for a given language</li>
+          <li>convert between equivalent "machines"</li>
+          <li>complete requested pfoofs (easier than any problem-5)</li>
+        </ul>
+      </p>
 
 
       <p><br></p><hr><p><br></p>
@@ -414,7 +497,7 @@
       <br>      
       <b>[Due for everyone]</b>
       <div class="mx-5">
-         Problem Set 04: Due 10/13 at 11:59 PM
+         TODO
       </div> 
       <br>
       <b>[Optional]</b> 

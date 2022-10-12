@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="../../../images/pabloFaceIcon.png">
+    <title>CSC 250  Theory of Computation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4aded636f8.js" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+    <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>
+    <style>
+      .img-max {
+        max-width: 500px;
+        width:50%;
+      }
+
+      #HIDDENDIV {
+        display: none;
+      }
+
+      #HIDDENDIV.show  {
+        display: block;
+      }
+
+      @import url('https://fonts.googleapis.com/css?family=Inter|Dosis&display=swap');
+
+      /* Crucial */
+      .highlight {
+        background-color: #EEF43B;
+          padding-right: 0px;
+          padding-left: 0px;
+      }
+
+
+      /* Just for styling */
+      /*body {
+        font-family: 'Inter', sans-serif;
+      }*/
+
+      /*.container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 0 2%;
+      }*/
+
+      .search-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto 20px auto;
+        max-width: 450px;
+        padding: 0 2%;
+      }
+
+      label {
+        color: #535353;
+        font-family: 'Dosis', sans-serif;
+        font-size: 14px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      input {
+        background: #fff;
+        border: 1px solid #535353;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        height: 38px;
+        line-height: 38px;
+        outline: none;
+        padding: 0 10px;
+        transition: all 0.5s;
+        width: 100%;
+      }
+
+      input:focus {
+        border: 1px solid #3a5bd3;
+        box-shadow: 0 0 4px 0 #7d90de;
+      }
+
+      blockquote {
+        background-color: #f1f1f1;
+        border-radius: 0 4px 4px 0;
+        color: #515151;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 0;
+        padding: 20px 40px 20px 20px;
+        position: relative;
+      }
+
+      blockquote::before {
+        color: #ccc;
+        content: '”';
+        font-size: 80px;
+        position: absolute;
+        right: 30px;
+        top: -20px;
+      }
+
+      figcaption {
+        color: #aaa;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+    </style>
+
+
+
+  </head>
+
+  <body>
+    <div class="container py-1">
+      <!-- <img class="float-right" src="../../images/gw_primary_logo.png" alt="GWU" height="160"> -->
+      <img class="float-right" src="../../../images/SmithLogoStack-cmyk.png" alt="SmithLogo" height="120">
+      <h1 class="display-3 m-0">CSC 250</h1>
+      <p class="lead">Theory of Computation</p>
+      <p class="lead">Smith Computer Science </p>
+    </div>
+
+    <div class="container py-0"><!-- was 1-->
+      
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+        <a class="navbar-brand" href="../../../../index.html">
+          <img src="../../../images/pabloFaceIcon.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarFive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../../../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link mx-lg-2" href="../class-info.html">Class Info <span class="sr-only">(current page)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../schedule.html">Schedule and Lectures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="../labs.html">Labs</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Homework
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">HW Assignments</a>
+                <a class="dropdown-item" href="#">TBD 1</a>
+                <a class="dropdown-item" href="#">TBD 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Final Project (if any)</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tools and Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Discord</a>
+                <a class="dropdown-item" href="#">Moodle</a>
+                <a class="dropdown-item" href="#">Repl.it</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">School Calendar</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes13.html">Previous Module</a>
+              </li>
+            <li class="nav-item ">
+              <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Next Module</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container  pb-5">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-10">
+      <br><br>
+
+
+      <!-- CONTENT BELOW -->
+
+
+      <h1>Lecture Notes 14: Intro to Push-Down Automata </h1>
+      <p>
+        <br>
+      </p>
+      <h2>Outline </h2>
+
+      This class we'll discuss:
+      <ul>
+        <li>Intro to Push-Down Automata</li>
+      </ul>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h2>Why are CFGs important?</h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture12/CF25.png" alt="CFGs!!!" style="width:80%">
+        <br><br>
+
+        check the article out: <a href="https://www.nature.com/articles/nature04675">https://www.nature.com/articles/nature04675</a>
+        
+
+
+
+
+<!-- 
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA01.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA02.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA03.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+ -->
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/CF26.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/CF27.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/CF28.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+      </p>
+
+      <p><br></p><hr><p><br></p>
+
+
+      <h2>Push-Down Automata</h2>
+
+      <p>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA01.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA04.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA05.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA02.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <span style='color:#06a015'><b><big>Activity 1</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+         What is the language that these rules are describing?
+
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+
+              <ul>
+                <li>are these a valid words? \(\{ \epsilon, 01, 0011, \dots \} \)</li>
+                <li>We know this language!! What is it called?</li>
+              </ul>
+              <br>
+              <b>Now, let's try to buid an automaton that can keep track of all of this</b>
+            </details>
+          </div>
+        </div>  
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA03.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+
+
+        <b>Notes</b> 
+        <ul>
+          <li>we need a notation for READ, POP and PUSH... we'll use: \( READ, POP \rightarrow PUSH\)</li>
+          <li>we need a symbol for "The stack is currently empty!"... we'll use \(z_0\)</li>
+          <li>we need to be able to read a symbol without pushing ... we'll use \(\epsilon\) in place of PUSH</li>
+          <li>we need to be able to read a symbol without popping ... we'll use \(\epsilon\) in place of POP</li>
+          <li>we need to be able to push without reading a symbol ... we'll use \(\epsilon\) in place of READ</li>
+          <li>we need to be able to pop without reading a symbol ... we'll use \(\epsilon\) in place of READ</li>
+        </ul> 
+
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA06.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br><br><br><br><br>
+
+        <h3>So now, let's draw the PDA for HALF</h3>
+
+        <br><br>
+
+        <h4>An example for HALF:</h4>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA03a.png" alt="PDAs!!!" style="width:50%">
+        <br><br>
+
+        And in a "compressed notation":
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA03b.png" alt="PDAs!!!" style="width:50%">
+        <br><br>
+<!-- 
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture13/PDA07.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+ -->
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA08.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <span style="color:#00cc33;font-size: 18pt">Note that we defined an Augmented <b>NON-Deterministic</b> Automaton</span>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA09.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA10.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA11.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA12.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <b>Tips:</b>
+        <ul>
+          <li>Think of phases: 
+            <ol>
+              <li>memorizing</li>
+              <li>middle (even or odd)</li>
+              <li>replicating in reverse</li>
+            </ol></li>
+            <li>write the PDA... and remember it is NON-Deterministic</li>
+        </ul>
+
+        <span style='color:#06a015'><b><big>Activity 2</big></b></span> [2 minutes]: <br>
+        <div class="mx-lg-5">
+          Build the PDA for PAL
+          <div class="mx-lg-5">
+            <details>
+              <summary>(Wait; then Click)<br><br></summary>
+              <br><br>
+              <img class="img-fluid" src="../figures/lecture14/PDA12a.png" alt="PDAs!!!" style="width:100%">
+              <br><br>
+              
+            </details>
+          </div>
+        </div>  
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA13.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        <br><br>
+        <img class="img-fluid" src="../figures/lecture14/PDA14.png" alt="PDAs!!!" style="width:80%">
+        <br><br>
+
+        
+      </p>
+
+
+      <p><br></p><hr><p><br></p>
+
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h3>Next class: Introduction to Turing Machines</h3>
+
+
+      <p><br></p><hr><p><br></p>
+
+      <h4>Homework<h4>
+      <br>      
+      <b>[Due for everyone]</b>
+      <div class="mx-5">
+         Problem Set 04: Due 10/13 at 11:59 PM
+      </div> 
+      <br>
+      <b>[Optional]</b> 
+      <div class="mx-5">
+        TODO
+      </div>
+      <br><br>
+
+
+
+
+
+  
+      <div class="col-xs-0 col-md-2"></div>
+      </div>
+    </div>
+
+    <footer class="footer py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-1">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Go to the Top</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="./lectureNotes13.html">Previous Module</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link mx-lg-2" href="./lectureNotes15.html">Next Module</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </footer>
+
+   
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!-- PFB, Added For class Ctrl+C->Ctrl-V deterrence -->
+<!--     <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script> -->
+
+
+  </body>
+</html>
